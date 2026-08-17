@@ -1,0 +1,75 @@
+﻿Recurso;X IRON v7;VYRON;R2 PRO v5;LOBAS MOTION;TRIVOX v7.6 (antigo);TRIVOX (novo — este app)
+— IDENTIDADE —;;;;;;
+Arquivo de origem;x iron/X_IRON_v7.html;Codigo/vyron.html;Codigo/index (1).html;Codigo/LOBAS_MOTION_COMPLETO_v2.html;Codigo/trivox_v76.html;APP TREINO (novo)
+Tamanho;854 KB, 1 arquivo;850 KB, 1 arquivo;2,4 MB, 1 arquivo;460 KB, 1 arquivo;53 KB, 1 arquivo;~460 KB, 16 arquivos separados
+Foco;Musculação + calistenia;Calistenia + musculação;Análise de movimento por vídeo;Beach Tennis / Pickleball;Relatório de performance + visão computacional;Musculação + aeróbico
+;;;;;;
+— BASE DE EXERCÍCIOS —;;;;;;
+Banco de exercícios próprio;Sim — 501 exercícios;Não usa banco próprio (fluxo por skills);Não (foco em avaliação de movimento, não em fichas);Sim — ~101 exercícios (esporte-específico);Não;Sim — 501 (migrados do X IRON v7)
+Músculos primário/secundário por exercício;Sim;Não;Não;Parcial;Não;Sim (herdado do X IRON)
+Instruções passo a passo + erros comuns;Sim;Não;Não;Parcial (foco em rotina, não por exercício);Não;Sim (herdado do X IRON)
+Progressão sugerida por exercício;"Sim (campo ""próxima progressão"")";Sim (desbloqueio por semana, específico calistenia);Não;Não;Não;Sim (herdado do X IRON) + regra de dupla progressão nova
+Busca/filtro de exercícios;Sim;Sim (biblioteca);Não (foco em esportes, não exercícios);Sim;Não;Sim — busca ignora acento, filtro por categoria/nível/equipamento
+;;;;;;
+— MONTAGEM DE FICHA —;;;;;;
+Gerador automático de treino (genPlan);Sim;Sim (generateWorkoutPlan);Não;Sim (generateWorkoutPlan);Sim (d-workout-gen);Não — montagem é manual, exercício por exercício
+Editor manual de ficha (montar do zero);Parcial;Parcial;Não;Parcial;Não;Sim — foco principal do app
+Múltiplas fichas nomeadas (A/B/C);Não fica claro no código;Não fica claro;Não se aplica;Não fica claro;Não;Sim — fichas nomeadas e duplicáveis
+Crítica automática da ficha montada (ordem, volume, equilíbrio);Não;Não;Não;Não;Não;Sim — novo: avisa ordem errada, descanso curto, excesso de falha, desequilíbrio empurrar/puxar
+;;;;;;
+— PRESCRIÇÃO E AUTORREGULAÇÃO —;;;;;;
+Calculadora de 1RM;Sim (Epley + Brzycki);Não;Não;Sim;"Sim (citado, ""1RM"")";Sim (Epley + Brzycki + Lombardi, com aviso de confiabilidade)
+RPE (percepção de esforço);Sim (usado só para calcular fadiga);Não;Não;Não;Sim (in-rpe);Não usa RPE diretamente
+RIR (reps em reserva) prescrevendo carga;Não;Não;Não;Não;Não;Sim — novo: nenhum app anterior tinha isso
+Detecção de platô/estagnação;Sim;Não;Não;Não;Não;Sim (herdado, mesma regra: 4+ sessões sem variar)
+Sugestão de carga para a próxima sessão;Parcial (getAdaptiveSuggestion);Não;Não;Não;Não;Sim — combina RIR relatado + dupla progressão
+Deload (semana leve) recomendado automaticamente;Sim;Não;Não;Não;Não;Sim (herdado)
+Volume semanal por grupo muscular;Sim (calcWeeklyVol, em kg, não em séries);Não;Não;Não;Sim (d-vol);Sim — novo cálculo: séries por músculo (primário 1, auxiliar 0,5) com faixa de referência
+Calculadora de anilhas;Sim;Não;Não;Não;Não;Sim (herdado)
+Periodização em fases;Sim;Não;Não;Não;Não;Não (fase futura)
+;;;;;;
+— AERÓBICO / CARDIOVASCULAR —;;;;;;
+"Exercícios marcados como ""cardio""";Sim (26, sem engine);Poucas menções soltas;Não;Não;Não;Sim (herdado, +módulo completo)
+FCmáx calculada (fórmula);Não;Não;Não;Não;Não;Sim — novo: Tanaka (208 − 0,7×idade)
+Zonas de frequência cardíaca (Z1-Z5);Não;Não;Não;Não;Não;Sim — novo: por FC de reserva (Karvonen) ou %FCmáx
+Modelos de sessão aeróbica prontos (base, limiar, HIIT, intervalado);Não;Não;Não;Não;Não;Sim — novo: 5 modelos com blocos e bpm calculados
+Progressão de volume aeróbico semanal;Não;Não;Não;Não;Não;Sim — novo: regra dos 10%, 4ª semana leve
+Distribuição de intensidade (polarizada 80/20);Não;Não;Não;Não;Não;Sim — novo
+Regra de interferência força × aeróbico no mesmo dia;Não;Não;Não;Não;Não;Sim — novo
+Teste da fala (alternativa sem monitor cardíaco);Não;Não;Não;Não;Não;Sim — novo
+;;;;;;
+— GAMIFICAÇÃO E ENGAJAMENTO —;;;;;;
+Sistema de XP / nível;Sim;Sim (addXP, calculateUserLevel);Fraco (1 menção);Fraco (4 menções);Não;Não
+Badges/conquistas;Sim (37 menções);Sim — o mais completo (121 menções, badge-modal dedicado);Fraco;Sim (18 menções);Sim (15 menções);Não
+Streak (sequência de dias);Sim;Sim (calculateStreak);Fraco;Sim;Sim (calcStreak);Não
+Coach por chat / IA conversacional;Não;Sim (askCoach);Não;Sim (askCoach);Não;Não
+Confete/celebração ao completar treino;Sim (launchConfetti);Sim;Não;Não;Não;Não
+;;;;;;
+— EXECUÇÃO E HISTÓRICO —;;;;;;
+Tela de execução do treino (marcar série feita);Sim;Sim;Não (foco é avaliação, não execução);Sim;Sim;Não — planejado para a próxima fase
+Cronômetro de descanso entre séries;Sim;Sim;Não;Sim;Sim (timer-modal);Não — planejado
+Histórico de treinos/cargas ao longo do tempo;Sim;Sim (ev-history-list);Sim (getAssessments);Sim;Sim (renderHistory);Estrutura pronta (Dados.registrarCarga), sem tela própria ainda
+Gráfico de evolução;Sim (heatmap);Sim (ev-chart);Não;Sim (renderEvolution);Não;Não — planejado
+Exportar relatório/CSV;Sim (exportCSV);Não;Não;Não;Sim (exportFullReport, .txt);Sim — mas é backup completo em JSON, não relatório
+;;;;;;
+— RECURSOS ESPECIAIS —;;;;;;
+Análise de movimento por câmera/vídeo (pose);Não;Não;Sim — único com isso (MediaPipe);Não;Sim (toggleVision, v-canvas);Não
+Módulo de nutrição/calorias;Não;Sim (leve);Não;Sim (leve);Não;Só estimativa de gasto calórico do cardio (METs), não é módulo de dieta
+Multi-esporte (além de musculação);Não;Não;Sim (seleção de esportes);Sim (Beach Tennis, Pickleball);Sim (campo esporte);Não
+Onboarding guiado;Sim;Sim;Não fica claro;Sim (renderOnb13, 13 passos);Sim;Não — perfil é preenchido livremente, sem fluxo guiado
+Termo de consentimento (LGPD);Sim;Não fica claro;Não;Não fica claro;Sim (in-consent);Não — não coleta dado sensível de saúde além do que a própria pessoa digita
+Foto de progresso;Sim (handlePhotoUpload);Não;Vídeo/câmera ao vivo, não foto de progresso;Não;Não;Não
+;;;;;;
+— NUVEM, CONTA E ACESSO —;;;;;;
+Login / conta de usuário (Firebase Auth);Referência solta (1 menção, não implementado);Sim — completo (email/senha, anônimo, registro);Não;Não;Não;Não
+Sincronização em nuvem;Parcial (initFirebase, loadFromFirebase);Sim;Não;Não;Não;Não — só localStorage
+Multi-perfil / multi-aluno;Não;Não (1 conta = 1 usuário);Não;Não;Não;Estrutura pronta (perfis namespaced), sem UI de troca de perfil ainda
+;;;;;;
+— PWA / OFFLINE —;;;;;;
+Instalável (manifest.json);Sim;Sim;Não;Sim;Não;Sim — manifest.json + ícone real TRIVOX (192/512, any + maskable)
+Funciona offline (Service Worker);Sim;Sim (inclusive inline);Não;Sim;Não;Sim — cache-first do shell, network-first do resto
+Arquitetura;HTML único (3.281 linhas);HTML único (6.463 linhas);HTML único (3.301 linhas);HTML único (3.980 linhas);HTML único (1.197 linhas);Modular: dados / engine força / engine aeróbico / UI / eventos, em arquivos separados
+Servidor local para desenvolvimento;Não precisa (abre por file://);Não precisa;Não precisa;Não precisa;Não precisa;Precisa (servidor.js) — troca é o preço da modularidade: fetch() de JSON e Service Worker exigem http://, não file://
+;;;;;;
+— MARCA —;;;;;;
+Identidade visual;X IRON (laranja/preto);VYRON (própria);Nenhuma marca fixa;LOBAS MOTION (própria);"TRIVOX (logomarca ""T"" metálica azul, a mesma reaproveitada aqui)";TRIVOX — nome e logomarca reaproveitados de tryvox/TRIVOX/, cor de destaque extraída por amostragem de pixel do gradiente da logo

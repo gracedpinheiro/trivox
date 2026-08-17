@@ -1,0 +1,7 @@
+# Lixo de sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Nenhum secret do Spotify vai pro repositorio: Client ID e tokens ficam so no
+# localStorage do navegador de quem usa o app, nunca em arquivo neste projeto.
