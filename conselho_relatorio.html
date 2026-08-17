@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conselho de IA — TRIVOX: próximos passos</title>
+<style>
+  :root {
+    --fundo: #0E1220; --cartao: #181D30; --cartao-alto: #212840; --borda: #2C3452;
+    --texto: #F1F3FA; --apagado: #9AA1BC;
+    --destaque: #5B6EE8; --destaque-clara: #97A6FF;
+    --gradiente: linear-gradient(135deg, #5B6EE8 0%, #A855F7 50%, #F5539A 100%);
+    --ok: #2FD180; --aviso: #FFC93C; --perigo: #FF5470; --festa: #FFB020;
+    --raio: 16px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--fundo); color: var(--texto);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6; padding: 0 0 60px;
+  }
+  .capa {
+    background: var(--gradiente); padding: 56px 24px 44px; text-align: center;
+  }
+  .capa .rotulo { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85; font-weight: 700; }
+  .capa h1 { font-size: 30px; margin: 10px 0 6px; letter-spacing: -0.02em; }
+  .capa p { max-width: 640px; margin: 0 auto; opacity: 0.92; font-size: 15px; }
+  .envelope { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+  section { margin-top: 40px; }
+  h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--destaque-clara);
+    font-weight: 800; margin: 0 0 4px;
+  }
+  h2 .n { color: var(--apagado); font-weight: 700; margin-right: 6px; }
+  h3 { font-size: 22px; margin: 4px 0 16px; letter-spacing: -0.01em; }
+  .cartao {
+    background: var(--cartao); border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 20px 22px; margin-bottom: 14px;
+  }
+  .enquadramento .cartao { border-left: 4px solid var(--destaque); }
+  .enquadramento dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--apagado); font-weight: 700; margin-top: 14px; }
+  .enquadramento dt:first-child { margin-top: 0; }
+  .enquadramento dd { margin: 6px 0 0; }
+
+  .conselheiro {
+    background: var(--cartao); border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 20px 22px; margin-bottom: 14px; border-top: 3px solid var(--cor, var(--destaque));
+  }
+  .conselheiro .titulo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .conselheiro .icone { font-size: 22px; }
+  .conselheiro .nome { font-weight: 800; font-size: 16px; }
+  .conselheiro .papel { font-size: 12.5px; color: var(--apagado); }
+  .conselheiro p { margin: 0; font-size: 14.5px; }
+
+  .doc-grid { display: grid; gap: 10px; }
+  .doc { background: var(--cartao-alto); border: 1px solid var(--borda); border-radius: 12px; padding: 14px 16px; font-size: 13.5px; }
+  .doc b { color: var(--destaque-clara); }
+
+  .veredito .cartao { border-left: 4px solid var(--festa); }
+  .veredito h4 { font-size: 14px; margin: 18px 0 8px; color: var(--texto); }
+  .veredito h4:first-child { margin-top: 0; }
+  .veredito ul { margin: 0; padding-left: 20px; }
+  .veredito li { margin-bottom: 6px; font-size: 14.5px; }
+
+  .acao-primeiro {
+    background: var(--gradiente); border-radius: var(--raio); padding: 22px 24px; margin-top: 26px;
+    text-align: center;
+  }
+  .acao-primeiro .rotulo { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; opacity: 0.85; }
+  .acao-primeiro .texto { font-size: 19px; font-weight: 700; margin-top: 6px; }
+
+  .etiqueta { display: inline-block; background: var(--cartao-alto); border: 1px solid var(--borda); border-radius: 999px; padding: 3px 10px; font-size: 11.5px; color: var(--apagado); margin-right: 6px; }
+  footer { text-align: center; color: var(--apagado); font-size: 12.5px; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+  <div class="capa">
+    <div class="rotulo">Conselho de IA · Veredito</div>
+    <h1>Quais são os próximos passos do TRIVOX?</h1>
+    <p>Debate estruturado com 5 conselheiros, a partir de uma varredura completa do estado atual do projeto — 12 ciclos de trabalho, ~4.800 linhas de código, histórico documentado desde a fundação.</p>
+  </div>
+
+  <div class="envelope">
+
+    <section class="enquadramento">
+      <h2><span class="n">1</span>Enquadramento Original</h2>
+      <div class="cartao">
+        <dl>
+          <dt>A Decisão Central</dt>
+          <dd>Depois de 12 ciclos de construção contínua (fundação, rebranding, engine completa de treino, gamificação, Spotify, perfil/bioimpedância, hospedagem, foto/vídeo pessoal, backup em .zip) — o que deveria vir a seguir?</dd>
+
+          <dt>Contexto Chave</dt>
+          <dd>
+            Uso é <strong>pessoal, só no celular</strong>, na academia, sem depender de computador. O app é um PWA offline-first hospedado no GitHub Pages, sem build, sem dependências, ~4.800 linhas em 10 módulos. A engine de treino (RIR, platô, deload, zonas de FC, split automático) já é tecnicamente profunda. 563 exercícios catalogados, mas só 22 têm foto real pré-cadastrada — os demais dependem da própria Grace fotografar/filmar aos poucos, à medida que treina. O backup existe e agora leva vídeo junto, mas é uma ação manual — nada no app lembra de fazer. Não existe suíte de testes versionada no repositório: tudo que foi testado até aqui viveu só em scripts de rascunho, descartados a cada ciclo. Este é o 10º projeto de app de treino da Grace — os 9 anteriores foram abandonados.
+          </dd>
+
+          <dt>O que está em jogo</dt>
+          <dd>Se o próximo passo for o errado, o risco não é "feature perdida" — é o padrão dos 9 apps anteriores se repetir: energia investida em construção que nunca vira uso real e consistente. Ao mesmo tempo, há um risco técnico concreto e silencioso: todo o histórico de treino, peso, fotos e vídeos vive só neste um celular, com backup 100% manual.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="conselheiros">
+      <h2><span class="n">2</span>Os 5 Conselheiros</h2>
+
+      <div class="conselheiro" style="--cor:#FF5470">
+        <div class="titulo"><span class="icone">🔻</span><div><div class="nome">O Do Contra</div><div class="papel">procura a falha fatal — assume que vai dar errado</div></div></div>
+        <p>O maior risco não é ausência de feature, é <strong>perda de dados sem nenhum aviso embutido</strong>: tudo — histórico de treino, peso, 22 fotos de exercício, cada vídeo pessoal gravado com esforço — vive só no localStorage/IndexedDB de um único celular. O backup existe, mas é 100% manual: se o celular quebrar, for roubado, ou passar por um reset antes de um export, tudo some de uma vez, sem aviso prévio. Some a isso a ausência de suíte de testes versionada: cada ciclo futuro (por mim ou por qualquer outra pessoa) reintroduz risco de regressão silenciosa, porque nada do que foi validado nos 352+ testes já rodados fica gravado no repositório — cada teste morreu junto com o scratchpad da conversa que o criou. E a falha fatal de verdade, a mais difícil de admitir: este é o <strong>décimo</strong> app de treino da Grace. Nove anteriores foram abandonados. Nenhum código resolve isso sozinho — se o próximo passo for "mais uma feature", sem examinar por que os outros 9 morreram, o padrão se repete.</p>
+      </div>
+
+      <div class="conselheiro" style="--cor:#97A6FF">
+        <div class="titulo"><span class="icone">🧩</span><div><div class="nome">O Pensador de Primeiros Princípios</div><div class="papel">desconstrói até a base — questiona a própria premissa</div></div></div>
+        <p>A pergunta "o que construir a seguir" já assume que construir é o gargalo. Não é. Na base, TRIVOX existe pra uma coisa: ajudar uma pessoa específica a treinar com consistência e segurança, com visibilidade real do progresso. Tudo o resto — Spotify, 563 exercícios, 12 badges, coach por chat — só tem valor na medida em que serve isso. Depois de 12 ciclos em ~24 horas, o app já tem mais amplitude do que a maioria dos apps comerciais de treino. A pergunta certa não é "o que falta construir", é "isso vai ser aberto amanhã, na academia, de verdade — e vai sobreviver à terceira semana, ao terceiro mês?" Hoje nada no app mede isso além do streak. Recomendo: antes de qualquer feature nova, questionar se a gamificação extensa (12 badges, XP, coach) — que espelha exatamente o padrão dos apps anteriores que ela abandonou — está gerando uso real ou só gerando a sensação de progresso durante a construção, sem se traduzir em hábito.</p>
+      </div>
+
+      <div class="conselheiro" style="--cor:#2FD180">
+        <div class="titulo"><span class="icone">🚀</span><div><div class="nome">O Expansionista</div><div class="papel">otimista implacável — foca no potencial subvalorizado</div></div></div>
+        <p>Há valor real sendo subestimado aqui. A engine de treino (autorregulação por RIR, detecção de platô, distribuição polarizada de cardio, substituição por equipamento ocupado) não é fluff de app-template — é conhecimento de personal trainer de verdade, codificado. A estrutura de dados já nasceu <strong>multiusuário</strong> (chaves por perfil desde o primeiro dia) — o salto de "app pra mim" pra "app que dá pra oferecer a outras pessoas" é pequeno perto do trabalho já investido na lógica de treino. E a biblioteca de foto/vídeo pessoal por exercício, conforme for sendo preenchida nas próximas semanas de uso real, vira um ativo que nenhum concorrente tem — um histórico de execução pessoal, não fotos de banco de imagens. Recomendação: não fechar a porta pra isso. Continue o disciplina de manter todo dado novo escopado por perfil (já é a prática), pra manter essa opcionalidade barata — mas sem gastar esforço ativo em multiusuário agora, até o uso pessoal provar o valor primeiro.</p>
+      </div>
+
+      <div class="conselheiro" style="--cor:#FFC93C">
+        <div class="titulo"><span class="icone">🕶️</span><div><div class="nome">O Outsider</div><div class="papel">ignora jargão e histórico — olhar puramente objetivo</div></div></div>
+        <p>Visto de fora, sem o histórico emocional do projeto: é um PWA vanilla, sem build, sem CI, ~4.800 linhas, construído numa única sessão maratona de 12 ciclos. Dois sinais saltam aos olhos. Primeiro: o ritmo de entrega é anormalmente alto — 12 ciclos completos num único dia não é o ritmo de quem valida cada decisão usando o produto entre uma etapa e outra, é ritmo de quem está construindo em modo contínuo. Segundo: não há evidência no repositório de uso real ainda acumulado — sem contagem de sessões reais, sem histórico de peso genuíno ao longo de semanas. É uma ferramenta recém-construída, ainda não testada pelo tempo. O único bug relatado até agora veio de uso real — a fonte pequena demais no celular, no ciclo 10 — e é exatamente esse tipo de sinal, vindo de usar o app de verdade, que deveria guiar o que vem a seguir, não mais especulação de design. Recomendação direta: parar de construir por 1-2 semanas reais de treino, e deixar o uso real apontar o próximo passo.</p>
+      </div>
+
+      <div class="conselheiro" style="--cor:#F5539A">
+        <div class="titulo"><span class="icone">⚙️</span><div><div class="nome">O Executor</div><div class="papel">foco único em viabilidade técnica e plano de ação</div></div></div>
+        <p>Visão concreta, com custo de implementação em mente. Maior risco não mitigado: perda de dados sem gatilho de lembrete — correção é barata, algo como "faz N dias que você não exporta backup" na tela de Perfil ou Início, poucas linhas de código. Segundo: nenhuma suíte de teste comitada no repositório — tudo testado nesta sessão (350+ casos, ao longo de 12 ciclos) foi descartado junto com o scratchpad; portar um subconjunto pra uma pasta <code>tests/</code> real, rodável via <code>node</code>, é trabalho mecânico e bem delimitado, com retorno alto pra qualquer mudança futura. Terceiro: o gráfico de volume semanal é a única lacuna já reconhecida no próprio README — pequena, bem definida, resolve rápido. Quarto, e mais importante: tudo o mais (mais fotos de exercício, expansão multiusuário, poda de gamificação) deveria esperar pelo menos duas semanas de uso real na academia antes de entrar em qualquer plano. Ordem de execução proposta: (1) lembrete de backup, (2) testes versionados, (3) gráfico de volume, (4) pausa de construção.</p>
+      </div>
+    </section>
+
+    <section class="revisao">
+      <h2><span class="n">3</span>Revisão por Pares e Anonimização</h2>
+      <div class="cartao">
+        <p style="margin-top:0;color:var(--apagado);font-size:13.5px">As 5 respostas foram embaralhadas e revisadas às cegas pelos próprios conselheiros, rotuladas de Documento A a E.</p>
+        <div class="doc-grid">
+          <div class="doc"><b>Documento A</b> (Executor) — mais forte por transformar risco em ação imediata e barata; ponto cego: assume que consertar backup e testes já resolve o padrão de abandono, sem examinar a causa raiz.</div>
+          <div class="doc"><b>Documento B</b> (Do Contra) — mais forte por nomear o risco real de perda total de dados e o padrão dos 9 apps anteriores sem rodeio; ponto cego: não propõe nenhum caminho, só o alarme.</div>
+          <div class="doc"><b>Documento C</b> (Outsider) — mais forte por ancorar a recomendação em evidência real do repositório (o bug de fonte veio de uso, não de especulação); ponto cego: "parar de construir" ignora que dois consertos técnicos (backup, testes) são baratos e não competem com "usar mais".</div>
+          <div class="doc"><b>Documento D</b> (Expansionista) — mais forte por identificar que a estrutura multiusuário já existe e custa quase nada preservar; ponto cego: subestima o risco de dispersar esforço numa direção (escala) antes da direção atual (uso pessoal) estar provada.</div>
+          <div class="doc"><b>Documento E</b> (Primeiros Princípios) — mais forte por questionar se a própria gamificação, que espelha os apps abandonados, está ajudando ou só imitando a aparência de progresso; ponto cego: não oferece um jeito de medir isso, só a dúvida.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="veredito">
+      <h2><span class="n">4</span>Veredito do Presidente</h2>
+      <div class="cartao">
+        <h4>Onde o Conselho Concorda</h4>
+        <ul>
+          <li>A engine de treino já tem profundidade técnica real — não é o gargalo do projeto.</li>
+          <li>O maior risco agora não é uma feature ausente, é <strong>perda de dados sem aviso</strong> — presente, em algum grau, nos 5 conselheiros.</li>
+          <li>Construir mais, agora, na mesma velocidade dos últimos 12 ciclos, é a ordem errada — falta uso real intercalado pra validar o que já existe.</li>
+        </ul>
+        <h4>Onde o Conselho Diverge</h4>
+        <ul>
+          <li>Expansionista quer preservar a opcionalidade multiusuário ativamente; Primeiros Princípios quer podar gamificação como possível peso morto — tensão real entre "manter portas abertas" e "cortar o que ainda não provou valor".</li>
+          <li>Executor propõe ação técnica imediata (mesmo que pequena); Outsider propõe pausa total de construção — ritmos diferentes de quando "fazer" versus "esperar e observar".</li>
+        </ul>
+        <h4>Pontos Cegos Identificados</h4>
+        <ul>
+          <li>Nenhum conselheiro investigou <strong>por que os 9 apps anteriores foram abandonados</strong> — sem esse diagnóstico, resolver o backup e os testes pode não tocar a causa real.</li>
+          <li>Todo o debate foi especulativo sobre uso futuro — ninguém propôs simplesmente perguntar a ela, depois de usar de verdade por algumas sessões, o que realmente incomodou.</li>
+        </ul>
+        <h4>A Recomendação Final</h4>
+        <ul>
+          <li><strong>1.</strong> Lembrete de backup na tela de Perfil/Início — risco mais grave, custo mais baixo, não depende de mais nada pra começar.</li>
+          <li><strong>2.</strong> Portar um subconjunto dos testes já validados ao longo dos 12 ciclos pra uma pasta <code>tests/</code> versionada no repositório — protege qualquer ciclo futuro de regressão silenciosa.</li>
+          <li><strong>3.</strong> Depois disso: uma pausa deliberada de construção de ~2 semanas de uso real na academia, registrando (mentalmente ou num bloco de notas) o que efetivamente gera fricção.</li>
+          <li><strong>4.</strong> Só então decidir entre gráfico de volume semanal (pequeno, já prometido), poda de gamificação, ou expansão multiusuário — com base no que o uso real mostrar, não em especulação de mais um ciclo de construção.</li>
+        </ul>
+      </div>
+
+      <div class="acao-primeiro">
+        <div class="rotulo">A Única Coisa a Fazer Primeiro</div>
+        <div class="texto">Um lembrete de backup no app — a correção de maior risco pelo menor custo, e o único item que não depende de nenhuma outra decisão pra começar.</div>
+      </div>
+    </section>
+
+    <footer>Relatório gerado pelo Conselho de IA · TRIVOX · 17/08/2026</footer>
+  </div>
+
+</body>
+</html>

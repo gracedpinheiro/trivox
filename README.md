@@ -41,6 +41,24 @@ Pra atualizar depois de qualquer mudança no código: `git add -A && git commit 
 > sozinho qual usar: `http://127.0.0.1:8080/index.html` (local) e
 > `https://gracedpinheiro.github.io/trivox/index.html` (hospedado, a que você usa de verdade).
 
+## ⚠️ Seus dados podem sumir sozinhos — faça backup
+
+Caso real, já aconteceu: cadastro preenchido, primeiro treino feito, saiu do app, voltou horas
+depois pelo mesmo ícone — tudo vazio, como se fosse a primeira vez. Não é bug de lógica do app
+(não existe nenhum `localStorage.clear()` em lugar nenhum do código); é o navegador/sistema
+limpando o armazenamento do site sozinho, sem avisar — mais comum no iPhone, onde dado de site
+"salvo na tela de início" não é tão protegido quanto um app de verdade, principalmente com pouco
+espaço livre no aparelho.
+
+Duas defesas em vigor desde o [ciclo 13](historico/13-lembrete-de-backup.md):
+- O app pede ao navegador pra tratar seu armazenamento como persistente (`navigator.storage.persist()`)
+  assim que abre — reduz a chance, não garante 100%, principalmente no Safari/iOS.
+- A tela inicial mostra um aviso pra exportar backup se fizer mais de 7 dias (ou nunca) desde o
+  último — é a defesa que funciona de verdade, porque gera um arquivo fora do navegador.
+
+**Backup não é opcional pra quem usa isso de verdade.** Perfil › Backup › Exportar, e guarde o
+arquivo `.zip` em algum lugar fora do navegador — mandar pra você mesma por e-mail já resolve.
+
 ## Estrutura
 
 | Arquivo | O que faz |

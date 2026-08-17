@@ -138,9 +138,24 @@ const UI = (() => {
     const hojeEDiaDeTreino = p.diasTreino.includes(hojeNum);
     const jaTreinouHoje = diasTreinados.includes(hojeChave);
 
+    // lembrete de backup: so incomoda se ja existe algo real pra perder, e so quando faz
+    // tempo demais (ou nunca foi feito) — ver nota em Dados.registrarBackupFeito
+    const backup = Dados.backupMeta();
+    const diasSemBackup = backup.ultimoEm ? Math.floor((Date.now() - backup.ultimoEm) / 86400000) : null;
+    const temDadosDeVerdade = !!p.nome || fichas.length > 0 || Dados.sessoes().length > 0;
+    const precisaLembrarBackup = temDadosDeVerdade && (backup.ultimoEm === null || diasSemBackup >= 7);
+
     return `
       <div class="marca-topo"><img src="icons/icone-192.png" alt=""><span>TRIVOX</span></div>
       <div class="topo"><h1>Olá${p.nome ? ', ' + h(p.nome.split(' ')[0]) : ''}</h1></div>
+
+      ${precisaLembrarBackup ? `
+        <div class="nota atencao">
+          <strong>⚠️ Faça backup dos seus dados</strong>
+          ${backup.ultimoEm ? `Já fazem ${diasSemBackup} dias desde o último backup.` : 'Você ainda não fez nenhum backup.'}
+          Seus dados ficam só neste aparelho — o navegador pode limpar esse espaço sozinho (mais comum no iPhone), sem avisar, e tudo se perde de uma vez.
+          <div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="exportar">Exportar agora</button></div>
+        </div>` : ''}
 
       ${hojeEDiaDeTreino ? `
         <div class="nota ${jaTreinouHoje ? 'neutra' : 'festa'}">

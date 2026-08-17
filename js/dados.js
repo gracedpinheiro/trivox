@@ -295,6 +295,18 @@ const Dados = (() => {
   const salvarSpotify = (patch) => gravar('spotify', { ...spotify(), ...patch });
   const desconectarSpotify = () => gravar('spotify', { ...SPOTIFY_PADRAO, clientId: spotify().clientId });
 
+  // ---------- lembrete de backup ----------
+  // so guarda quando foi o ultimo export/import bem sucedido, pra avisar na tela inicial se
+  // fizer tempo demais sem backup. Existe por causa de um caso real: dados sumiram sozinhos
+  // num iPhone (mesmo dia, mesmo icone, sem nenhuma acao dela) — o navegador/SO pode limpar o
+  // armazenamento do site sem aviso, principalmente com pouco espaco livre. Nao tem como o app
+  // impedir isso 100% (nao e bug de codigo, e o proprio limite do localStorage), entao a defesa
+  // e lembrar com frequencia de tirar uma copia por fora.
+
+  const BACKUP_PADRAO = { ultimoEm: null };
+  const backupMeta = () => ({ ...BACKUP_PADRAO, ...ler('backupMeta', {}) });
+  const registrarBackupFeito = () => gravar('backupMeta', { ...backupMeta(), ultimoEm: Date.now() });
+
   // ---------- backup ----------
 
   function exportar() {
@@ -338,6 +350,7 @@ const Dados = (() => {
     fotosEvolucao, registrarFotoEvolucao, apagarFotoEvolucao,
     fotosExercicio, salvarFotoExercicio, apagarFotoExercicio, fotoExercicio,
     gam, salvarGam,
+    backupMeta, registrarBackupFeito,
     spotify, salvarSpotify, desconectarSpotify,
     exportar, importar,
     exercicios, acharExercicio,

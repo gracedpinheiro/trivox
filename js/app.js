@@ -33,6 +33,15 @@
 
   if (!Dados.perfilAtivoId()) Dados.criarPerfil('Eu');
 
+  // Pede ao navegador pra tratar o armazenamento deste site como "persistente" — reduz a chance
+  // dele ser limpo automaticamente sob pouco espaço (aconteceu de verdade num iPhone: dados
+  // sumiram sozinhos no mesmo dia, mesmo icone, sem nenhuma acao da pessoa). Nao garante 100%,
+  // principalmente no Safari/iOS onde o efeito e mais limitado — por isso o lembrete de backup
+  // na tela inicial continua sendo a defesa principal, esta e so uma camada a mais.
+  if (navigator.storage && navigator.storage.persist) {
+    navigator.storage.persist().catch(() => {});
+  }
+
   // ---------- volta do login do Spotify ----------
 
   const callback = Spotify.lerCallback();
@@ -828,6 +837,8 @@
           a.download = `treino-backup-${new Date().toISOString().slice(0, 10)}.zip`;
           a.click();
           setTimeout(() => URL.revokeObjectURL(url), 1000);
+          Dados.registrarBackupFeito();
+          UI.render(); // some com o lembrete de backup na hora, sem esperar reabrir o app
         }).catch((e) => alert('Não consegui gerar o backup: ' + e.message));
         break;
 
@@ -850,6 +861,7 @@
             } else {
               Dados.importar(JSON.parse(await arq.text())); // backup antigo, sem video (compatibilidade)
             }
+            Dados.registrarBackupFeito(); // importar prova que existe copia por fora — conta como backup em dia
             UI.ir('inicio');
           } catch (e) {
             alert('Não consegui ler esse arquivo: ' + e.message);
