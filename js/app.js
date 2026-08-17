@@ -68,15 +68,30 @@
   if (Nuvem.disponivel()) {
     try {
       sessaoNuvem = await Nuvem.sessaoAtual();
-      // Voltando de um link magico, o hash da URL tem access_token — mas o SDK processa esse
-      // hash de forma assincrona por tras, e pode nao ter terminado no exato instante em que
-      // perguntamos "ja tem sessao?". Se detectarmos o hash e a sessao ainda nao apareceu,
-      // da mais um tempinho e tenta de novo antes de mostrar a tela de login por engano.
-      if (!sessaoNuvem && location.hash.includes('access_token')) {
-        await new Promise((r) => setTimeout(r, 500));
+      // O SDK processa a sessao vinda do link magico de forma assincrona por tras — pode nao
+      // ter terminado no exato instante em que perguntamos "ja tem sessao?" logo no boot.
+      // Nao da pra confiar em checar se a URL ainda tem o token (o proprio SDK pode ja ter
+      // limpo a URL antes deste ponto, mesmo sem ter terminado de guardar a sessao) — entao
+      // tenta de novo, sem condicao, sempre que a primeira checagem vier vazia. Barato e
+      // inofensivo quando realmente nao ha sessao (so gasta 2 tentativas extras a toa).
+      if (!sessaoNuvem) {
+        await new Promise((r) => setTimeout(r, 400));
         sessaoNuvem = await Nuvem.sessaoAtual();
       }
-    } catch (e) { console.warn('[nuvem] sessao', e); }
+      if (!sessaoNuvem) {
+        await new Promise((r) => setTimeout(r, 800));
+        sessaoNuvem = await Nuvem.sessaoAtual();
+      }
+    } catch (e) {
+      console.warn('[nuvem] sessao', e);
+      alert('[debug nuvem] erro ao checar sessão: ' + e.message);
+    }
+  }
+  // DIAGNOSTICO TEMPORARIO: se voltamos claramente de um link (a URL tinha o token em algum
+  // momento) e mesmo assim nao ha sessao depois de tentar 3x, avisa na tela — sem isso, nao da
+  // pra saber a distancia se o problema e a URL nunca ter o token, ou o SDK nao guardar a sessao.
+  if (!sessaoNuvem && (location.hash.includes('access_token') || location.hash.includes('error'))) {
+    alert('[debug nuvem] URL tinha hash relevante mas sessão não foi criada.\nhash: ' + location.hash.slice(0, 200));
   }
   UI.estado.nuvem.sessao = sessaoNuvem;
 
