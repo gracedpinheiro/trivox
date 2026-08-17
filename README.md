@@ -109,10 +109,19 @@ instruções ou sem músculo mapeado.
 - **Progressão de volume aeróbico** limitada a +10% por semana, com a 4ª semana em ~60%.
 - **Distribuição polarizada**: ~80% do tempo em Z1-Z2, ~20% em Z4-Z5.
 - **Interferência**: com objetivo de força ou hipertrofia, musculação vem antes do aeróbico intenso.
-- **Gerador automático de ficha**: escolhe o split pelo nº de dias/semana (1=full body … 5+=bro
-  split), filtra por nível e local de treino, prioriza compostos, e usa a mesma engine de
+- **Gerador automático de ficha**: escolhe o split pelos dias da semana marcados no perfil
+  (Perfil › Treino) — cada ficha sai já ligada a um dia específico (a tela inicial passa a
+  avisar "hoje é dia de X", com botão direto pra começar). Sem dias marcados, cai pro número
+  de dias/semana (1=full body … 5+=bro split). Filtra por nível e local de treino, prioriza
+  compostos, cobre os grandes grupos musculares dentro da semana, e usa a mesma engine de
   prescrição do fluxo manual. `rotacao` varia a seleção sem depender de aleatoriedade real —
   resultado reproduzível, mas "gerar de novo" dá variedade.
+- **Variedade programada (evitar monotonia)**: a cada 4 semanas sem mudar nada, a tela de
+  Treinos sugere "variar" — troca metade dos exercícios (isolados primeiro) por alternativas de
+  mesmo padrão de movimento em **outro aparelho** (reaproveita a mesma busca da substituição por
+  equipamento ocupado), sem perder o objetivo prescrito nem o histórico de carga de cada
+  exercício (fica por `exId`, não por posição na ficha). É sugestão, não automático — um botão,
+  não uma surpresa.
 - **Substituição por equipamento ocupado**: busca exercícios do mesmo padrão de movimento
   (músculos primários em comum, categoria irmã) com equipamento diferente.
 - **XP e níveis** reaproveitados do modelo do VYRON (limiares 500/1500/3000 XP). **Badges** (12)

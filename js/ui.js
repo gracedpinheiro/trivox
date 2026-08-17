@@ -137,6 +137,10 @@ const UI = (() => {
     const hojeChave = new Date().toLocaleDateString('sv-SE');
     const hojeEDiaDeTreino = p.diasTreino.includes(hojeNum);
     const jaTreinouHoje = diasTreinados.includes(hojeChave);
+    // se a ficha de hoje veio do gerador automatico, ela ja sabe seu proprio dia da semana —
+    // da pra nomear o treino de hoje em vez de so avisar "e dia de treino"
+    const fichaDeHoje = fichas.find((f) => f.diaSemana === hojeNum && (f.exercicios || []).length) || null;
+    const nomeFichaHoje = fichaDeHoje ? fichaDeHoje.nome.replace(/^Treino \w+ — /, '') : '';
 
     // lembrete de backup: so incomoda se ja existe algo real pra perder, e so quando faz
     // tempo demais (ou nunca foi feito) — ver nota em Dados.registrarBackupFeito
@@ -159,8 +163,9 @@ const UI = (() => {
 
       ${hojeEDiaDeTreino ? `
         <div class="nota ${jaTreinouHoje ? 'neutra' : 'festa'}">
-          <strong>${jaTreinouHoje ? '✅ Treino de hoje já feito' : '💪 Hoje é dia de treino!'}</strong>
-          ${jaTreinouHoje ? 'Mandou bem. Descanse e volte forte amanhã.' : 'Bora nessa — dá uma olhada nas suas fichas.'}
+          <strong>${jaTreinouHoje ? '✅ Treino de hoje já feito' : `💪 Hoje é dia de treino${nomeFichaHoje ? ': ' + h(nomeFichaHoje) : '!'}`}</strong>
+          ${jaTreinouHoje ? 'Mandou bem. Descanse e volte forte amanhã.' : (fichaDeHoje ? '' : 'Bora nessa — dá uma olhada nas suas fichas.')}
+          ${(!jaTreinouHoje && fichaDeHoje) ? `<div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="iniciar-treino" data-id="${fichaDeHoje.id}">Começar agora</button></div>` : ''}
         </div>` : ''}
 
       <div class="cartao clicavel cartao-gradiente" data-acao="ir" data-tela="evolucao">
@@ -242,6 +247,16 @@ const UI = (() => {
 
   function telaFichas() {
     const fichas = Dados.fichas();
+
+    // sugestao de variedade: olha a ficha com treino que esta ha mais tempo sem variar
+    // os exercicios — evita monotonia (ver Forca.precisaVariar/variarFicha)
+    const fichasComTreino = fichas.filter((f) => (f.exercicios || []).length > 0);
+    const maisParada = fichasComTreino.length
+      ? fichasComTreino.reduce((a, b) => (Forca.semanasSemVariar(b) > Forca.semanasSemVariar(a) ? b : a))
+      : null;
+    const semanasParada = maisParada ? Forca.semanasSemVariar(maisParada) : 0;
+    const sugerirVariar = maisParada && Forca.precisaVariar(maisParada);
+
     return `
       <div class="topo">
         <h1>Treinos</h1>
@@ -258,15 +273,23 @@ const UI = (() => {
         </div>
       </div>
 
+      ${sugerirVariar ? `
+        <div class="nota atencao">
+          <strong>🔄 Hora de variar</strong>
+          Faz ${semanasParada} semanas com os mesmos exercícios — trocar parte deles por variações em outro aparelho muda o estímulo e ajuda a não enjoar, sem perder o objetivo nem o histórico de carga.
+          <div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="variar-treino">Variar meus treinos</button></div>
+        </div>` : ''}
+
       ${fichas.length ? fichas.map((f) => {
         const n = (f.exercicios || []).length;
         const series = (f.exercicios || []).reduce((s, e) => s + (Number(e.series) || 0), 0);
+        const diaTxt = (f.diaSemana !== null && f.diaSemana !== undefined) ? DIAS_SEMANA[f.diaSemana].nome : null;
         return `
           <div class="item" data-acao="abrir-ficha" data-id="${f.id}">
             <div class="item-icone">📋</div>
             <div class="item-corpo">
               <div class="item-nome">${h(f.nome)}</div>
-              <div class="item-sub">${n} exercício${n === 1 ? '' : 's'} · ${series} série${series === 1 ? '' : 's'}</div>
+              <div class="item-sub">${diaTxt ? `${diaTxt} · ` : ''}${n} exercício${n === 1 ? '' : 's'} · ${series} série${series === 1 ? '' : 's'}</div>
             </div>
             ${n ? `<button class="btn btn-pequeno btn-principal" data-acao="iniciar-treino" data-id="${f.id}">Treinar</button>` : ''}
             <div class="item-fim">›</div>
@@ -288,9 +311,14 @@ const UI = (() => {
   function modalGerador() {
     const p = Dados.perfil();
     const obj = estado.gerador.objetivo || p.objetivo;
+    const temDias = p.diasTreino.length > 0;
+    const diasTxt = temDias
+      ? `${p.diasTreino.length} dia${p.diasTreino.length === 1 ? '' : 's'} (${[...p.diasTreino].sort().map((d) => DIAS_SEMANA[d].nome).join(', ')})`
+      : `${p.freqForca} dias`;
     abrirModal(`
       <h2>✨ Gerar treino automático</h2>
-      <p class="pequeno apagado">Eu monto as fichas usando seu nível (${NOME_NIVEL[p.nivel] || p.nivel}), onde você treina (${p.local === 'academia' ? 'academia' : p.local === 'casa' ? 'casa' : 'parque'}) e quantos dias por semana (${p.freqForca}) — tudo do seu perfil. Pode ajustar depois de gerado.</p>
+      <p class="pequeno apagado">Eu monto as fichas usando seu nível (${NOME_NIVEL[p.nivel] || p.nivel}), onde você treina (${p.local === 'academia' ? 'academia' : p.local === 'casa' ? 'casa' : 'parque'}) e ${diasTxt} — tudo do seu perfil. Trabalho todos os grupos musculares principais na semana, distribuídos entre os dias. Pode ajustar depois de gerado.</p>
+      ${!temDias ? `<p class="pequeno apagado">Dica: marque os dias certos em Perfil › Treino e cada ficha já sai ligada ao dia da semana — a tela inicial avisa "hoje é dia de X" sozinha.</p>` : ''}
       <div class="campo">
         <label>Objetivo</label>
         <select id="ger-objetivo">

@@ -311,11 +311,15 @@ const Forca = (() => {
   /**
    * Gera um plano completo de fichas a partir do objetivo e do perfil.
    * base: array de exercicios (data/exercicios.json)
+   * diasSemana: dias da semana marcados no perfil (0=domingo...6=sabado) — quando informado,
+   *             manda mais que freqForca (numero) pra decidir quantas fichas gerar, e cada
+   *             ficha sai ja ligada ao dia certo (ver campo diaSemana no retorno).
    * rotacao: inteiro que varia a selecao sem mudar a logica — 0 sempre da o mesmo
    *          resultado (bom pra teste); "gerar novamente" na UI passa outro valor.
    */
-  function gerarPlano({ objetivo = 'hipertrofia', nivel = 'iniciante', local = 'academia', freqForca = 3, base = [], rotacao = 0 }) {
-    const dias = splitPara(freqForca);
+  function gerarPlano({ objetivo = 'hipertrofia', nivel = 'iniciante', local = 'academia', freqForca = 3, diasSemana = [], base = [], rotacao = 0 }) {
+    const numDias = diasSemana.length || freqForca;
+    const dias = splitPara(numDias);
     const uN = nivelN[nivel] ?? 0;
     const casa = local === 'casa' || local === 'parque' || local === 'sem_equip';
 
@@ -372,10 +376,66 @@ const Forca = (() => {
         };
       });
 
-      return { nome: `Treino ${String.fromCharCode(65 + iDia)} — ${dia.nome}`, exercicios };
+      return {
+        nome: `Treino ${String.fromCharCode(65 + iDia)} — ${dia.nome}`,
+        exercicios,
+        diaSemana: diasSemana[iDia] ?? null,
+      };
     });
 
     return fichas.filter((f) => f.exercicios.length > 0);
+  }
+
+  // ---------- variedade programada (evitar monotonia) ----------
+  // treino parado tempo demais sem mudar nada e um motivo classico de desistencia — a ideia
+  // aqui nao e mudar tudo toda semana (perde a progressao de carga), e sim trocar uma parte dos
+  // exercicios por variacoes de outro aparelho, de tempos em tempos, pra manter o estimulo novo.
+
+  const SEMANAS_PARA_VARIAR = 4; // um mesociclo curto: da pra progredir e nao enjoa
+
+  /** Ha quantas semanas uma ficha esta sem ter os exercicios variados. */
+  function semanasSemVariar(ficha, hoje = Date.now()) {
+    const desde = ficha.ultimaVariacaoEm || ficha.criadaEm || hoje;
+    return Math.floor((hoje - desde) / (7 * 24 * 60 * 60 * 1000));
+  }
+
+  /** True se ja faz tempo o bastante pra valer a pena sugerir variar essa ficha. */
+  function precisaVariar(ficha, hoje = Date.now()) {
+    return semanasSemVariar(ficha, hoje) >= SEMANAS_PARA_VARIAR;
+  }
+
+  /**
+   * Troca uma fracao dos exercicios da ficha por alternativas de mesmo padrao de movimento em
+   * outro aparelho (reaproveita substitutos() — o mesmo motor do "equipamento ocupado", so que
+   * aqui e por variedade, nao por necessidade). Prioriza isolados; so mexe em compostos se a
+   * fracao pedida for maior que a quantidade de isolados. Historico de carga de cada exercicio
+   * fica intacto — e por exId, nao por "posicao na ficha", entao trocar nao apaga nada.
+   * rotacao: decide QUAL substituto entra quando ha mais de um candidato — sem random, testavel.
+   */
+  function variarFicha(ficha, base, { objetivo = 'hipertrofia', fracao = 0.5, rotacao = 0 } = {}) {
+    const itens = ficha.exercicios || [];
+    const comExercicio = itens.map((item) => ({ item, ex: base.find((e) => e.id === item.exId) })).filter((x) => x.ex);
+    const isolados = comExercicio.filter((x) => !ehComposto(x.ex));
+    const compostos = comExercicio.filter((x) => ehComposto(x.ex));
+    const nTrocar = Math.round(itens.length * fracao);
+    const idsParaTrocar = new Set([...isolados, ...compostos].slice(0, nTrocar).map((x) => x.item.exId));
+
+    const exercicios = itens.map((item) => {
+      if (!idsParaTrocar.has(item.exId)) return item;
+      const exAtual = base.find((e) => e.id === item.exId);
+      const opcoes = substitutos(exAtual, base, { limite: 6 });
+      if (!opcoes.length) return item; // sem alternativa segura — mantem como esta
+      const escolhido = opcoes[rotacao % opcoes.length];
+      const presc = prescrever(objetivo, escolhido);
+      return {
+        exId: escolhido.id, series: presc.series, reps: presc.reps,
+        repsMin: presc.repsMin, repsMax: presc.repsMax,
+        rirAlvo: presc.rirAlvo, descanso: presc.descanso, carga: null, obs: '',
+      };
+    });
+
+    const trocados = exercicios.reduce((n, e, i) => n + (e.exId !== itens[i].exId ? 1 : 0), 0);
+    return { exercicios, trocados };
   }
 
   // ---------- substituicao por equipamento ocupado ----------
@@ -469,5 +529,6 @@ const Forca = (() => {
     volumeSemanal, FAIXA_VOLUME, classificarVolume,
     avaliarDeload, anilhas, arredondar,
     substitutos, gerarPlano,
+    SEMANAS_PARA_VARIAR, semanasSemVariar, precisaVariar, variarFicha,
   };
 })();

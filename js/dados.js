@@ -121,7 +121,11 @@ const Dados = (() => {
   const salvarFichas = (lista) => gravar('fichas', lista);
 
   function novaFicha(nome) {
-    const f = { id: id(), nome: nome || 'Novo treino', obs: '', criadaEm: Date.now(), exercicios: [] };
+    const f = {
+      id: id(), nome: nome || 'Novo treino', obs: '', criadaEm: Date.now(), exercicios: [],
+      diaSemana: null,       // 0=domingo...6=sabado, ligado quando vem do gerador automatico
+      ultimaVariacaoEm: null, // ver Forca.precisaVariar/variarFicha — evita monotonia
+    };
     const lista = fichas();
     lista.push(f);
     salvarFichas(lista);

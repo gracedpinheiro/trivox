@@ -485,13 +485,38 @@
         est.gerador.objetivo = objetivo;
         // rotacao varia com quantas fichas ja existem — nao usa random, mas "gerar de novo" muda o resultado
         const rotacao = Dados.fichas().length;
-        const planos = Forca.gerarPlano({ objetivo, nivel: p.nivel, local: p.local, freqForca: p.freqForca, base: UI.getBase(), rotacao });
+        const planos = Forca.gerarPlano({
+          objetivo, nivel: p.nivel, local: p.local, freqForca: p.freqForca,
+          diasSemana: p.diasTreino, base: UI.getBase(), rotacao,
+        });
         planos.forEach((pl) => {
           const f = Dados.novaFicha(pl.nome);
-          Dados.atualizarFicha(f.id, { exercicios: pl.exercicios });
+          Dados.atualizarFicha(f.id, { exercicios: pl.exercicios, diaSemana: pl.diaSemana });
         });
         UI.fecharModal();
         UI.ir('fichas');
+        break;
+      }
+
+      case 'variar-treino': {
+        const p = Dados.perfil();
+        const fichas = Dados.fichas();
+        // muda a cada ciclo de SEMANAS_PARA_VARIAR sem precisar guardar contador nenhum —
+        // so olha quantos ciclos ja se passaram desde o epoch. Cada ficha usa um deslocamento
+        // diferente pra nao trocar sempre pelo mesmo substituto quando ha mais de uma opcao.
+        const msPorCiclo = Forca.SEMANAS_PARA_VARIAR * 7 * 24 * 60 * 60 * 1000;
+        const cicloAtual = Math.floor(Date.now() / msPorCiclo);
+        let totalTrocado = 0;
+        fichas.forEach((f, i) => {
+          if (!(f.exercicios || []).length) return;
+          const { exercicios, trocados } = Forca.variarFicha(f, UI.getBase(), { objetivo: p.objetivo, rotacao: cicloAtual + i });
+          Dados.atualizarFicha(f.id, { exercicios, ultimaVariacaoEm: Date.now() });
+          totalTrocado += trocados;
+        });
+        alert(totalTrocado > 0
+          ? `Troquei ${totalTrocado} exercício${totalTrocado === 1 ? '' : 's'} por variações em outro aparelho — mesmo objetivo, estímulo novo. Confira nas fichas.`
+          : 'Não encontrei variações seguras pra trocar agora — seus treinos continuam como estavam.');
+        UI.render();
         break;
       }
 
