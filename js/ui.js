@@ -604,10 +604,17 @@ const UI = (() => {
         <h1>${h(e.nome)}</h1>
       </div>
 
-      <div class="cartao" style="text-align:center;background:var(--gradiente-suave)">
-        <div style="width:130px;height:130px;margin:0 auto;color:var(--destaque-clara)">${Pictogramas.svgPara(e.categoria)}</div>
-        <div class="pequeno apagado">${h(e.icon || '')} referência de movimento — não é uma foto</div>
-      </div>
+      ${(e.imagens && e.imagens.length) ? `
+        <div class="cartao" style="padding:8px">
+          <div style="display:flex;gap:6px">
+            ${e.imagens.map((img) => `<img src="${h(img)}" alt="${h(e.nome)}" loading="lazy" style="flex:1;min-width:0;border-radius:10px;aspect-ratio:850/567;object-fit:cover">`).join('')}
+          </div>
+          <div class="pequeno apagado" style="text-align:center;margin-top:6px">${e.imagens.length > 1 ? 'início e fim do movimento' : 'referência de execução'}</div>
+        </div>` : `
+        <div class="cartao" style="text-align:center;background:var(--gradiente-suave)">
+          <div style="width:130px;height:130px;margin:0 auto;color:var(--destaque-clara)">${Pictogramas.svgPara(e.categoria)}</div>
+          <div class="pequeno apagado">${h(e.icon || '')} referência de movimento — não é uma foto</div>
+        </div>`}
 
       <div class="etiquetas" style="margin-bottom:14px">
         <span class="etiqueta destaque">${h(NOME_CATEGORIA[e.categoria] || e.categoria)}</span>
@@ -854,7 +861,9 @@ const UI = (() => {
       <div class="barra-fundo" style="margin-bottom:16px"><div class="barra-frente" style="width:${progressoPct}%;background:var(--gradiente)"></div></div>
 
       <div class="cartao" style="text-align:center;background:var(--gradiente-suave)">
-        <div style="width:100px;height:100px;margin:0 auto;color:var(--destaque-clara)">${dadosEx ? Pictogramas.svgPara(dadosEx.categoria) : ''}</div>
+        ${dadosEx?.imagens?.length
+          ? `<img src="${h(dadosEx.imagens[0])}" alt="" style="width:100%;max-width:220px;border-radius:12px;aspect-ratio:850/567;object-fit:cover">`
+          : `<div style="width:100px;height:100px;margin:0 auto;color:var(--destaque-clara)">${dadosEx ? Pictogramas.svgPara(dadosEx.categoria) : ''}</div>`}
         <h2 style="margin-top:4px">${dadosEx ? h(dadosEx.icon || '') + ' ' : ''}${h(item.nome)}</h2>
         <div class="pequeno">Exercício ${ex.iEx + 1} de ${ex.itens.length} · Série ${serieAtual} de ${item.seriesAlvo}</div>
       </div>

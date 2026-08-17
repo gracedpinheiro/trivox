@@ -122,6 +122,28 @@ O app detecta sozinho qual das duas URIs usar, conforme onde estiver rodando. Co
 consegue ver "tocando agora" durante o treino; pausar/tocar/pular exige Premium (limitação do
 Spotify, não do app — a mensagem de erro explica isso quando acontece).
 
+**Importante:** o Client ID é por app registrado no Spotify, não por pessoa. Se outra pessoa for
+usar o TRIVOX com o próprio Spotify, ela precisa criar o **próprio app** e usar o **próprio
+Client ID** — o seu fica restrito a você. Além disso, enquanto o app estiver em modo
+"Development" no painel do Spotify (padrão, gratuito), só até 25 contas especificamente
+liberadas por você em Settings › User Management conseguem conectar.
+
+## Imagens dos exercícios
+
+**22 exercícios têm foto real** (não pictograma): os mais comuns/fundamentais — Agachamento
+Livre, Levantamento Terra, Stiff, Supino Reto, Leg Press, Hip Thrust, Face Pull, Bom Dia,
+Superman, Handstand Push-up, Arnold Press, Farmers Walk, Box Jump, entre outros. Fotos vêm do
+[free-exercise-db](https://github.com/yuhonas/free-exercise-db) (domínio público), baixadas e
+hospedadas dentro do próprio app em `data/imagens/` — funcionam offline, sem depender de link
+externo. Nome, instruções, músculos e erros comuns continuam 100% em português, vindos da nossa
+base — só a imagem veio de lá.
+
+Os outros 541 exercícios continuam com pictograma. Não migrei mais porque tentei casar por nome
+(português) contra o banco (inglês) automaticamente e a taxa de erro foi alta demais pra
+confiar — decenas de exercícios diferentes caindo na mesma foto genérica por engano (ver
+[histórico](historico/09-fotos-reais-de-exercicios.md) pros detalhes). Prefiro pictograma
+honesto a foto real errada.
+
 ## Perfil, nível e peso
 
 - **Nível**: iniciante, intermediário, avançado ou elite.
