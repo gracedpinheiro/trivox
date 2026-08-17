@@ -59,11 +59,12 @@ const Nuvem = (() => {
     return data.session || null;
   }
 
-  /** Chamado de novo sempre que a sessao muda (login, logout, token renovado sozinho). */
+  /** Chamado de novo sempre que a sessao muda (login, logout, token renovado sozinho).
+      callback(evento, sessao) — os DOIS argumentos, na mesma ordem que o SDK entrega. */
   function aoMudarSessao(callback) {
     const c = cliente();
     if (!c) return;
-    c.auth.onAuthStateChange((_evento, sessao) => callback(sessao));
+    c.auth.onAuthStateChange((evento, sessao) => callback(evento, sessao));
   }
 
   async function sair() {
