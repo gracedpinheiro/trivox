@@ -735,6 +735,16 @@
         break;
       }
 
+      case 'nuvem-confirmar-codigo': {
+        if (!Nuvem.disponivel()) { alert('Sem conexão agora — tente de novo com internet.'); break; }
+        const email = alvo.dataset.email;
+        const codigo = document.getElementById('nuvem-codigo')?.value?.trim();
+        if (!codigo || codigo.length < 6) { alert('Digite o código de 6 dígitos que veio no e-mail.'); break; }
+        // sucesso: o listener aoMudarSessao (ja registrado) atualiza a tela sozinho
+        Nuvem.verificarCodigo(email, codigo).catch((e) => alert(e.message));
+        break;
+      }
+
       case 'nuvem-sair':
         if (confirm('Sair da conta na nuvem? Os dados continuam aqui no aparelho — só para de sincronizar.')) {
           Nuvem.sair();

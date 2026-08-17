@@ -52,6 +52,16 @@ const Nuvem = (() => {
     if (error) throw new Error(mensagemErro(error));
   }
 
+  /** Alternativa ao link: o mesmo e-mail traz um codigo de 6 digitos, digitado na mao.
+      Existe porque no iOS um link de e-mail sempre abre no Safari, nunca direto num app salvo
+      na tela de inicio — o codigo funciona em qualquer lugar, sem depender de abrir o Mail. */
+  async function verificarCodigo(email, codigo) {
+    const c = cliente();
+    if (!c) throw new Error('Sem internet — conecte-se pra confirmar o código.');
+    const { error } = await c.auth.verifyOtp({ email, token: codigo, type: 'email' });
+    if (error) throw new Error(mensagemErro(error));
+  }
+
   async function sessaoAtual() {
     const c = cliente();
     if (!c) return null;
@@ -107,7 +117,7 @@ const Nuvem = (() => {
 
   return {
     disponivel, redirectUri,
-    enviarLinkLogin, sessaoAtual, aoMudarSessao, sair,
+    enviarLinkLogin, verificarCodigo, sessaoAtual, aoMudarSessao, sair,
     enviarDado, buscarTudo,
   };
 })();

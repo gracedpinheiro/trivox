@@ -1321,9 +1321,14 @@ const UI = (() => {
           <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2></div>
           <div class="nota">
             <strong>Verifique seu e-mail</strong>
-            Mandei um link de acesso pra <strong>${h(estado.nuvem.linkEnviadoPara)}</strong>. Toque nele nesse mesmo aparelho pra entrar — não precisa de senha.
+            Mandei um código de acesso pra <strong>${h(estado.nuvem.linkEnviadoPara)}</strong>. Toque no link do e-mail (funciona no Safari), <strong>ou</strong> digite abaixo o código de 6 dígitos que veio na mensagem — use o código se estiver no ícone salvo na tela de início, onde o link não abre direto.
           </div>
-          <button class="btn btn-largo" data-acao="nuvem-enviar-link" data-email="${h(estado.nuvem.linkEnviadoPara)}" style="margin-top:4px">Reenviar</button>
+          <div class="campo">
+            <label>Código de 6 dígitos</label>
+            <input id="nuvem-codigo" inputmode="numeric" maxlength="6" placeholder="000000" autocomplete="one-time-code">
+          </div>
+          <button class="btn btn-largo btn-principal" data-acao="nuvem-confirmar-codigo" data-email="${h(estado.nuvem.linkEnviadoPara)}">Confirmar código</button>
+          <button class="btn btn-largo" data-acao="nuvem-enviar-link" data-email="${h(estado.nuvem.linkEnviadoPara)}" style="margin-top:8px">Reenviar</button>
         </div>`;
     }
 
