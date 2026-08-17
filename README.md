@@ -27,18 +27,19 @@ instalado uma vez com internet, funciona offline — não precisa mais do comput
 
 ## Hospedagem no GitHub Pages
 
-O app é 100% estático, então hospeda de graça, sem servidor. Uma vez configurado:
+**No ar:** **https://gracedpinheiro.github.io/trivox/** — repositório em
+[github.com/gracedpinheiro/trivox](https://github.com/gracedpinheiro/trivox), publicado via
+Settings › Pages › Deploy from a branch › `main` › `/ (root)`. É essa a URL de uso diário, pelo
+celular — instala uma vez (Chrome: menu › Instalar app; iPhone: Safari › compartilhar ›
+Adicionar à Tela de Início) e funciona offline dali em diante.
 
-1. Crie um repositório novo (vazio, sem README) em **github.com/new**.
-2. Peça pra eu configurar o remote e empurrar o código — só preciso da URL do repositório.
-3. Nas configurações do repositório, **Settings › Pages › Source: Deploy from a branch**,
-   escolha a branch `main` e a pasta `/ (root)`.
-4. Em alguns minutos o app fica em `https://SEU_USUARIO.github.io/NOME_DO_REPO/`.
+Pra atualizar depois de qualquer mudança no código: `git add -A && git commit -m "..." && git push`
+— o GitHub Pages redeploya sozinho em 1-2 minutos.
 
 > **Spotify:** se for usar o Spotify tanto localmente (comigo, durante o desenvolvimento) quanto
 > na versão hospedada, cadastre **as duas** redirect URIs no painel do Spotify — o app detecta
 > sozinho qual usar: `http://127.0.0.1:8080/index.html` (local) e
-> `https://SEU_USUARIO.github.io/NOME_DO_REPO/index.html` (hospedado).
+> `https://gracedpinheiro.github.io/trivox/index.html` (hospedado, a que você usa de verdade).
 
 ## Estrutura
 
@@ -111,8 +112,8 @@ instruções ou sem músculo mapeado.
 2. Nas configurações do app criado, em **Redirect URIs**, adicione a URI que combina com onde
    você vai usar (pode adicionar as duas, sem problema):
    - `http://127.0.0.1:8080/index.html` — se for usar local, comigo, durante o desenvolvimento.
-   - `https://SEU_USUARIO.github.io/NOME_DO_REPO/index.html` — a versão hospedada, que é a que
-     você vai usar no dia a dia pelo celular.
+   - `https://gracedpinheiro.github.io/trivox/index.html` — a versão hospedada, que é a que você
+     vai usar no dia a dia pelo celular.
 3. Copie o **Client ID** (não precisa do Client Secret — o app usa PKCE, não guarda segredo
    nenhum) e cole em **Perfil › Spotify** no TRIVOX.
 4. Toque em "Conectar Spotify" e autorize.

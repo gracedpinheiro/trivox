@@ -42,7 +42,10 @@ usavam caminhos relativos — funcionam sob subpasta sem ajuste.
 - `Spotify.redirectUri()` funciona tanto local quanto hospedado (2 testes novos).
 - 300/300 testes passando.
 
-## Pendente
+## Concluído
 
-Grace vai criar o repositório em github.com e passar a URL — a partir daí, configuro o remote,
-empurro o código e habilito o GitHub Pages.
+Repositório criado por ela (`github.com/gracedpinheiro/trivox`), remote configurado e código
+empurrado. Ela habilitou o GitHub Pages (Settings › Pages › Deploy from a branch › main ›
+root) — passo que só ela podia fazer, exige sessão logada no GitHub. App confirmado no ar em
+**https://gracedpinheiro.github.io/trivox/**: título, os 563 exercícios, navegação e visual
+todos conferidos contra a URL real (não só local).
