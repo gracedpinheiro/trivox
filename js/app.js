@@ -238,6 +238,51 @@
     });
   }
 
+  // ---------- backup (.zip = dados em json + videos) ----------
+  // video nao cabe dentro do json (pesa MB, e base64 ainda infla ~33% em cima disso), entao o
+  // backup vira um .zip: backup.json (mesma estrutura de sempre) + videos/<exId>.<ext> por
+  // fora. Sem compressao real (metodo STORE) porque video/foto ja vem comprimido — recomprimir
+  // de novo so gastaria bateria por um ganho quase nulo. Ver js/zip.js.
+
+  const EXT_POR_TIPO_VIDEO = { 'video/mp4': 'mp4', 'video/quicktime': 'mov', 'video/webm': 'webm', 'video/x-matroska': 'mkv', 'video/3gpp': '3gp' };
+  const extensaoVideo = (tipo) => EXT_POR_TIPO_VIDEO[tipo] || 'bin';
+
+  /** Monta o pacote (dados + manifesto de video) e devolve o .zip pronto pra baixar. */
+  async function montarBackupZip() {
+    const pacote = Dados.exportar();
+    const videos = Videos.suportado() ? await Videos.listarTodos() : [];
+
+    pacote.videos = {};
+    const arquivos = [];
+    for (const v of videos) {
+      const nomeArquivo = `videos/${v.exId}.${extensaoVideo(v.blob.type)}`;
+      pacote.videos[v.exId] = { arquivo: nomeArquivo, tipo: v.blob.type || 'video/mp4', atualizadoEm: v.atualizadoEm };
+      arquivos.push({ nome: nomeArquivo, dados: new Uint8Array(await v.blob.arrayBuffer()) });
+    }
+
+    arquivos.unshift({ nome: 'backup.json', dados: new TextEncoder().encode(JSON.stringify(pacote, null, 2)) });
+    return Zip.criar(arquivos);
+  }
+
+  /** Le um .zip de backup e restaura dados + videos. Devolve quantos videos vieram e quantos existiam no manifesto. */
+  async function restaurarBackupZip(arquivo) {
+    const entradas = await Zip.ler(arquivo);
+    const entradaJson = entradas.find((e) => e.nome === 'backup.json');
+    if (!entradaJson) throw new Error('Esse .zip não tem um backup.json dentro — não parece ser um backup do TRIVOX.');
+    const pacote = JSON.parse(new TextDecoder().decode(entradaJson.dados));
+    Dados.importar(pacote);
+
+    const manifesto = pacote.videos || {};
+    let restaurados = 0;
+    for (const [exId, info] of Object.entries(manifesto)) {
+      const entradaVideo = entradas.find((e) => e.nome === info.arquivo);
+      if (!entradaVideo) continue;
+      await Videos.salvarVideo(exId, new Blob([entradaVideo.dados], { type: info.tipo || 'video/mp4' }));
+      restaurados++;
+    }
+    return { totalVideos: Object.keys(manifesto).length, restaurados };
+  }
+
   /** Fecha a sessao: grava historico, calcula XP, checa badges, mostra o resumo. */
   function finalizarTreino() {
     pararTimer();
@@ -775,29 +820,36 @@
 
       // ----- backup -----
 
-      case 'exportar': {
-        const pacote = Dados.exportar();
-        const blob = new Blob([JSON.stringify(pacote, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `treino-backup-${new Date().toISOString().slice(0, 10)}.json`;
-        a.click();
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      case 'exportar':
+        montarBackupZip().then((blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `treino-backup-${new Date().toISOString().slice(0, 10)}.zip`;
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }).catch((e) => alert('Não consegui gerar o backup: ' + e.message));
         break;
-      }
 
       case 'importar': {
         const inp = document.createElement('input');
         inp.type = 'file';
-        inp.accept = 'application/json,.json';
+        inp.accept = '.zip,.json,application/zip,application/json';
         inp.addEventListener('change', async () => {
           const arq = inp.files?.[0];
           if (!arq) return;
           try {
-            const pacote = JSON.parse(await arq.text());
+            const cabecalho = new Uint8Array(await arq.slice(0, 2).arrayBuffer());
+            const ehZip = cabecalho[0] === 0x50 && cabecalho[1] === 0x4B; // assinatura "PK" de .zip
             if (!confirm('Importar vai substituir suas fichas, perfil e histórico atuais. Continuar?')) return;
-            Dados.importar(pacote);
+            if (ehZip) {
+              const { totalVideos, restaurados } = await restaurarBackupZip(arq);
+              if (totalVideos && restaurados < totalVideos) {
+                alert(`Dados restaurados. ${restaurados} de ${totalVideos} vídeo(s) recuperado(s) — os demais não estavam no arquivo.`);
+              }
+            } else {
+              Dados.importar(JSON.parse(await arq.text())); // backup antigo, sem video (compatibilidade)
+            }
             UI.ir('inicio');
           } catch (e) {
             alert('Não consegui ler esse arquivo: ' + e.message);

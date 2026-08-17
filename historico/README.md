@@ -17,6 +17,7 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 9 | 17/08/2026 | [Fotos reais de exercícios](09-fotos-reais-de-exercicios.md) | Matching automático (PT↔EN) errava demais; curadoria manual entregou 22 exercícios com foto real verificada |
 | 10 | 17/08/2026 | [Fonte legível e fotos](10-fonte-legivel-e-fotos.md) | Fontes maiores pra celular; foto de perfil e fotos de evolução (antes/depois) com data automática |
 | 11 | 17/08/2026 | [Foto e vídeo por exercício](11-foto-e-video-por-exercicio.md) | Foto real substitui a pré-cadastrada exercício a exercício; vídeo pessoal via IndexedDB, fora do localStorage |
+| 12 | 17/08/2026 | [Backup com vídeo](12-backup-com-video.md) | Exportar/Importar vira `.zip` (leitor/escritor próprio, sem dependência) pra levar os vídeos junto |
 
 ## Como usar
 

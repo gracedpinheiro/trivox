@@ -52,5 +52,24 @@ const Videos = (() => {
     }));
   }
 
-  return { suportado, salvarVideo, lerVideo, apagarVideo };
+  /** Devolve [{ exId, blob, atualizadoEm }] de todos os videos guardados — usado no backup. */
+  function listarTodos() {
+    return abrirBanco().then((db) => new Promise((resolve, reject) => {
+      const tx = db.transaction(NOME_STORE, 'readonly');
+      const cursorReq = tx.objectStore(NOME_STORE).openCursor();
+      const resultados = [];
+      cursorReq.onsuccess = (ev) => {
+        const cursor = ev.target.result;
+        if (cursor) {
+          resultados.push({ exId: cursor.key, blob: cursor.value.blob, atualizadoEm: cursor.value.atualizadoEm });
+          cursor.continue();
+        } else {
+          resolve(resultados);
+        }
+      };
+      cursorReq.onerror = () => reject(cursorReq.error || new Error('Falha ao listar vídeos.'));
+    }));
+  }
+
+  return { suportado, salvarVideo, lerVideo, apagarVideo, listarTodos };
 })();

@@ -1,7 +1,7 @@
 /* Service worker: deixa o app funcionar sem internet (dentro da academia o sinal cai).
    Estrategia: cache-first para o shell, network-first para o resto. */
 
-const VERSAO = 'trivox-v9';
+const VERSAO = 'trivox-v10';
 
 const SHELL = [
   './',
@@ -14,6 +14,7 @@ const SHELL = [
   './js/gamificacao.js',
   './js/pictogramas.js',
   './js/spotify.js',
+  './js/zip.js',
   './js/videos.js',
   './js/ui.js',
   './js/app.js',

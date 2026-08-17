@@ -1456,7 +1456,7 @@ const UI = (() => {
 
       <div class="cartao">
         <div class="cartao-titulo"><h2>Backup</h2></div>
-        <p class="pequeno apagado">Seus dados ficam só neste navegador. Limpar o histórico do navegador apaga tudo — exporte de vez em quando.</p>
+        <p class="pequeno apagado">Seus dados ficam só neste aparelho. Limpar o histórico do navegador apaga tudo — exporte de vez em quando. O arquivo é um .zip com tudo dentro, inclusive suas fotos e vídeos por exercício.</p>
         <div class="linha-btn">
           <button class="btn" data-acao="exportar">Exportar</button>
           <button class="btn" data-acao="importar">Importar</button>

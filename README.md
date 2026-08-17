@@ -53,6 +53,7 @@ Pra atualizar depois de qualquer mudança no código: `git add -A && git commit 
 | [js/pictogramas.js](js/pictogramas.js) | Ilustrações SVG por padrão de movimento (referência visual do exercício) |
 | [js/spotify.js](js/spotify.js) | Controle de música durante o treino — OAuth PKCE, sem client secret |
 | [js/videos.js](js/videos.js) | Vídeo pessoal por exercício — IndexedDB (fora do localStorage, pesa mais) |
+| [js/zip.js](js/zip.js) | Leitor/escritor de `.zip` sem dependência — usado só no backup, pra levar vídeo junto |
 | [js/ui.js](js/ui.js) | Telas (render por string) |
 | [js/app.js](js/app.js) | Eventos, cronômetro de descanso e ligação entre telas e dados |
 | [data/exercicios.json](data/exercicios.json) | 563 exercícios, migrados do X IRON v7 + LOBAS MOTION/VYRON |
@@ -156,10 +157,12 @@ Também dá pra anexar um **vídeo curto seu** fazendo o movimento — toque em 
 tela do exercício, grave ou escolha da galeria. Na próxima vez que quiser lembrar como faz,
 é só abrir o exercício e tocar em ▶. Um clipe de 5-15s de uma repetição limpa já é suficiente.
 
-Vídeo fica guardado separado das fotos (em IndexedDB, não localStorage) porque pesa muito mais —
-por isso **vídeo não entra no Exportar/Importar** de Perfil › Backup (só foto e dado numérico
-entram). Se trocar de aparelho, os vídeos ficam no aparelho antigo; as fotos e o resto dos dados
-vão no backup normal.
+Vídeo fica guardado separado das fotos (em IndexedDB, não localStorage) porque pesa muito mais.
+Ainda assim, **o vídeo vai junto no backup**: Perfil › Backup › Exportar agora baixa um `.zip`
+(não mais `.json`) com `backup.json` (perfil, fichas, histórico, fotos) mais uma pasta `videos/`
+com cada vídeo. É um `.zip` de verdade — dá pra abrir num computador com qualquer
+descompactador. Importar aceita tanto esse `.zip` novo quanto um `.json` antigo (backup feito
+antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o resto volta normal.
 
 ## Perfil, nível e peso
 
