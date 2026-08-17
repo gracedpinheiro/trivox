@@ -52,6 +52,7 @@ Pra atualizar depois de qualquer mudança no código: `git add -A && git commit 
 | [js/gamificacao.js](js/gamificacao.js) | XP, nível, badges, streak e o coach por chat (banco de frases por tema, não é IA) |
 | [js/pictogramas.js](js/pictogramas.js) | Ilustrações SVG por padrão de movimento (referência visual do exercício) |
 | [js/spotify.js](js/spotify.js) | Controle de música durante o treino — OAuth PKCE, sem client secret |
+| [js/videos.js](js/videos.js) | Vídeo pessoal por exercício — IndexedDB (fora do localStorage, pesa mais) |
 | [js/ui.js](js/ui.js) | Telas (render por string) |
 | [js/app.js](js/app.js) | Eventos, cronômetro de descanso e ligação entre telas e dados |
 | [data/exercicios.json](data/exercicios.json) | 563 exercícios, migrados do X IRON v7 + LOBAS MOTION/VYRON |
@@ -143,6 +144,22 @@ Os outros 541 exercícios continuam com pictograma. Não migrei mais porque tent
 confiar — decenas de exercícios diferentes caindo na mesma foto genérica por engano (ver
 [histórico](historico/09-fotos-reais-de-exercicios.md) pros detalhes). Prefiro pictograma
 honesto a foto real errada.
+
+### Sua própria foto e vídeo por exercício
+
+Em qualquer exercício (tela de detalhe), dá pra substituir a foto pré-cadastrada (ou o
+pictograma) pela **sua foto real** — toque em "Usar minha foto"/"Trocar minha foto". Fica
+salva só nesse aparelho, comprimida automaticamente, e passa a aparecer ali (inclusive durante o
+treino, na tela de execução) até você trocar de novo.
+
+Também dá pra anexar um **vídeo curto seu** fazendo o movimento — toque em "Adicionar vídeo" na
+tela do exercício, grave ou escolha da galeria. Na próxima vez que quiser lembrar como faz,
+é só abrir o exercício e tocar em ▶. Um clipe de 5-15s de uma repetição limpa já é suficiente.
+
+Vídeo fica guardado separado das fotos (em IndexedDB, não localStorage) porque pesa muito mais —
+por isso **vídeo não entra no Exportar/Importar** de Perfil › Backup (só foto e dado numérico
+entram). Se trocar de aparelho, os vídeos ficam no aparelho antigo; as fotos e o resto dos dados
+vão no backup normal.
 
 ## Perfil, nível e peso
 

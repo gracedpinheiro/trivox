@@ -258,6 +258,28 @@ const Dados = (() => {
 
   const apagarFotoEvolucao = (fid) => gravar('fotosEvolucao', fotosEvolucao().filter((f) => f.id !== fid));
 
+  // ---------- foto personalizada por exercicio ----------
+  // substitui a foto pre-cadastrada (ou o pictograma) pela foto real tirada pela propria pessoa,
+  // exercicio por exercicio, a medida que ela vai treinando. mapa: { [exId]: { foto, atualizadoEm } }
+  // (o video de cada exercicio NAO fica aqui — video pesa MB, nao KB, e vive no IndexedDB via
+  // js/videos.js, fora do localStorage)
+
+  const fotosExercicio = () => ler('fotosExercicio', {});
+
+  function salvarFotoExercicio(exId, dataUrl) {
+    const mapa = fotosExercicio();
+    mapa[exId] = { foto: dataUrl, atualizadoEm: Date.now() };
+    gravar('fotosExercicio', mapa);
+  }
+
+  function apagarFotoExercicio(exId) {
+    const mapa = fotosExercicio();
+    delete mapa[exId];
+    gravar('fotosExercicio', mapa);
+  }
+
+  const fotoExercicio = (exId) => fotosExercicio()[exId]?.foto || null;
+
   // ---------- gamificacao ----------
 
   const GAM_PADRAO = { xp: 0, badges: [] };
@@ -278,7 +300,7 @@ const Dados = (() => {
   function exportar() {
     const pid = perfilAtivoId();
     const pacote = { app: 'treino', versao: 1, exportadoEm: new Date().toISOString(), perfilId: pid, dados: {} };
-    for (const nome of ['perfil', 'fichas', 'cardios', 'cargas', 'sessoes', 'gam', 'pesos', 'fotosEvolucao']) {
+    for (const nome of ['perfil', 'fichas', 'cardios', 'cargas', 'sessoes', 'gam', 'pesos', 'fotosEvolucao', 'fotosExercicio']) {
       pacote.dados[nome] = ler(nome, null);
     }
     return pacote;
@@ -314,6 +336,7 @@ const Dados = (() => {
     sessoes, registrarSessao, diasTreinados,
     pesos, registrarPeso, apagarPeso,
     fotosEvolucao, registrarFotoEvolucao, apagarFotoEvolucao,
+    fotosExercicio, salvarFotoExercicio, apagarFotoExercicio, fotoExercicio,
     gam, salvarGam,
     spotify, salvarSpotify, desconectarSpotify,
     exportar, importar,

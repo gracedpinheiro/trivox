@@ -598,6 +598,7 @@ const UI = (() => {
 
     const cronologico = [...hist].reverse();
     const grafico = cronologico.length >= 2 ? graficoLinha(cronologico.map((r) => Number(r.carga) || 0)) : '';
+    const fotoPropria = Dados.fotoExercicio(e.id);
 
     return `
       <div class="topo">
@@ -605,7 +606,11 @@ const UI = (() => {
         <h1>${h(e.nome)}</h1>
       </div>
 
-      ${(e.imagens && e.imagens.length) ? `
+      ${fotoPropria ? `
+        <div class="cartao" style="padding:8px">
+          <img src="${h(fotoPropria)}" alt="${h(e.nome)}" style="width:100%;border-radius:10px;aspect-ratio:850/567;object-fit:cover">
+          <div class="pequeno apagado" style="text-align:center;margin-top:6px">sua foto</div>
+        </div>` : (e.imagens && e.imagens.length) ? `
         <div class="cartao" style="padding:8px">
           <div style="display:flex;gap:6px">
             ${e.imagens.map((img) => `<img src="${h(img)}" alt="${h(e.nome)}" loading="lazy" style="flex:1;min-width:0;border-radius:10px;aspect-ratio:850/567;object-fit:cover">`).join('')}
@@ -616,6 +621,19 @@ const UI = (() => {
           <div style="width:130px;height:130px;margin:0 auto;color:var(--destaque-clara)">${Pictogramas.svgPara(e.categoria)}</div>
           <div class="pequeno apagado">${h(e.icon || '')} referência de movimento — não é uma foto</div>
         </div>`}
+
+      <div class="linha-btn" style="margin-bottom:14px">
+        <button class="btn btn-pequeno" data-acao="trocar-foto-exercicio" data-id="${h(e.id)}">${fotoPropria ? '📷 Trocar minha foto' : '📷 Usar minha foto'}</button>
+        ${fotoPropria ? `<button class="btn btn-pequeno btn-fantasma" data-acao="remover-foto-exercicio" data-id="${h(e.id)}">Remover</button>` : ''}
+      </div>
+
+      ${Videos.suportado() ? `
+        <div class="cartao">
+          <div class="cartao-titulo"><h3>🎥 Seu vídeo</h3></div>
+          <div id="video-exercicio" data-exid="${h(e.id)}">
+            <p class="pequeno apagado">Carregando…</p>
+          </div>
+        </div>` : ''}
 
       <div class="etiquetas" style="margin-bottom:14px">
         <span class="etiqueta destaque">${h(NOME_CATEGORIA[e.categoria] || e.categoria)}</span>
@@ -862,9 +880,13 @@ const UI = (() => {
       <div class="barra-fundo" style="margin-bottom:16px"><div class="barra-frente" style="width:${progressoPct}%;background:var(--gradiente)"></div></div>
 
       <div class="cartao" style="text-align:center;background:var(--gradiente-suave)">
-        ${dadosEx?.imagens?.length
-          ? `<img src="${h(dadosEx.imagens[0])}" alt="" style="width:100%;max-width:220px;border-radius:12px;aspect-ratio:850/567;object-fit:cover">`
-          : `<div style="width:100px;height:100px;margin:0 auto;color:var(--destaque-clara)">${dadosEx ? Pictogramas.svgPara(dadosEx.categoria) : ''}</div>`}
+        ${(() => {
+          const fotoPropria = dadosEx ? Dados.fotoExercicio(dadosEx.id) : null;
+          const src = fotoPropria || dadosEx?.imagens?.[0];
+          return src
+            ? `<img src="${h(src)}" alt="" style="width:100%;max-width:220px;border-radius:12px;aspect-ratio:850/567;object-fit:cover">`
+            : `<div style="width:100px;height:100px;margin:0 auto;color:var(--destaque-clara)">${dadosEx ? Pictogramas.svgPara(dadosEx.categoria) : ''}</div>`;
+        })()}
         <h2 style="margin-top:4px">${dadosEx ? h(dadosEx.icon || '') + ' ' : ''}${h(item.nome)}</h2>
         <div class="pequeno">Exercício ${ex.iEx + 1} de ${ex.itens.length} · Série ${serieAtual} de ${item.seriesAlvo}</div>
       </div>
@@ -1287,6 +1309,26 @@ const UI = (() => {
       </div>`;
   }
 
+  /** Card de video do exercicio — chamado de fora (app.js) quando o IndexedDB responde,
+      igual renderSpotifyWidget. Confere data-exid pra nao pintar por cima da tela errada
+      se a pessoa ja tiver saido do exercicio antes do IndexedDB responder. */
+  function renderVideoExercicio(exId, videoUrl) {
+    const el = document.getElementById('video-exercicio');
+    if (!el || el.dataset.exid !== exId) return;
+    if (videoUrl) {
+      el.innerHTML = `
+        <video src="${videoUrl}" controls playsinline style="width:100%;border-radius:12px;background:#000"></video>
+        <div class="linha-btn" style="margin-top:8px">
+          <button class="btn btn-pequeno" data-acao="trocar-video-exercicio" data-id="${h(exId)}">Trocar vídeo</button>
+          <button class="btn btn-pequeno btn-perigo" data-acao="apagar-video-exercicio" data-id="${h(exId)}">Remover</button>
+        </div>`;
+    } else {
+      el.innerHTML = `
+        <p class="pequeno apagado">Grave (ou escolha da galeria) um vídeo curto seu fazendo este exercício — fica salvo só no aparelho, pra rever quando quiser. Um clipe de 5-15s já basta.</p>
+        <button class="btn btn-largo btn-principal" data-acao="trocar-video-exercicio" data-id="${h(exId)}">🎥 Adicionar vídeo</button>`;
+    }
+  }
+
   // ---------- tela: perfil ----------
 
   function telaPerfil() {
@@ -1587,7 +1629,7 @@ const UI = (() => {
     modal1RM, modalAnilhas, modalVolume, modalTesteFala,
     modalGerador, modalTrocarEquipamento, modalResumoTreino, modalRegistrarPeso,
     modalRegistrarFotoEvolucao, modalVerFotoEvolucao,
-    calcular1RM, calcularAnilhas, renderSpotifyWidget,
+    calcular1RM, calcularAnilhas, renderSpotifyWidget, renderVideoExercicio,
     setBase: (b) => { BASE = b; }, getBase: () => BASE, minutosTexto,
   };
 })();

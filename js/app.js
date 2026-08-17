@@ -216,6 +216,28 @@
     spotifyIntervalo = setInterval(atualizarTocandoAgora, 15000);
   }
 
+  // ---------- video do exercicio ----------
+  // IndexedDB e assincrono; a tela ja renderiza um placeholder (ver ui.js) e este helper
+  // preenche por cima quando o video chega, igual o widget do Spotify.
+
+  let videoObjectUrlAtual = null;
+
+  function carregarVideoExercicio(exId) {
+    if (!Videos.suportado()) return;
+    Videos.lerVideo(exId).then((registro) => {
+      if (videoObjectUrlAtual) { URL.revokeObjectURL(videoObjectUrlAtual); videoObjectUrlAtual = null; }
+      if (registro && registro.blob) {
+        videoObjectUrlAtual = URL.createObjectURL(registro.blob);
+        UI.renderVideoExercicio(exId, videoObjectUrlAtual);
+      } else {
+        UI.renderVideoExercicio(exId, null);
+      }
+    }).catch((e) => {
+      console.warn('[video]', e);
+      UI.renderVideoExercicio(exId, null);
+    });
+  }
+
   /** Fecha a sessao: grava historico, calcula XP, checa badges, mostra o resumo. */
   function finalizarTreino() {
     pararTimer();
@@ -389,6 +411,7 @@
       case 'ver-exercicio':
         est.voltarTela = alvo.dataset.voltar || est.tela;
         UI.ir('exercicio', { exercicioId: alvo.dataset.id });
+        carregarVideoExercicio(alvo.dataset.id);
         break;
 
       case 'mais':
@@ -699,6 +722,54 @@
           Dados.apagarFotoEvolucao(alvo.dataset.id);
           UI.fecharModal();
           UI.render();
+        }
+        break;
+
+      // ----- foto e video pessoal do exercicio -----
+
+      case 'trocar-foto-exercicio': {
+        const exId = alvo.dataset.id;
+        escolherArquivoImagem().then((arq) => {
+          if (!arq) return;
+          return comprimirImagem(arq, { maxLado: 900, qualidade: 0.8 }).then((dataUrl) => {
+            Dados.salvarFotoExercicio(exId, dataUrl);
+            UI.render();
+            carregarVideoExercicio(exId); // o card de video reseta no re-render; recarrega por cima
+          });
+        }).catch((e) => alert(e.message));
+        break;
+      }
+
+      case 'remover-foto-exercicio':
+        if (confirm('Remover sua foto e voltar à foto/pictograma padrão deste exercício?')) {
+          Dados.apagarFotoExercicio(alvo.dataset.id);
+          UI.render();
+          carregarVideoExercicio(alvo.dataset.id);
+        }
+        break;
+
+      case 'trocar-video-exercicio': {
+        const exId = alvo.dataset.id;
+        const inp = document.createElement('input');
+        inp.type = 'file';
+        inp.accept = 'video/*';
+        inp.addEventListener('change', () => {
+          const arq = inp.files?.[0];
+          if (!arq) return;
+          if (!arq.type.startsWith('video/')) { alert('Selecione um arquivo de vídeo.'); return; }
+          const tamanhoMB = arq.size / (1024 * 1024);
+          if (tamanhoMB > 50 && !confirm(`Esse vídeo tem ${tamanhoMB.toFixed(0)}MB — bem mais pesado que o normal (um clipe de 5-15s costuma bastar). Salvar mesmo assim?`)) return;
+          Videos.salvarVideo(exId, arq).then(() => carregarVideoExercicio(exId))
+            .catch((e) => alert('Não consegui salvar o vídeo: ' + e.message));
+        }, { once: true });
+        inp.click();
+        break;
+      }
+
+      case 'apagar-video-exercicio':
+        if (confirm('Apagar este vídeo?')) {
+          Videos.apagarVideo(alvo.dataset.id).then(() => carregarVideoExercicio(alvo.dataset.id))
+            .catch((e) => alert(e.message));
         }
         break;
 
