@@ -229,7 +229,7 @@ const Dados = (() => {
     const novo = { id: id(), data: Date.now(), ...registro };
     lista.unshift(novo);
     lista.sort((a, b) => b.data - a.data);
-    gravar('pesos', lista);
+    gravar('pesos', lista.slice(0, 500)); // ~10 anos de pesagem semanal, ou ~1,5 ano diaria
     // mantem o "peso atual" do perfil sincronizado com a pesagem mais recente
     if (lista[0].id === novo.id) salvarPerfil({ peso: novo.peso });
     return novo;

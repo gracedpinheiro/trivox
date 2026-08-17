@@ -92,8 +92,16 @@
       const ex = est.execucao;
       if (!ex || !ex.descansando) { pararTimer(); return; }
       ex.segundosRestantes--;
-      if (ex.segundosRestantes <= 0) { pararTimer(); terminarDescanso(); }
-      else UI.render();
+      if (ex.segundosRestantes <= 0) { pararTimer(); terminarDescanso(); return; }
+      // atualiza so o numero do cronometro, sem reconstruir a tela inteira a cada segundo
+      // (o pictograma SVG e o resto do card nao mudam durante o descanso)
+      const el = document.getElementById('descanso-timer');
+      if (el) {
+        const min = Math.floor(ex.segundosRestantes / 60), seg = ex.segundosRestantes % 60;
+        el.textContent = `${min}:${String(seg).padStart(2, '0')}`;
+      } else {
+        UI.render(); // tela nao esta com o cronometro visivel por algum motivo — reconstroi por seguranca
+      }
     }, 1000);
   }
 

@@ -1,7 +1,7 @@
 /* Service worker: deixa o app funcionar sem internet (dentro da academia o sinal cai).
    Estrategia: cache-first para o shell, network-first para o resto. */
 
-const VERSAO = 'trivox-v5';
+const VERSAO = 'trivox-v6';
 
 const SHELL = [
   './',

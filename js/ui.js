@@ -830,7 +830,7 @@ const UI = (() => {
         <div class="cartao" style="text-align:center;padding:36px 16px">
           <div class="rotulo">Próximo</div>
           <div style="font-weight:700;margin-bottom:18px">${proxima ? h(BASE.find((x) => x.id === proxima.exId)?.nome || '') : 'Fim do treino 🎉'}</div>
-          <div style="font-size:56px;font-weight:800;letter-spacing:-0.02em" class="texto-gradiente">${min}:${String(seg).padStart(2, '0')}</div>
+          <div id="descanso-timer" style="font-size:56px;font-weight:800;letter-spacing:-0.02em" class="texto-gradiente">${min}:${String(seg).padStart(2, '0')}</div>
           <div class="linha-btn" style="margin-top:22px">
             <button class="btn" data-acao="ajustar-descanso" data-seg="-15">−15s</button>
             <button class="btn btn-principal" data-acao="pular-descanso">Pular</button>

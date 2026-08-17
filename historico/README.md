@@ -13,6 +13,7 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 5 | 16/08/2026 | [Integração Spotify](05-integracao-spotify.md) | Música durante o treino via OAuth PKCE |
 | 6 | 16/08/2026 | [Perfil, nível e peso](06-perfil-nivel-peso.md) | Dias da semana, bioimpedância, registro de peso ao longo do tempo |
 | 7 | 17/08/2026 | [Hospedagem — GitHub Pages](07-hospedagem-github-pages.md) | Uso é só celular na academia, sem computador — decidido GitHub Pages, não Supabase nem Flutter |
+| 8 | 17/08/2026 | [Verificação completa](08-verificacao-completa.md) | Teste de integração com cliques reais; achou e corrigiu 1 ineficiência (timer) e 1 inconsistência (limite de peso) |
 
 ## Como usar
 
