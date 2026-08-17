@@ -156,6 +156,16 @@ honesto a foto real errada.
   gordura visceral são opcionais — só pra quem tem balança de bioimpedância. Cada pesagem nova
   atualiza o "peso atual" do perfil automaticamente (a mais recente por data, não por ordem de
   cadastro — registrar uma pesagem atrasada não sobrescreve o peso atual).
+- **Foto de perfil**: uma foto só, editável a qualquer hora, em Perfil › Seus dados (círculo ao
+  lado do nome). Puramente identificação — não entra no histórico de evolução.
+- **Fotos de evolução (antes/depois)**: histórico de fotos em Perfil › Fotos de evolução. Ao
+  escolher uma foto (galeria ou câmera), o app registra a **data de hoje automaticamente** — não
+  tem campo de data pra editar, é sempre "agora". Com 2+ fotos, mostra a mais antiga e a mais
+  recente lado a lado ("antes"/"atual"), mais uma tira com todas as fotos por baixo; tocar numa
+  foto abre ela em tela cheia com opção de apagar. Toda foto (perfil e evolução) é redimensionada
+  e recomprimida em JPEG no aparelho antes de salvar (maior lado ≤ 480px pra foto de perfil, ≤
+  900px pra evolução) — sem isso a cota do localStorage estoura rápido com fotos de celular
+  direto da câmera, que costumam vir na casa dos 3-5MB cada.
 
 ## O que ainda não existe
 

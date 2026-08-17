@@ -80,6 +80,47 @@
 
   const naoVazio = (v) => (v === '' || v === null || v === undefined ? null : v);
 
+  // ---------- fotos (perfil e evolucao) ----------
+  // guardadas como dataURL direto no localStorage — nao ha servidor. Por isso toda foto
+  // passa por um redimensionamento + compressao antes de salvar (senao a cota estoura rapido).
+
+  function escolherArquivoImagem() {
+    return new Promise((resolve) => {
+      const inp = document.createElement('input');
+      inp.type = 'file';
+      inp.accept = 'image/*';
+      inp.addEventListener('change', () => resolve(inp.files?.[0] || null), { once: true });
+      inp.click();
+    });
+  }
+
+  /** Redimensiona (maior lado <= maxLado) e recomprime como JPEG antes de virar dataURL. */
+  function comprimirImagem(arquivo, { maxLado = 800, qualidade = 0.78 } = {}) {
+    return new Promise((resolve, reject) => {
+      if (!arquivo || !arquivo.type.startsWith('image/')) { reject(new Error('Selecione um arquivo de imagem.')); return; }
+      const leitor = new FileReader();
+      leitor.onerror = () => reject(new Error('Não consegui ler esse arquivo.'));
+      leitor.onload = () => {
+        const img = new Image();
+        img.onerror = () => reject(new Error('Não consegui abrir essa imagem.'));
+        img.onload = () => {
+          let w = img.naturalWidth, h = img.naturalHeight;
+          if (Math.max(w, h) > maxLado) {
+            const escala = maxLado / Math.max(w, h);
+            w = Math.round(w * escala);
+            h = Math.round(h * escala);
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          resolve(canvas.toDataURL('image/jpeg', qualidade));
+        };
+        img.src = leitor.result;
+      };
+      leitor.readAsDataURL(arquivo);
+    });
+  }
+
   // ---------- cronometro de descanso ----------
   // um setInterval so, guardado aqui fora do UI (que so cuida de render).
 
@@ -607,6 +648,59 @@
         UI.render();
         break;
       }
+
+      // ----- perfil: fotos -----
+
+      case 'trocar-foto-perfil':
+        escolherArquivoImagem().then((arq) => {
+          if (!arq) return;
+          return comprimirImagem(arq, { maxLado: 480, qualidade: 0.82 }).then((dataUrl) => {
+            Dados.salvarPerfil({ foto: dataUrl });
+            UI.render();
+          });
+        }).catch((e) => alert(e.message));
+        break;
+
+      case 'remover-foto-perfil':
+        if (confirm('Remover a foto de perfil?')) { Dados.salvarPerfil({ foto: null }); UI.render(); }
+        break;
+
+      case 'abrir-foto-evolucao':
+        escolherArquivoImagem().then((arq) => {
+          if (!arq) return;
+          return comprimirImagem(arq, { maxLado: 900, qualidade: 0.78 }).then((dataUrl) => {
+            est.fotoTemp = dataUrl;
+            UI.modalRegistrarFotoEvolucao();
+          });
+        }).catch((e) => alert(e.message));
+        break;
+
+      case 'salvar-foto-evolucao': {
+        if (!est.fotoTemp) { UI.fecharModal(); break; }
+        const nota = document.getElementById('foto-nota')?.value.trim() || '';
+        Dados.registrarFotoEvolucao({ foto: est.fotoTemp, nota });
+        est.fotoTemp = null;
+        UI.fecharModal();
+        UI.render();
+        break;
+      }
+
+      case 'cancelar-foto-evolucao':
+        est.fotoTemp = null;
+        UI.fecharModal();
+        break;
+
+      case 'ver-foto-evolucao':
+        UI.modalVerFotoEvolucao(alvo.dataset.id);
+        break;
+
+      case 'apagar-foto-evolucao':
+        if (confirm('Apagar esta foto de evolução?')) {
+          Dados.apagarFotoEvolucao(alvo.dataset.id);
+          UI.fecharModal();
+          UI.render();
+        }
+        break;
 
       // ----- backup -----
 

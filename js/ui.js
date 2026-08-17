@@ -18,6 +18,7 @@ const UI = (() => {
     coach: { mensagens: [] },
     gerador: { objetivo: null },
     sessaoExpandida: null,       // id da sessao aberta no historico da tela de evolucao
+    fotoTemp: null,              // dataURL de foto de evolucao escolhida, aguardando confirmacao no modal
   };
 
   let BASE = [];               // base de exercicios carregada
@@ -1138,6 +1139,69 @@ const UI = (() => {
       </div>`;
   }
 
+  /** Card de fotos de evolucao (antes/depois) no Perfil: comparativo + tira de miniaturas. */
+  function telaPerfilFotos() {
+    const fotos = Dados.fotosEvolucao(); // mais recente primeiro
+    const antes = fotos[fotos.length - 1] || null;
+    const atual = fotos[0] || null;
+
+    return `
+      <div class="cartao">
+        <div class="cartao-titulo"><h2>📸 Fotos de evolução</h2></div>
+        ${fotos.length ? `
+          ${fotos.length >= 2 ? `
+            <div class="grade" style="margin-bottom:10px">
+              <div>
+                <img src="${h(antes.foto)}" alt="Antes" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:pointer" data-acao="ver-foto-evolucao" data-id="${antes.id}">
+                <div class="pequeno apagado centro" style="margin-top:4px">Antes · ${new Date(antes.data).toLocaleDateString('pt-BR')}</div>
+              </div>
+              <div>
+                <img src="${h(atual.foto)}" alt="Atual" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:pointer" data-acao="ver-foto-evolucao" data-id="${atual.id}">
+                <div class="pequeno apagado centro" style="margin-top:4px">Atual · ${new Date(atual.data).toLocaleDateString('pt-BR')}</div>
+              </div>
+            </div>` : ''}
+          ${fotos.length > 1 ? `
+            <div style="display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none">
+              ${fotos.map((f) => `
+                <div data-acao="ver-foto-evolucao" data-id="${f.id}" style="flex-shrink:0;width:64px;cursor:pointer">
+                  <img src="${h(f.foto)}" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--borda)">
+                  <div class="pequeno apagado centro" style="font-size:11px;margin-top:2px">${new Date(f.data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}</div>
+                </div>`).join('')}
+            </div>` : ''}
+        ` : `
+          <p class="pequeno apagado">Registre fotos ao longo do tempo pra ver sua evolução lado a lado — cada foto guarda a data automaticamente.</p>
+        `}
+        <button class="btn btn-largo btn-principal" data-acao="abrir-foto-evolucao">Adicionar foto</button>
+      </div>`;
+  }
+
+  /** Modal de confirmacao apos escolher a foto: mostra preview, deixa anotar algo opcional, e so ai salva com a data de hoje. */
+  function modalRegistrarFotoEvolucao() {
+    const dataUrl = estado.fotoTemp;
+    if (!dataUrl) return;
+    abrirModal(`
+      <h2>📸 Nova foto — ${new Date().toLocaleDateString('pt-BR')}</h2>
+      <img src="${h(dataUrl)}" alt="Prévia" style="width:100%;border-radius:14px;margin-bottom:12px">
+      <p class="pequeno apagado">A data de hoje é registrada automaticamente.</p>
+      <div class="campo"><label>Nota (opcional)</label><input id="foto-nota" placeholder="ex.: em jejum, pós-treino..."></div>
+      <button class="btn btn-largo btn-principal" data-acao="salvar-foto-evolucao">Salvar</button>
+      <button class="btn btn-largo btn-fantasma" data-acao="cancelar-foto-evolucao" style="margin-top:8px">Cancelar</button>
+    `);
+  }
+
+  /** Modal de visualizacao de uma foto ja registrada, com opcao de apagar. */
+  function modalVerFotoEvolucao(fid) {
+    const f = Dados.fotosEvolucao().find((x) => x.id === fid);
+    if (!f) return;
+    abrirModal(`
+      <h2>${new Date(f.data).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}</h2>
+      <img src="${h(f.foto)}" alt="" style="width:100%;border-radius:14px;margin-bottom:10px">
+      ${f.nota ? `<p class="pequeno apagado">${h(f.nota)}</p>` : ''}
+      <button class="btn btn-largo btn-perigo" data-acao="apagar-foto-evolucao" data-id="${f.id}">Apagar</button>
+      <button class="btn btn-largo btn-fantasma" data-acao="fechar-modal" style="margin-top:8px">Fechar</button>
+    `);
+  }
+
   function modalRegistrarPeso() {
     const p = Dados.perfil();
     const hoje = new Date().toLocaleDateString('sv-SE');
@@ -1235,6 +1299,15 @@ const UI = (() => {
 
       <div class="cartao">
         <div class="cartao-titulo"><h2>Seus dados</h2></div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+          <div data-acao="trocar-foto-perfil" style="cursor:pointer;flex-shrink:0;width:64px;height:64px;border-radius:50%;overflow:hidden;background:var(--gradiente-suave);border:1px solid var(--borda);display:flex;align-items:center;justify-content:center">
+            ${p.foto ? `<img src="${h(p.foto)}" alt="Foto de perfil" style="width:100%;height:100%;object-fit:cover">` : '<span style="font-size:24px">📷</span>'}
+          </div>
+          <div>
+            <button class="btn btn-pequeno" data-acao="trocar-foto-perfil">${p.foto ? 'Trocar foto' : 'Adicionar foto'}</button>
+            ${p.foto ? `<button class="btn btn-pequeno btn-fantasma" data-acao="remover-foto-perfil" style="margin-left:6px">Remover</button>` : ''}
+          </div>
+        </div>
         <div class="campo">
           <label>Nome</label>
           <input value="${h(p.nome)}" data-perfil="nome" placeholder="Como quer ser chamada">
@@ -1273,6 +1346,8 @@ const UI = (() => {
       </div>
 
       ${telaPerfilPeso()}
+
+      ${telaPerfilFotos()}
 
       <div class="cartao">
         <div class="cartao-titulo"><h2>Coração</h2></div>
@@ -1511,6 +1586,7 @@ const UI = (() => {
     estado, render, ir, h, abrirModal, fecharModal,
     modal1RM, modalAnilhas, modalVolume, modalTesteFala,
     modalGerador, modalTrocarEquipamento, modalResumoTreino, modalRegistrarPeso,
+    modalRegistrarFotoEvolucao, modalVerFotoEvolucao,
     calcular1RM, calcularAnilhas, renderSpotifyWidget,
     setBase: (b) => { BASE = b; }, getBase: () => BASE, minutosTexto,
   };

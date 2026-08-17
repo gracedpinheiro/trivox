@@ -85,6 +85,7 @@ const Dados = (() => {
     sexo: '',             // f | m | outro
     peso: null,           // kg — sempre a pesagem mais recente (ver registrarPeso)
     altura: null,         // cm
+    foto: null,            // dataURL (jpeg comprimido) — foto de perfil, opcional
     fcRepouso: null,      // bpm, medida deitada ao acordar
     fcMaxMedida: null,    // bpm, se ja fez teste de esforco
     nivel: 'iniciante',   // iniciante | intermediario | avancado | elite
@@ -237,6 +238,26 @@ const Dados = (() => {
 
   const apagarPeso = (pid) => gravar('pesos', pesos().filter((p) => p.id !== pid));
 
+  // ---------- fotos de evolucao (antes/depois) ----------
+  // registro: { id, data, foto (dataURL jpeg comprimido), nota (opcional) } — mais recente primeiro.
+  // fica separado da foto de perfil (perfil.foto): perfil e so 1 imagem atual, aqui e um historico.
+
+  const fotosEvolucao = () => ler('fotosEvolucao', []);
+
+  function registrarFotoEvolucao(registro) {
+    if (!registro.foto) throw new Error('Foto obrigatória.');
+    const lista = fotosEvolucao();
+    const novo = { id: id(), data: Date.now(), nota: '', ...registro };
+    lista.unshift(novo);
+    lista.sort((a, b) => b.data - a.data);
+    // fotos pesam muito mais que um numero de peso — teto mais conservador que o de pesos()
+    // pra nao estourar a cota do localStorage (ver comprimirImagem em app.js)
+    gravar('fotosEvolucao', lista.slice(0, 120));
+    return novo;
+  }
+
+  const apagarFotoEvolucao = (fid) => gravar('fotosEvolucao', fotosEvolucao().filter((f) => f.id !== fid));
+
   // ---------- gamificacao ----------
 
   const GAM_PADRAO = { xp: 0, badges: [] };
@@ -257,7 +278,7 @@ const Dados = (() => {
   function exportar() {
     const pid = perfilAtivoId();
     const pacote = { app: 'treino', versao: 1, exportadoEm: new Date().toISOString(), perfilId: pid, dados: {} };
-    for (const nome of ['perfil', 'fichas', 'cardios', 'cargas', 'sessoes', 'gam', 'pesos']) {
+    for (const nome of ['perfil', 'fichas', 'cardios', 'cargas', 'sessoes', 'gam', 'pesos', 'fotosEvolucao']) {
       pacote.dados[nome] = ler(nome, null);
     }
     return pacote;
@@ -292,6 +313,7 @@ const Dados = (() => {
     registrarCarga, historicoCarga,
     sessoes, registrarSessao, diasTreinados,
     pesos, registrarPeso, apagarPeso,
+    fotosEvolucao, registrarFotoEvolucao, apagarFotoEvolucao,
     gam, salvarGam,
     spotify, salvarSpotify, desconectarSpotify,
     exportar, importar,
