@@ -66,7 +66,17 @@
 
   let sessaoNuvem = null;
   if (Nuvem.disponivel()) {
-    try { sessaoNuvem = await Nuvem.sessaoAtual(); } catch (e) { console.warn('[nuvem] sessao', e); }
+    try {
+      sessaoNuvem = await Nuvem.sessaoAtual();
+      // Voltando de um link magico, o hash da URL tem access_token — mas o SDK processa esse
+      // hash de forma assincrona por tras, e pode nao ter terminado no exato instante em que
+      // perguntamos "ja tem sessao?". Se detectarmos o hash e a sessao ainda nao apareceu,
+      // da mais um tempinho e tenta de novo antes de mostrar a tela de login por engano.
+      if (!sessaoNuvem && location.hash.includes('access_token')) {
+        await new Promise((r) => setTimeout(r, 500));
+        sessaoNuvem = await Nuvem.sessaoAtual();
+      }
+    } catch (e) { console.warn('[nuvem] sessao', e); }
   }
   UI.estado.nuvem.sessao = sessaoNuvem;
 
