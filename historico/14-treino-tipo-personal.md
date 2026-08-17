@@ -9,8 +9,8 @@
 > mudar o treino e os aparelhos com uma determinada frequência para que não fique monótono e eu
 > fique desmotivada."
 
-Pedido feito enquanto ela criava a conta do Supabase (integração de nuvem tratada à parte,
-em paralelo — ver histórico mais recente quando publicado).
+Pedido feito enquanto ela criava a conta do Supabase (integração de nuvem tratada à parte, em
+paralelo — ver [ciclo 15](15-nuvem-supabase.md)).
 
 ## O que já existia vs. o que faltava
 

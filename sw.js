@@ -1,7 +1,12 @@
 /* Service worker: deixa o app funcionar sem internet (dentro da academia o sinal cai).
    Estrategia: cache-first para o shell, network-first para o resto. */
 
-const VERSAO = 'trivox-v12';
+const VERSAO = 'trivox-v14';
+
+// unica excecao de origem externa no cache: o SDK do Supabase (ver js/nuvem.js e index.html).
+// sem isso, o app ficaria sem sincronizar na nuvem toda vez que abrisse offline, mesmo depois
+// de ja ter carregado once — o resto do app nao depende disso pra funcionar.
+const ORIGENS_EXTERNAS_PERMITIDAS = ['https://cdn.jsdelivr.net'];
 
 const SHELL = [
   './',
@@ -16,11 +21,13 @@ const SHELL = [
   './js/spotify.js',
   './js/zip.js',
   './js/videos.js',
+  './js/nuvem.js',
   './js/ui.js',
   './js/app.js',
   './data/exercicios.json',
   './icons/icone-192.png',
   './icons/icone-512.png',
+  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js',
 ];
 
 self.addEventListener('install', (ev) => {
@@ -43,7 +50,8 @@ self.addEventListener('activate', (ev) => {
 self.addEventListener('fetch', (ev) => {
   const req = ev.request;
   if (req.method !== 'GET') return;
-  if (new URL(req.url).origin !== self.location.origin) return;
+  const origem = new URL(req.url).origin;
+  if (origem !== self.location.origin && !ORIGENS_EXTERNAS_PERMITIDAS.includes(origem)) return;
 
   ev.respondWith(
     caches.match(req).then((cacheada) => {

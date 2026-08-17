@@ -20,6 +20,7 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 12 | 17/08/2026 | [Backup com vídeo](12-backup-com-video.md) | Exportar/Importar vira `.zip` (leitor/escritor próprio, sem dependência) pra levar os vídeos junto |
 | 13 | 17/08/2026 | [Lembrete de backup](13-lembrete-de-backup.md) | Perda de dados real no iPhone (mesmo dia, mesmo ícone); `persist()` + aviso na tela inicial se fizer 7+ dias sem backup |
 | 14 | 17/08/2026 | [Treino tipo personal](14-treino-tipo-personal.md) | Ficha ligada ao dia da semana certo; variedade programada a cada 4 semanas pra não enjoar |
+| 15 | 17/08/2026 | [Nuvem (Supabase)](15-nuvem-supabase.md) | Login por link mágico, multiusuário real (família), backup automático — SDK oficial via CDN, única exceção de dependência do projeto |
 
 ## Como usar
 

@@ -50,14 +50,23 @@ limpando o armazenamento do site sozinho, sem avisar — mais comum no iPhone, o
 "salvo na tela de início" não é tão protegido quanto um app de verdade, principalmente com pouco
 espaço livre no aparelho.
 
-Duas defesas em vigor desde o [ciclo 13](historico/13-lembrete-de-backup.md):
+Três defesas em vigor:
 - O app pede ao navegador pra tratar seu armazenamento como persistente (`navigator.storage.persist()`)
-  assim que abre — reduz a chance, não garante 100%, principalmente no Safari/iOS.
+  assim que abre — reduz a chance, não garante 100%, principalmente no Safari/iOS
+  ([ciclo 13](historico/13-lembrete-de-backup.md)).
 - A tela inicial mostra um aviso pra exportar backup se fizer mais de 7 dias (ou nunca) desde o
-  último — é a defesa que funciona de verdade, porque gera um arquivo fora do navegador.
+  último — gera um arquivo fora do navegador ([ciclo 13](historico/13-lembrete-de-backup.md)).
+- **Backup automático na nuvem** (Perfil › Backup na nuvem): login por link no e-mail (sem
+  senha), e a partir daí os dados sobem sozinhos sempre que mudam. Se o aparelho perder tudo, é
+  só entrar de novo com o mesmo e-mail — os dados voltam sozinhos
+  ([ciclo 15](historico/15-nuvem-supabase.md)). Essa é a defesa que resolve de verdade; as
+  outras duas são reforço.
 
-**Backup não é opcional pra quem usa isso de verdade.** Perfil › Backup › Exportar, e guarde o
-arquivo `.zip` em algum lugar fora do navegador — mandar pra você mesma por e-mail já resolve.
+**Ainda assim, backup manual não é opcional pra quem usa isso de verdade.** Perfil › Backup
+manual › Exportar, e guarde o arquivo `.zip` em algum lugar fora do navegador de vez em quando —
+mandar pra você mesma por e-mail já resolve. A nuvem cobre os dados de treino; o `.zip` é a
+única cópia que também leva os vídeos por exercício (a nuvem ainda não sincroniza vídeo — ver
+["o que ainda não existe"](#o-que-ainda-não-existe)).
 
 ## Estrutura
 
@@ -72,6 +81,7 @@ arquivo `.zip` em algum lugar fora do navegador — mandar pra você mesma por e
 | [js/spotify.js](js/spotify.js) | Controle de música durante o treino — OAuth PKCE, sem client secret |
 | [js/videos.js](js/videos.js) | Vídeo pessoal por exercício — IndexedDB (fora do localStorage, pesa mais) |
 | [js/zip.js](js/zip.js) | Leitor/escritor de `.zip` sem dependência — usado só no backup, pra levar vídeo junto |
+| [js/nuvem.js](js/nuvem.js) | Login por link mágico + sincronização automática com o Supabase — única dependência externa do projeto (SDK oficial via CDN, cacheado offline) |
 | [js/ui.js](js/ui.js) | Telas (render por string) |
 | [js/app.js](js/app.js) | Eventos, cronômetro de descanso e ligação entre telas e dados |
 | [data/exercicios.json](data/exercicios.json) | 563 exercícios, migrados do X IRON v7 + LOBAS MOTION/VYRON |
@@ -157,6 +167,55 @@ Client ID** — o seu fica restrito a você. Além disso, enquanto o app estiver
 "Development" no painel do Spotify (padrão, gratuito), só até 25 contas especificamente
 liberadas por você em Settings › User Management conseguem conectar.
 
+## Backup na nuvem — como ativar (Supabase)
+
+Configuração feita **uma vez só**, por quem administra o projeto (não por cada pessoa da
+família — cada uma só precisa logar com o próprio e-mail dentro do app, sem mexer em painel
+nenhum).
+
+1. Projeto criado em [supabase.com](https://supabase.com) (plano free permite 2 projetos ativos
+   por organização). URL e chave anônima (`anon key`) já estão em `js/nuvem.js` — são públicas
+   por design, protegidas pelas políticas de RLS no banco, não por segredo.
+2. No **SQL Editor** do painel Supabase, rodar uma vez:
+   ```sql
+   create table public.dados_usuario (
+     user_id uuid references auth.users on delete cascade not null,
+     loja text not null,
+     valor jsonb not null,
+     atualizado_em timestamptz not null default now(),
+     primary key (user_id, loja)
+   );
+
+   alter table public.dados_usuario enable row level security;
+
+   create policy "cada um ve so o proprio" on public.dados_usuario
+     for select using (auth.uid() = user_id);
+   create policy "cada um grava so o proprio" on public.dados_usuario
+     for insert with check (auth.uid() = user_id);
+   create policy "cada um atualiza so o proprio" on public.dados_usuario
+     for update using (auth.uid() = user_id);
+   create policy "cada um apaga so o proprio" on public.dados_usuario
+     for delete using (auth.uid() = user_id);
+   ```
+   Uma linha por "loja" (mesmo nome usado no `localStorage`: `perfil`, `fichas`, `sessoes`...),
+   isolada por `user_id` — cada pessoa só vê as próprias linhas, imposto pelo banco, não pelo app.
+3. Em **Authentication › URL Configuration**:
+   - **Site URL**: `https://gracedpinheiro.github.io/trivox/index.html`
+   - **Redirect URLs**, adicionar as duas: a mesma acima e `http://127.0.0.1:8080/index.html`
+     (mesma lógica do Spotify — local e hospedado).
+4. **Importante — limite de e-mail padrão do Supabase**: o servidor de e-mail compartilhado
+   (usado por padrão) só manda **2 e-mails por hora**, inviável até pra 3 pessoas testando no
+   mesmo dia. Configurar SMTP próprio em **Authentication › Emails › SMTP Settings**, usando o
+   Gmail (gratuito, sem domínio próprio necessário):
+   - Ativar verificação em 2 etapas na conta Google, se ainda não tiver.
+   - Gerar uma **App Password** em [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords).
+   - Host: `smtp.gmail.com` · Porta: `587` · Usuário: seu e-mail Gmail · Senha: a App Password
+     gerada · Remetente: o mesmo e-mail.
+
+Depois disso, qualquer pessoa (Grace, filha, filho...) abre o TRIVOX, vai em **Perfil › Backup
+na nuvem**, digita o próprio e-mail, recebe um link (sem senha) e pronto — dali em diante os
+dados dela sobem sozinhos sempre que mudam, isolados dos demais.
+
 ## Imagens dos exercícios
 
 **22 exercícios têm foto real** (não pictograma): os mais comuns/fundamentais — Agachamento
@@ -216,6 +275,10 @@ antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o
 
 ## O que ainda não existe
 
-- Multi-usuário para prescrever a alunos (a estrutura de dados já está pronta, falta a nuvem e o login)
+- **Vídeo não sincroniza pra nuvem** — só o `.zip` do backup manual leva vídeo (ver
+  [ciclo 15](historico/15-nuvem-supabase.md)). Foto, perfil, fichas, histórico e peso sincronizam
+  sozinhos; vídeo precisaria do Supabase Storage (bucket de arquivos), deixado pra depois.
+- Tela dedicada pra comparar treino entre pessoas da família (hoje cada login só vê o próprio
+  dado — é o esperado, mas nada mostra "como está indo todo mundo" pra quem administra).
 - Gráfico de volume semanal (hoje a evolução mostra XP/nível, streak, heatmap de consistência,
   peso e histórico de sessões — falta só o gráfico de barras de volume)

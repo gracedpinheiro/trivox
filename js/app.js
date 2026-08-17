@@ -62,12 +62,93 @@
     }
   }
 
+  // ---------- nuvem (Supabase): sessao ja existente, antes do 1o desenho pra nao "piscar" ----------
+
+  let sessaoNuvem = null;
+  if (Nuvem.disponivel()) {
+    try { sessaoNuvem = await Nuvem.sessaoAtual(); } catch (e) { console.warn('[nuvem] sessao', e); }
+  }
+  UI.estado.nuvem.sessao = sessaoNuvem;
+
   UI.render();
 
   // ---------- service worker ----------
 
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
     navigator.serviceWorker.register('./sw.js').catch((e) => console.warn('[sw]', e));
+  }
+
+  // ---------- nuvem (Supabase): sincronizacao continua ----------
+  // 100% opcional — sem login, nada aqui roda, e o app funciona exatamente como antes.
+  // Existe so pra nao repetir a perda de dados do historico/13: quando ha login, toda vez que
+  // uma "loja" e salva localmente, sobe uma copia pra nuvem tambem (com debounce, pra nao
+  // martelar a rede a cada tecla digitada).
+
+  const filaPushNuvem = new Map(); // loja -> timeoutId
+
+  function enfileirarPushNuvem(loja, valor) {
+    if (!sessaoNuvem) return;
+    clearTimeout(filaPushNuvem.get(loja));
+    filaPushNuvem.set(loja, setTimeout(() => {
+      filaPushNuvem.delete(loja);
+      Nuvem.enviarDado(loja, valor, sessaoNuvem.user.id).catch((e) => console.warn('[nuvem] falha ao enviar', loja, e));
+    }, 2500));
+  }
+
+  Dados.aoSalvar((loja, valor) => {
+    if (Dados.LOJAS_SINCRONIZAVEIS.includes(loja)) enfileirarPushNuvem(loja, valor);
+  });
+
+  /** So roda 1x por login de verdade (nao a cada abertura do app) — decide entre nuvem e local
+   *  sem apagar nada por acidente. Ver historico/15 pra o raciocinio completo. */
+  async function sincronizarAoLogar(sessao) {
+    try {
+      const remoto = await Nuvem.buscarTudo(sessao.user.id);
+      const remotoTemDados = !!(remoto.perfil?.nome || remoto.fichas?.length || remoto.sessoes?.length);
+      const p = Dados.perfil();
+      const localTemDados = !!(p.nome || Dados.fichas().length || Dados.sessoes().length);
+
+      const restaurarDaNuvem = () => {
+        Dados.LOJAS_SINCRONIZAVEIS.forEach((loja) => {
+          if (remoto[loja] !== undefined) Dados.gravarLoja(loja, remoto[loja]);
+        });
+      };
+      const semearNuvem = () => {
+        Dados.LOJAS_SINCRONIZAVEIS.forEach((loja) => enfileirarPushNuvem(loja, Dados.lerLoja(loja)));
+      };
+
+      if (remotoTemDados && !localTemDados) {
+        restaurarDaNuvem();
+        alert('Encontrei seus dados salvos na nuvem — restaurei tudo aqui.');
+      } else if (remotoTemDados && localTemDados) {
+        if (confirm('Encontrei dados salvos na nuvem de uma sessão anterior.\n\nUsar os dados da nuvem? Isso substitui o que está neste aparelho agora.\n\n(Cancelar mantém o que está aqui e atualiza a nuvem com isso.)')) {
+          restaurarDaNuvem();
+        } else {
+          semearNuvem();
+        }
+      } else if (!remotoTemDados && localTemDados) {
+        semearNuvem();
+      }
+      Dados.registrarBackupFeito(); // login com sincronizacao tambem conta como "ha copia por fora"
+      UI.render();
+    } catch (e) {
+      console.warn('[nuvem] falha ao sincronizar apos login', e);
+    }
+  }
+
+  if (Nuvem.disponivel()) {
+    let jaSincronizou = !!sessaoNuvem; // ja carregou logada: nao repete a comparacao agora
+    Nuvem.aoMudarSessao((_evento, sessao) => {
+      const tinhaAntes = !!sessaoNuvem;
+      sessaoNuvem = sessao;
+      UI.estado.nuvem.sessao = sessao;
+      if (sessao && !tinhaAntes && !jaSincronizou) {
+        jaSincronizou = true;
+        sincronizarAoLogar(sessao);
+      } else {
+        UI.render();
+      }
+    });
   }
 
   // ---------- helpers ----------
@@ -638,6 +719,25 @@
         });
         break;
       }
+
+      // ----- nuvem (backup automatico) -----
+
+      case 'nuvem-enviar-link': {
+        if (!Nuvem.disponivel()) { alert('Sem conexão agora — tente de novo com internet.'); break; }
+        const email = document.getElementById('nuvem-email')?.value?.trim();
+        if (!email || !email.includes('@')) { alert('Digite um e-mail válido.'); break; }
+        Nuvem.enviarLinkLogin(email).then(() => {
+          est.nuvem.linkEnviadoPara = email;
+          UI.render();
+        }).catch((e) => alert(e.message));
+        break;
+      }
+
+      case 'nuvem-sair':
+        if (confirm('Sair da conta na nuvem? Os dados continuam aqui no aparelho — só para de sincronizar.')) {
+          Nuvem.sair();
+        }
+        break;
 
       // ----- coach -----
 

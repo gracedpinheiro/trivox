@@ -75,7 +75,26 @@ const Dados = (() => {
   }
 
   const ler = (nome, padrao) => lerBruto(chave(nome), padrao);
-  const gravar = (nome, valor) => gravarBruto(chave(nome), valor);
+
+  // avisa quem se inscrever (nuvem.js, via app.js) toda vez que uma "loja" muda — dados.js
+  // continua sem saber nada de rede, so anuncia. Mantem esta camada pura e testavel offline.
+  let _aoSalvar = null;
+  const aoSalvar = (callback) => { _aoSalvar = callback; };
+
+  function gravar(nome, valor) {
+    const ok = gravarBruto(chave(nome), valor);
+    if (ok && _aoSalvar) _aoSalvar(nome, valor);
+    return ok;
+  }
+
+  // acesso generico por nome de loja — usado so por exportar/importar (.zip) e pela
+  // sincronizacao com a nuvem, que tratam toda loja do mesmo jeito (nome + valor JSON)
+  const lerLoja = (nome) => ler(nome, null);
+  const gravarLoja = (nome, valor) => gravar(nome, valor);
+
+  // lojas que saem do aparelho (backup .zip e nuvem) — deliberadamente SEM 'spotify' nem
+  // qualquer sessao/token: credenciais nunca saem do aparelho, so dado de treino sai.
+  const LOJAS_SINCRONIZAVEIS = ['perfil', 'fichas', 'cardios', 'cargas', 'sessoes', 'gam', 'pesos', 'fotosEvolucao', 'fotosExercicio'];
 
   // ---------- perfil (medidas e preferencias) ----------
 
@@ -316,7 +335,7 @@ const Dados = (() => {
   function exportar() {
     const pid = perfilAtivoId();
     const pacote = { app: 'treino', versao: 1, exportadoEm: new Date().toISOString(), perfilId: pid, dados: {} };
-    for (const nome of ['perfil', 'fichas', 'cardios', 'cargas', 'sessoes', 'gam', 'pesos', 'fotosEvolucao', 'fotosExercicio']) {
+    for (const nome of LOJAS_SINCRONIZAVEIS) {
       pacote.dados[nome] = ler(nome, null);
     }
     return pacote;
@@ -358,5 +377,6 @@ const Dados = (() => {
     spotify, salvarSpotify, desconectarSpotify,
     exportar, importar,
     exercicios, acharExercicio,
+    aoSalvar, lerLoja, gravarLoja, LOJAS_SINCRONIZAVEIS,
   };
 })();

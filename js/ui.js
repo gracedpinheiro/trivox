@@ -19,6 +19,7 @@ const UI = (() => {
     gerador: { objetivo: null },
     sessaoExpandida: null,       // id da sessao aberta no historico da tela de evolucao
     fotoTemp: null,              // dataURL de foto de evolucao escolhida, aguardando confirmacao no modal
+    nuvem: { sessao: null, linkEnviadoPara: null }, // ver js/nuvem.js — sessao do Supabase, espelhada aqui pra tela ler
   };
 
   let BASE = [];               // base de exercicios carregada
@@ -1298,6 +1299,48 @@ const UI = (() => {
   }
 
   /** Card do Spotify no Perfil: conectar/desconectar + instrucoes de setup. */
+  /** Card de nuvem no Perfil: login por link magico + status da sincronizacao automatica.
+      Existe por causa de uma perda de dados real (ver historico/13) — diferente do backup em
+      .zip (manual), aqui a copia sobe sozinha sempre que algo muda, contanto que haja login. */
+  function telaPerfilNuvem() {
+    const sessao = estado.nuvem.sessao;
+
+    if (sessao) {
+      const backup = Dados.backupMeta();
+      return `
+        <div class="cartao">
+          <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2><span class="etiqueta ok">Conectado</span></div>
+          <p class="pequeno apagado">Logada como <strong>${h(sessao.user.email)}</strong>. Seus dados sobem sozinhos pra nuvem sempre que mudam — se este aparelho perder tudo, é só entrar de novo com o mesmo e-mail pra recuperar.</p>
+          ${backup.ultimoEm ? `<p class="pequeno apagado">Última sincronização: ${new Date(backup.ultimoEm).toLocaleString('pt-BR')}</p>` : ''}
+          <button class="btn btn-largo btn-perigo" data-acao="nuvem-sair">Sair desta conta</button>
+        </div>`;
+    }
+
+    if (estado.nuvem.linkEnviadoPara) {
+      return `
+        <div class="cartao">
+          <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2></div>
+          <div class="nota">
+            <strong>Verifique seu e-mail</strong>
+            Mandei um link de acesso pra <strong>${h(estado.nuvem.linkEnviadoPara)}</strong>. Toque nele nesse mesmo aparelho pra entrar — não precisa de senha.
+          </div>
+          <button class="btn btn-largo" data-acao="nuvem-enviar-link" style="margin-top:4px">Reenviar</button>
+        </div>`;
+    }
+
+    return `
+      <div class="cartao">
+        <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2></div>
+        <p class="pequeno apagado">Uma cópia de segurança automática, separada deste aparelho. Cada pessoa da família usa o próprio e-mail — ninguém vê o treino de ninguém.</p>
+        <div class="campo">
+          <label>Seu e-mail</label>
+          <input id="nuvem-email" type="email" placeholder="seu@email.com" autocomplete="email">
+        </div>
+        <button class="btn btn-largo btn-principal" data-acao="nuvem-enviar-link">Enviar link de login</button>
+        <p class="pequeno apagado" style="margin-top:8px">Sem senha — só um link no e-mail, uma vez só. Continua funcionando offline sem isso; é uma camada extra de segurança.</p>
+      </div>`;
+  }
+
   function telaPerfilSpotify() {
     const sp = Dados.spotify();
     const conectado = Spotify.tokenValido(sp) || !!sp.refreshToken;
@@ -1495,11 +1538,13 @@ const UI = (() => {
         </div>
       </div>
 
+      ${telaPerfilNuvem()}
+
       ${telaPerfilSpotify()}
 
       <div class="cartao">
-        <div class="cartao-titulo"><h2>Backup</h2></div>
-        <p class="pequeno apagado">Seus dados ficam só neste aparelho. Limpar o histórico do navegador apaga tudo — exporte de vez em quando. O arquivo é um .zip com tudo dentro, inclusive suas fotos e vídeos por exercício.</p>
+        <div class="cartao-titulo"><h2>Backup manual</h2></div>
+        <p class="pequeno apagado">Além da nuvem acima, um arquivo <code>.zip</code> com tudo dentro (inclusive fotos e vídeos por exercício) — útil pra guardar uma cópia à parte.</p>
         <div class="linha-btn">
           <button class="btn" data-acao="exportar">Exportar</button>
           <button class="btn" data-acao="importar">Importar</button>
