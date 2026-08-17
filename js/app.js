@@ -749,7 +749,9 @@
 
       case 'nuvem-enviar-link': {
         if (!Nuvem.disponivel()) { alert('Sem conexão agora — tente de novo com internet.'); break; }
-        const email = document.getElementById('nuvem-email')?.value?.trim();
+        // "Reenviar" nao tem mais o campo de e-mail na tela (ja foi enviado antes) — usa o
+        // e-mail guardado no proprio botao nesse caso; no primeiro envio, le do campo mesmo.
+        const email = (alvo.dataset.email || document.getElementById('nuvem-email')?.value || '').trim();
         if (!email || !email.includes('@')) { alert('Digite um e-mail válido.'); break; }
         Nuvem.enviarLinkLogin(email).then(() => {
           est.nuvem.linkEnviadoPara = email;

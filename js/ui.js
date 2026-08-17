@@ -1298,7 +1298,6 @@ const UI = (() => {
     `);
   }
 
-  /** Card do Spotify no Perfil: conectar/desconectar + instrucoes de setup. */
   /** Card de nuvem no Perfil: login por link magico + status da sincronizacao automatica.
       Existe por causa de uma perda de dados real (ver historico/13) — diferente do backup em
       .zip (manual), aqui a copia sobe sozinha sempre que algo muda, contanto que haja login. */
@@ -1324,7 +1323,7 @@ const UI = (() => {
             <strong>Verifique seu e-mail</strong>
             Mandei um link de acesso pra <strong>${h(estado.nuvem.linkEnviadoPara)}</strong>. Toque nele nesse mesmo aparelho pra entrar — não precisa de senha.
           </div>
-          <button class="btn btn-largo" data-acao="nuvem-enviar-link" style="margin-top:4px">Reenviar</button>
+          <button class="btn btn-largo" data-acao="nuvem-enviar-link" data-email="${h(estado.nuvem.linkEnviadoPara)}" style="margin-top:4px">Reenviar</button>
         </div>`;
     }
 
