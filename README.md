@@ -265,7 +265,10 @@ antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o
 ## Perfil, objetivo e treino
 
 - **Objetivos**: condicionamento físico, perda de peso, hipertrofia, especial 50+ e especial raquete
-  (pickleball/beach tennis — com dias de jogo: nesses dias e na véspera a ficha vira ativação leve).
+  (pickleball e/ou beach tennis — com dias de jogo: nesses dias e na véspera a ficha vira ativação leve).
+  Dá para marcar **até 2 objetivos de treino** (ex.: raquete + hipertrofia): os dias da semana se
+  dividem entre eles, e dia de jogo/véspera ficam sempre com a raquete. "Especial 50+" soma com
+  qualquer um (ex.: 50+ + condicionamento) como camada de segurança, sem dividir a semana.
 - **Nível**: iniciante, intermediário ou avançado (o "elite" antigo vale como avançado).
 - **Onde treina**: academia ou casa; em casa, a pessoa marca os equipamentos que tem.
 - **Sexo, idade e peso/altura** personalizam o gerador: 50+ e 65+ ficam sem salto e com mais
@@ -282,7 +285,7 @@ antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o
 - **Cronômetro** (Início ou ⏱️ no treino): timer com alarme, cronômetro com voltas e
   intervalado (Tabata/HIIT). Descanso entre séries com contagem 3-2-1, alarme, vibração e
   notificação. O tempo é calculado pelo relógio, então continua certo se a tela apagar.
-- **Chamada diária** (Perfil › Chamada pro treino): horário + botão "colocar no calendário do
+- **Chamada diária** (Perfil › Chamada pro treino): até 2 horários no mesmo dia + botão "colocar no calendário do
   celular" (o mais garantido: avisa com o app fechado), notificação do app e, no Android com o
   app instalado, aviso em segundo plano.
 - **Motivação**: frase do dia na tela inicial e "missão do dia" com o treino de hoje.

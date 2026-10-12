@@ -598,6 +598,32 @@
     UI.modalResumoTreino({ xpGanho, novosBadges, nivel: nivelDepois, subiuNivel: nivelDepois.chave !== nivelAntes.chave });
   }
 
+  // ---------- fotos para usar sem internet ----------
+  // O service worker guarda cada foto que passa por ele; aqui so pedimos as fotos antes de a
+  // pessoa precisar (no modo aviao so aparecia o que ja tinha sido visto). 4 por vez.
+  async function baixarFotos(urls, aoAvancar = () => {}) {
+    let feitas = 0, falhas = 0, i = 0;
+    const proximo = async () => {
+      while (i < urls.length) {
+        const u = urls[i++];
+        try { const r = await fetch(u); if (!r.ok) falhas++; } catch (e) { falhas++; }
+        aoAvancar(++feitas);
+      }
+    };
+    await Promise.all([proximo(), proximo(), proximo(), proximo()]);
+    return falhas;
+  }
+
+  /** Fotos dos exercicios das fichas (e dos substitutos imediatos) — automatico, com internet. */
+  function guardarFotosDasFichas() {
+    if (!navigator.onLine || !('serviceWorker' in navigator)) return;
+    const porId = new Map(UI.getBase().map((e) => [e.id, e]));
+    const urls = new Set();
+    for (const f of Dados.fichas()) for (const it of f.exercicios || []) (porId.get(it.exId)?.imagens || []).forEach((u) => urls.add(u));
+    if (urls.size) baixarFotos([...urls]);
+  }
+  setTimeout(guardarFotosDasFichas, 8000);
+
   // ---------- cliques ----------
 
   let audioDestravado = false;
@@ -635,6 +661,34 @@
       case 'fechar-modal':
         UI.fecharModal();
         break;
+
+      case 'ampliar-midia':
+        UI.abrirModal(`<div class="midia-ampliada">${alvo.innerHTML}</div>
+          <button class="btn btn-largo btn-principal" data-acao="fechar-modal">Fechar</button>`);
+        break;
+
+      case 'zerar-tudo': {
+        const naNuvem = !!sessaoNuvem;
+        if (!confirm(`Apagar TUDO deste aparelho${naNuvem ? ' e da sua conta na nuvem' : ''}? Perfil, fichas, histórico, fotos e vídeos. Não dá para desfazer.`)) break;
+        if (!confirm('Tem certeza? Esta é a última confirmação.')) break;
+        (async () => {
+          try {
+            for (const [, t] of filaPushNuvem) clearTimeout(t); // nada pendente sobe de volta
+            filaPushNuvem.clear();
+            if (naNuvem) {
+              await Nuvem.apagarMeusDados(sessaoNuvem.user.id);
+              await Nuvem.sair();
+            }
+            await Dados.apagarTudoLocal();
+            await Videos.apagarTodos().catch(() => {});
+            est.execucao = null;
+            location.reload();
+          } catch (e) {
+            alert('Não consegui apagar tudo: ' + e.message + (naNuvem ? ' (confira a internet: a nuvem precisa estar acessível).' : ''));
+          }
+        })();
+        break;
+      }
 
       case 'alternar-animacao':
         est.animacaoParada = !est.animacaoParada;
@@ -763,7 +817,12 @@
         UI.modalGerador();
         break;
 
-      case 'ger-objetivo': case 'ger-local': case 'ger-nivel': {
+      case 'ger-objetivo':
+        est.gerador.objetivos = UI.alternarObjetivo(est.gerador.objetivos || UI.perfilTreino().objetivos, alvo.dataset.valor);
+        UI.modalGerador();
+        break;
+
+      case 'ger-local': case 'ger-nivel': {
         est.gerador[acao.replace('ger-', '')] = alvo.dataset.valor;
         UI.modalGerador();
         break;
@@ -778,26 +837,27 @@
         const p = Dados.perfil();
         const g = est.gerador;
         const pt = UI.perfilTreino();
-        const objetivo = g.objetivo || pt.objetivo;
+        const objetivos = g.objetivos || pt.objetivos;
         const local = g.local || pt.local;
         const nivel = g.nivel || pt.nivel;
         // "gerar de novo" sempre muda: contador que so cresce (melhor variedade que contar fichas)
         let rotacao = 0;
         try { rotacao = Number(localStorage.getItem('at:rotacao') || 0) + 1; localStorage.setItem('at:rotacao', String(rotacao)); } catch (e) { rotacao = Date.now() % 97; }
         const planos = Forca.gerarPlano({
-          objetivo, nivel, local, freqForca: p.freqForca,
+          objetivos, nivel, local, freqForca: p.freqForca,
           diasSemana: p.diasTreino, base: UI.getBase(), rotacao,
           sexo: p.sexo, idade: Dados.idade(), peso: p.peso, altura: p.altura,
           equipCasa: p.equipCasa, diasJogo: p.diasJogo, enfase: p.enfase,
         });
         if (!planos.length) { alert('Não consegui montar fichas com essas opções. Tente outro local ou nível.'); break; }
-        Dados.salvarPerfil({ objetivo, local, nivel });
+        Dados.salvarPerfil({ objetivos, objetivo: UI.principalDe(objetivos), local, nivel });
         if (g.substituir !== false) Dados.fichas().forEach((f) => Dados.apagarFicha(f.id));
         planos.forEach((pl) => {
           const f = Dados.novaFicha(pl.nome);
           Dados.atualizarFicha(f.id, { exercicios: pl.exercicios, diaSemana: pl.diaSemana, obs: pl.porque || '', objetivo: pl.objetivo, ultimaVariacaoEm: Date.now() });
         });
         est.gerador = { objetivo: null };
+        setTimeout(guardarFotosDasFichas, 1000);
         UI.fecharModal();
         UI.ir('fichas');
         break;
@@ -838,7 +898,8 @@
         // ficha montada a mao: ganha aquecimento no inicio e alongamento no fim, pros musculos do dia
         let lista = f.exercicios;
         try {
-          lista = Forca.completarSessao(f.exercicios, { base: UI.getBase(), ...UI.perfilTreino() }) || f.exercicios;
+          // com 2 objetivos, cada ficha sabe o seu (aquecimento/alongamento no estilo dela)
+          lista = Forca.completarSessao(f.exercicios, { base: UI.getBase(), ...UI.perfilTreino(), ...(f.objetivo ? { objetivo: f.objetivo } : {}) }) || f.exercicios;
         } catch (e) { console.warn('[treino] completarSessao', e); }
         // ficha antiga com exercicio que saiu da base: fica de fora (antes virava "Exercicio" sem imagem)
         const existe = new Set(UI.getBase().map((e) => e.id));
@@ -1214,10 +1275,32 @@
 
       // ----- perfil: objetivo, nivel, local, casa, raquete, lembrete -----
 
-      case 'perfil-objetivo':
-        Dados.salvarPerfil({ objetivo: alvo.dataset.valor });
+      case 'perfil-objetivo': {
+        const objetivos = UI.alternarObjetivo(UI.perfilTreino().objetivos, alvo.dataset.valor);
+        Dados.salvarPerfil({ objetivos, objetivo: UI.principalDe(objetivos) });
         UI.render();
         break;
+      }
+
+      case 'toggle-esporte': {
+        const atual = UI.esportesDe(Dados.perfil());
+        const k = alvo.dataset.valor;
+        const esportes = atual.includes(k) ? atual.filter((x) => x !== k) : [...atual, k];
+        Dados.salvarPerfil({ esportes, esporte: esportes[0] || null });
+        UI.render();
+        break;
+      }
+
+      case 'adicionar-hora-lembrete':
+      case 'remover-hora-lembrete': {
+        const horas = [...Lembretes.horasDoLembrete(Dados.perfil())];
+        if (acao === 'adicionar-hora-lembrete') horas.push(horas[0] === '07:00' ? '19:00' : '07:00');
+        else horas.splice(Number(alvo.dataset.i), 1);
+        Dados.salvarPerfil({ lembreteHoras: horas, lembreteHora: horas[0] });
+        Lembretes.sincronizarComSW(Dados.perfil());
+        UI.render();
+        break;
+      }
 
       case 'perfil-chip':
         Dados.salvarPerfil({ [alvo.dataset.campo]: alvo.dataset.valor });
@@ -1256,6 +1339,23 @@
         if (ligar) Alarme.pedirPermissao().then(() => { Lembretes.registrarPeriodico(); UI.render(); });
         Lembretes.sincronizarComSW(Dados.perfil());
         UI.render();
+        break;
+      }
+
+      case 'ir-nuvem':
+        // abre o Perfil ja rolado ate o login da nuvem
+        UI.ir('perfil');
+        setTimeout(() => document.querySelector('[data-acao="nuvem-sair"], #nuvem-email, input[type="email"]')?.scrollIntoView({ block: 'center' }), 50);
+        break;
+
+      case 'baixar-fotos': {
+        const todas = [...new Set(UI.getBase().flatMap((e) => e.imagens || []))];
+        alvo.disabled = true;
+        baixarFotos(todas, (feitas) => { alvo.textContent = `Baixando… ${feitas} de ${todas.length}`; })
+          .then((falhas) => {
+            alvo.disabled = false;
+            alvo.textContent = falhas ? `Faltaram ${falhas} — toque para tentar de novo` : '✓ Todas as fotos guardadas';
+          });
         break;
       }
 
@@ -1439,13 +1539,15 @@
     }
     // treino em andamento sempre gravado (ou apagado) depois de qualquer acao
     Dados.salvarExecucao(est.execucao);
-    manterTelaAcesa(!!est.execucao && est.tela === 'execucao');
+    manterTelaAcesa(precisaTelaAcesa());
   });
 
   // tela acesa durante o treino: com ela apagada o navegador congela o app e o alarme do
   // descanso so toca quando a pessoa volta (auditoria 12/10/2026). O sistema solta sozinho se o
   // app sair da frente; volta a pedir ao reabrir.
   let wakeLock = null;
+  // treino aberto na tela, ou cronometro/descanso rodando na tela do cronometro
+  const precisaTelaAcesa = () => (!!est.execucao && est.tela === 'execucao') || (!!est.crono.rodando && est.tela === 'cronometro');
   async function manterTelaAcesa(ligar) {
     try {
       if (ligar && !wakeLock && 'wakeLock' in navigator) {
@@ -1458,7 +1560,7 @@
     } catch (e) { /* sem suporte ou economia de bateria: segue sem */ }
   }
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') manterTelaAcesa(!!est.execucao && est.tela === 'execucao');
+    if (document.visibilityState === 'visible') manterTelaAcesa(precisaTelaAcesa());
   });
 
   // ---------- digitacao (salva sem re-renderizar, para nao perder o foco) ----------
@@ -1519,6 +1621,16 @@
     // spotify: client id
     if (el.id === 'spotify-client-id') {
       Dados.salvarSpotify({ clientId: el.value.trim() });
+      return;
+    }
+
+    // chamada pro treino: ate 2 horarios
+    if (el.dataset.lembreteHora !== undefined) {
+      if (!/^\d{1,2}:\d{2}$/.test(el.value)) return;
+      const horas = [...Lembretes.horasDoLembrete(Dados.perfil())];
+      horas[Number(el.dataset.lembreteHora)] = el.value;
+      Dados.salvarPerfil({ lembreteHoras: horas, lembreteHora: horas[0] });
+      Lembretes.sincronizarComSW(Dados.perfil());
       return;
     }
 

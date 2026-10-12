@@ -147,7 +147,8 @@ const Spotify = (() => {
     if (resp.status === 204 || resp.status === 202) return null; // sucesso sem corpo
     if (!resp.ok) throw new Error(await mensagemErro(resp));
     const texto = await resp.text();
-    return texto ? JSON.parse(texto) : null;
+    // "proxima"/"anterior" devolvem 200 com um id em texto puro, nao JSON: isso e sucesso
+    try { return texto ? JSON.parse(texto) : null; } catch (e) { return null; }
   }
 
   async function tocandoAgora(accessToken) {

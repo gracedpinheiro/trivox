@@ -34,7 +34,7 @@ const Figuras = (() => {
   const C = {
     pele: '#F5C6A0', pele2: '#E6AC84', cabelo: '#8A5534', olho: '#33364D', bochecha: '#FF8FA3',
     camisa: '#FF6B6B', camisa2: '#EC5757', short: '#12C2B9', short2: '#0DA79F',
-    legging: '#8B5CF6', legging2: '#7A4BE6', tenis: '#3B82F6', tenis2: '#2F6FDB',
+    legging: '#A855F7', legging2: '#9333EA', tenis: '#3B82F6', tenis2: '#2F6FDB',
     fundo: '#F2F8FF', chao: '#DCEAFB', chao2: '#C9DCF5', sol: '#FFF1C7',
     metal: '#AAB6C8', metal2: '#8794AA', metal3: '#D3DBE7', aco: '#9AA6BA',
     roxo: '#8B5CF6', roxo2: '#B9A2FB', coral: '#FF6B6B', coral2: '#FFA3A3', turq: '#12C2B9', turq2: '#8BE3DE',
@@ -350,6 +350,8 @@ const Figuras = (() => {
   }
 
   // ------------------------------------------------------------------ desenho do boneco
+  // Boneco unico e sem genero em todo o app (pedido da Grace, out/2026): cabelo curto, camiseta e
+  // bermuda servem para todo mundo. A variante 'f' fica so para as demos (genero: 'f' explicito).
   function roupa(o) {
     const fem = o.genero === 'f';
     return {
@@ -376,9 +378,10 @@ const Figuras = (() => {
     const q = J.q, jo = J['j' + k], to = J['t' + k];
     const corP = sombra ? ro.perna2 : ro.perna;
     if (ro.fem) {
-      S.cap(q, jo, 14.5, corP, cam);
-      S.cap(jo, to, 11.5, corP, cam);
-      S.cap(mix(jo, to, .82), to, 9.5, pele, cam);
+      // visual jovem e esportivo (pedido da Grace): bermuda de ciclista, perna a mostra
+      S.cap(q, jo, 13.5, pele, cam);
+      S.cap(jo, to, 10.5, pele, cam);
+      S.cap(q, mix(q, jo, .66), 15, corP, cam);
     } else {
       S.cap(q, jo, 14, pele, cam);
       S.cap(jo, to, 11, pele, cam);
@@ -394,7 +397,7 @@ const Figuras = (() => {
   function cabecaLado(S, J, ro, cam) {
     const c = J.cab, u = J.hu, fw = J.hf;
     S.cap(J.om, J.pesc, 9, C.pele2, cam);                                         // pescoco
-    if (ro.fem) { const r0 = add(add(c, mul(fw, -9.5)), mul(u, 5)); S.cap(r0, add(add(c, mul(fw, -15.5)), mul(u, -7)), 7.5, C.cabelo, cam); S.circ(r0, 3.4, C.coral2, cam); }
+    if (ro.fem) { const r0 = add(add(c, mul(fw, -9)), mul(u, 9)); S.cap(r0, add(add(c, mul(fw, -19)), mul(u, 0)), 6.5, C.cabelo, cam); S.circ(r0, 3.4, C.amarelo, cam); } // rabo de cavalo alto
     S.circ(add(add(c, mul(fw, -2.2)), mul(u, 1.8)), 12.6, C.cabelo, cam);
     S.circ(add(add(c, mul(fw, 1)), mul(u, -0.8)), 11.3, C.pele, cam);
     S.circ(add(add(c, mul(fw, 3.5)), mul(u, 8.8)), 5.2, C.cabelo, cam);            // franja
@@ -433,13 +436,12 @@ const Figuras = (() => {
     for (const k of [1, 2]) {
       const sg = k === 1 ? 1 : -1;
       const b = J['q' + k], jo = J['j' + k], to = J['t' + k];
-      if (ro.fem) { S.cap(b, jo, 15, ro.perna, 'atras'); S.cap(jo, to, 12, ro.perna, 'atras'); S.cap(mix(jo, to, .85), to, 10, C.pele, 'atras'); }
-      else { S.cap(b, jo, 14.5, C.pele, 'atras'); S.cap(jo, to, 11.5, C.pele, 'atras'); }
+      S.cap(b, jo, ro.fem ? 13.5 : 14.5, C.pele, 'atras'); S.cap(jo, to, ro.fem ? 10.5 : 11.5, C.pele, 'atras');
       S.elipse(add(to, V(sg * 2.5, 3.5)), 7, 4.6, C.tenis, 'atras');
       S.elipse(add(to, V(sg * 2.5, 6.4)), 6.4, 1.6, '#FFFFFF', 'atras');
     }
     // short
-    if (!ro.fem) for (const k of [1, 2]) S.cap(J['q' + k], mix(J['q' + k], J['j' + k], .5), 16.5, ro.perna, 'meio');
+    for (const k of [1, 2]) S.cap(J['q' + k], mix(J['q' + k], J['j' + k], ro.fem ? .66 : .5), ro.fem ? 15.5 : 16.5, ro.perna, 'meio');
     S.poli([T(-6, -12), T(-6, 12), T(10, 12.5), T(10, -12.5)], ro.perna, 'meio', 4);
     // camiseta
     S.poli([T(4, -12), T(4, 12), T(26, 13), T(44, 14.5), T(44, -14.5), T(26, -13)], ro.camisa, 'corpo', 5);

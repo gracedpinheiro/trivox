@@ -14,31 +14,42 @@ const Lembretes = (() => {
   const DIAS_ICS = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
 
   const diasDoLembrete = (p) => (p.diasTreino && p.diasTreino.length ? p.diasTreino : [0, 1, 2, 3, 4, 5, 6]);
+  /** Ate 2 horarios no mesmo dia (ex.: 07:00 e 18:00). Perfis antigos so tem lembreteHora. */
+  const horasDoLembrete = (p) => (Array.isArray(p.lembreteHoras) && p.lembreteHoras.length ? p.lembreteHoras : [p.lembreteHora || '18:00'])
+    .filter((x) => /^\d{1,2}:\d{2}$/.test(x)).slice(0, 2);
+  const emMinutos = (hora) => { const [hh, mm] = hora.split(':').map(Number); return hh * 60 + mm; };
 
-  /** Gera e baixa o .ics: evento de 1h repetindo nos dias de treino, com alarme na hora. */
+  /** Gera e baixa o .ics: um evento de 1h por horario, repetindo nos dias de treino, com alarme. */
   function baixarCalendario(p) {
-    const [hh, mm] = (p.lembreteHora || '18:00').split(':').map(Number);
-    const d = new Date(); d.setHours(hh, mm, 0, 0);
-    // 1o evento num dia marcado (DTSTART fora do BYDAY cria uma ocorrencia extra em varios calendarios)
-    const marcados = diasDoLembrete(p);
-    while (!marcados.includes(d.getDay())) d.setDate(d.getDate() + 1);
     const pad = (n) => String(n).padStart(2, '0');
     const local = (x) => `${x.getFullYear()}${pad(x.getMonth() + 1)}${pad(x.getDate())}T${pad(x.getHours())}${pad(x.getMinutes())}00`;
-    const fim = new Date(d.getTime() + 60 * 60000);
-    const dias = diasDoLembrete(p).map((i) => DIAS_ICS[i]).join(',');
-    const url = location.href.split('#')[0].split('?')[0];
+    const marcados = diasDoLembrete(p);
+    const dias = marcados.map((i) => DIAS_ICS[i]).join(',');
+    const eventos = horasDoLembrete(p).flatMap((hora, i) => {
+      const [hh, mm] = hora.split(':').map(Number);
+      const d = new Date(); d.setHours(hh, mm, 0, 0);
+      // 1o evento num dia marcado (DTSTART fora do BYDAY cria uma ocorrencia extra em varios calendarios)
+      while (!marcados.includes(d.getDay())) d.setDate(d.getDate() + 1);
+      const fim = new Date(d.getTime() + 60 * 60000);
+      return [
+        'BEGIN:VEVENT',
+        // fixo por horario: baixar de novo ATUALIZA o evento em vez de duplicar
+        i ? 'UID:trivox-treino-2@trivox' : 'UID:trivox-treino@trivox',
+        `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`, // RFC 5545: em UTC
+        `DTSTART:${local(d)}`, `DTEND:${local(fim)}`,
+        `RRULE:FREQ=WEEKLY;BYDAY=${dias}`,
+        'SUMMARY:💪 Hora do treino — TRIVOX',
+        // sem link de proposito: no iPhone o link abre o SAFARI, que guarda dados separados do app
+        // instalado (abria "outro TRIVOX", vazio ou com dados velhos). Abrir sempre pelo icone.
+        'DESCRIPTION:Abra o TRIVOX pelo ícone na tela de início e comece o treino de hoje.',
+        'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:Hora do treino!', 'TRIGGER:PT0M', 'END:VALARM',
+        'END:VEVENT',
+      ];
+    });
     const ics = [
       'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//TRIVOX//Treino//PT-BR', 'CALSCALE:GREGORIAN',
-      'BEGIN:VEVENT',
-      'UID:trivox-treino@trivox', // fixo: baixar de novo ATUALIZA o evento em vez de duplicar
-      `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`, // RFC 5545: em UTC
-      `DTSTART:${local(d)}`, `DTEND:${local(fim)}`,
-      `RRULE:FREQ=WEEKLY;BYDAY=${dias}`,
-      'SUMMARY:💪 Hora do treino — TRIVOX',
-      'DESCRIPTION:Abra o TRIVOX e comece o treino de hoje.',
-      `URL:${url}`,
-      'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:Hora do treino!', 'TRIGGER:PT0M', 'END:VALARM',
-      'END:VEVENT', 'END:VCALENDAR',
+      ...eventos,
+      'END:VCALENDAR',
     ].join('\r\n') + '\r\n';
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const a = document.createElement('a');
@@ -52,12 +63,13 @@ const Lembretes = (() => {
   async function sincronizarComSW(p, extra = {}) {
     try {
       const c = await caches.open(CACHE_CFG);
-      // preserva o que o SW ja sabe (treinou hoje / ja avisou hoje): sem isso, abrir o app depois
-      // do treino apagava o "treinou" e o aviso podia chegar mesmo assim
+      // preserva o que o SW ja sabe (treinou hoje / quais horarios ja avisou hoje): sem isso, abrir
+      // o app depois do treino apagava o "treinou" e o aviso podia chegar mesmo assim
       const atual = await c.match(URL_CFG).then((r) => (r ? r.json() : {})).catch(() => ({}));
+      const horas = horasDoLembrete(p);
       const cfg = {
-        treinouEm: atual.treinouEm, avisadoEm: atual.avisadoEm,
-        ativo: !!p.lembreteAtivo, hora: p.lembreteHora || '18:00', dias: diasDoLembrete(p),
+        treinouEm: atual.treinouEm, avisados: atual.avisados || {},
+        ativo: !!p.lembreteAtivo, horas, hora: horas[0], dias: diasDoLembrete(p),
         titulo: 'Hora do treino 💪', corpo: Motivacao.chamada(p.nome, extra.nomeFicha),
         ...extra,
       };
@@ -76,22 +88,27 @@ const Lembretes = (() => {
     } catch (e) { return false; }
   }
 
-  /** Chamado ao abrir o app, ao voltar pra ele e a cada minuto com ele aberto. */
+  /** Chamado ao abrir o app, ao voltar pra ele e a cada minuto com ele aberto.
+   *  Cada horario avisa 1x por dia; varios horarios vencidos de uma vez viram 1 aviso so. */
   function verificar({ perfil, jaTreinouHoje, nomeFicha }) {
     const p = perfil;
     if (!p.lembreteAtivo) return null;
     const agora = new Date();
     const hoje = agora.toLocaleDateString('sv-SE');
     if (!diasDoLembrete(p).includes(agora.getDay()) || jaTreinouHoje) return null;
-    const [hh, mm] = (p.lembreteHora || '18:00').split(':').map(Number);
-    if (agora.getHours() * 60 + agora.getMinutes() < hh * 60 + mm) return null;
-    let ultimo = null;
-    try { ultimo = localStorage.getItem('at:lembrete-ultimo'); } catch (e) { /* ok */ }
-    if (ultimo === hoje) return 'ja-avisado';
-    try { localStorage.setItem('at:lembrete-ultimo', hoje); } catch (e) { /* ok */ }
+    const minutos = agora.getHours() * 60 + agora.getMinutes();
+    let reg = { dia: hoje, horas: [] };
+    try {
+      const salvo = JSON.parse(localStorage.getItem('at:lembrete-avisos') || 'null');
+      if (salvo && salvo.dia === hoje) reg = salvo;
+    } catch (e) { /* ok */ }
+    const vencidos = horasDoLembrete(p).filter((h) => emMinutos(h) <= minutos && !reg.horas.includes(h));
+    if (!vencidos.length) return 'ja-avisado';
+    reg.horas.push(...vencidos);
+    try { localStorage.setItem('at:lembrete-avisos', JSON.stringify(reg)); } catch (e) { /* ok */ }
     Alarme.notificar('Hora do treino 💪', Motivacao.chamada(p.nome, nomeFicha), { tag: 'lembrete-treino', forcar: true });
     return 'avisado';
   }
 
-  return { baixarCalendario, sincronizarComSW, registrarPeriodico, verificar, diasDoLembrete };
+  return { baixarCalendario, sincronizarComSW, registrarPeriodico, verificar, diasDoLembrete, horasDoLembrete };
 })();

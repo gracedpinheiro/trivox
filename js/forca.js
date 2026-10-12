@@ -538,14 +538,14 @@ const Forca = (() => {
    * tem os dois blocos, devolve a mesma lista. Itens sem `bloco` contam como bloco principal e
    * nao sao alterados (exceto a obs de aproximacao no 1o composto, numa copia).
    */
-  function completarSessao(exercicios, { base = [], local = 'academia', idade = null, objetivo = 'hipertrofia', nivel = 'intermediario', equipCasa = null, rotacao = null, peso = null, altura = null } = {}) {
+  function completarSessao(exercicios, { base = [], local = 'academia', idade = null, objetivo = 'hipertrofia', nivel = 'intermediario', equipCasa = null, rotacao = null, peso = null, altura = null, mais50 = false } = {}) {
     const itens = exercicios || [];
     const temAq = itens.some((it) => it.bloco === 'aquecimento');
     const temVc = itens.some((it) => it.bloco === 'volta_calma');
     if ((temAq && temVc) || !itens.length || !temProgramas()) return itens;
     const porId = mapaPorId(base);
     const { objetivo: obj } = Programas.normalizarObjetivo(objetivo);
-    const aj = Programas.ajustesPerfil({ objetivo: obj, nivel, idade, peso, altura }); // IMC alto: aquecimento sem impacto
+    const aj = Programas.ajustesPerfil({ objetivo: obj, nivel, idade, peso, altura, mais50 }); // IMC alto: aquecimento sem impacto
     const prm = Programas.parametros(obj, nivel);
     const principal = itens.filter((it) => !it.bloco || it.bloco === 'principal' || it.bloco === 'circuito');
     const chave = itens.map((it) => it.exId).join(',');
@@ -562,18 +562,62 @@ const Forca = (() => {
    * Gera o programa completo. Mesmos parametros de gerarPlano (abaixo) — devolve
    * { fichas, programa } onde programa traz parametros, progressao/deload, aerobico e avisos.
    */
-  function gerarPrograma({
+  /**
+   * Gera o programa para 1 ou mais objetivos (opcoes.objetivos = ['raquete', 'hipertrofia'];
+   * sem ele, usa opcoes.objetivo como antes).
+   * - "50mais" junto com outro objetivo nao divide a semana: e uma camada de seguranca
+   *   (o programa e o do outro objetivo com as regras do 50+).
+   * - Dois objetivos de treino dividem os dias, alternando. Com raquete, dia de jogo e vespera
+   *   ficam sempre com a raquete (viram ativacao leve) — nada de treino pesado de perna antes do jogo.
+   */
+  function gerarPrograma(opcoes = {}) {
+    // o valor original segue adiante ("forca" mantem a variante de reps baixas); normaliza so p/ comparar
+    const norm = (o) => (temProgramas() ? Programas.normalizarObjetivo(o).objetivo : o);
+    const lista = [...new Set(opcoes.objetivos && opcoes.objetivos.length ? opcoes.objetivos : [opcoes.objetivo || 'hipertrofia'])];
+    const tem50 = lista.some((o) => norm(o) === '50mais');
+    const mais50 = !!opcoes.mais50 || (tem50 && lista.length > 1);
+    const treinos = lista.filter((o) => norm(o) !== '50mais' || lista.length === 1).slice(0, 2);
+    if (treinos.length === 1) return gerarProgramaUm({ ...opcoes, objetivo: treinos[0], mais50 });
+
+    const [a, b] = treinos;
+    let diasA = [], diasB = [], freqA = Math.ceil((opcoes.freqForca || 3) / 2), freqB = Math.floor((opcoes.freqForca || 3) / 2);
+    const dias = [...(opcoes.diasSemana || [])].sort((x, y) => x - y);
+    if (dias.length) {
+      const jogo = new Set(opcoes.diasJogo || []);
+      const daRaquete = (d) => jogo.has(d) || jogo.has((d + 1) % 7); // dia de jogo ou vespera
+      const idxRaquete = treinos.findIndex((o) => norm(o) === 'raquete');
+      for (const d of dias) {
+        if (idxRaquete >= 0 && daRaquete(d)) (idxRaquete === 0 ? diasA : diasB).push(d);
+        else if (diasA.length <= diasB.length) diasA.push(d);
+        else diasB.push(d);
+      }
+      if (!diasB.length && diasA.length > 1) diasB.push(diasA.pop()); // os dois objetivos aparecem na semana
+      freqA = diasA.length; freqB = diasB.length;
+    }
+    const vazio = { fichas: [], programa: null };
+    const pa = freqA > 0 ? gerarProgramaUm({ ...opcoes, objetivo: a, mais50, diasSemana: diasA, freqForca: freqA }) : vazio;
+    const pb = freqB > 0
+      ? gerarProgramaUm({ ...opcoes, objetivo: b, mais50, diasSemana: diasB, freqForca: freqB, rotacao: (opcoes.rotacao || 0) + 7 })
+      : vazio;
+    // junta na ordem da semana e refaz as letras (A, B, C...)
+    const fichas = [...pa.fichas, ...pb.fichas]
+      .sort((x, y) => (x.diaSemana ?? 99) - (y.diaSemana ?? 99))
+      .map((f, i) => ({ ...f, nome: f.nome.replace(/^Treino [A-Z]/, `Treino ${String.fromCharCode(65 + i)}`) }));
+    return { fichas, programa: { ...(pa.programa || pb.programa), objetivos: treinos, mais50, combinado: [pa.programa, pb.programa].filter(Boolean) } };
+  }
+
+  function gerarProgramaUm({
     objetivo = 'hipertrofia', nivel = 'iniciante', local = 'academia', freqForca = 3, diasSemana = [],
     base = [], rotacao = 0,
     sexo = null, idade = null, peso = null, altura = null,
-    equipCasa = null, diasJogo = [], enfase = null,
+    equipCasa = null, diasJogo = [], enfase = null, mais50 = false,
   } = {}) {
     if (!temProgramas()) throw new Error('js/programas.js precisa ser carregado antes de js/forca.js');
     const P = Programas;
     const { objetivo: obj, variante } = P.normalizarObjetivo(objetivo);
     const nivelProg = P.nivelPrograma(nivel);
     const uN = Math.min(nivelN[nivel] ?? 0, 3);
-    const aj = P.ajustesPerfil({ objetivo: obj, nivel, sexo, idade, peso, altura, enfase });
+    const aj = P.ajustesPerfil({ objetivo: obj, nivel, sexo, idade, peso, altura, enfase, mais50 });
     const prm = P.parametros(obj, nivelProg, variante);
     rotacao = Math.abs(Math.floor(Number(rotacao) || 0));
 
@@ -1033,7 +1077,7 @@ const Forca = (() => {
    * fica intacto — e por exId, nao por "posicao na ficha", entao trocar nao apaga nada.
    * rotacao: decide QUAL substituto entra quando ha mais de um candidato — sem random, testavel.
    */
-  function variarFicha(ficha, base, { objetivo = 'hipertrofia', fracao = 0.5, rotacao = 0, local = null, equipCasa = null, idade = null, nivel = null, peso = null, altura = null } = {}) {
+  function variarFicha(ficha, base, { objetivo = 'hipertrofia', fracao = 0.5, rotacao = 0, local = null, equipCasa = null, idade = null, nivel = null, peso = null, altura = null, mais50 = false } = {}) {
     const itens = ficha.exercicios || [];
     // so o bloco principal varia (aquecimento/circuito/volta a calma ja mudam no "gerar de novo")
     const principal = (it) => !it.bloco || it.bloco === 'principal';
@@ -1043,7 +1087,7 @@ const Forca = (() => {
     const nTrocar = Math.round(comExercicio.length * fracao);
     const idsParaTrocar = new Set([...isolados, ...compostos].slice(0, nTrocar).map((x) => x.item.exId));
     const naFicha = new Set(itens.map((it) => it.exId));
-    const perfil = { objetivo, nivel, idade, peso, altura, local, equipCasa };
+    const perfil = { objetivo, nivel, idade, peso, altura, local, equipCasa, mais50 };
 
     const exercicios = itens.map((item) => {
       if (!idsParaTrocar.has(item.exId)) return item;
@@ -1095,10 +1139,10 @@ const Forca = (() => {
    * do gerador — local e equipamento de casa, impacto e risco por idade/IMC, aparelhos vetados
    * (ex.: argolas para 65+) e no maximo 1 nivel acima do da pessoa.
    */
-  function filtroPerfil({ objetivo = null, nivel = null, idade = null, peso = null, altura = null, local = null, equipCasa = null } = {}) {
+  function filtroPerfil({ objetivo = null, nivel = null, idade = null, peso = null, altura = null, local = null, equipCasa = null, mais50 = false } = {}) {
     if (!temProgramas()) return () => true;
     const P = Programas;
-    const aj = P.ajustesPerfil({ objetivo, nivel, idade, peso, altura });
+    const aj = P.ajustesPerfil({ objetivo, nivel, idade, peso, altura, mais50 });
     const impacto = P.menorImpacto(aj.impactoMax, aj.impactoMaxCardio);
     const tetoNivel = aj.nivelExMax ?? (nivel ? Math.min(3, (nivelN[nivel] ?? 1) + 1) : 3);
     return (c) => (!local || P.disponivel(c, local, equipCasa))

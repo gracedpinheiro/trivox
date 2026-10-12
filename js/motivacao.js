@@ -54,8 +54,8 @@ const Motivacao = (() => {
     '🔥 Sequência de {n} dias. Você está construindo um hábito de verdade.',
   ];
   const VOLTA = [
-    'Faz {n} dias. Sem culpa: hoje é só recomeçar, com um treino mais leve.',
-    'Sentimos sua falta! {n} dias longe — que tal 15 minutos hoje?',
+    'Faz {n} dias. Sem culpa: hoje é só recomeçar, no seu ritmo.',
+    'Sentimos sua falta! Faz {n} dias — bora retomar com o treino de hoje?',
   ];
   const DESCANSO = [
     'Hoje é descanso. Alongar e caminhar também contam.',

@@ -123,7 +123,6 @@ const UI = (() => {
    *  - "Minha foto": foto que o proprio usuario tirou
    */
   function midiaExercicio(e, { compacto = false } = {}) {
-    const p = Dados.perfil();
     const fotoPropria = Dados.fotoExercicio(e.id);
     const temFotos = !!(e.imagens && e.imagens.length);
     const abas = [];
@@ -133,7 +132,6 @@ const UI = (() => {
     abas.push(['musculos', '🎯 Músculos']);
     if (e.aparelho) abas.push(['aparelho', '🛠️ Aparelho']);
     const escolhida = estado.midiaAba && abas.some(([k]) => k === estado.midiaAba) ? estado.midiaAba : abas[0][0];
-    const genero = p.sexo === 'm' ? 'm' : p.sexo === 'f' ? 'f' : undefined;
     const reduzSistema = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     let palco = '', legenda = '';
     if (escolhida === 'minha') {
@@ -142,7 +140,7 @@ const UI = (() => {
     } else if (escolhida === 'como') {
       // estado.animacaoParada: botao "parar animacao" (WCAG 2.2.2); sem ele, segue o sistema
       const parada = estado.animacaoParada || reduzSistema;
-      palco = (typeof Figuras !== 'undefined') ? Figuras.svg(e, { largura: compacto ? 260 : 340, genero, quadros: parada || undefined }) : Pictogramas.svgPara(e.categoria);
+      palco = (typeof Figuras !== 'undefined') ? Figuras.svg(e, { largura: compacto ? 320 : 380, quadros: parada || undefined }) : Pictogramas.svgPara(e.categoria);
       legenda = parada ? 'posições do movimento, da inicial à final' : 'ilustração animada do movimento';
     } else if (escolhida === 'fotos') {
       palco = `<div class="fotos">${e.imagens.map((img) => `<img src="${h(img)}" alt="${h(e.nome)}" loading="lazy">`).join('')}</div>`;
@@ -159,8 +157,8 @@ const UI = (() => {
         <div class="midia-abas" role="tablist">
           ${abas.map(([k, rot]) => `<button class="midia-aba ${k === escolhida ? 'ativo' : ''}" role="tab" aria-selected="${k === escolhida}" data-acao="midia-aba" data-aba="${k}">${rot}</button>`).join('')}
         </div>
-        <div class="midia-palco" style="${compacto ? 'min-height:150px' : ''}">${palco}</div>
-        ${legenda ? `<div class="midia-legenda">${h(legenda)}</div>` : ''}
+        <div class="midia-palco" data-acao="ampliar-midia" aria-label="Ampliar imagem" style="cursor:zoom-in;${compacto ? 'min-height:150px' : ''}">${palco}</div>
+        ${legenda ? `<div class="midia-legenda">${h(legenda)} · toque para ampliar</div>` : '<div class="midia-legenda">toque para ampliar</div>'}
         ${escolhida === 'como' && !reduzSistema ? `<button class="btn btn-pequeno btn-fantasma" data-acao="alternar-animacao" style="margin-top:4px">${estado.animacaoParada ? '▶ Animar' : '⏸ Parar animação'}</button>` : ''}
       </div>`;
   }
@@ -241,6 +239,13 @@ const UI = (() => {
       </div>`;
   }
 
+  /** iPhone/iPad no Safari (nao no app instalado): os dados ficam separados dos do app. */
+  function abertoNoNavegadorIphone() {
+    const ios = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const instalado = navigator.standalone === true || (typeof matchMedia === 'function' && matchMedia('(display-mode: standalone)').matches);
+    return ios && !instalado;
+  }
+
   function telaInicio() {
     const p = Dados.perfil();
     const fichas = Dados.fichas();
@@ -293,6 +298,16 @@ const UI = (() => {
       <div class="topo" style="margin-bottom:8px"><h1>Olá${p.nome ? ', ' + h(p.nome.split(' ')[0]) : ''}! 👋</h1></div>
       <p class="frase" style="margin-bottom:16px">${h(Motivacao.fraseDoDia({ objetivo: p.objetivo, idade, streak: streak.atual, diasSemTreino, hojeEDiaDeTreino: p.diasTreino.length ? hojeEDiaDeTreino : null, jaTreinouHoje }))}</p>
 
+      ${!temDadosDeVerdade ? `
+        <div class="cartao c-azul">
+          <h2 style="margin-bottom:4px">Já usava o TRIVOX?</h2>
+          <p class="pequeno">Apagar o app (ou trocar de celular) apaga os dados deste aparelho. Para trazer tudo de volta:</p>
+          <button class="btn btn-largo btn-principal" data-acao="ir-nuvem">☁️ Entrar na nuvem com meu e-mail</button>
+          <button class="btn btn-largo" data-acao="importar" style="margin-top:8px">📦 Importar meu backup (.zip)</button>
+          <p class="pequeno apagado" style="margin-top:8px">Primeira vez aqui? É só preencher o Perfil e montar o treino.</p>
+        </div>` : ''}
+      ${abertoNoNavegadorIphone() ? `
+        <div class="nota atencao"><strong>Você abriu pelo Safari</strong>No iPhone, o Safari guarda dados separados do app instalado. Para ver seus treinos, abra o TRIVOX pelo ícone na tela de início. Ainda não instalou? Compartilhar › Adicionar à Tela de Início.</div>` : ''}
       ${precisaParq(p, idade) ? `
         <div class="nota atencao">
           <strong>🩺 Antes de treinar: 7 perguntas de saúde</strong>
@@ -318,7 +333,7 @@ const UI = (() => {
               <h2 style="margin:2px 0 4px">${h(fichaParaHoje.nome.replace(/^Treino \w+ — /, ''))}</h2>
               <div class="pequeno apagado">${nPrincipal} exercícios · ~${estimarDuracao(fichaParaHoje.exercicios)}</div>
             </div>
-            ${exMissao && (typeof Figuras !== 'undefined') ? `<div class="missao-figura">${Figuras.svg(exMissao, { largura: 120, genero: p.sexo === 'm' ? 'm' : p.sexo === 'f' ? 'f' : undefined })}</div>` : ''}
+            ${exMissao && (typeof Figuras !== 'undefined') ? `<div class="missao-figura">${Figuras.svg(exMissao, { largura: 120 })}</div>` : ''}
           </div>
           <button class="btn btn-largo btn-principal" data-acao="iniciar-treino" data-id="${h(fichaParaHoje.id)}" style="margin-top:12px">▶ Começar agora</button>
         </div>` : ''}
@@ -458,21 +473,49 @@ const UI = (() => {
 
   /** Modal de configuracao do gerador automatico. */
   /** Grade de objetivos grandes, com icone (usada no gerador e no perfil). */
-  function opcoesObjetivo(atual, acao) {
-    return `<div class="opcoes">${Object.keys(NOME_OBJETIVO_CURTO).map((k) => `
-      <button class="opcao ${atual === k ? 'ativo' : ''}" data-acao="${acao}" data-valor="${k}" aria-pressed="${atual === k}">
-        <span class="ic">${ICONE_OBJETIVO[k]}</span><b>${h(NOME_OBJETIVO_CURTO[k])}</b>
-      </button>`).join('')}</div>`;
+  /** Varios objetivos: ate 2 de treino (dividem os dias da semana) + "Especial 50+", que soma com
+   *  qualquer um como camada de seguranca. Tocar marca/desmarca; sempre sobra pelo menos 1. */
+  function opcoesObjetivo(lista, acao) {
+    const treinos = lista.filter((k) => k !== '50mais');
+    return `<div class="opcoes">${Object.keys(NOME_OBJETIVO_CURTO).map((k) => {
+      const ativo = lista.includes(k);
+      const ordem = ativo && k !== '50mais' && treinos.length > 1 ? (treinos[0] === k ? 'principal' : '2º objetivo') : '';
+      return `
+      <button class="opcao ${ativo ? 'ativo' : ''}" data-acao="${acao}" data-valor="${k}" aria-pressed="${ativo}">
+        <span class="ic">${ICONE_OBJETIVO[k]}</span><b>${h(NOME_OBJETIVO_CURTO[k])}</b>${ordem ? `<span class="sub">${ordem}</span>` : ''}
+      </button>`;
+    }).join('')}</div>
+      <p class="pequeno apagado" style="margin-top:6px">Toque para marcar ou desmarcar. Até 2 objetivos de treino (os dias da semana se dividem entre eles); "Especial 50+" soma com qualquer um e deixa o treino mais seguro.</p>
+      ${lista.map((k) => Forca.OBJETIVOS[k]?.resumo ? `<p class="pequeno apagado" style="margin-top:4px"><b>${h(NOME_OBJETIVO_CURTO[k] || k)}:</b> ${h(Forca.OBJETIVOS[k].resumo)}</p>` : '').join('')}`;
   }
+
+  /** Marca/desmarca um objetivo na lista. Terceiro objetivo de treino troca o 2º. */
+  function alternarObjetivo(lista, k) {
+    let l = [...lista];
+    if (l.includes(k)) {
+      l = l.filter((x) => x !== k);
+      return l.length ? l : [k]; // precisa de pelo menos 1
+    }
+    if (k !== '50mais') {
+      const treinos = l.filter((x) => x !== '50mais');
+      if (treinos.length >= 2) l = l.filter((x) => x !== treinos[1]);
+    }
+    return [...l, k];
+  }
+  const principalDe = (lista) => lista.find((x) => x !== '50mais') || lista[0] || 'condicionamento';
+  const esportesDe = (p) => (Array.isArray(p.esportes) && p.esportes.length ? p.esportes : p.esporte ? [p.esporte] : []);
 
   /** Perfil pronto para o motor de treino, com os valores antigos traduzidos: objetivo legado
    *  (forca, resistencia, emagrecimento) pelo MAPA_LEGADO, elite = avancado, e "parque" continua
    *  parque (o motor sabe o que tem numa praca) em vez de virar academia. */
   function perfilTreino() {
     const p = Dados.perfil();
-    const legado = typeof Programas !== 'undefined' ? Programas.MAPA_LEGADO[p.objetivo] : null;
+    const traduz = (o) => (Forca.OBJETIVOS[o] ? o : (typeof Programas !== 'undefined' && Programas.MAPA_LEGADO[o]) || null);
+    let objetivos = [...new Set((Array.isArray(p.objetivos) && p.objetivos.length ? p.objetivos : [p.objetivo]).map(traduz).filter(Boolean))];
+    if (!objetivos.length) objetivos = ['condicionamento'];
     return {
-      objetivo: Forca.OBJETIVOS[p.objetivo] ? p.objetivo : legado || 'condicionamento',
+      objetivo: principalDe(objetivos), objetivos,
+      mais50: objetivos.includes('50mais') && objetivos.length > 1, // 50+ como camada de seguranca
       nivel: p.nivel === 'elite' ? 'avancado' : p.nivel || 'iniciante',
       local: ['casa', 'parque'].includes(p.local) ? p.local : 'academia',
       equipCasa: p.equipCasa, idade: Dados.idade(), peso: p.peso, altura: p.altura,
@@ -484,7 +527,7 @@ const UI = (() => {
     const p = Dados.perfil();
     const g = estado.gerador;
     const pt = perfilTreino();
-    const obj = g.objetivo || pt.objetivo;
+    const objs = g.objetivos || pt.objetivos;
     const local = g.local || pt.local;
     const nivel = g.nivel || nivelTela(p.nivel);
     const temDias = p.diasTreino.length > 0;
@@ -495,8 +538,7 @@ const UI = (() => {
     abrirModal(`
       <h2>✨ Montar meu treino</h2>
       <p class="pequeno apagado">Escolha e eu monto as fichas da semana, cada uma com aquecimento no começo e alongamento no fim, pros músculos do dia.</p>
-      <div class="campo"><label>Objetivo</label>${opcoesObjetivo(obj, 'ger-objetivo')}</div>
-      <p class="pequeno apagado">${h(Forca.OBJETIVOS[obj]?.resumo || '')}</p>
+      <div class="campo"><label>Objetivo</label>${opcoesObjetivo(objs, 'ger-objetivo')}</div>
       <div class="campo"><label>Onde vai treinar</label>
         <div class="chips">
           <button class="chip ${local === 'academia' ? 'ativo' : ''}" data-acao="ger-local" data-valor="academia">🏋️ Academia</button>
@@ -619,7 +661,7 @@ const UI = (() => {
 
             <div class="campos-lado">
               <div class="campo">
-                <label>RIR alvo</label>
+                <label>Reps de sobra (alvo)</label>
                 <select data-item="${i}" data-prop="rirAlvo">
                   ${[0, 1, 2, 3, 4].map((r) => `<option value="${r}" ${Number(item.rirAlvo) === r ? 'selected' : ''}>${r} — ${['até a falha', 'quase falha', 'sobra 2', 'sobra 3', 'sobra 4'][r]}</option>`).join('')}
                 </select>
@@ -901,7 +943,7 @@ const UI = (() => {
 
       <div class="cartao">
         <div class="rotulo">Sugestão para o seu objetivo (${h(Forca.OBJETIVOS[p.objetivo]?.nome || '')})</div>
-        <p style="margin:8px 0 0"><strong>${presc.series} séries × ${h(presc.reps)} reps</strong> · RIR ${presc.rirAlvo} · descanso ${presc.descanso}s</p>
+        <p style="margin:8px 0 0"><strong>${presc.series} séries × ${h(presc.reps)} reps</strong> · parar com ${presc.rirAlvo} de sobra · descanso ${presc.descanso}s</p>
       </div>
 
       <h3 style="margin-top:18px">Como executar</h3>
@@ -926,7 +968,7 @@ const UI = (() => {
           <div class="item" style="cursor:default">
             <div class="item-corpo">
               <div class="item-nome">${h(r.carga)} kg × ${h(r.reps)} reps</div>
-              <div class="item-sub">${new Date(r.data).toLocaleDateString('pt-BR')}${r.rir !== null && r.rir !== undefined ? ` · RIR ${h(r.rir)}` : ''}</div>
+              <div class="item-sub">${new Date(r.data).toLocaleDateString('pt-BR')}${r.rir !== null && r.rir !== undefined ? ` · ${h(r.rir)} de sobra` : ''}</div>
             </div>
           </div>`).join('')}
         ${plato.plato ? `<div class="nota atencao"><strong>⚠ Estagnado</strong>${h(plato.saida)}</div>` : ''}` : ''}
@@ -968,11 +1010,12 @@ const UI = (() => {
     const z = Aerobico.zonas({ fcMaxValor: fm.valor, fcRepouso: p.fcRepouso });
     const pt = perfilTreino();
     // 50+/65+ ou "sim" na triagem: so sessoes leves na lista (intervalado/HIIT/limiar somem)
-    const leve = Aerobico.soLeve({ objetivo: pt.objetivo, idade, restricao: parqTemSim(p) });
+    const objAerobico = pt.objetivos.includes('50mais') ? '50mais' : pt.objetivo;
+    const leve = Aerobico.soLeve({ objetivo: objAerobico, idade, restricao: parqTemSim(p) });
     const modelos = Object.values(Aerobico.MODELOS).filter((m) => !leve || !Aerobico.MODELOS_INTENSOS.includes(m.chave));
     if (!modelos.some((m) => m.chave === estado.cardio.modelo)) estado.cardio.modelo = 'base';
     const sessao = Aerobico.montarSessao({ ...estado.cardio, zonasCalc: z });
-    const plano = Aerobico.planoSemanal({ freqCardio: p.freqCardio, objetivo: pt.objetivo, minutosBase: 40, idade, restricao: parqTemSim(p) });
+    const plano = Aerobico.planoSemanal({ freqCardio: p.freqCardio, objetivo: objAerobico, minutosBase: 40, idade, restricao: parqTemSim(p) });
     const cal = Aerobico.calorias({ modalidade: estado.cardio.modalidade, minutos: sessao.duracao, pesoKg: p.peso });
     const ordem = Aerobico.ordenarNoDia({ objetivo: pt.objetivo, intensidadeCardio: sessao.blocos.some((b) => b.zona >= 4) ? 'intensa' : 'leve' });
 
@@ -1159,9 +1202,9 @@ const UI = (() => {
       const temTempo = !!item.tempoSeg;
       const rodando = ex.timerItem && ex.timerItem.ate > Date.now();
       const restante = rodando ? Math.ceil((ex.timerItem.ate - Date.now()) / 1000) : (item.tempoSeg || 0);
+      // acao primeiro (pedido da Grace no teste do celular: marcar sem rolar), imagem depois
       return `
         ${topo}
-        ${midia}
         <div class="cartao" style="text-align:center">
           <h2 style="margin-bottom:4px">${h(item.nome)}</h2>
           <div class="pequeno apagado" style="margin-bottom:12px">${h(item.repsTexto || '')}${item.seriesAlvo > 1 ? ` · ${item.seriesAlvo} vezes` : ''}${item.grupo ? ` · ${h(item.grupo)}` : ''}</div>
@@ -1172,6 +1215,7 @@ const UI = (() => {
           </div>
           <button class="btn btn-largo btn-fantasma" data-acao="pular-exercicio" style="margin-top:8px">Pular este</button>
         </div>
+        ${midia}
         ${blocoSpotify}
       `;
     }
@@ -1183,21 +1227,15 @@ const UI = (() => {
       ? item.sets[item.sets.length - 1]
       : { carga: item.cargaSugerida?.carga ?? (ultimoSet ? ultimoSet.carga : ''), reps: ultimoSet ? ultimoSet.reps : item.repsAlvoMin, rir: item.rirAlvo };
 
+    // ordem pensada para o meio do treino: o que se toca a cada serie (campos + Concluir) fica
+    // logo abaixo do topo, sem rolar; ultima vez, dicas e imagens vem depois
     return `
       ${topo}
-      ${midia}
-
-      <div class="cartao" style="text-align:center">
-        <h2 style="margin-bottom:2px">${h(item.nome)}</h2>
-        <div class="pequeno apagado">Série ${serieAtual} de ${item.seriesAlvo}</div>
-      </div>
-
-      ${ultimoTreinoHtml(item.exId)}
-      ${item.obs ? `<div class="nota neutra">💡 ${h(item.obs)}</div>` : ''}
-      ${item.cargaSugerida?.motivo ? `<div class="nota"><strong>${item.cargaSugerida.carga !== null ? item.cargaSugerida.carga + ' kg' : 'Sugestão'}</strong>${h(item.cargaSugerida.motivo)}</div>` : ''}
 
       <div class="cartao">
-        <div class="rotulo">Alvo: ${item.repsAlvoMin}-${item.repsAlvoMax} reps · RIR ${item.rirAlvo} · descanso ${item.descansoAlvo}s</div>
+        <h2 style="margin-bottom:2px;text-align:center">${h(item.nome)}</h2>
+        <div class="pequeno apagado" style="text-align:center;margin-bottom:8px">Série ${serieAtual} de ${item.seriesAlvo}</div>
+        <div class="rotulo">Alvo: ${item.repsAlvoMin}-${item.repsAlvoMax} reps · parar com ${item.rirAlvo} de sobra · descanso ${item.descansoAlvo}s</div>
         <div class="campos-lado-3" style="margin-top:10px">
           <div class="campo">
             <label for="exec-carga">Carga (kg)</label>
@@ -1208,10 +1246,11 @@ const UI = (() => {
             <input type="number" inputmode="numeric" id="exec-reps" value="${h(ultimaSug.reps)}">
           </div>
           <div class="campo">
-            <label for="exec-rir">RIR</label>
+            <label for="exec-rir">De sobra</label>
             <input type="number" inputmode="numeric" id="exec-rir" value="${h(ultimaSug.rir)}">
           </div>
         </div>
+        <p class="pequeno apagado" style="margin:0 0 8px">"De sobra" = quantas repetições você ainda conseguiria fazer no fim da série.</p>
         <button class="btn btn-largo btn-principal" data-acao="concluir-serie" style="margin-top:4px">✓ Concluir série</button>
       </div>
 
@@ -1220,10 +1259,17 @@ const UI = (() => {
           ${item.sets.map((st, i) => `<span class="etiqueta ok">Série ${i + 1}: ${h(st.carga)}kg × ${h(st.reps)}</span>`).join('')}
         </div>` : ''}
 
+      ${ultimoTreinoHtml(item.exId)}
+      ${item.obs ? `<div class="nota neutra">💡 ${h(item.obs)}</div>` : ''}
+      ${item.cargaSugerida?.motivo ? `<div class="nota"><strong>${item.cargaSugerida.carga !== null ? h(item.cargaSugerida.carga) + ' kg' : 'Sugestão'}</strong>${h(item.cargaSugerida.motivo)}</div>` : ''}
+
+      ${midia}
+
       <div class="linha-btn">
         <button class="btn" data-acao="ver-exercicio" data-id="${h(item.exId)}" data-voltar="execucao">Como executar</button>
         <button class="btn" data-acao="trocar-equipamento">🔁 Aparelho ocupado</button>
       </div>
+      <button class="btn btn-largo" data-acao="trocar-foto-exercicio" data-id="${h(item.exId)}" style="margin-top:8px">📷 ${Dados.fotoExercicio(item.exId) ? 'Trocar minha foto neste aparelho' : 'Tirar minha foto neste aparelho'}</button>
       <button class="btn btn-largo btn-fantasma" data-acao="pular-exercicio" style="margin-top:8px">Pular exercício</button>
       <p class="pequeno apagado" style="margin-top:10px">⚠️ ${h(SINAIS_PARAR)}</p>
 
@@ -1466,7 +1512,7 @@ const UI = (() => {
                   <div style="margin-bottom:8px">
                     <div class="pequeno" style="font-weight:700">${h(ex.nome)}</div>
                     <div class="etiquetas" style="margin-top:4px">
-                      ${ex.sets.map((set, i) => `<span class="etiqueta">S${i + 1}: ${h(set.carga)}kg×${h(set.reps)}${set.rir !== null && set.rir !== undefined ? ` (RIR ${h(set.rir)})` : ''}</span>`).join('')}
+                      ${ex.sets.map((set, i) => `<span class="etiqueta">S${i + 1}: ${h(set.carga)}kg×${h(set.reps)}${set.rir !== null && set.rir !== undefined ? ` (${h(set.rir)} de sobra)` : ''}</span>`).join('')}
                     </div>
                   </div>`).join('')}
                 ${s.cardioResumo ? `<div class="pequeno apagado">${h(s.cardioResumo.nome)} · ${h(s.cardioResumo.modalidade)}</div>` : ''}
@@ -1490,8 +1536,8 @@ const UI = (() => {
       </div>
       <p class="pequeno apagado">Não é IA — são as mesmas dicas que um personal repetiria, organizadas por tema. Sem internet, sem custo, sempre disponível.</p>
 
-      <div class="filtros" style="padding:4px 0 14px">
-        ${Object.entries(Gamificacao.COACH_TEMAS).map(([k, t]) => `<button class="btn btn-pequeno" data-acao="coach-tema" data-tema="${k}">${t.icon} ${t.nome.replace(/^\S+\s/, '')}</button>`).join('')}
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 0 14px">
+        ${Object.entries(Gamificacao.COACH_TEMAS).map(([k, t]) => `<button class="btn btn-pequeno" data-acao="coach-tema" data-tema="${k}" style="white-space:normal;line-height:1.2;text-align:center">${t.icon} ${h(t.nome.replace(/^\S+\s/, ''))}</button>`).join('')}
       </div>
 
       <div id="coach-lista">
@@ -1765,6 +1811,7 @@ const UI = (() => {
 
   function telaPerfil() {
     const p = Dados.perfil();
+    const pt = perfilTreino();
     const idade = Dados.idade();
     const imc = p.peso && p.altura ? (p.peso / Math.pow(p.altura / 100, 2)) : null;
 
@@ -1855,9 +1902,7 @@ const UI = (() => {
 
       <div class="cartao">
         <div class="cartao-titulo"><h2>Treino</h2></div>
-        <div class="campo"><label>Objetivo</label>${opcoesObjetivo(p.objetivo, 'perfil-objetivo')}
-          <p class="pequeno apagado" style="margin-top:8px">${h(Forca.OBJETIVOS[p.objetivo]?.resumo || '')}</p>
-        </div>
+        <div class="campo"><label>Objetivo</label>${opcoesObjetivo(pt.objetivos, 'perfil-objetivo')}</div>
         <div class="campo"><label>Nível</label>
           <div class="chips">
             ${['iniciante', 'intermediario', 'avancado'].map((n) => `<button class="chip ${nivelTela(p.nivel) === n ? 'ativo' : ''}" data-acao="perfil-chip" data-campo="nivel" data-valor="${n}">${NOME_NIVEL[n]}</button>`).join('')}
@@ -1879,11 +1924,11 @@ const UI = (() => {
           </div>
           <p class="pequeno apagado" style="margin-top:6px">Peso do corpo, parede, cadeira, colchonete e toalha todo mundo tem — já conto com eles.</p>
         </div>` : ''}
-        ${p.objetivo === 'raquete' ? `
-        <div class="campo"><label>Qual esporte</label>
+        ${pt.objetivos.includes('raquete') ? `
+        <div class="campo"><label>Qual esporte (um, os dois ou nenhum)</label>
           <div class="chips">
-            <button class="chip ${p.esporte === 'pickleball' ? 'ativo' : ''}" data-acao="perfil-chip" data-campo="esporte" data-valor="pickleball">🏓 Pickleball</button>
-            <button class="chip ${p.esporte === 'beach_tennis' ? 'ativo' : ''}" data-acao="perfil-chip" data-campo="esporte" data-valor="beach_tennis">🎾 Beach tennis</button>
+            <button class="chip ${esportesDe(p).includes('pickleball') ? 'ativo' : ''}" data-acao="toggle-esporte" data-valor="pickleball" aria-pressed="${esportesDe(p).includes('pickleball')}">🏓 Pickleball</button>
+            <button class="chip ${esportesDe(p).includes('beach_tennis') ? 'ativo' : ''}" data-acao="toggle-esporte" data-valor="beach_tennis" aria-pressed="${esportesDe(p).includes('beach_tennis')}">🎾 Beach tennis</button>
           </div>
         </div>
         <div class="campo"><label>Dias de jogo</label>
@@ -1913,16 +1958,17 @@ const UI = (() => {
 
       <div class="cartao c-sol">
         <div class="cartao-titulo"><h2>⏰ Chamada pro treino</h2></div>
-        <p class="pequeno">Um lembrete todo dia de treino, no horário que você escolher.</p>
-        <div class="campos-lado" style="align-items:end">
+        <p class="pequeno">Um lembrete todo dia de treino, no horário que você escolher — dá para ter 2 no mesmo dia e mudar quando quiser.</p>
+        ${Lembretes.horasDoLembrete(p).map((hora, i) => `
           <div class="campo">
-            <label for="lembrete-hora">Horário</label>
-            <input type="time" id="lembrete-hora" value="${h(p.lembreteHora || '18:00')}" data-perfil="lembreteHora">
-          </div>
-          <div class="campo">
-            <button class="btn btn-largo ${p.lembreteAtivo ? 'btn-turquesa' : ''}" data-acao="toggle-lembrete">${p.lembreteAtivo ? '✓ Ligado' : 'Ligar'}</button>
-          </div>
-        </div>
+            <label for="lembrete-hora-${i}">${i ? '2º horário' : 'Horário'}</label>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input type="time" id="lembrete-hora-${i}" value="${h(hora)}" data-lembrete-hora="${i}">
+              ${i ? `<button class="btn btn-pequeno btn-fantasma" data-acao="remover-hora-lembrete" data-i="${i}" aria-label="Tirar o 2º horário">✕</button>` : ''}
+            </div>
+          </div>`).join('')}
+        ${Lembretes.horasDoLembrete(p).length < 2 ? `<button class="btn btn-pequeno" data-acao="adicionar-hora-lembrete" style="margin-bottom:10px">+ 2º horário no mesmo dia</button>` : ''}
+        <button class="btn btn-largo ${p.lembreteAtivo ? 'btn-turquesa' : ''}" data-acao="toggle-lembrete" style="margin-bottom:10px">${p.lembreteAtivo ? '✓ Lembrete ligado (toque para desligar)' : 'Ligar lembrete'}</button>
         <button class="btn btn-largo btn-festa" data-acao="lembrete-calendario">📅 Colocar no calendário do celular</button>
         <p class="pequeno apagado" style="margin-top:8px">O calendário avisa mesmo com o app fechado — é o jeito mais garantido. ${Alarme.permissao() === 'granted' ? 'As notificações do app também estão permitidas.' : Alarme.permissao() === 'default' ? '' : ''}</p>
         ${Alarme.permissao() === 'default' ? `<button class="btn btn-largo" data-acao="pedir-notificacao">🔔 Permitir notificações do app</button>` : ''}
@@ -1931,6 +1977,18 @@ const UI = (() => {
       ${telaPerfilNuvem()}
 
       ${telaPerfilSpotify()}
+
+      <div class="cartao">
+        <div class="cartao-titulo"><h2>🗑️ Começar do zero</h2></div>
+        <p class="pequeno apagado">Apaga tudo deste aparelho — perfil, fichas, histórico, fotos e vídeos${estado.nuvem.sessao ? ' — e também da sua conta na nuvem' : ''}. Não dá para desfazer: exporte um backup antes se quiser guardar algo.</p>
+        <button class="btn btn-largo btn-perigo" data-acao="zerar-tudo">Apagar tudo e começar do zero</button>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-titulo"><h2>📥 Fotos sem internet</h2></div>
+        <p class="pequeno apagado">As fotos dos exercícios das suas fichas já ficam guardadas sozinhas. Para ter as fotos de todos os exercícios no modo avião, baixe tudo uma vez com Wi-Fi (cerca de 40 MB).</p>
+        <button class="btn btn-largo" data-acao="baixar-fotos" id="btn-baixar-fotos">Baixar todas as fotos</button>
+      </div>
 
       <div class="cartao">
         <div class="cartao-titulo"><h2>Backup manual</h2></div>
@@ -1965,7 +2023,7 @@ const UI = (() => {
       <div class="campos-lado-3">
         <div class="campo"><label>Carga (kg)</label><input type="number" inputmode="decimal" id="rm-carga" data-calc="1rm" step="1.25"></div>
         <div class="campo"><label>Reps</label><input type="number" inputmode="numeric" id="rm-reps" data-calc="1rm"></div>
-        <div class="campo"><label>RIR</label><input type="number" inputmode="numeric" id="rm-rir" data-calc="1rm" value="0"></div>
+        <div class="campo"><label>Reps de sobra</label><input type="number" inputmode="numeric" id="rm-rir" data-calc="1rm" value="0"></div>
       </div>
       <div id="rm-saida"></div>
       <button class="btn btn-largo" data-acao="fechar-modal" style="margin-top:12px">Fechar</button>
@@ -2127,7 +2185,7 @@ const UI = (() => {
   }
 
   return {
-    estado, render, ir, h, abrirModal, fecharModal, perfilTreino, PARQ,
+    estado, render, ir, h, abrirModal, fecharModal, perfilTreino, PARQ, alternarObjetivo, principalDe, esportesDe,
     modal1RM, modalAnilhas, modalVolume, modalTesteFala,
     modalGerador, modalTrocarEquipamento, modalResumoTreino, modalRegistrarPeso,
     modalRegistrarFotoEvolucao, modalVerFotoEvolucao,

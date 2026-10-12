@@ -658,7 +658,7 @@ const Programas = (() => {
    * Transforma o perfil em restricoes e enfases. Tudo aqui e ajuste de seguranca ou preferencia
    * padrao — nunca tira um grupo muscular inteiro da semana.
    */
-  function ajustesPerfil({ objetivo, nivel, sexo, idade, peso, altura, enfase } = {}) {
+  function ajustesPerfil({ objetivo, nivel, sexo, idade, peso, altura, enfase, mais50 = false } = {}) {
     const o = normalizarObjetivo(objetivo).objetivo;
     const idadeN = Number(idade) || null;
     const imc = peso && altura ? Number(peso) / Math.pow(Number(altura) / 100, 2) : null;
@@ -681,18 +681,21 @@ const Programas = (() => {
 
     // 50+ (OMS 2020 / NSCA 2019): sem saltos, mais aquecimento, equilibrio sempre presente
     // impacto "medio" = sem fase de voo (corrida estacionaria, swing, escalador); "alto" = saltos
-    if (o === '50mais' || (idadeN && idadeN >= 50)) {
+    // mais50: a pessoa marcou "Especial 50+" junto com outro objetivo (ex.: 50+ e condicionamento):
+    // o programa e o do outro objetivo, com todas as regras de seguranca do 50+
+    const e50 = o === '50mais' || mais50;
+    if (e50 || (idadeN && idadeN >= 50)) {
       a.impactoMax = 'medio';
       a.impactoMaxCardio = 'medio';
       a.excluirRisco = true;
       a.equilibrioMin = Math.max(a.equilibrioMin, 1);
-      if (o !== '50mais') {
+      if (!e50) {
         a.aquecExtra += 3;
         a.notas.push('sem saltos e com equilíbrio por causa da idade');
       }
     }
     // o programa 50+ em si e de baixo impacto no cardio, mesmo para quem tem 50 e poucos anos
-    if (o === '50mais') {
+    if (e50) {
       a.impactoMaxCardio = 'baixo';
       // no 50+ o exercicio fica no nivel da pessoa (sem a margem de +1 dos outros objetivos)
       a.nivelExMax = Math.min(a.nivelExMax ?? 3, nivelN[nivel] ?? 0);

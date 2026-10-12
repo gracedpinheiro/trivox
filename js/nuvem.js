@@ -108,6 +108,15 @@ const Nuvem = (() => {
     return mapa;
   }
 
+  /** Apaga TODAS as linhas desta conta na nuvem ("começar do zero"). A politica de RLS so deixa
+   *  cada pessoa apagar as proprias linhas. */
+  async function apagarMeusDados(userId) {
+    const c = cliente();
+    if (!c) throw new Error('sem conexão com a nuvem');
+    const { error } = await c.from('dados_usuario').delete().eq('user_id', userId);
+    if (error) throw new Error(mensagemErro(error));
+  }
+
   function mensagemErro(error) {
     const msg = error?.message || String(error);
     if (/rate limit|too many/i.test(msg)) return 'Muitos pedidos de login seguidos — espere alguns minutos e tente de novo.';
@@ -118,6 +127,6 @@ const Nuvem = (() => {
   return {
     disponivel, redirectUri,
     enviarLinkLogin, verificarCodigo, sessaoAtual, aoMudarSessao, sair,
-    enviarDado, buscarTudo,
+    enviarDado, buscarTudo, apagarMeusDados,
   };
 })();

@@ -132,7 +132,7 @@ const Gamificacao = (() => {
       frases: [
         'Progressão importa mais que a série perfeita: se hoje você fez 1 rep a mais que semana passada, já valeu.',
         'Exercício composto primeiro, isolado depois. A ordem errada rouba força justamente do que mais cansa.',
-        'Siga o RIR da sua ficha (1 a 3 reps de sobra): perto da falha sem quebrar a técnica. Acima de 50 anos, 2-3 reps de sobra.',
+        'Pare cada série com as "reps de sobra" da sua ficha (1 a 3 que você ainda conseguiria): perto do limite sem quebrar a técnica. Acima de 50 anos, 2-3 de sobra.',
         'Descanso curto não é disciplina, é carga desperdiçada. Composto pesado pede 90-180s.',
         'Se três semanas seguidas você não sobe nem carga nem reps em algo, isso é platô — hora de mudar uma variável.',
       ],
@@ -163,7 +163,10 @@ const Gamificacao = (() => {
         'Não existe alimento mágico pré-treino. O que importa é a rotina dos outros dias.',
         'Para emagrecer sem perder força, corte devagar: 300-500 kcal abaixo da manutenção é suficiente.',
         'Acima de 50, proteína ajuda a manter o músculo: cerca de 1,0-1,2 g/kg por dia, 25-30 g em cada refeição. Com doença nos rins, combine a quantidade com seu médico.',
-        'Hidratação no jogo: 400-600 ml umas 2 h antes e goles a cada troca de lado. No sol e na areia, cada 1 kg perdido no treino é cerca de 1 L para repor.',
+        'Antes do treino (1-2 h): uma refeição leve com carboidrato e um pouco de proteína — ex.: pão com ovo, iogurte com fruta, banana com aveia. Logo antes, água basta.',
+        'Depois do treino, o que comer: proteína (ovo, frango, iogurte, leite) com carboidrato (arroz, pão, fruta) na próxima refeição. Não precisa correr: até 2 h está ótimo.',
+        'Suplemento não é obrigatório. Os com melhor evidência são creatina (3-5 g/dia) e whey só se faltar proteína na comida. Com doença nos rins, fale com seu médico antes.',
+        'Hidratação no jogo: beba água, 400-600 ml umas 2 h antes e goles a cada troca de lado. No sol e na areia, cada 1 kg perdido no treino é cerca de 1 L para repor.',
       ],
     },
   };
@@ -172,7 +175,7 @@ const Gamificacao = (() => {
   const PALAVRAS_TEMA = [
     [/(dor|aperto|press[aã]o|pontada) no peito|peito apertad|tontu|desmai|falta de ar|sem ar|palpita|arritmi|cora[cç][aã]o|press[aã]o (alta|baixa)|hipertens|\bdor\b(?! muscular)|\bd[oó]i\b|les[aã]o|machuc|inchad|tor[cç]/i, 'saude'],
     [/dorm|sono|descans|recup|dolorid|dor muscular/i, 'recuperacao'],
-    [/prote|caloria|dieta|comer|nutri|macro|emagre|[aá]gua|hidrat|sede|calor/i, 'nutricao'],
+    [/prote|caloria|dieta|comer|comida|nutri|macro|emagre|[aá]gua|hidrat|sede|calor|tomar|tomo|beb|suplement|creatina|whey|caf[eé]|carbo|lanche|refei|jantar|almo[cç]|vitamina|fome|a[cç][uú]car|doce|pr[eé].?treino|p[oó]s.?treino/i, 'nutricao'],
     [/desanim|cansad[ao] de|sem vontade|desist|motiva/i, 'motivacao'],
     [/plato|estagn|carga|serie|repeti[cç][aã]o|treino/i, 'treino'],
   ];
@@ -189,7 +192,18 @@ const Gamificacao = (() => {
   function responderCoach(entrada, contexto = {}) {
     const tema = COACH_TEMAS[entrada] ? entrada : (temaPorTexto(entrada) || 'motivacao');
     const banco = COACH_TEMAS[tema];
-    const frase = banco.frases[Math.floor(seed(entrada) % banco.frases.length)];
+    // dentro do tema, a frase que mais repete palavras da pergunta ("o que tomar antes do treino"
+    // -> a de "antes do treino"); sem nenhuma em comum, sorteia como antes
+    const semAc = (t) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    const comuns = ['treino', 'treinar', 'fazer', 'posso', 'qual', 'quais', 'quanto', 'como', 'tenho', 'estou', 'para', 'pode', 'devo'];
+    const palavras = semAc(entrada).split(/[^a-z0-9]+/).filter((w) => w.length > 3 && !comuns.includes(w));
+    let frase = banco.frases[Math.floor(seed(entrada) % banco.frases.length)];
+    let melhor = 0;
+    for (const f of banco.frases) {
+      const fs = semAc(f);
+      const pts = palavras.filter((w) => new RegExp(`\\b${w.slice(0, 5)}`).test(fs)).length; // comeco de palavra
+      if (pts > melhor) { melhor = pts; frase = f; }
+    }
 
     let extra = '';
     if (tema === 'motivacao' && contexto.streak >= 3) {

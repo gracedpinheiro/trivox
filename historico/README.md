@@ -25,6 +25,8 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 17 | 12/10/2026 | [Visual alegre e base ampliada](17-visual-alegre-e-base-ampliada.md) | 1535 exercícios, imagem em todos, gerador por objetivo/idade/sexo, aquecimento e alongamento do dia, cronômetro com alarme, chamada diária, visual claro |
 | 18 | 12/10/2026 | [Auditoria e correções](18-auditoria-e-correcoes.md) | Auditoria com especialistas; corrigidos coach com sintoma, impacto para 50+/IMC alto, perda de digitação e de treino em andamento, login da nuvem pelo link, trocas sem filtro de perfil |
 | 19 | 12/10/2026 | [Auditoria: ciclos 5 a 9](19-auditoria-ciclos-5-a-9.md) | Fotos no IndexedDB, contraste AA e teclado, ilustrações corrigidas, triagem PAR-Q e aeróbico 50+ leve, acabamento (heatmap, importar, zip, .ics, XSS) |
+| 20 | 12/10/2026 | [Pedidos do teste no celular](20-pedidos-do-teste-no-celular.md) | Vários objetivos ao mesmo tempo, esportes desmarcáveis, 2 horários de lembrete, "Concluir série" sem rolar |
+| 21 | 12/10/2026 | [Segundo teste no celular](21-segundo-teste-no-celular.md) | Calendario abria o Safari (dados separados), Spotify, foto na execucao, coach, "de sobra", fotos offline, boneco sem genero, ampliar imagem, comecar do zero |
 
 ## Como usar
 

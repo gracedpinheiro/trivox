@@ -3,7 +3,7 @@
    cache na hora e atualiza por tras (stale-while-revalidate), entao a versao nova entra na
    abertura seguinte. Cache limitado ao app: ~40 MB com todas as 1066 fotos vistas. */
 
-const VERSAO = 'trivox-v32';
+const VERSAO = 'trivox-v35';
 
 // unica excecao de origem externa no cache: o SDK do Supabase (ver js/nuvem.js e index.html).
 // sem isso, o app ficaria sem sincronizar na nuvem toda vez que abrisse offline, mesmo depois
@@ -99,14 +99,22 @@ async function verificarLembrete() {
   if (!cfg.ativo) return;
   const agora = new Date();
   const hoje = agora.toLocaleDateString('sv-SE');
-  if (!cfg.dias.includes(agora.getDay()) || cfg.treinouEm === hoje || cfg.avisadoEm === hoje) return;
-  const [hh, mm] = String(cfg.hora || '18:00').split(':').map(Number);
-  if (agora.getHours() * 60 + agora.getMinutes() < hh * 60 + mm) return;
+  if (!cfg.dias.includes(agora.getDay()) || cfg.treinouEm === hoje) return;
+  // ate 2 horarios no dia; cada um avisa 1x (varios vencidos de uma vez = 1 aviso so)
+  const horas = cfg.horas || [cfg.hora || '18:00'];
+  const avisados = cfg.avisados || {};
+  const minutos = agora.getHours() * 60 + agora.getMinutes();
+  const vencidos = horas.filter((h) => {
+    const [hh, mm] = String(h).split(':').map(Number);
+    return hh * 60 + mm <= minutos && avisados[h] !== hoje;
+  });
+  if (!vencidos.length) return;
   await self.registration.showNotification(cfg.titulo || 'Hora do treino 💪', {
     body: cfg.corpo || 'Seu treino de hoje está pronto.', tag: 'lembrete-treino',
     icon: 'icons/icone-192.png', badge: 'icons/icone-192.png', vibrate: [300, 120, 300],
   });
-  cfg.avisadoEm = hoje;
+  vencidos.forEach((h) => { avisados[h] = hoje; });
+  cfg.avisados = avisados;
   await c.put('./__lembrete.json', new Response(JSON.stringify(cfg), { headers: { 'Content-Type': 'application/json' } }));
 }
 

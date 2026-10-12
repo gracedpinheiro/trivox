@@ -71,5 +71,16 @@ const Videos = (() => {
     }));
   }
 
-  return { suportado, salvarVideo, lerVideo, apagarVideo, listarTodos };
+  /** Apaga todos os videos ("começar do zero"). */
+  function apagarTodos() {
+    if (!suportado()) return Promise.resolve();
+    return abrirBanco().then((db) => new Promise((resolve, reject) => {
+      const tx = db.transaction(NOME_STORE, 'readwrite');
+      tx.objectStore(NOME_STORE).clear();
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error || new Error('Falha ao apagar os vídeos.'));
+    }));
+  }
+
+  return { suportado, salvarVideo, lerVideo, apagarVideo, listarTodos, apagarTodos };
 })();

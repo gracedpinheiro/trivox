@@ -428,6 +428,11 @@ ul.lista li { margin-bottom: 5px; font-size: 16px; }
   display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
 .midia-palco img { width: 100%; display: block; }
+/* imagem ampliada (toque no palco): ocupa a largura toda, fotos uma embaixo da outra */
+.midia-ampliada { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-bottom: 12px; }
+.midia-ampliada > *, .midia-ampliada .fotos, .midia-ampliada figure { width: 100%; max-width: 100%; }
+.midia-ampliada .fotos { display: flex; flex-direction: column; gap: 10px; }
+.midia-ampliada img, .midia-ampliada svg { width: 100% !important; height: auto !important; max-height: 75vh; object-fit: contain; border-radius: 12px; background: #fff; }
 .midia-palco .fotos { display: flex; gap: 6px; width: 100%; }
 .midia-palco .fotos img { flex: 1; min-width: 0; border-radius: 12px; aspect-ratio: 850 / 567; object-fit: cover; background: #fff; }
 .midia-palco svg { max-width: 100%; height: auto; }

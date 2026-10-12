@@ -136,6 +136,21 @@ const Dados = (() => {
     }
   }
 
+  /** "Começar do zero": apaga tudo do app neste aparelho (todos os perfis, fotos no IndexedDB e
+   *  a configuracao do lembrete do service worker). Videos: Videos.apagarTodos(). */
+  async function apagarTudoLocal() {
+    for (const k of Object.keys(localStorage)) if (k.startsWith('at:')) localStorage.removeItem(k);
+    memFotos.clear();
+    if (bancoFotos) {
+      await new Promise((resolve) => {
+        const tx = bancoFotos.transaction('lojas', 'readwrite');
+        tx.objectStore('lojas').clear();
+        tx.oncomplete = resolve; tx.onerror = resolve;
+      });
+    }
+    try { await caches.delete('trivox-config'); } catch (e) { /* sem Cache API */ }
+  }
+
   function ler(nome, padrao) {
     if (fotosNoBanco && LOJAS_FOTO.has(nome)) {
       const v = memFotos.get(chave(nome));
@@ -205,6 +220,9 @@ const Dados = (() => {
     objetivo: 'condicionamento', // condicionamento | perda_peso | hipertrofia | 50mais | raquete (antigos forca/resistencia/emagrecimento ainda aceitos)
     equipCasa: null,      // equipamentos que tem em casa (chaves de aparelho; null = padrao de js/programas.js)
     esporte: null,        // 'pickleball' | 'beach_tennis' — so pro objetivo raquete
+    objetivos: [],        // 1-2 objetivos de treino + "50mais" opcional; o 1o de treino e o principal (= objetivo)
+    esportes: [],         // raquete: 'pickleball' e/ou 'beach_tennis' (antes era um so, em "esporte")
+    lembreteHoras: [],    // ate 2 horarios no mesmo dia (antes um so, em "lembreteHora")
     parq: null,           // triagem de saude: { respostas: [true|false|null x7], em } — ver UI.PARQ
     diasJogo: [],         // dias da semana com jogo (0-6) — treino de perna pesado sai desses dias e da vespera
     enfase: 'auto',       // auto | neutra | inferiores | superiores | gluteos
@@ -514,6 +532,6 @@ const Dados = (() => {
     exportar, importar, validarBackup,
     exercicios, acharExercicio,
     aoSalvar, lerLoja, gravarLoja, LOJAS_SINCRONIZAVEIS,
-    execucaoSalva, salvarExecucao, carregarFotos,
+    execucaoSalva, salvarExecucao, carregarFotos, apagarTudoLocal,
   };
 })();
