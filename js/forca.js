@@ -229,8 +229,18 @@ const Forca = (() => {
   // ---------- plato ----------
 
   /** Plato = 4+ sessoes sem a carga nem as reps saírem do lugar. */
-  function detectarPlato(historico) {
-    if (!historico || historico.length < 4) return { plato: false, sessoes: historico ? historico.length : 0 };
+  function detectarPlato(historicoSeries) {
+    // o historico guarda cada SERIE; o plato compara SESSOES: fica a melhor serie de cada dia
+    const porDia = new Map();
+    for (const s of historicoSeries || []) {
+      const dia = s.data ? new Date(s.data).toLocaleDateString('sv-SE') : `sem-data-${porDia.size}`;
+      const atual = porDia.get(dia);
+      const melhor = !atual || (Number(s.carga) || 0) > (Number(atual.carga) || 0)
+        || ((Number(s.carga) || 0) === (Number(atual.carga) || 0) && (Number(s.reps) || 0) > (Number(atual.reps) || 0));
+      if (melhor) porDia.set(dia, s);
+    }
+    const historico = [...porDia.values()];
+    if (historico.length < 4) return { plato: false, sessoes: historico.length };
     const recentes = historico.slice(0, 5);
     const cargas = recentes.map((s) => Number(s.carga) || 0);
     const reps = recentes.map((s) => Number(s.reps) || 0);

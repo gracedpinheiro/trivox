@@ -1,7 +1,9 @@
 /* Service worker: deixa o app funcionar sem internet (dentro da academia o sinal cai).
-   Estrategia: cache-first para o shell, network-first para o resto. */
+   Estrategia: fotos e fontes = so cache depois da 1a vez (nao mudam); o resto = responde do
+   cache na hora e atualiza por tras (stale-while-revalidate), entao a versao nova entra na
+   abertura seguinte. Cache limitado ao app: ~40 MB com todas as 1066 fotos vistas. */
 
-const VERSAO = 'trivox-v31';
+const VERSAO = 'trivox-v32';
 
 // unica excecao de origem externa no cache: o SDK do Supabase (ver js/nuvem.js e index.html).
 // sem isso, o app ficaria sem sincronizar na nuvem toda vez que abrisse offline, mesmo depois
@@ -66,8 +68,10 @@ self.addEventListener('fetch', (ev) => {
   const origem = new URL(req.url).origin;
   if (origem !== self.location.origin && !ORIGENS_EXTERNAS_PERMITIDAS.includes(origem)) return;
 
+  const imutavel = /\/(data\/imagens|fonts)\//.test(new URL(req.url).pathname);
   ev.respondWith(
     caches.match(req).then((cacheada) => {
+      if (cacheada && imutavel) return cacheada;
       const rede = fetch(req)
         .then((resp) => {
           if (resp && resp.ok) {

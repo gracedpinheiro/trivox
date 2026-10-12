@@ -20689,11 +20689,7 @@
       "perda_peso"
     ],
     "impacto": "alto",
-    "aparelho": "esteira",
-    "imagens": [
-      "data/imagens/fedb/Running_Treadmill_0.jpg",
-      "data/imagens/fedb/Running_Treadmill_1.jpg"
-    ]
+    "aparelho": "esteira"
   },
   {
     "id": "fn_grip_hang_towel",
@@ -34349,12 +34345,15 @@
     "nivel": "iniciante",
     "icon": "🚶‍♀️",
     "musculos_primarios": [
-      "Equilíbrio",
-      "Coordenação"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Tornozelo",
-      "Core"
+      "Core",
+      "Equilíbrio",
+      "Coordenação"
     ],
     "instrucoes": [
       "Caminhe ao lado de uma parede ou bancada",
@@ -35746,13 +35745,16 @@
     "nivel": "avancado",
     "icon": "🧠",
     "musculos_primarios": [
-      "Equilíbrio",
-      "Coordenação"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Glúteo Médio",
       "Tornozelo",
-      "Cardio"
+      "Cardio",
+      "Equilíbrio",
+      "Coordenação"
     ],
     "instrucoes": [
       "Monte um percurso com 4-6 cones ou objetos baixos em zigue-zague, perto de uma parede",
@@ -36955,12 +36957,15 @@
     "nivel": "iniciante",
     "icon": "⏪",
     "musculos_primarios": [
-      "Equilíbrio"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Isquiotibiais",
       "Glúteos",
-      "Panturrilha"
+      "Panturrilha",
+      "Equilíbrio"
     ],
     "instrucoes": [
       "Fique de costas para um corredor livre, com uma das mãos encostando na parede ou corrimão",
@@ -37000,12 +37005,15 @@
     "nivel": "intermediario",
     "icon": "🛟",
     "musculos_primarios": [
-      "Equilíbrio"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Quadríceps",
       "Glúteos",
-      "Coordenação"
+      "Coordenação",
+      "Equilíbrio"
     ],
     "instrucoes": [
       "Fique em pé num espaço livre com o parceiro ao lado, pronto para segurar",
@@ -37045,11 +37053,14 @@
     "nivel": "intermediario",
     "icon": "👀",
     "musculos_primarios": [
-      "Equilíbrio"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Coordenação",
-      "Core"
+      "Core",
+      "Equilíbrio"
     ],
     "instrucoes": [
       "Caminhe num corredor livre perto da parede, em ritmo normal",
@@ -37089,12 +37100,15 @@
     "nivel": "avancado",
     "icon": "🙈",
     "musculos_primarios": [
-      "Equilíbrio"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Tornozelo",
       "Glúteo Médio",
-      "Core"
+      "Core",
+      "Equilíbrio"
     ],
     "instrucoes": [
       "Fique de lado para uma bancada ou parede, com a mão a poucos centímetros dela",
@@ -37135,12 +37149,15 @@
     "nivel": "intermediario",
     "icon": "🏀",
     "musculos_primarios": [
-      "Equilíbrio"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Glúteo Médio",
       "Tornozelo",
-      "Coordenação"
+      "Coordenação",
+      "Equilíbrio"
     ],
     "instrucoes": [
       "Fique a 1-2 metros de uma parede, apoiado numa perna",
@@ -40024,12 +40041,15 @@
     "nivel": "iniciante",
     "icon": "🎾",
     "musculos_primarios": [
-      "Coordenação"
+      "Glúteo Médio",
+      "Panturrilha",
+      "Core"
     ],
     "musculos_secundarios": [
       "Antebraços",
       "Equilíbrio",
-      "Ombros"
+      "Ombros",
+      "Coordenação"
     ],
     "instrucoes": [
       "Fique a 1,5-2 metros de uma parede lisa, joelhos levemente dobrados",
@@ -40566,7 +40586,7 @@
       "50mais"
     ],
     "impacto": "baixo",
-    "aparelho": "esteira",
+    "aparelho": "escada_ergometrica",
     "fedb_id": "Stairmaster",
     "imagens": [
       "data/imagens/fedb/Stairmaster_0.jpg",
@@ -40618,7 +40638,7 @@
       "raquete"
     ],
     "impacto": "baixo",
-    "aparelho": "esteira"
+    "aparelho": "escada_ergometrica"
   },
   {
     "id": "cf3_stairmaster_degrau_duplo",
@@ -40664,7 +40684,7 @@
       "hipertrofia"
     ],
     "impacto": "baixo",
-    "aparelho": "esteira"
+    "aparelho": "escada_ergometrica"
   },
   {
     "id": "cf3_stairmaster_tiros",
@@ -40710,7 +40730,7 @@
       "perda_peso"
     ],
     "impacto": "medio",
-    "aparelho": "esteira"
+    "aparelho": "escada_ergometrica"
   },
   {
     "id": "cf3_esteira_zona2",

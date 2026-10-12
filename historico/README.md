@@ -24,6 +24,7 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 16 | 17/08/2026 | [Bug do login mágico](16-bug-do-login-magico.md) | Sessão existia mas a tela não via — callback repassando argumento errado; achado via DevTools |
 | 17 | 12/10/2026 | [Visual alegre e base ampliada](17-visual-alegre-e-base-ampliada.md) | 1535 exercícios, imagem em todos, gerador por objetivo/idade/sexo, aquecimento e alongamento do dia, cronômetro com alarme, chamada diária, visual claro |
 | 18 | 12/10/2026 | [Auditoria e correções](18-auditoria-e-correcoes.md) | Auditoria com especialistas; corrigidos coach com sintoma, impacto para 50+/IMC alto, perda de digitação e de treino em andamento, login da nuvem pelo link, trocas sem filtro de perfil |
+| 19 | 12/10/2026 | [Auditoria: ciclos 5 a 9](19-auditoria-ciclos-5-a-9.md) | Fotos no IndexedDB, contraste AA e teclado, ilustrações corrigidas, triagem PAR-Q e aeróbico 50+ leve, acabamento (heatmap, importar, zip, .ics, XSS) |
 
 ## Como usar
 

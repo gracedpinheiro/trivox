@@ -150,7 +150,7 @@ const Programas = (() => {
     'maquina', 'polia', 'crossover', 'smith', 'leg_press', 'hack', 'puxador_pulley', 'panturrilha_maquina', 'supino_maquina',
     'mesa_flexora', 'cadeira_extensora', 'cadeira_abdutora', 'cadeira_adutora', 'remada_baixa', 'remada_maquina',
     'voador_peck_deck', 'maquina_bracos', 'maquina_abdominal', 'gluteo_maquina', 'desenvolvimento_maquina', 'banco_romano',
-    'landmine', 'treno', 'pneu', 'corda_naval', 'remo_ergometro', 'bicicleta', 'esteira', 'eliptico',
+    'landmine', 'treno', 'pneu', 'corda_naval', 'remo_ergometro', 'bicicleta', 'esteira', 'escada_ergometrica', 'eliptico',
     'barra', 'barra_ez', 'anilha', 'banco_inclinado', 'caixa_pliometrica', 'barra_baixa', 'barra_vertical', 'cinto',
   ]);
   // so academia E tipicamente maquina (o teste de "nenhuma maquina em casa" usa este)
@@ -191,6 +191,7 @@ const Programas = (() => {
     [/smith/, 'smith'],
     [/remo|maquina de remo/, 'remo_ergometro'],
     [/bike|bicicleta|spinning/, 'bicicleta'],
+    [/escada ergometrica|stairmaster/, 'escada_ergometrica'],
     [/esteira/, 'esteira'],
     [/maquina|ghr|viking|leg press|barra t$/, 'maquina'],
     [/polia|cabo|crossover/, 'polia'],
@@ -714,7 +715,8 @@ const Programas = (() => {
       a.notas.push('versão mais conservadora para 65+');
     } else if (idadeN && idadeN >= 50) {
       a.descansoExtra = 15;
-      if (nivelPrograma(nivel) === 'iniciante') a.rirMin = 2;
+      // nunca ate a falha (RIR 0) a partir dos 50: menos Valsalva, mais seguro para quem tem pressao alta
+      a.rirMin = nivelPrograma(nivel) === 'iniciante' ? 2 : 1;
     }
     if (idadeN && idadeN < 18) {
       a.rirMin = Math.max(a.rirMin, 2);

@@ -214,40 +214,40 @@ RG: Movimento sem elástico
 # ===================== EQUILÍBRIO / PREVENÇÃO DE QUEDAS =====================
 
 sr3_marcha_re | Caminhada para Trás com Apoio (Marcha Ré) | equilibrio | Corredor + parede ou corrimão | ini | ⏪ | parede | ca | b | C5 | 3 | 10 passos x 3
-P: Equilíbrio
-S: Isquiotibiais, Glúteos, Panturrilha
+P: Glúteo Médio, Panturrilha, Core
+S: Isquiotibiais, Glúteos, Panturrilha, Equilíbrio
 I: Fique de costas para um corredor livre, com uma das mãos encostando na parede ou corrimão | Dê passos para trás apoiando primeiro a ponta do pé e depois o calcanhar | Mantenha o tronco ereto e o olhar à frente | Dê passos de tamanho normal e sem pressa | Ao final do corredor, vire com cuidado e repita
 E: Olhar para trás o tempo todo (perde postura) | Passos curtos e arrastados | Fazer em lugar com tapete solto
 PR: Marcha ré sem apoio da mão
 RG: Caminhada Lateral com Apoio
 
 sr3_passo_reativo | Passo de Recuperação (Treino Anti-Queda) | equilibrio | Peso corporal + parceiro | int | 🛟 | peso_corporal | ca | b | C5 | 3 | 5 cada direção
-P: Equilíbrio
-S: Quadríceps, Glúteos, Coordenação
+P: Glúteo Médio, Panturrilha, Core
+S: Quadríceps, Glúteos, Coordenação, Equilíbrio
 I: Fique em pé num espaço livre com o parceiro ao lado, pronto para segurar | Incline o corpo inteiro à frente (como uma tábua) até sentir que vai perder o equilíbrio | Dê um passo rápido e largo à frente para "pegar" o corpo e pare firme | Volte e repita para os lados e para trás | Aumente a inclinação só quando o passo estiver seguro
 E: Dar vários passinhos pequenos em vez de um passo firme | Dobrar só o quadril sem inclinar o corpo todo | Treinar sem alguém por perto
 PR: Inclinação liberada pelo parceiro em momento surpresa
 RG: Transferência de Peso (Frente-Trás e Lateral)
 
 sr3_marcha_giro_cabeca | Marcha com Giros de Cabeça (Treino Vestibular) | equilibrio | Corredor | int | 👀 | peso_corporal | ca | b | C5 | 3 | 10 m x 3
-P: Equilíbrio
-S: Coordenação, Core
+P: Glúteo Médio, Panturrilha, Core
+S: Coordenação, Core, Equilíbrio
 I: Caminhe num corredor livre perto da parede, em ritmo normal | A cada 2 passos, gire a cabeça para olhar à direita, depois à esquerda | Mantenha a linha reta e o passo regular | Na volta, faça o mesmo olhando para cima e para baixo | Pare se sentir tontura e retome mais devagar
 E: Diminuir o passo até quase parar | Girar o tronco junto com a cabeça | Fazer longe de um apoio no início
 PR: Caminhada em tandem com giros de cabeça
 RG: Giros de cabeça parado em pé com apoio
 
 sr3_olhos_fechados_unipodal | Equilíbrio Unipodal de Olhos Fechados | equilibrio | Peso corporal + apoio | ava | 🙈 | peso_corporal | ca | b | C5R | 3 | 3 x 15-30s cada perna
-P: Equilíbrio
-S: Tornozelo, Glúteo Médio, Core
+P: Glúteo Médio, Panturrilha, Core
+S: Tornozelo, Glúteo Médio, Core, Equilíbrio
 I: Fique de lado para uma bancada ou parede, com a mão a poucos centímetros dela | Fique sobre uma perna, joelho de apoio levemente destravado | Feche os olhos e mantenha a posição | Toque o apoio se precisar e reabra os olhos | Troque de perna
 E: Prender a respiração | Travar o joelho | Treinar sem nada por perto para segurar
 PR: Fazer sobre almofada ou colchonete dobrado
 RG: Equilíbrio com Olhos Fechados (Pés Juntos)
 
 sr3_unipodal_bola_parede | Equilíbrio Unipodal com Passe de Bola na Parede | equilibrio | Bola + parede | int | 🏀 | parede | ca | b | C5R | 3 | 20-30s cada perna
-P: Equilíbrio
-S: Glúteo Médio, Tornozelo, Coordenação
+P: Glúteo Médio, Panturrilha, Core
+S: Glúteo Médio, Tornozelo, Coordenação, Equilíbrio
 I: Fique a 1-2 metros de uma parede, apoiado numa perna | Lance uma bola leve contra a parede com as duas mãos | Pegue a bola sem apoiar o outro pé | Varie a altura e o lado dos passes | Troque de perna ao final
 E: Joelho de apoio caindo para dentro | Apoiar o pé livre a cada passe | Lançar forte demais no início
 PR: Equilíbrio no Bosu com Lançamento de Bola
@@ -770,8 +770,8 @@ PR: Bounding com distância máxima
 RG: Salto Patinador (Skater)
 
 sr3_reacao_bola_parede | Reação com Bola na Parede (Pegar no Quique) | cardio | Bola de tênis + parede | ini | 🎾 | parede | ca | b | C5R | 3 | 30-45s
-P: Coordenação
-S: Antebraços, Equilíbrio, Ombros
+P: Glúteo Médio, Panturrilha, Core
+S: Antebraços, Equilíbrio, Ombros, Coordenação
 I: Fique a 1,5-2 metros de uma parede lisa, joelhos levemente dobrados | Jogue uma bola de tênis contra a parede com uma mão | Pegue a bola de volta (com ou sem quique no chão) com a mesma mão | Alterne as mãos e varie a altura | Aumente a distância ou a velocidade conforme a confiança
 E: Ficar com as pernas travadas | Jogar forte demais e perder o controle | Usar sempre a mesma mão
 PR: Voleio Rápido na Parede com Raquete

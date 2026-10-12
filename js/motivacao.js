@@ -11,7 +11,7 @@ const Motivacao = (() => {
     'Cada série conta. Literalmente: o app está contando.',
     'Constância vence intensidade. Aparece hoje, que o resto se ajeita.',
     'Dia ruim também vale: treino leve ainda é treino.',
-    'Você não treina pra ficar cansada. Treina pra ficar capaz.',
+    'Você não treina pra se cansar. Treina pra ficar capaz.',
     'Música boa, garrafa d’água e bora!',
     'Músculo não sabe se é segunda ou sexta. Só sabe se você foi.',
     '20 minutos bem feitos valem mais que 1 hora pensando em ir.',
@@ -37,10 +37,10 @@ const Motivacao = (() => {
       'Mais disposição pro dia inteiro: é isso que o treino de hoje te dá.',
     ],
     '50mais': [
-      'Força é independência: levantar, carregar, subir escada sozinha. Bora treinar pra isso.',
+      'Força é independência: levantar, carregar, subir escada sem ajuda. Bora treinar pra isso.',
       'Equilíbrio também se treina — e cada dia conta.',
       'Nunca é tarde pra ficar mais forte. Hoje é um ótimo dia pra provar isso.',
-      'Movimento é remédio que não tem efeito colateral ruim.',
+      'Movimento é remédio — na dose certa.',
     ],
     raquete: [
       'Perna forte e ombro blindado = mais jogo e menos dor. Bora!',

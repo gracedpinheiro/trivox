@@ -75,8 +75,8 @@ PR: Tandem com olhos fechados (com alguém por perto)
 RG: Pés semi-alinhados (um pouco de lado)
 
 s50_caminhada_tandem | Caminhada Calcanhar-Ponta | equilibrio | Peso corporal | ini | 🚶‍♀️ | peso_corporal | ca | b | C5 | 3 | 10-15 passos
-P: Equilíbrio, Coordenação
-S: Tornozelo, Core
+P: Glúteo Médio, Panturrilha, Core
+S: Tornozelo, Core, Equilíbrio, Coordenação
 I: Caminhe ao lado de uma parede ou bancada | A cada passo, encoste o calcanhar do pé da frente nos dedos do pé de trás | Olhe para frente, não para os pés | Faça o percurso devagar e volte
 E: Passos apressados | Afastar-se do apoio | Braços rígidos
 PR: Caminhada calcanhar-ponta para trás
@@ -313,8 +313,8 @@ PR: Marcha com carga acima da cabeça (braço estendido)
 RG: Farmer walk unilateral
 
 s50_dupla_tarefa | Marcha com Dupla Tarefa (Cognitivo-Motora) | equilibrio | Cones ou objetos baixos | ava | 🧠 | cones | ca | b | C5R | 3 | 2-3 min
-P: Equilíbrio, Coordenação
-S: Glúteo Médio, Tornozelo, Cardio
+P: Glúteo Médio, Panturrilha, Core
+S: Glúteo Médio, Tornozelo, Cardio, Equilíbrio, Coordenação
 I: Monte um percurso com 4-6 cones ou objetos baixos em zigue-zague, perto de uma parede | Caminhe contornando os cones em ritmo moderado | Ao mesmo tempo, faça uma tarefa mental: contar de 3 em 3 para trás, dizer nomes de frutas, ou responder a comandos de um parceiro ("esquerda", "pare") | Mantenha a postura e o olhar à frente; aumente a velocidade aos poucos
 E: Parar de caminhar para pensar (reduza a dificuldade mental) | Olhar para os pés | Fazer longe de apoio no início
 PR: Dupla tarefa carregando um copo de água ou sobre obstáculos

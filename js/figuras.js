@@ -1945,7 +1945,7 @@ const Figuras = (() => {
     smith: 'Máquina Smith', cadeira: 'Cadeira', trx: 'TRX (fita de suspensão)', landmine: 'Landmine', crossover: 'Crossover',
     medicine_ball: 'Medicine ball', banco: 'Banco reto', degrau_step: 'Degrau / step', mochila: 'Mochila com peso', cones: 'Cones',
     toalha: 'Toalha', mini_band: 'Mini band', argolas: 'Argolas', leg_press: 'Leg press 45°', puxador_pulley: 'Puxador (pulley)',
-    banco_romano: 'Banco romano', banco_inclinado: 'Banco inclinado', anilha: 'Anilha', esteira: 'Esteira',
+    banco_romano: 'Banco romano', banco_inclinado: 'Banco inclinado', anilha: 'Anilha', esteira: 'Esteira', escada_ergometrica: 'Escada ergométrica',
     panturrilha_maquina: 'Máquina de panturrilha', hack: 'Hack', bicicleta: 'Bicicleta ergométrica', mesa_flexora: 'Mesa flexora',
     paralelas: 'Paralelas', treno: 'Trenó', saco_areia: 'Saco de areia', foam_roller: 'Rolo de liberação (foam roller)',
     corda_naval: 'Corda naval', corda_pular: 'Corda de pular', supino_maquina: 'Supino na máquina', barra_ez: 'Barra W (EZ)',
@@ -1967,6 +1967,7 @@ const Figuras = (() => {
     voador_peck_deck: 'peck_deck', remo_ergometro: 'remo', gluteo_maquina: 'coice_maquina', cadeira_abdutora: 'cadeira_abdutora',
     cadeira_adutora: 'cadeira_adutora', remada_maquina: 'remada_maquina', maquina_abdominal: 'crunch_maquina',
     panturrilha_maquina: 'panturrilha_maquina', banco_romano: 'extensao_lombar', bicicleta: 'bike', eliptico: 'eliptico',
+    escada_ergometrica: 'escada_ergometrica',
     desenvolvimento_maquina: 'desenvolvimento_maquina' };
 
   const AP_DES = {
@@ -2141,7 +2142,7 @@ s50_passo_cruzado:5p;s50_obstaculos:5d;s50_olhos_fechados:91;s50_alcance_funcion
 s50_sentar_levantar_unipodal:89;s50_step_up_halteres_pausa:8n,halteres,degrau;s50_farmer_tandem:23;s50_equilibrio_almofada:3k;s50_avanco_apoio:9;s50_abducao_sentado_elastico:5,mini_band;s50_marcha_mala:20,kettlebell;s50_dupla_tarefa:5d
 s50_levantar_chao_sem_maos:4z;sr3_leg_press_excentrico:4y;sr3_agach_halter_banco:i,halteres;sr3_agach_pendulo:4j;sr3_split_squat_halteres:9,halteres;sr3_afundo_reverso_trx:e,trx;sr3_extensora_isometrica:3t;sr3_abducao_pe_cabo:4,polia
 sr3_aducao_bola_joelhos:8;sr3_aducao_deitado:6;sr3_afundo_lateral_kb:d,kettlebell;sr3_afundo_lateral_toalha:d,toalha;sr3_afundo_lateral_landmine:d,landmine;sr3_cossack_trx:d,trx;sr3_elevacao_pelvica_maquina:4l,-;sr3_ponte_bola_suica:66,,bola_suica
-sr3_flexora_elastico_sentado:47;sr3_terra_cabo:92,polia;sr3_rdl_kickstand:8p,halter;sr3_mesa_flexora_uni_exc:48;sr3_terra_uni_landmine:8q,landmine;sr3_panturrilha_sentado_halter:5m,halter,cadeira;sr3_panturrilha_elastico:5m,elastico,cadeira;sr3_dorsiflexao_elastico:96,elastico
+sr3_flexora_elastico_sentado:47;sr3_terra_cabo:92,polia;sr3_rdl_kickstand:8p,halter;sr3_mesa_flexora_uni_exc:48;sr3_terra_uni_landmine:8q,landmine;sr3_panturrilha_sentado_halter:5m,halter,cadeira;sr3_panturrilha_elastico:96,elastico,cadeira;sr3_dorsiflexao_elastico:96,elastico
 sr3_inversao_eversao:9a,elastico;sr3_marcha_re:1y;sr3_passo_reativo:9;sr3_marcha_giro_cabeca:1y;sr3_olhos_fechados_unipodal:3k;sr3_unipodal_bola_parede:3k;sr3_bosu_unipodal:5y;sr3_pallof_unipodal:5g,elastico
 sr3_flexao_quadril_elastico:52;sr3_remada_articulada_uni:76;sr3_puxada_ajoelhado_uni:6o;sr3_remada_corda_rosto:3u;sr3_remada_cadeira_halteres:73,halteres;sr3_remada_elastico_afundo:70;sr3_retracao_banco_inclinado:72;sr3_crucifixo_inverso_inclinado:2u
 sr3_scaption:3f;sr3_passaro_rot_externa:2u;sr3_rot_externa_isometrica_parede:7t,-;sr3_rot_externa_sentado_joelho:7u,halter;sr3_d2_cabo:34,polia;sr3_d2_extensao_elastico:34;sr3_rot_externa_exc_cabo:7u,polia;sr3_arremesso_9090_parede:1a
@@ -2163,12 +2164,12 @@ cf3_rucking:1y,mochila;cf3_carry_galoes:20,saco_areia;cf3_carry_anilhas_pinca:20
 cf3_burpee_step:1u;cf3_mountain_banco:57;cf3_mountain_toalha:57;cf3_mountain_trx:57;cf3_mountain_bola:57;cf3_bear_crawl_lateral:3j;cf3_inchworm_flexao:4p;cf3_caranguejo_toque:26
 cf3_joelho_cotovelo_pe:4s;cf3_socos_sentado:1s;cf3_chute_frontal:2a;cf3_seal_jack:63;cf3_split_jump:f;cf3_carioca:5p;cf3_wall_drill:2l,,parede;cf3_shuttle_run:2l,,cones
 cf3_zigue_zague_cones:2l,,cones;cf3_miniband_polichinelo:61,mini_band;cf3_elastico_thruster:94,elastico;cf3_elastico_agach_remada:g,elastico;cf3_trx_agach_salto:t,trx;cf3_bosu_burpee:1u;cf3_polia_sprint:2l,polia;cm3_crunch_polia_sentado:2w
-cm3_crunch_polia_em_pe:2w;cm3_crunch_polia_torcao:2w;cm3_abdominal_reverso_polia:2,polia;cm3_crunch_anilha_peito:0,-;cm3_abdominal_reverso_declinado:2;cm3_crunch_bosu:0;cm3_trx_abdominal_reverso:57;cm3_trx_pike:5w
+cm3_crunch_polia_em_pe:2w;cm3_crunch_polia_torcao:2w;cm3_abdominal_reverso_polia:2,polia;cm3_crunch_anilha_peito:0,-;cm3_abdominal_reverso_declinado:2;cm3_crunch_bosu:0;cm3_trx_abdominal_reverso:5w;cm3_trx_pike:5w
 cm3_rollout_barra_banco:7e;cm3_hollow_anilha:4n;cm3_dragon_flag_negativo:36;cm3_joelhos_obliquos_barra:39;cm3_limpador_barra:3d;cm3_elev_joelhos_obliqua_paralelas:38;cm3_crunch_bracos_acima:1;cm3_crunch_pernas_bola:0
 cm3_crunch_pernas_cadeira:0;cm3_tuck_crunch:9p;cm3_sit_up_parcial:8d;cm3_janda_sit_up:8d;cm3_sit_up_sapo:8d;cm3_crunch_mochila:0,-;cm3_crunch_medicine_ball:1,medicine_ball;cm3_recolhimento_sentado_chao:9p
 cm3_recolhimento_sentado_banco:9p;cm3_rollout_bola:6d;cm3_body_saw_toalha:6b;cm3_prancha_rkc:6b;cm3_prancha_pes_elevados:6i,,degrau;cm3_prancha_bosu:6d;cm3_prancha_pes_trx:6i,,trx;cm3_dead_bug_elastico:2x,elastico
 cm3_dead_bug_kettlebell:2x,kettlebell;cm3_lsit_grupado_halteres:4w;cm3_limpador_chao:99;cm3_russian_twist_polia:7q;cm3_russian_twist_anilha:7y,anilha;cm3_rotacao_barra_sentado:7w,barra;cm3_judo_flip_polia:9y;cm3_woodchop_halter:9y,halter
-cm3_woodchop_elastico:9y,elastico;cm3_lift_elastico:50,elastico;cm3_medball_full_twist:7s,medicine_ball;cm3_inclinacao_polia_alta:4q,-;cm3_inclinacao_barra:4q,-;cm3_inclinacao_bola:25;cm3_inclinacao_banco_romano:3q;cm3_inclinacao_elastico:4q,-
+cm3_woodchop_elastico:9y,elastico;cm3_lift_elastico:50,elastico;cm3_medball_full_twist:7s,medicine_ball;cm3_inclinacao_polia_alta:4q,-;cm3_inclinacao_barra:4q,-;cm3_inclinacao_bola:25;cm3_inclinacao_banco_romano:43,-;cm3_inclinacao_elastico:4q,-
 cm3_crunch_obliquo_declinado:0;cm3_canivete_lateral:25;cm3_windmill_halter:9x,halter;cm3_bent_press:9x;cm3_prancha_lateral_trx:6f,trx;cm3_pallof_acima_cabeca:5g;cm3_pallof_passo_lateral:5g,elastico;cm3_prancha_urso_toque:9n
 cm3_marretada_pneu:54;cm3_slam_unilateral:8g;cm3_arremesso_deitado:1,medicine_ball;cm3_hiper_reversa_banco:4m;cm3_ext_lombar_anilha:3q;cm3_ext_lombar_isometrica:3q;cm3_ext_lombar_chao_sofa:8s;cm3_superman_alternado:8s
 cm3_bird_dog_banco:1n;cm3_bom_dia_sentado:1p,barra;cm3_groiner:9z;cm3_circulos_quadril_quatro_apoios:6w;cm3_cars_quadril:29;cm3_frog_rock:86;cm3_mob_flexor_elastico:a;cm3_agachamento_kettlebell_mob:q,kettlebell
@@ -2179,13 +2180,13 @@ cm3_joelhos_peito:4t;cm3_lombar_cadeira:12;cm3_abdomen_cobra_parcial:3n;cm3_late
 cm3_gluteo_cadeira:4i,,cadeira;cm3_adutor_borboleta_deitada:1q;cm3_banda_it_pe:4q;cm3_rolo_quadriceps:7g;cm3_rolo_panturrilha:7h;cm3_rolo_latissimo:7f;cm3_rolo_banda_it:7g;cm3_rolo_isquiotibiais:7h
 cm3_rolo_gluteo:7h;cm3_rolo_adutor:7g;cb3_puxada_corda_pulley:6u;cb3_puxada_pausa_peito:6t;cb3_puxada_excentrica_lenta:6t;cb3_puxada_amplitude_total:6t;cb3_puxada_articulada_unilateral:6v,-;cb3_puxada_unilateral_elastico_ajoelhado:6o,elastico
 cb3_remada_alta_ajoelhado_polia:6o;cb3_remada_alta_unilateral_ajoelhado:6o;cb3_pulldown_corda:6p;cb3_pulldown_unilateral_cabo:6p;cb3_pulldown_banco_inclinado:6p;cb3_pullover_barra_banco:6q,barra,banco;cb3_pullover_kettlebell_chao:6r,kettlebell;cb3_pullover_mochila_chao:6r,mochila
-cb3_pullover_bola_suica:8u;cb3_barra_pes_cadeira:1g;cb3_pullup_pausa_90:1g;cb3_arrasto_toalhas_chao:5a;cb3_puxada_crossover_ajoelhado:6o,crossover;cb3_puxada_isometrica_toalha:6o,toalha;cb3_remada_curvada_supinada:73;cb3_remada_pendlay:73
+cb3_pullover_bola_suica:6q,,bola_suica;cb3_barra_pes_cadeira:1g;cb3_pullup_pausa_90:1g;cb3_arrasto_toalhas_chao:5a;cb3_puxada_crossover_ajoelhado:6o,crossover;cb3_puxada_isometrica_toalha:6o,toalha;cb3_remada_curvada_supinada:73;cb3_remada_pendlay:73
 cb3_remada_landmine_unilateral_ajoelhado:7b,landmine;cb3_remada_dois_halteres_pronada:73,halteres;cb3_remada_halteres_neutra:73,halteres;cb3_remada_kettlebell_unilateral:7b,kettlebell;cb3_remada_kettlebell_alternada:73,kettlebells;cb3_remada_baixa_pausa:78;cb3_remada_baixa_supinada:78;cb3_remada_polia_rotacao:70,polia
 cb3_remada_t_deitado:72,landmine;cb3_remada_smith_unilateral:73,smith;cb3_remada_invertida_smith:75;cb3_remada_invertida_mesa:75,,mesa;cb3_remada_unilateral_trx:7a;cb3_remada_aberta_trx:7a;cb3_remada_elastico_rotacao:74;cb3_remada_mochila_unilateral:7b,mochila,cadeira
 cb3_remada_garrafas:73,halteres;cb3_remada_isometrica_toalha:79,toalha;cb3_scap_row_trx:7a;cb3_y_banco_inclinado:2u;cb3_depressao_escapular_pulley:6t;cb3_y_elastico_em_pe:3f,elastico;cb3_extensao_lombar_isometrica:3q;cb3_extensao_lombar_anilha:3q
 cb3_nadador_deitado:5a;cb3_good_morning_sentado:1p,barra;cb3_rosca_barra_aberta:7i,barra;cb3_rosca_barra_fechada:7i,barra;cb3_rosca_spider_barra_w:7p,barra_ez;cb3_rosca_scott_maquina:7o,-;cb3_rosca_scott_cabo:7o,polia;cb3_rosca_deitado_cabo:7i,polia
-cb3_rosca_polia_alta_deitado:7i,polia;cb3_rosca_concentrada_em_pe:7k;cb3_rosca_deitado_banco_reto:7l;cb3_rosca_rotacao_externa:7i;cb3_rosca_kettlebell:7i,kettlebell;cb3_rosca_mochila:7i,mochila;cb3_rosca_toalha_isometrica:7i,toalha;cb3_rosca_bayesiana_elastico:7i,elastico
-cb3_rosca_trx:7a;cb3_rosca_toalha_macaneta:7i,toalha;cb3_rosca_corporal_smith:7a,-;cb3_rosca_excentrica_lenta:7i;cb3_rosca_maquina_unilateral:7o,-;cb3_rosca_landmine:7i,landmine;cb3_rosca_martelo_inclinada:7l,,banco_inclinado;cb3_rosca_scott_martelo:7o,halter
+cb3_rosca_polia_alta_deitado:7i,polia;cb3_rosca_concentrada_em_pe:7k;cb3_rosca_deitado_banco_reto:7l;cb3_rosca_rotacao_externa:7i;cb3_rosca_kettlebell:7i,kettlebell;cb3_rosca_mochila:7i,saco_areia;cb3_rosca_toalha_isometrica:7i,toalha;cb3_rosca_bayesiana_elastico:7i,elastico
+cb3_rosca_trx:7i,trx;cb3_rosca_toalha_macaneta:7i,toalha;cb3_rosca_corporal_smith:7a,-;cb3_rosca_excentrica_lenta:7i;cb3_rosca_maquina_unilateral:7o,-;cb3_rosca_landmine:7i,landmine;cb3_rosca_martelo_inclinada:7l,,banco_inclinado;cb3_rosca_scott_martelo:7o,halter
 cb3_rosca_martelo_elastico:7i,elastico;cb3_rosca_inversa_scott_w:7o,barra_ez;cb3_rosca_inversa_cabo:7i,polia;cb3_rosca_inversa_halteres:7i;cb3_rosca_inversa_elastico:7i,elastico;cb3_rosca_inversa_anilha:7i,anilha;cb3_rosca_zottman_scott:7o,halter;cb3_rosca_martelo_toalha_kettlebell:7i,kettlebell
 cb3_rosca_punho_barra_banco:7m,barra,banco;cb3_extensao_punho_barra_banco:7m,barra,banco;cb3_rosca_punho_atras_costas:7n;cb3_rosca_dedos_barra:7m,barra;cb3_rosca_punho_cabo:7m,polia;cb3_pinca_anilhas:87,anilha;cb3_bottoms_up_kettlebell:87,kettlebell;cb3_suspensao_unilateral:5s
 cb3_rolo_punho_caseiro:5r,-;cb3_extensao_dedos_elastico:5r,-;cb3_extensao_punho_elastico:7m,elastico;cb3_remada_toalha_halter:7b;cb3_sustentacao_barra_grossa:87,barra;gp3_ponte_barra_chao:65,barra;gp3_hip_thrust_maquina:4l,-;gp3_hip_thrust_pausa:4l,barra
@@ -2204,21 +2205,21 @@ gp3_circulos_4apoios:6w;gp3_abdutora_3_angulos:1w;gp3_afundo_cruzado_halteres:c,
 om3_lateral_crossover_cruzada:3a,crossover;om3_lateral_inclinado_lado:3b,halter;om3_lateral_peito_apoiado:2u;om3_lateral_pausa:3a;om3_lateral_um_e_meio:3a;om3_lu_raise:3f;om3_lateral_landmine:3b,-;om3_lateral_trx:3a,trx
 om3_lateral_garrafas:3a;om3_abducao_iso_parede:3a,-;om3_lateral_mini_band:3a,mini_band;om3_remada_alta_smith_uni:71,smith;om3_remada_alta_halteres:71,halteres;om3_lateral_frontal_alternada:3a;om3_frontal_cabo:37,polia;om3_frontal_anilha:37,anilha
 om3_frontal_inclinado:37;om3_frontal_elastico:37,elastico;om3_desenv_polia_sentado:31,crossover;om3_desenv_militar_pe:2y,barra;om3_desenv_uni_halter_pe:32;om3_desenv_neutro:2y;om3_desenv_meio_ajoelhado_kb:2z;om3_landmine_meio_ajoelhado:2z,landmine
-om3_jammer_unilateral:4x;om3_bradford_press:2y,barra;om3_z_press:31;om3_desenv_gangorra_kb:32,kettlebells;om3_desenv_2kb:2y,kettlebells;om3_desenv_mochila:2y,mochila;om3_pike_deficit:5v;om3_posterior_polia_curvado:2t,crossover
-om3_remada_corda_posterior:3u;om3_posterior_banco_inclinado:2u;om3_posterior_uni_brucos:2u,halter;om3_posterior_testa_banco:2u;om3_remada_posterior_barra:73;om3_posterior_elastico_ancorado:2t,elastico;om3_posterior_trx:7a;om3_posterior_iso_parede:2t,-
+om3_jammer_unilateral:4x;om3_bradford_press:2y,barra;om3_z_press:31;om3_desenv_gangorra_kb:32,kettlebells;om3_desenv_2kb:2y,kettlebells;om3_desenv_mochila:2y,saco_areia;om3_pike_deficit:5v;om3_posterior_polia_curvado:2t,crossover
+om3_remada_corda_posterior:3u;om3_posterior_banco_inclinado:2u;om3_posterior_uni_brucos:2u,halter;om3_posterior_testa_banco:2u;om3_remada_posterior_barra:73;om3_posterior_elastico_ancorado:2t,elastico;om3_posterior_trx:7a;om3_posterior_iso_parede:18
 om3_posterior_bola:2u;om3_re_90_cabo:7u,polia;om3_re_brucos_90:a0,halteres;om3_re_iso_batente:7t,-;om3_re_bilateral_elastico:7t;om3_kb_bottoms_up_carry:20,kettlebell;om3_full_can:3f;om3_d1_elastico:4d,elastico
 om3_re_passo_lateral_cabo:7t,polia;om3_prancha_lateral_re:6f,halter;om3_bola_parede_circulos:9v,medicine_ball;om3_protracao_halteres:8a,halteres;om3_protracao_smith:8a,-;om3_soco_cabo:8x,polia;om3_prancha_protracao:6b;om3_parede_rolo:9v
-om3_urso_protracao:6l;om3_flexao_plus_trx:9l;om3_encolh_smith_atras:3h,smith;om3_encolh_polia:3h,polia;om3_encolh_maq_panturrilha:3h,-;om3_encolh_barra_atras:3h,barra;om3_encolh_inclinado:2u;om3_encolh_mochila:3h,mochila
+om3_urso_protracao:6l;om3_flexao_plus_trx:9l;om3_encolh_smith_atras:3h,smith;om3_encolh_polia:3h,polia;om3_encolh_maq_panturrilha:3h,-;om3_encolh_barra_atras:3h,barra;om3_encolh_inclinado:3h;om3_encolh_mochila:3h,mochila
 om3_encolh_overhead:3i;om3_encolh_explosivo:3h,barra;om3_y_bola:a0;om3_retracao_cadeira:7w;om3_depressao_cadeira:56,,cadeira;om3_mergulho_escapular:55;om3_navios_piratas_kb:7s,kettlebell;om3_arremesso_medball_cabeca:1a
 om3_crucifixo_isometrico:3a;om3_wall_walk:9w;om3_bananeira_toque_ombro:5n;pt3_supino_pegada_aberta:8t;pt3_supino_guilhotina:8t;pt3_spoto_press:8t;pt3_supino_maq_descida_lenta:8z;pt3_supino_maq_unilateral:8z
 pt3_supino_cabo_sentado:8z;pt3_crucifixo_cabo_banco_reto:2r,polia;pt3_crossover_polia_media:2q;pt3_cruz_ferro_cabo:2o;pt3_crossover_ajoelhado:2o;pt3_crucifixo_unilateral_halter:2r,halter;pt3_peck_deck_unilateral:5q;pt3_peck_deck_pausa:5q
-pt3_hex_press:8t,halteres;pt3_bola_crucifixo:8u;pt3_around_the_world:2r;pt3_supino_chao_kb_unilateral:8v,kettlebell;pt3_supino_chao_kb_alternado:8v,kettlebells;pt3_supino_kb_fundo_cima:8t,kettlebell;pt3_supino_landmine_duas_maos:4x;pt3_trx_crucifixo:9l
+pt3_hex_press:8t,halteres;pt3_bola_crucifixo:2r,,bola_suica;pt3_around_the_world:2r;pt3_supino_chao_kb_unilateral:8v,kettlebell;pt3_supino_chao_kb_alternado:8v,kettlebells;pt3_supino_kb_fundo_cima:8t,kettlebell;pt3_supino_landmine_duas_maos:4x;pt3_trx_crucifixo:9l
 pt3_mergulho_graviton:55;pt3_supino_dec_smith:8w,smith;pt3_crucifixo_declinado:2r;pt3_mergulho_cadeiras:56,,cadeira;pt3_supino_inc_unilateral:8y,halter;pt3_crucifixo_inc_rotacao:2s;pt3_supino_inc_cabo:8y,polia;pt3_supino_supinado_halter:8t,halteres
 pt3_supino_invertido_barra:8t;pt3_crossover_baixo_unilateral:2p;pt3_supino_inc_maq_unilateral:8z;pt3_triceps_pulley_supinado_uni:9j;pt3_triceps_cabo_ajoelhado:9h;pt3_triceps_cabo_inclinado:9k,polia;pt3_triceps_cruzado_polia:9j,crossover;pt3_triceps_overhead_uni_polia_baixa:9h
 pt3_triceps_corda_pausa:9j;pt3_triceps_testa_atras_cabeca:9k;pt3_triceps_testa_declinado:9k,barra_ez,banco;pt3_triceps_testa_inclinado:9k,,banco_inclinado;pt3_triceps_testa_pronado:9k,halteres;pt3_triceps_testa_uni_supinado:9k,halter;pt3_triceps_coice_sentado:9f;pt3_supino_fechado_ez:8t,barra_ez
 pt3_supino_fechado_smith:8t,smith;pt3_floor_press_barra:8v,barra;pt3_triceps_smith_peso_corporal:3z;pt3_triceps_trx:3z;pt3_triceps_landmine:9g,landmine;pt3_mergulho_banco_carga:56,anilha;pt3_paralela_triceps:55;pt3_triceps_frances_kb:9g,kettlebell
 pt3_halo_kb_triceps:4k;pt3_triceps_testa_elastico:9k,elastico;pt3_triceps_coice_elastico:9f,elastico;pt3_triceps_testa_kb_chao:9k,kettlebell;pt3_flexao_inclinada_fechada:41,,cadeira;pt3_flexao_inclinada_supinada:41,,banco;pt3_flexao_relogio:3w;pt3_flexao_prancha_lateral:6f
-pt3_flexao_negativa:3w;pt3_aperto_isometrico_palmas:19;pt3_limpador_isometrico:3w;pt3_flexao_toalha_deslizante:3w;pt3_flexao_elastico:3w,-;pt3_supino_chao_galoes:8v;pt3_crucifixo_chao_garrafas:8v;pt3_crucifixo_elastico_baixo_cima:2p,elastico
+pt3_flexao_negativa:3w;pt3_aperto_isometrico_palmas:19;pt3_limpador_isometrico:3w;pt3_flexao_toalha_deslizante:3w;pt3_flexao_elastico:3w,-;pt3_supino_chao_galoes:8v;pt3_crucifixo_chao_garrafas:2r,,colchonete;pt3_crucifixo_elastico_baixo_cima:2p,elastico
 pt3_crucifixo_elastico_cima_baixo:2o,elastico;pt3_supino_inc_elastico:8x;pt3_supino_elastico_uni_afundo:8x;pt3_flexao_maos_bola:41,,bola_suica;pt3_flexao_plio_kb:40;pt3_flexao_desnivelada:3w;pt3_flexao_explosiva_parede:44,,parede;pt3_flexao_parede_fechada:44,,parede
 pt3_extensao_triceps_mesa:3z;pt3_flexao_esfinge:3z;pt3_triceps_frances_mochila:9g,mochila;pt3_triceps_coice_garrafa:9f;pt3_triceps_isometrico_mesa:9j,-;pt3_flexao_diamante_joelhos:42;pt3_flexao_fechada:3y;pt3_mb_peito_3_apoios:5o
 pt3_mb_arremesso_deitado:8v,medicine_ball;pt3_mb_unilateral_passada:5o;pt3_supino_cabo_rotacao:8x,polia;qp3_hack_base_fechada:4j;qp3_hack_unilateral:4j;qp3_hack_pausa:4j;qp3_pendulo:4j;qp3_agach_maquina_deitado:m
@@ -2271,8 +2272,10 @@ qp3_tibial_kb:96,-,banco;qp3_tibial_polia:96,polia;qp3_tibial_smith:95,-;qp3_tib
     if (o.quadros ?? reduzMovimento()) {
       const n = r.quadros.length, gap = 18;
       const lq = Math.max(64, Math.floor((larg - gap * (n - 1)) / n));
-      return `<div class="figura-exercicio figura-quadros" role="img" aria-label="${esc(label + ' Sequência de posições, da inicial à final.')}" style="display:flex;align-items:center;justify-content:center;gap:2px;flex-wrap:wrap;max-width:100%">` +
-        r.quadros.map((q, i) => (i ? `<span aria-hidden="true" style="color:${C.coral};font-weight:800;font-size:20px;width:${gap - 2}px;text-align:center">→</span>` : '') + svgDe(r.vb, q, lq, '', esp, true)).join('') + '</div>';
+      return `<div class="figura-exercicio figura-quadros" role="img" aria-label="${esc(label + ' Sequência de posições, da inicial à final.')}" style="display:flex;align-items:center;justify-content:center;gap:2px;flex-wrap:nowrap;width:100%;max-width:${larg}px">` +
+        // lado a lado sempre: cada quadro encolhe junto (antes quebrava linha em 390px)
+        r.quadros.map((q, i) => (i ? `<span aria-hidden="true" style="flex:0 0 auto;color:${C.coral};font-weight:800;font-size:20px;width:${gap - 2}px;text-align:center">→</span>` : '') +
+          `<span style="flex:1 1 0;min-width:0;display:flex">${svgDe(r.vb, q, lq, '', esp, true).replace('<svg ', '<svg style="width:100%;height:auto" ')}</span>`).join('') + '</div>';
     }
     return svgDe(r.vb, r.anim, larg, label, esp).replace('<svg ', '<svg class="figura-exercicio" ');
   }

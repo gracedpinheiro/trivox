@@ -3,7 +3,7 @@
 # id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
 
 # ---------------------------------------------------------------- ERGÔMETROS
-cf3_stairmaster_continuo | Escada Ergométrica Contínua (Stairmaster) | cardio | Escada ergométrica | ini | 🪜 | esteira | a | b | CP5 | 1 | 10-20min
+cf3_stairmaster_continuo | Escada Ergométrica Contínua (Stairmaster) | cardio | Escada ergométrica | ini | 🪜 | escada_ergometrica | a | b | CP5 | 1 | 10-20min
 P: Cardio, Glúteos, Quadríceps
 S: Panturrilha, Isquiotibiais, Core
 F: Stairmaster
@@ -12,7 +12,7 @@ E: Apoiar o peso nos braços e inclinar demais o tronco | Pisar só com a ponta 
 PR: Escada Ergométrica Pulando Degrau
 RG: Caminhada Inclinada na Esteira
 
-cf3_stairmaster_lateral | Escada Ergométrica com Subida Lateral | cardio | Escada ergométrica | ini | ↗️ | esteira | a | b | CPR | 4 | 1min cada lado
+cf3_stairmaster_lateral | Escada Ergométrica com Subida Lateral | cardio | Escada ergométrica | ini | ↗️ | escada_ergometrica | a | b | CPR | 4 | 1min cada lado
 P: Glúteo Médio, Quadríceps, Cardio
 S: Adutores, Abdutores, Panturrilha
 I: Reduza a velocidade para o nível mais baixo antes de virar de lado | Segure o corrimão com as duas mãos e posicione o corpo de lado para os degraus | Suba cruzando a perna de trás à frente ou em passos laterais, empurrando o degrau com a perna de cima | Troque de lado a cada minuto, sempre reduzindo a velocidade antes de virar | Mantenha quadril e ombros alinhados, sem girar o tronco
@@ -20,7 +20,7 @@ E: Virar de lado com a máquina em velocidade alta | Joelho da perna de cima cai
 PR: Aumente a velocidade ou solte uma das mãos do corrimão
 RG: Escada Ergométrica Contínua (Stairmaster)
 
-cf3_stairmaster_degrau_duplo | Escada Ergométrica Pulando Degrau | cardio | Escada ergométrica | int | 🍑 | esteira | a | b | CPH | 4 | 2-3min
+cf3_stairmaster_degrau_duplo | Escada Ergométrica Pulando Degrau | cardio | Escada ergométrica | int | 🍑 | escada_ergometrica | a | b | CPH | 4 | 2-3min
 P: Glúteos, Quadríceps
 S: Isquiotibiais, Cardio, Core
 I: Comece em velocidade baixa a moderada | Suba pisando de dois em dois degraus, com passada longa | Empurre com o calcanhar da perna da frente até estender o quadril | Incline levemente o tronco à frente para recrutar mais glúteo | Use o corrimão apenas como apoio leve
@@ -28,7 +28,7 @@ E: Passada curta que vira subida normal | Joelho passando muito da ponta do pé 
 PR: Faça sem as mãos no corrimão
 RG: Escada Ergométrica Contínua (Stairmaster)
 
-cf3_stairmaster_tiros | Escada Ergométrica: Tiros sem Corrimão | cardio | Escada ergométrica | ava | 🔥 | esteira | a | m | CP | 8-10 | 30s forte / 30s leve
+cf3_stairmaster_tiros | Escada Ergométrica: Tiros sem Corrimão | cardio | Escada ergométrica | ava | 🔥 | escada_ergometrica | a | m | CP | 8-10 | 30s forte / 30s leve
 P: Cardio, Quadríceps, Glúteos
 S: Panturrilha, Core, Equilíbrio
 I: Aqueça 5 minutos em ritmo leve | Nos 30s fortes, suba a velocidade para o nível que você só aguenta meio minuto | Solte o corrimão, braços balançando como na corrida, tronco firme | Nos 30s leves, volte ao nível baixo e segure o corrimão se precisar | Termine com 3-5 minutos de volta à calma

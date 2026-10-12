@@ -29,27 +29,27 @@ const Aerobico = (() => {
 
   const ZONAS = [
     {
-      n: 1, nome: 'Z1 — Recuperação', faixa: [50, 60], cor: '#5AA9E6',
+      n: 1, nome: 'Z1 — Recuperação', faixa: [50, 60], faixaReserva: [30, 40], cor: '#5AA9E6', corTexto: '#1A6FD1',
       sensacao: 'Muito leve. Dá para conversar frases inteiras sem esforço.',
       paraQue: 'Soltar o corpo no dia seguinte ao treino pesado e acelerar a recuperação.',
     },
     {
-      n: 2, nome: 'Z2 — Base aeróbica', faixa: [60, 70], cor: '#4CAF7D',
+      n: 2, nome: 'Z2 — Base aeróbica', faixa: [60, 70], faixaReserva: [40, 60], cor: '#4CAF7D', corTexto: '#0B7A4E',
       sensacao: 'Confortável. Você fala frases completas, mas já respira mais fundo.',
       paraQue: 'A base de tudo. É aqui que o coração ganha eficiência e o corpo aprende a usar gordura como combustível. Deve ocupar a maior parte do seu tempo de aeróbico.',
     },
     {
-      n: 3, nome: 'Z3 — Moderado', faixa: [70, 80], cor: '#E8B84B',
+      n: 3, nome: 'Z3 — Moderado', faixa: [70, 80], faixaReserva: [60, 70], cor: '#E8B84B', corTexto: '#8A6200',
       sensacao: 'Puxado. Você fala em frases curtas.',
       paraQue: 'Zona intermediária: cansa quase como a Z4 mas rende menos que ela. Use com parcimônia — é onde a maioria das pessoas treina errado, sempre no médio.',
     },
     {
-      n: 4, nome: 'Z4 — Limiar', faixa: [80, 90], cor: '#F2762E',
+      n: 4, nome: 'Z4 — Limiar', faixa: [80, 90], faixaReserva: [70, 85], cor: '#F2762E', corTexto: '#C2410C',
       sensacao: 'Difícil. Só palavras soltas.',
       paraQue: 'Empurra o ponto em que o esforço vira insustentável. Melhora seu ritmo de prova e a tolerância ao acúmulo de lactato.',
     },
     {
-      n: 5, nome: 'Z5 — VO₂máx', faixa: [90, 100], cor: '#E03131',
+      n: 5, nome: 'Z5 — VO₂máx', faixa: [90, 100], faixaReserva: [85, 100], cor: '#E03131', corTexto: '#C62F35',
       sensacao: 'Máximo. Não dá para falar.',
       paraQue: 'Aumenta o teto do seu condicionamento. Só em blocos curtos e poucas vezes por semana — é a que mais cobra recuperação.',
     },
@@ -75,11 +75,12 @@ const Aerobico = (() => {
       explicacao: rep
         ? 'Zonas calculadas por frequência cardíaca de reserva (Karvonen), que considera o seu coração em repouso — mais fiel do que só a porcentagem da máxima.'
         : 'Zonas calculadas por porcentagem da FC máxima. Informe sua FC de repouso no perfil para um cálculo mais individualizado.',
-      lista: ZONAS.map((z) => ({
-        ...z,
-        min: calc(z.faixa[0]),
-        max: calc(z.faixa[1]),
-      })),
+      // % de FC de reserva NAO e o mesmo que % da FCmax (ACSM: 64-76% FCmax ~ 40-59% FCR). Usar a
+      // mesma faixa nas duas subia a "zona confortavel" ~25 bpm para quem tem 68 anos.
+      lista: ZONAS.map((z) => {
+        const f = rep ? z.faixaReserva : z.faixa;
+        return { ...z, min: calc(f[0]), max: calc(f[1]) };
+      }),
     };
   }
 
@@ -236,6 +237,7 @@ const Aerobico = (() => {
    * atrapalha ganho de forca e massa. Estas sao as regras que resolvem 90% dos casos.
    */
   function ordenarNoDia({ objetivo = 'hipertrofia', intensidadeCardio = 'leve' }) {
+    objetivo = { forca: 'hipertrofia', resistencia: 'condicionamento', emagrecimento: 'perda_peso' }[objetivo] || objetivo;
     if (intensidadeCardio === 'leve') {
       return {
         ordem: 'tanto faz',
@@ -243,7 +245,7 @@ const Aerobico = (() => {
         risco: 'baixo',
       };
     }
-    if (objetivo === 'hipertrofia' || objetivo === 'forca') {
+    if (objetivo === 'hipertrofia' || objetivo === '50mais') {
       return {
         ordem: 'força primeiro',
         texto: 'Faça a musculação primeiro. Aeróbico intenso antes derruba a carga que você levanta, e é a carga que dá o estímulo. Se der para separar em períodos diferentes do dia, melhor ainda: 6 horas de intervalo já reduz bastante a interferência.',
@@ -252,7 +254,7 @@ const Aerobico = (() => {
     }
     return {
       ordem: 'aeróbico primeiro',
-      texto: 'Como o foco é condicionamento, faça o aeróbico intenso descansada e deixe a musculação depois.',
+      texto: 'Como o foco é condicionamento, faça o aeróbico intenso com o corpo descansado e deixe a musculação depois.',
       risco: 'médio',
     };
   }
@@ -267,15 +269,23 @@ const Aerobico = (() => {
     };
   }
 
-  /** Semana pronta conforme frequencia e objetivo. */
-  function planoSemanal({ freqCardio = 3, objetivo = 'hipertrofia', minutosBase = 40 }) {
+  /** Sessao so leve (Z1-Z2): 50+/65+ ou quem respondeu "sim" na triagem de saude (PAR-Q). */
+  const soLeve = ({ objetivo, idade, restricao }) => !!restricao || objetivo === '50mais' || (Number(idade) || 0) >= 65;
+  const MODELOS_INTENSOS = ['limiar', 'intervalado', 'hiit'];
+
+  /** Semana pronta conforme frequencia e objetivo (aceita os nomes antigos de objetivo). */
+  function planoSemanal({ freqCardio = 3, objetivo = 'hipertrofia', minutosBase = 40, idade = null, restricao = false }) {
+    const o = { forca: 'hipertrofia', resistencia: 'condicionamento', emagrecimento: 'perda_peso' }[objetivo] || objetivo;
+    const leve = soLeve({ objetivo: o, idade, restricao });
     const sessoes = [];
-    const intensasPorObjetivo = { hipertrofia: 1, forca: 1, emagrecimento: 1, resistencia: 2 };
-    const maxIntensas = Math.min(intensasPorObjetivo[objetivo] ?? 1, Math.max(1, Math.floor(freqCardio / 2)));
+    const intensasPorObjetivo = { hipertrofia: 1, perda_peso: 1, condicionamento: 2, raquete: 1, '50mais': 0 };
+    const maxIntensas = leve ? 0 : Math.min(intensasPorObjetivo[o] ?? 1, Math.max(1, Math.floor(freqCardio / 2)));
+    // 4x4 em Z5 so para condicionamento abaixo dos 50; o resto fica no limiar
+    const intenso = o === 'condicionamento' && (Number(idade) || 0) < 50 ? 'intervalado' : 'limiar';
 
     for (let i = 0; i < freqCardio; i++) {
       if (i < maxIntensas && freqCardio >= 2) {
-        sessoes.push({ modelo: objetivo === 'resistencia' ? 'intervalado' : 'limiar', minutos: Math.min(minutosBase, 45) });
+        sessoes.push({ modelo: intenso, minutos: Math.min(minutosBase, 45) });
       } else {
         sessoes.push({ modelo: 'base', minutos: minutosBase });
       }
@@ -286,11 +296,14 @@ const Aerobico = (() => {
       sessoes,
       minutosTotais: total,
       distribuicao: distribuicao(total),
-      nota: objetivo === 'hipertrofia'
-        ? 'Com foco em massa muscular, o aeróbico entra em dose baixa e principalmente na Z2: o suficiente para o coração, sem competir com a recuperação da musculação.'
-        : objetivo === 'emagrecimento'
-        ? 'Para emagrecer, o que mais pesa é o volume total de Z2 na semana, não a intensidade de uma sessão. Constância vence intensidade aqui.'
-        : null,
+      nota: leve
+        ? 'Todo o aeróbico fica em Z1-Z2 (dá para conversar). É o que mais protege coração e articulações; intensidade mais alta só com liberação médica.'
+        : {
+          hipertrofia: 'Com foco em massa muscular, o aeróbico entra em dose baixa e principalmente na Z2: o suficiente para o coração, sem competir com a recuperação da musculação.',
+          perda_peso: 'Para emagrecer, o que mais pesa é o volume total de Z2 na semana, não a intensidade de uma sessão. Constância vence intensidade aqui.',
+          condicionamento: 'Condicionamento: base grande em Z2 e duas sessões fortes por semana, nunca em dias colados.',
+          raquete: 'O jogo já é o seu intervalado. Fora da quadra, Z2 para a base e uma sessão de limiar.',
+        }[o] || null,
     };
   }
 
@@ -298,6 +311,6 @@ const Aerobico = (() => {
     fcMax, zonas, ZONAS, COMO_MEDIR_REPOUSO, TESTE_FALA,
     MODELOS, montarSessao,
     cargaSessao, progressaoSemanal, distribuicao, calorias, METS,
-    ordenarNoDia, conflitoComPernas, planoSemanal,
+    ordenarNoDia, conflitoComPernas, planoSemanal, soLeve, MODELOS_INTENSOS,
   };
 })();

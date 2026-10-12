@@ -20,7 +20,7 @@ const UI = (() => {
     gerador: { objetivo: null },
     sessaoExpandida: null,       // id da sessao aberta no historico da tela de evolucao
     fotoTemp: null,              // dataURL de foto de evolucao escolhida, aguardando confirmacao no modal
-    nuvem: { sessao: null, linkEnviadoPara: null }, // ver js/nuvem.js — sessao do Supabase, espelhada aqui pra tela ler
+    nuvem: { sessao: null, linkEnviadoPara: null, pendentes: 0 }, // ver js/nuvem.js — sessao do Supabase, espelhada aqui pra tela ler
     crono: { modo: 'timer', total: 60, rodando: false, ate: 0, pausadoRestante: null, inicio: 0, acumulado: 0, voltas: [],
       intervalo: { trabalho: 40, descanso: 20, rodadas: 8, fase: 'trabalho', rodada: 1 } },
   };
@@ -37,6 +37,29 @@ const UI = (() => {
   }
 
   const num = (v) => (v === null || v === undefined || v === '' ? '—' : v);
+  // em <input type=number> o "—" gera aviso no console e o campo fica estranho: vazio e o certo
+  const numCampo = (v) => (v === null || v === undefined || v === '' ? '' : h(v));
+
+  // ---------- triagem de saude (PAR-Q+, perguntas gerais) ----------
+  // 1 minuto, pedida no Inicio para quem tem 50+ ou IMC >= 30. Algum "sim": aviso de liberacao
+  // medica e o aerobico fica so em Z1-Z2 (Aerobico.soLeve). Nao e diagnostico, e triagem.
+  const PARQ = [
+    'Algum médico já disse que você tem problema de coração ou pressão alta?',
+    'Você sente dor no peito em repouso, no dia a dia ou quando faz atividade física?',
+    'Você perde o equilíbrio por tontura ou desmaiou nos últimos 12 meses?',
+    'Você já recebeu diagnóstico de outra doença crônica (como diabetes, doença nos rins ou no pulmão)?',
+    'Você toma remédio para alguma doença crônica?',
+    'Você tem problema de osso, articulação ou coluna que pode piorar com atividade física?',
+    'Algum médico já disse que você só deve fazer atividade física com supervisão?',
+  ];
+  const parqRespostas = (p) => (p.parq && Array.isArray(p.parq.respostas) ? p.parq.respostas : []);
+  const parqRespondido = (p) => PARQ.every((_, i) => typeof parqRespostas(p)[i] === 'boolean');
+  const parqTemSim = (p) => parqRespostas(p).some((r) => r === true);
+  function precisaParq(p, idade) {
+    const imc = p.peso && p.altura ? p.peso / Math.pow(p.altura / 100, 2) : 0;
+    return !parqRespondido(p) && ((idade || 0) >= 50 || imc >= 30);
+  }
+  const SINAIS_PARAR = 'Pare na hora se sentir dor ou aperto no peito, falta de ar fora do normal, tontura ou palpitação — e procure atendimento (SAMU 192).';
 
   /** Tira acentos para a busca: quem digita no celular escreve "gluteo", não "glúteo". */
   const semAcento = (s) => String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -84,8 +107,10 @@ const UI = (() => {
   function thumbExercicio(e) {
     if (!e) return '🏋️';
     const foto = Dados.fotoExercicio(e.id) || (e.imagens && e.imagens[0]);
-    if (foto) return `<img src="${h(foto)}" alt="" loading="lazy">`;
-    if ((typeof MapaMuscular !== 'undefined')) return MapaMuscular.miniatura(e.musculos_primarios || [], e.musculos_secundarios || []);
+    const mapa = (typeof MapaMuscular !== 'undefined') ? MapaMuscular.miniatura(e.musculos_primarios || [], e.musculos_secundarios || []) : '';
+    // offline, foto nunca vista nao carrega: troca pelo mapa muscular em vez de ficar em branco
+    if (foto) return `<img src="${h(foto)}" alt="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>${mapa}</span>`;
+    if (mapa) return mapa;
     return h(e.icon || '🏋️');
   }
 
@@ -109,13 +134,16 @@ const UI = (() => {
     if (e.aparelho) abas.push(['aparelho', '🛠️ Aparelho']);
     const escolhida = estado.midiaAba && abas.some(([k]) => k === estado.midiaAba) ? estado.midiaAba : abas[0][0];
     const genero = p.sexo === 'm' ? 'm' : p.sexo === 'f' ? 'f' : undefined;
+    const reduzSistema = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     let palco = '', legenda = '';
     if (escolhida === 'minha') {
       palco = `<img src="${h(fotoPropria)}" alt="${h(e.nome)}" style="object-fit:cover;max-height:340px">`;
       legenda = 'sua foto';
     } else if (escolhida === 'como') {
-      palco = (typeof Figuras !== 'undefined') ? Figuras.svg(e, { largura: compacto ? 260 : 340, genero }) : Pictogramas.svgPara(e.categoria);
-      legenda = 'ilustração animada do movimento';
+      // estado.animacaoParada: botao "parar animacao" (WCAG 2.2.2); sem ele, segue o sistema
+      const parada = estado.animacaoParada || reduzSistema;
+      palco = (typeof Figuras !== 'undefined') ? Figuras.svg(e, { largura: compacto ? 260 : 340, genero, quadros: parada || undefined }) : Pictogramas.svgPara(e.categoria);
+      legenda = parada ? 'posições do movimento, da inicial à final' : 'ilustração animada do movimento';
     } else if (escolhida === 'fotos') {
       palco = `<div class="fotos">${e.imagens.map((img) => `<img src="${h(img)}" alt="${h(e.nome)}" loading="lazy">`).join('')}</div>`;
       legenda = e.imagens.length > 1 ? 'início e fim do movimento' : 'referência de execução';
@@ -133,6 +161,7 @@ const UI = (() => {
         </div>
         <div class="midia-palco" style="${compacto ? 'min-height:150px' : ''}">${palco}</div>
         ${legenda ? `<div class="midia-legenda">${h(legenda)}</div>` : ''}
+        ${escolhida === 'como' && !reduzSistema ? `<button class="btn btn-pequeno btn-fantasma" data-acao="alternar-animacao" style="margin-top:4px">${estado.animacaoParada ? '▶ Animar' : '⏸ Parar animação'}</button>` : ''}
       </div>`;
   }
 
@@ -141,7 +170,7 @@ const UI = (() => {
     const u = Dados.ultimoRegistro(exId);
     if (!u || !u.sets.length) return '';
     const data = new Date(u.data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
-    return `<div class="ultimo-treino"><b>Última vez (${data}):</b> ${u.sets.map((st) => `${st.carga ? st.carga + 'kg × ' : ''}${st.reps}`).join(' · ')}</div>`;
+    return `<div class="ultimo-treino"><b>Última vez (${data}):</b> ${u.sets.map((st) => `${st.carga ? h(st.carga) + 'kg × ' : ''}${h(st.reps)}`).join(' · ')}</div>`;
   }
 
   // ---------- modal ----------
@@ -151,7 +180,8 @@ const UI = (() => {
     const fundo = document.createElement('div');
     fundo.className = 'modal-fundo';
     fundo.id = 'modal-fundo';
-    fundo.innerHTML = `<div class="modal"><div class="modal-alca"></div>${html}</div>`;
+    fundo.innerHTML = `<div class="modal" role="dialog" aria-modal="true"><div class="modal-alca"></div>${html}</div>`;
+    acessibilidade(fundo);
     fundo.addEventListener('click', (ev) => { if (ev.target === fundo) fecharModal(); });
     document.body.appendChild(fundo);
   }
@@ -263,6 +293,14 @@ const UI = (() => {
       <div class="topo" style="margin-bottom:8px"><h1>Olá${p.nome ? ', ' + h(p.nome.split(' ')[0]) : ''}! 👋</h1></div>
       <p class="frase" style="margin-bottom:16px">${h(Motivacao.fraseDoDia({ objetivo: p.objetivo, idade, streak: streak.atual, diasSemTreino, hojeEDiaDeTreino: p.diasTreino.length ? hojeEDiaDeTreino : null, jaTreinouHoje }))}</p>
 
+      ${precisaParq(p, idade) ? `
+        <div class="nota atencao">
+          <strong>🩺 Antes de treinar: 7 perguntas de saúde</strong>
+          Leva 1 minuto e deixa o treino mais seguro para você.
+          <div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="ir" data-tela="perfil">Responder agora</button></div>
+        </div>` : ''}
+      ${parqTemSim(p) ? `<div class="nota atencao"><strong>🩺 Fale com seu médico</strong>Pela triagem de saúde, procure liberação médica antes de aumentar a intensidade. Até lá, o aeróbico fica só em zona leve.</div>` : ''}
+
       ${precisaLembrarBackup ? `
         <div class="nota atencao">
           <strong>⚠️ Faça backup dos seus dados</strong>
@@ -282,7 +320,7 @@ const UI = (() => {
             </div>
             ${exMissao && (typeof Figuras !== 'undefined') ? `<div class="missao-figura">${Figuras.svg(exMissao, { largura: 120, genero: p.sexo === 'm' ? 'm' : p.sexo === 'f' ? 'f' : undefined })}</div>` : ''}
           </div>
-          <button class="btn btn-largo btn-principal" data-acao="iniciar-treino" data-id="${fichaParaHoje.id}" style="margin-top:12px">▶ Começar agora</button>
+          <button class="btn btn-largo btn-principal" data-acao="iniciar-treino" data-id="${h(fichaParaHoje.id)}" style="margin-top:12px">▶ Começar agora</button>
         </div>` : ''}
       ${jaTreinouHoje ? `<div class="nota festa"><strong>✅ Treino de hoje feito!</strong>Mandou bem. Descanse e volte forte amanhã.</div>` : ''}
 
@@ -346,7 +384,7 @@ const UI = (() => {
       ${z ? `
         <div class="cartao clicavel" data-acao="ir" data-tela="cardio">
           <div class="cartao-titulo"><h3>Sua zona de base (Z2)</h3><span class="apagado">›</span></div>
-          <div class="numerao" style="color:#4CAF7D">${z.lista[1].min}–${z.lista[1].max} <span style="font-size:15px;color:var(--apagado)">bpm</span></div>
+          <div class="numerao" style="color:var(--ok)">${z.lista[1].min}–${z.lista[1].max} <span style="font-size:15px;color:var(--apagado)">bpm</span></div>
           <div class="pequeno apagado">É nessa faixa que deve ficar a maior parte do seu aeróbico.</div>
         </div>` : ''}
 
@@ -396,13 +434,13 @@ const UI = (() => {
         const series = (f.exercicios || []).reduce((s, e) => s + (Number(e.series) || 0), 0);
         const diaTxt = (f.diaSemana !== null && f.diaSemana !== undefined) ? DIAS_SEMANA[f.diaSemana].nome : null;
         return `
-          <div class="item" data-acao="abrir-ficha" data-id="${f.id}">
+          <div class="item" data-acao="abrir-ficha" data-id="${h(f.id)}">
             <div class="item-icone">📋</div>
             <div class="item-corpo">
               <div class="item-nome">${h(f.nome)}</div>
               <div class="item-sub">${diaTxt ? `${diaTxt} · ` : ''}${n} exercício${n === 1 ? '' : 's'} · ${series} série${series === 1 ? '' : 's'}</div>
             </div>
-            ${n ? `<button class="btn btn-pequeno btn-principal" data-acao="iniciar-treino" data-id="${f.id}">Treinar</button>` : ''}
+            ${n ? `<button class="btn btn-pequeno btn-principal" data-acao="iniciar-treino" data-id="${h(f.id)}">Treinar</button>` : ''}
             <div class="item-fim">›</div>
           </div>`;
       }).join('') : `
@@ -470,7 +508,7 @@ const UI = (() => {
           ${['iniciante', 'intermediario', 'avancado'].map((n) => `<button class="chip ${nivel === n ? 'ativo' : ''}" data-acao="ger-nivel" data-valor="${n}">${NOME_NIVEL[n]}</button>`).join('')}
         </div>
       </div>
-      <p class="pequeno apagado">Dias: ${diasTxt}${idade ? ` · ${idade} anos` : ''}${p.sexo ? ` · ${p.sexo === 'f' ? 'mulher' : p.sexo === 'm' ? 'homem' : ''}` : ''}${p.peso ? ` · ${p.peso} kg` : ''}. ${!temDias ? 'Marque os dias em Perfil › Treino pra cada ficha sair ligada ao dia certo.' : ''}${!idade || !p.sexo ? ' Complete idade e sexo no Perfil pra personalizar ainda mais.' : ''}</p>
+      <p class="pequeno apagado">Dias: ${diasTxt}${idade ? ` · ${idade} anos` : ''}${p.sexo ? ` · ${p.sexo === 'f' ? 'mulher' : p.sexo === 'm' ? 'homem' : ''}` : ''}${p.peso ? ` · ${h(p.peso)} kg` : ''}. ${!temDias ? 'Marque os dias em Perfil › Treino pra cada ficha sair ligada ao dia certo.' : ''}${!idade || !p.sexo ? ' Complete idade e sexo no Perfil pra personalizar ainda mais.' : ''}</p>
       ${local === 'casa' ? `<p class="pequeno apagado">Em casa eu uso o que você marcou em Perfil › Equipamentos em casa.</p>` : ''}
       ${Dados.fichas().length ? `
         <div class="campo"><label>As fichas que você já tem</label>
@@ -527,7 +565,7 @@ const UI = (() => {
 
       <div class="cartao-titulo" style="margin-top:18px">
         <h2>Exercícios</h2>
-        <button class="btn btn-pequeno btn-principal" data-acao="add-exercicio" data-id="${f.id}">+ Adicionar</button>
+        <button class="btn btn-pequeno btn-principal" data-acao="add-exercicio" data-id="${h(f.id)}">+ Adicionar</button>
       </div>
 
       ${itens.length ? ORDEM_BLOCO.filter((b) => itens.some((it) => blocoDe(it) === b)).map((b) => `
@@ -536,7 +574,7 @@ const UI = (() => {
         const ex = BASE.find((e) => e.id === item.exId);
         if (ehItemSimples(item)) {
           return `
-          <div class="item" data-acao="ver-exercicio" data-id="${ex ? ex.id : ''}" data-voltar="ficha">
+          <div class="item" data-acao="ver-exercicio" data-id="${h(ex ? ex.id : '')}" data-voltar="ficha">
             <div class="item-icone">${thumbExercicio(ex)}</div>
             <div class="item-corpo">
               <div class="item-nome">${ex ? h(ex.nome) : 'Exercício removido'}</div>
@@ -551,8 +589,8 @@ const UI = (() => {
             <div class="cartao-titulo">
               <div style="display:flex;gap:10px;align-items:center;min-width:0"><div class="item-icone">${thumbExercicio(ex)}</div><h3 style="margin:0">${ex ? h(ex.nome) : '<span class="apagado">Exercício removido da base</span>'}</h3></div>
               <div style="display:flex;gap:6px;flex-shrink:0">
-                ${i > 0 ? `<button class="btn btn-pequeno btn-fantasma" data-acao="mover" data-i="${i}" data-dir="-1" title="Subir">↑</button>` : ''}
-                ${i < itens.length - 1 ? `<button class="btn btn-pequeno btn-fantasma" data-acao="mover" data-i="${i}" data-dir="1" title="Descer">↓</button>` : ''}
+                ${i > 0 ? `<button class="btn btn-pequeno btn-fantasma" data-acao="mover" data-i="${i}" data-dir="-1" title="Subir" aria-label="Subir">↑</button>` : ''}
+                ${i < itens.length - 1 ? `<button class="btn btn-pequeno btn-fantasma" data-acao="mover" data-i="${i}" data-dir="1" title="Descer" aria-label="Descer">↓</button>` : ''}
               </div>
             </div>
 
@@ -567,7 +605,7 @@ const UI = (() => {
             <div class="campos-lado-3">
               <div class="campo">
                 <label>Séries</label>
-                <input type="number" inputmode="numeric" min="1" max="10" value="${num(item.series)}" data-item="${i}" data-prop="series">
+                <input type="number" inputmode="numeric" min="1" max="10" value="${numCampo(item.series)}" data-item="${i}" data-prop="series">
               </div>
               <div class="campo">
                 <label>Reps</label>
@@ -575,7 +613,7 @@ const UI = (() => {
               </div>
               <div class="campo">
                 <label>Descanso</label>
-                <input type="number" inputmode="numeric" step="15" value="${num(item.descanso)}" data-item="${i}" data-prop="descanso">
+                <input type="number" inputmode="numeric" step="15" value="${numCampo(item.descanso)}" data-item="${i}" data-prop="descanso">
               </div>
             </div>
 
@@ -588,18 +626,18 @@ const UI = (() => {
               </div>
               <div class="campo">
                 <label>Carga (kg)</label>
-                <input type="number" inputmode="decimal" step="1.25" value="${num(item.carga)}" data-item="${i}" data-prop="carga" placeholder="—">
+                <input type="number" inputmode="decimal" step="1.25" value="${numCampo(item.carga)}" data-item="${i}" data-prop="carga" placeholder="—">
               </div>
             </div>
 
             ${sug.carga !== null && sug.tipo !== 'inicio' ? `
               <div class="nota ${sug.tipo === 'baixar' ? 'atencao' : ''}" style="margin-bottom:10px">
-                <strong>Sugestão para hoje: ${sug.carga} kg</strong>${h(sug.motivo)}
-                <div style="margin-top:8px"><button class="btn btn-pequeno" data-acao="aplicar-sug" data-item="${i}" data-carga="${sug.carga}">Usar ${sug.carga} kg</button></div>
+                <strong>Sugestão para hoje: ${h(sug.carga)} kg</strong>${h(sug.motivo)}
+                <div style="margin-top:8px"><button class="btn btn-pequeno" data-acao="aplicar-sug" data-item="${i}" data-carga="${h(sug.carga)}">Usar ${h(sug.carga)} kg</button></div>
               </div>` : ''}
 
             <div class="linha-btn">
-              ${ex ? `<button class="btn btn-pequeno" data-acao="ver-exercicio" data-id="${ex.id}">Como executar</button>` : ''}
+              ${ex ? `<button class="btn btn-pequeno" data-acao="ver-exercicio" data-id="${h(ex.id)}">Como executar</button>` : ''}
               <button class="btn btn-pequeno btn-perigo" data-acao="remover-item" data-i="${i}">Remover</button>
             </div>
           </div>`;
@@ -607,7 +645,7 @@ const UI = (() => {
         <div class="vazio">
           <div class="vazio-icone">🏋️</div>
           <p>Ficha vazia.</p>
-          <button class="btn btn-principal" data-acao="add-exercicio" data-id="${f.id}">Escolher exercícios</button>
+          <button class="btn btn-principal" data-acao="add-exercicio" data-id="${h(f.id)}">Escolher exercícios</button>
         </div>`}
 
       ${itens.length ? `
@@ -617,8 +655,8 @@ const UI = (() => {
         </div>` : ''}
 
       <div class="linha-btn" style="margin-top:6px">
-        <button class="btn" data-acao="duplicar-ficha" data-id="${f.id}">Duplicar</button>
-        <button class="btn btn-perigo" data-acao="apagar-ficha" data-id="${f.id}">Apagar ficha</button>
+        <button class="btn" data-acao="duplicar-ficha" data-id="${h(f.id)}">Duplicar</button>
+        <button class="btn btn-perigo" data-acao="apagar-ficha" data-id="${h(f.id)}">Apagar ficha</button>
       </div>
     `;
   }
@@ -744,24 +782,24 @@ const UI = (() => {
       <div class="busca">
         <input id="campo-busca" value="${h(estado.busca)}" placeholder="Buscar: glúteo, supino, elástico..." data-acao="buscar" autocomplete="off">
         <div class="filtros">
-          <select data-filtro="categoria">
+          <select data-filtro="categoria" aria-label="Grupo muscular">
             <option value="">Todos os grupos</option>
             ${cats.map((c) => `<option value="${h(c)}" ${estado.filtro.categoria === c ? 'selected' : ''}>${h(NOME_CATEGORIA[c] || c)}</option>`).join('')}
           </select>
-          <select data-filtro="local">
+          <select data-filtro="local" aria-label="Local">
             <option value="">Casa e academia</option>
             <option value="casa" ${estado.filtro.local === 'casa' ? 'selected' : ''}>🏠 Em casa</option>
             <option value="academia" ${estado.filtro.local === 'academia' ? 'selected' : ''}>🏋️ Na academia</option>
           </select>
-          <select data-filtro="objetivo">
+          <select data-filtro="objetivo" aria-label="Objetivo">
             <option value="">Todos os objetivos</option>
             ${Object.entries(NOME_OBJETIVO_CURTO).map(([k, v]) => `<option value="${k}" ${estado.filtro.objetivo === k ? 'selected' : ''}>${ICONE_OBJETIVO[k]} ${v}</option>`).join('')}
           </select>
-          <select data-filtro="nivel">
+          <select data-filtro="nivel" aria-label="Nível">
             <option value="">Todos os níveis</option>
             ${['iniciante', 'intermediario', 'avancado'].map((k) => `<option value="${k}" ${estado.filtro.nivel === k ? 'selected' : ''}>${NOME_NIVEL[k]}</option>`).join('')}
           </select>
-          <select data-filtro="equipamento">
+          <select data-filtro="equipamento" aria-label="Equipamento">
             <option value="">Todo equipamento</option>
             ${equips.map((c) => `<option value="${h(c)}" ${estado.filtro.equipamento === c ? 'selected' : ''}>${h(nomeAparelho(c))}</option>`).join('')}
           </select>
@@ -863,7 +901,7 @@ const UI = (() => {
 
       <div class="cartao">
         <div class="rotulo">Sugestão para o seu objetivo (${h(Forca.OBJETIVOS[p.objetivo]?.nome || '')})</div>
-        <p style="margin:8px 0 0"><strong>${presc.series} séries × ${presc.reps} reps</strong> · RIR ${presc.rirAlvo} · descanso ${presc.descanso}s</p>
+        <p style="margin:8px 0 0"><strong>${presc.series} séries × ${h(presc.reps)} reps</strong> · RIR ${presc.rirAlvo} · descanso ${presc.descanso}s</p>
       </div>
 
       <h3 style="margin-top:18px">Como executar</h3>
@@ -887,8 +925,8 @@ const UI = (() => {
         ${hist.slice(0, 8).map((r) => `
           <div class="item" style="cursor:default">
             <div class="item-corpo">
-              <div class="item-nome">${r.carga} kg × ${r.reps} reps</div>
-              <div class="item-sub">${new Date(r.data).toLocaleDateString('pt-BR')}${r.rir !== null && r.rir !== undefined ? ` · RIR ${r.rir}` : ''}</div>
+              <div class="item-nome">${h(r.carga)} kg × ${h(r.reps)} reps</div>
+              <div class="item-sub">${new Date(r.data).toLocaleDateString('pt-BR')}${r.rir !== null && r.rir !== undefined ? ` · RIR ${h(r.rir)}` : ''}</div>
             </div>
           </div>`).join('')}
         ${plato.plato ? `<div class="nota atencao"><strong>⚠ Estagnado</strong>${h(plato.saida)}</div>` : ''}` : ''}
@@ -898,7 +936,7 @@ const UI = (() => {
           <div class="cartao-titulo"><h3>🔁 Equipamento ocupado?</h3></div>
           <p class="pequeno apagado">Outros exercícios que trabalham o mesmo músculo com outro equipamento${p.local === 'casa' ? ' (dá pra fazer em casa)' : ''}:</p>
           ${subs.map((s) => `
-            <div class="item" data-acao="ver-exercicio" data-id="${s.id}" data-voltar="${estado.voltarTela}">
+            <div class="item" data-acao="ver-exercicio" data-id="${h(s.id)}" data-voltar="${h(estado.voltarTela)}">
               <div class="item-icone">${thumbExercicio(s)}</div>
               <div class="item-corpo">
                 <div class="item-nome">${h(s.nome)}</div>
@@ -928,10 +966,15 @@ const UI = (() => {
     }
 
     const z = Aerobico.zonas({ fcMaxValor: fm.valor, fcRepouso: p.fcRepouso });
+    const pt = perfilTreino();
+    // 50+/65+ ou "sim" na triagem: so sessoes leves na lista (intervalado/HIIT/limiar somem)
+    const leve = Aerobico.soLeve({ objetivo: pt.objetivo, idade, restricao: parqTemSim(p) });
+    const modelos = Object.values(Aerobico.MODELOS).filter((m) => !leve || !Aerobico.MODELOS_INTENSOS.includes(m.chave));
+    if (!modelos.some((m) => m.chave === estado.cardio.modelo)) estado.cardio.modelo = 'base';
     const sessao = Aerobico.montarSessao({ ...estado.cardio, zonasCalc: z });
-    const plano = Aerobico.planoSemanal({ freqCardio: p.freqCardio, objetivo: p.objetivo, minutosBase: 40 });
+    const plano = Aerobico.planoSemanal({ freqCardio: p.freqCardio, objetivo: pt.objetivo, minutosBase: 40, idade, restricao: parqTemSim(p) });
     const cal = Aerobico.calorias({ modalidade: estado.cardio.modalidade, minutos: sessao.duracao, pesoKg: p.peso });
-    const ordem = Aerobico.ordenarNoDia({ objetivo: p.objetivo, intensidadeCardio: sessao.blocos.some((b) => b.zona >= 4) ? 'intensa' : 'leve' });
+    const ordem = Aerobico.ordenarNoDia({ objetivo: pt.objetivo, intensidadeCardio: sessao.blocos.some((b) => b.zona >= 4) ? 'intensa' : 'leve' });
 
     return `
       <div class="topo"><h1>Aeróbico</h1></div>
@@ -945,7 +988,7 @@ const UI = (() => {
               <div class="zona-nome">${h(zn.nome)}</div>
               <div class="zona-desc">${h(zn.sensacao)}</div>
             </div>
-            <div class="zona-bpm" style="color:${zn.cor}">${zn.min}–${zn.max}<br><span>bpm</span></div>
+            <div class="zona-bpm" style="color:${zn.corTexto || zn.cor}">${zn.min}–${zn.max}<br><span>bpm</span></div>
           </div>`).join('')}
         ${fm.aviso ? `<div class="nota atencao" style="margin-top:10px"><strong>Atenção</strong>${h(fm.aviso)}</div>` : ''}
         ${!p.fcRepouso ? `
@@ -962,7 +1005,7 @@ const UI = (() => {
           <div class="campo">
             <label>Tipo de treino</label>
             <select data-cardio="modelo">
-              ${Object.values(Aerobico.MODELOS).map((m) => `<option value="${m.chave}" ${estado.cardio.modelo === m.chave ? 'selected' : ''}>${h(m.nome)}</option>`).join('')}
+              ${modelos.map((m) => `<option value="${m.chave}" ${estado.cardio.modelo === m.chave ? 'selected' : ''}>${h(m.nome)}</option>`).join('')}
             </select>
           </div>
           <div class="campo">
@@ -983,6 +1026,7 @@ const UI = (() => {
             <input type="range" min="6" max="20" step="1" value="${estado.cardio.tiros}" data-cardio="tiros">
           </div>` : ''}
 
+        ${leve ? `<p class="pequeno apagado">Treinos intensos (limiar, 4x4, HIIT) ficam fora ${parqTemSim(p) ? 'até a liberação médica (triagem de saúde)' : 'para a sua idade/objetivo'}: o ganho de saúde vem do volume em zona leve.</p>` : ''}
         <div class="nota" style="margin-top:4px"><strong>${h(sessao.nome)} · ${minutosTexto(sessao.duracao)}</strong>${h(sessao.objetivo)}</div>
 
         ${sessao.blocos.map((b) => `
@@ -996,7 +1040,8 @@ const UI = (() => {
 
         ${cal ? `<div class="pequeno apagado" style="margin-top:12px">≈ ${cal.kcal} kcal · ${h(cal.aviso)}</div>` : ''}
 
-        <button class="btn btn-largo btn-principal" data-acao="salvar-cardio" style="margin-top:12px">Salvar esta sessão</button>
+        <button class="btn btn-largo btn-principal" data-acao="salvar-cardio" style="margin-top:12px">✅ Fiz esta sessão</button>
+        <p class="pequeno apagado" style="margin-top:6px">Toque depois de treinar: entra no histórico, no XP e na sequência.</p>
       </div>
 
       <div class="cartao">
@@ -1035,7 +1080,7 @@ const UI = (() => {
                 <div class="item-nome">${h(s.nome)}</div>
                 <div class="item-sub">${h(s.modalidade)} · ${minutosTexto(s.duracao)}</div>
               </div>
-              <button class="btn btn-pequeno btn-perigo" data-acao="apagar-cardio" data-id="${s.id}">×</button>
+              <button class="btn btn-pequeno btn-perigo" data-acao="apagar-cardio" data-id="${h(s.id)}">×</button>
             </div>`).join('')}
         </div>` : ''}
     `;
@@ -1133,7 +1178,8 @@ const UI = (() => {
 
     const ultimo = Dados.ultimoRegistro(item.exId);
     const ultimoSet = ultimo && ultimo.sets[item.sets.length] ? ultimo.sets[item.sets.length] : (ultimo && ultimo.sets[ultimo.sets.length - 1]);
-    const ultimaSug = item.sets.length
+    // rascunho: o que a pessoa digitou antes de abrir "Como executar"/cronometro volta igual
+    const ultimaSug = item.rascunho ? item.rascunho : item.sets.length
       ? item.sets[item.sets.length - 1]
       : { carga: item.cargaSugerida?.carga ?? (ultimoSet ? ultimoSet.carga : ''), reps: ultimoSet ? ultimoSet.reps : item.repsAlvoMin, rir: item.rirAlvo };
 
@@ -1155,15 +1201,15 @@ const UI = (() => {
         <div class="campos-lado-3" style="margin-top:10px">
           <div class="campo">
             <label for="exec-carga">Carga (kg)</label>
-            <input type="number" inputmode="decimal" step="1.25" id="exec-carga" value="${ultimaSug.carga}">
+            <input type="number" inputmode="decimal" step="1.25" id="exec-carga" value="${h(ultimaSug.carga)}">
           </div>
           <div class="campo">
             <label for="exec-reps">Reps</label>
-            <input type="number" inputmode="numeric" id="exec-reps" value="${ultimaSug.reps}">
+            <input type="number" inputmode="numeric" id="exec-reps" value="${h(ultimaSug.reps)}">
           </div>
           <div class="campo">
             <label for="exec-rir">RIR</label>
-            <input type="number" inputmode="numeric" id="exec-rir" value="${ultimaSug.rir}">
+            <input type="number" inputmode="numeric" id="exec-rir" value="${h(ultimaSug.rir)}">
           </div>
         </div>
         <button class="btn btn-largo btn-principal" data-acao="concluir-serie" style="margin-top:4px">✓ Concluir série</button>
@@ -1171,14 +1217,15 @@ const UI = (() => {
 
       ${item.sets.length ? `
         <div class="etiquetas" style="margin-bottom:12px">
-          ${item.sets.map((st, i) => `<span class="etiqueta ok">Série ${i + 1}: ${st.carga}kg × ${st.reps}</span>`).join('')}
+          ${item.sets.map((st, i) => `<span class="etiqueta ok">Série ${i + 1}: ${h(st.carga)}kg × ${h(st.reps)}</span>`).join('')}
         </div>` : ''}
 
       <div class="linha-btn">
-        <button class="btn" data-acao="ver-exercicio" data-id="${item.exId}" data-voltar="execucao">Como executar</button>
+        <button class="btn" data-acao="ver-exercicio" data-id="${h(item.exId)}" data-voltar="execucao">Como executar</button>
         <button class="btn" data-acao="trocar-equipamento">🔁 Aparelho ocupado</button>
       </div>
       <button class="btn btn-largo btn-fantasma" data-acao="pular-exercicio" style="margin-top:8px">Pular exercício</button>
+      <p class="pequeno apagado" style="margin-top:10px">⚠️ ${h(SINAIS_PARAR)}</p>
 
       ${blocoSpotify}
     `;
@@ -1271,7 +1318,7 @@ const UI = (() => {
       <h2>🔁 Aparelho ocupado? Troque por:</h2>
       <p class="pequeno apagado">Mesmo músculo, outro equipamento. Suas cargas de cada exercício ficam guardadas separadas.</p>
       ${subs.length ? subs.map((s) => `
-        <div class="item" data-acao="confirmar-troca" data-id="${s.id}">
+        <div class="item" data-acao="confirmar-troca" data-id="${h(s.id)}">
           <div class="item-icone">${thumbExercicio(s)}</div>
           <div class="item-corpo"><div class="item-nome">${h(s.nome)}</div><div class="item-sub">${h(nomeAparelho(s.aparelho) || s.equipamento)} · ${h((s.musculos_primarios || []).slice(0, 2).join(', '))}</div></div>
           <div class="item-fim">›</div>
@@ -1310,15 +1357,17 @@ const UI = (() => {
     const set = new Set(dias);
     const hoje = new Date();
     hoje.setHours(0, 0, 0, 0);
-    // volta ate o domingo da primeira semana visivel
-    const inicio = new Date(hoje.getTime() - (semanas * 7 - 1) * 864e5);
-    inicio.setDate(inicio.getDate() - inicio.getDay());
+    // a ultima coluna e a semana de HOJE (antes a grade terminava antes dela e o treino de hoje
+    // nao aparecia); conta por data de calendario, sem somar ms (horario de verao)
+    const inicio = new Date(hoje);
+    inicio.setDate(hoje.getDate() - hoje.getDay() - (semanas - 1) * 7);
 
     const colunas = [];
     for (let sem = 0; sem < semanas; sem++) {
       const dias7 = [];
       for (let d = 0; d < 7; d++) {
-        const dt = new Date(inicio.getTime() + (sem * 7 + d) * 864e5);
+        const dt = new Date(inicio);
+        dt.setDate(inicio.getDate() + sem * 7 + d);
         const chave = dt.toLocaleDateString('sv-SE');
         const treinou = set.has(chave);
         const futuro = dt > hoje;
@@ -1402,7 +1451,7 @@ const UI = (() => {
         ${sessoes.length ? sessoes.slice(0, 20).map((s) => {
           const aberta = estado.sessaoExpandida === s.id;
           return `
-          <div class="item" data-acao="expandir-sessao" data-id="${s.id}" style="flex-direction:column;align-items:stretch">
+          <div class="item" data-acao="expandir-sessao" data-id="${h(s.id)}" style="flex-direction:column;align-items:stretch">
             <div style="display:flex;align-items:center;gap:12px;width:100%">
               <div class="item-icone">${s.tipo === 'cardio' ? '❤️' : '🏋️'}</div>
               <div class="item-corpo">
@@ -1417,7 +1466,7 @@ const UI = (() => {
                   <div style="margin-bottom:8px">
                     <div class="pequeno" style="font-weight:700">${h(ex.nome)}</div>
                     <div class="etiquetas" style="margin-top:4px">
-                      ${ex.sets.map((set, i) => `<span class="etiqueta">S${i + 1}: ${set.carga}kg×${set.reps}${set.rir !== null && set.rir !== undefined ? ` (RIR ${set.rir})` : ''}</span>`).join('')}
+                      ${ex.sets.map((set, i) => `<span class="etiqueta">S${i + 1}: ${h(set.carga)}kg×${h(set.reps)}${set.rir !== null && set.rir !== undefined ? ` (RIR ${h(set.rir)})` : ''}</span>`).join('')}
                     </div>
                   </div>`).join('')}
                 ${s.cardioResumo ? `<div class="pequeno apagado">${h(s.cardioResumo.nome)} · ${h(s.cardioResumo.modalidade)}</div>` : ''}
@@ -1474,21 +1523,21 @@ const UI = (() => {
           <div class="grade" style="margin-bottom:10px">
             <div>
               <div class="rotulo">Última pesagem</div>
-              <div class="numerao" style="font-size:26px">${ultimo.peso} <span style="font-size:14px;color:var(--apagado)">kg</span></div>
+              <div class="numerao" style="font-size:26px">${h(ultimo.peso)} <span style="font-size:14px;color:var(--apagado)">kg</span></div>
               <div class="pequeno apagado">${new Date(ultimo.data).toLocaleDateString('pt-BR')}</div>
             </div>
-            ${ultimo.gordura ? `<div><div class="rotulo">Gordura corporal</div><div class="numerao" style="font-size:26px">${ultimo.gordura}<span style="font-size:14px;color:var(--apagado)">%</span></div></div>` : ''}
+            ${ultimo.gordura ? `<div><div class="rotulo">Gordura corporal</div><div class="numerao" style="font-size:26px">${h(ultimo.gordura)}<span style="font-size:14px;color:var(--apagado)">%</span></div></div>` : ''}
           </div>
           ${(ultimo.massaMuscular || ultimo.agua || ultimo.visceral || ultimo.tmb) ? `
             <div class="etiquetas" style="margin-bottom:10px">
-              ${ultimo.massaMuscular ? `<span class="etiqueta">Massa muscular: ${ultimo.massaMuscular}kg</span>` : ''}
-              ${ultimo.agua ? `<span class="etiqueta">Água: ${ultimo.agua}%</span>` : ''}
-              ${ultimo.visceral ? `<span class="etiqueta">Gordura visceral: ${ultimo.visceral}</span>` : ''}
+              ${ultimo.massaMuscular ? `<span class="etiqueta">Massa muscular: ${h(ultimo.massaMuscular)}kg</span>` : ''}
+              ${ultimo.agua ? `<span class="etiqueta">Água: ${h(ultimo.agua)}%</span>` : ''}
+              ${ultimo.visceral ? `<span class="etiqueta">Gordura visceral: ${h(ultimo.visceral)}</span>` : ''}
               ${ultimo.tmb ? `<span class="etiqueta">TMB: ${ultimo.tmb}kcal</span>` : ''}
             </div>` : ''}
           ${registros.length > 1 ? `
             <div class="pequeno apagado" style="margin-bottom:10px">
-              ${registros.slice(1, 5).map((r) => `${r.peso}kg em ${new Date(r.data).toLocaleDateString('pt-BR')}`).join(' · ')}
+              ${registros.slice(1, 5).map((r) => `${h(r.peso)}kg em ${new Date(r.data).toLocaleDateString('pt-BR')}`).join(' · ')}
             </div>` : ''}
         ` : `
           <p class="pequeno apagado">Registre sua pesagem pra acompanhar a evolução ao longo do tempo. Se tiver balança de bioimpedância, os campos extras (gordura, massa muscular, água, visceral) são opcionais.</p>
@@ -1510,18 +1559,18 @@ const UI = (() => {
           ${fotos.length >= 2 ? `
             <div class="grade" style="margin-bottom:10px">
               <div>
-                <img src="${h(antes.foto)}" alt="Antes" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:pointer" data-acao="ver-foto-evolucao" data-id="${antes.id}">
+                <img src="${h(antes.foto)}" alt="Antes" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:pointer" data-acao="ver-foto-evolucao" data-id="${h(antes.id)}">
                 <div class="pequeno apagado centro" style="margin-top:4px">Antes · ${new Date(antes.data).toLocaleDateString('pt-BR')}</div>
               </div>
               <div>
-                <img src="${h(atual.foto)}" alt="Atual" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:pointer" data-acao="ver-foto-evolucao" data-id="${atual.id}">
+                <img src="${h(atual.foto)}" alt="Atual" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:pointer" data-acao="ver-foto-evolucao" data-id="${h(atual.id)}">
                 <div class="pequeno apagado centro" style="margin-top:4px">Atual · ${new Date(atual.data).toLocaleDateString('pt-BR')}</div>
               </div>
             </div>` : ''}
           ${fotos.length > 1 ? `
             <div style="display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none">
               ${fotos.map((f) => `
-                <div data-acao="ver-foto-evolucao" data-id="${f.id}" style="flex-shrink:0;width:64px;cursor:pointer">
+                <div data-acao="ver-foto-evolucao" data-id="${h(f.id)}" style="flex-shrink:0;width:64px;cursor:pointer">
                   <img src="${h(f.foto)}" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--borda)">
                   <div class="pequeno apagado centro" style="font-size:11px;margin-top:2px">${new Date(f.data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}</div>
                 </div>`).join('')}
@@ -1555,7 +1604,7 @@ const UI = (() => {
       <h2>${new Date(f.data).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}</h2>
       <img src="${h(f.foto)}" alt="" style="width:100%;border-radius:14px;margin-bottom:10px">
       ${f.nota ? `<p class="pequeno apagado">${h(f.nota)}</p>` : ''}
-      <button class="btn btn-largo btn-perigo" data-acao="apagar-foto-evolucao" data-id="${f.id}">Apagar</button>
+      <button class="btn btn-largo btn-perigo" data-acao="apagar-foto-evolucao" data-id="${h(f.id)}">Apagar</button>
       <button class="btn btn-largo btn-fantasma" data-acao="fechar-modal" style="margin-top:8px">Fechar</button>
     `);
   }
@@ -1568,7 +1617,7 @@ const UI = (() => {
       <div class="campos-lado">
         <div class="campo">
           <label>Peso (kg) *</label>
-          <input type="number" inputmode="decimal" step="0.1" id="peso-valor" value="${num(p.peso)}" placeholder="obrigatório">
+          <input type="number" inputmode="decimal" step="0.1" id="peso-valor" value="${numCampo(p.peso)}" placeholder="obrigatório">
         </div>
         <div class="campo">
           <label>Data</label>
@@ -1601,8 +1650,9 @@ const UI = (() => {
       return `
         <div class="cartao">
           <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2><span class="etiqueta ok">Conectado</span></div>
-          <p class="pequeno apagado">Logada como <strong>${h(sessao.user.email)}</strong>. Seus dados sobem sozinhos pra nuvem sempre que mudam — se este aparelho perder tudo, é só entrar de novo com o mesmo e-mail pra recuperar.</p>
-          ${backup.ultimoEm ? `<p class="pequeno apagado">Última sincronização: ${new Date(backup.ultimoEm).toLocaleString('pt-BR')}</p>` : ''}
+          <p class="pequeno apagado">Conta: <strong>${h(sessao.user.email)}</strong>. Seus dados sobem sozinhos pra nuvem sempre que mudam — se este aparelho perder tudo, é só entrar de novo com o mesmo e-mail pra recuperar.</p>
+          ${backup.nuvemOkEm ? `<p class="pequeno apagado">Último envio para a nuvem: ${new Date(backup.nuvemOkEm).toLocaleString('pt-BR')}</p>` : ''}
+          ${estado.nuvem.pendentes ? `<div class="nota atencao"><strong>Esperando internet</strong>${estado.nuvem.pendentes} parte(s) dos seus dados ainda não subiram. Sobem sozinhas quando a conexão voltar.</div>` : ''}
           <button class="btn btn-largo btn-perigo" data-acao="nuvem-sair">Sair desta conta</button>
         </div>`;
     }
@@ -1754,11 +1804,11 @@ const UI = (() => {
         <div class="campos-lado">
           <div class="campo">
             <label>Peso (kg)</label>
-            <input type="number" inputmode="decimal" step="0.1" value="${num(p.peso)}" data-perfil="peso">
+            <input type="number" inputmode="decimal" step="0.1" value="${numCampo(p.peso)}" data-perfil="peso">
           </div>
           <div class="campo">
             <label>Altura (cm)</label>
-            <input type="number" inputmode="numeric" value="${num(p.altura)}" data-perfil="altura">
+            <input type="number" inputmode="numeric" value="${numCampo(p.altura)}" data-perfil="altura">
           </div>
         </div>
         ${idade !== null || imc ? `
@@ -1778,14 +1828,29 @@ const UI = (() => {
         <div class="campos-lado">
           <div class="campo">
             <label>FC de repouso (bpm)</label>
-            <input type="number" inputmode="numeric" value="${num(p.fcRepouso)}" data-perfil="fcRepouso" placeholder="ex.: 62">
+            <input type="number" inputmode="numeric" value="${numCampo(p.fcRepouso)}" data-perfil="fcRepouso" placeholder="ex.: 62">
           </div>
           <div class="campo">
             <label>FC máx medida (bpm)</label>
-            <input type="number" inputmode="numeric" value="${num(p.fcMaxMedida)}" data-perfil="fcMaxMedida" placeholder="se fez teste">
+            <input type="number" inputmode="numeric" value="${numCampo(p.fcMaxMedida)}" data-perfil="fcMaxMedida" placeholder="se fez teste">
           </div>
         </div>
         <p class="pequeno apagado">${h(Aerobico.COMO_MEDIR_REPOUSO)}</p>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-titulo"><h2>🩺 Saúde antes de treinar</h2></div>
+        <p class="pequeno apagado">Triagem rápida (PAR-Q+). Não é diagnóstico: serve para saber quando procurar o médico antes de puxar mais forte.</p>
+        ${PARQ.map((q, i) => {
+          const r = parqRespostas(p)[i];
+          return `<div class="campo"><div style="font-weight:700;margin-bottom:6px">${i + 1}. ${h(q)}</div>
+            <div class="chips">
+              <button class="chip ${r === true ? 'ativo' : ''}" data-acao="parq" data-i="${i}" data-valor="1" aria-pressed="${r === true}">Sim</button>
+              <button class="chip ${r === false ? 'ativo' : ''}" data-acao="parq" data-i="${i}" data-valor="0" aria-pressed="${r === false}">Não</button>
+            </div></div>`;
+        }).join('')}
+        ${parqTemSim(p) ? `<div class="nota atencao"><strong>Procure liberação médica</strong>Com pelo menos um "sim", converse com seu médico antes de aumentar a intensidade. Enquanto isso, o aeróbico fica só em zona leve (Z1-Z2) e vale treinar com carga moderada.</div>`
+          : parqRespondido(p) ? `<div class="nota festa"><strong>Tudo certo</strong>Nenhum sinal de alerta. Se algo mudar na sua saúde, responda de novo.</div>` : ''}
       </div>
 
       <div class="cartao">
@@ -1830,11 +1895,11 @@ const UI = (() => {
         <div class="campos-lado">
           <div class="campo">
             <label>Musculação (dias/sem)</label>
-            <input type="number" inputmode="numeric" min="1" max="7" value="${num(p.freqForca)}" data-perfil="freqForca">
+            <input type="number" inputmode="numeric" min="1" max="7" value="${numCampo(p.freqForca)}" data-perfil="freqForca">
           </div>
           <div class="campo">
             <label>Aeróbico (dias/sem)</label>
-            <input type="number" inputmode="numeric" min="0" max="7" value="${num(p.freqCardio)}" data-perfil="freqCardio">
+            <input type="number" inputmode="numeric" min="0" max="7" value="${numCampo(p.freqCardio)}" data-perfil="freqCardio">
           </div>
         </div>
         <div class="campo" style="margin-bottom:0">
@@ -2020,6 +2085,28 @@ const UI = (() => {
 
   // ---------- render ----------
 
+  /** Acessibilidade depois de cada desenho (auditoria 12/10/2026), num lugar so em vez de em
+   *  cada template: div clicavel vira botao para teclado/leitor de tela, cada <label> de .campo
+   *  aponta para o seu campo, campo so com placeholder ganha nome, e o "‹" ganha "Voltar". */
+  let idCampo = 0;
+  function acessibilidade(raiz) {
+    raiz.querySelectorAll('[data-acao]:not(button):not(a):not(input):not(select):not(textarea)').forEach((el) => {
+      el.setAttribute('role', 'button');
+      el.tabIndex = 0;
+    });
+    raiz.querySelectorAll('.campo').forEach((c) => {
+      const rot = c.querySelector(':scope > label');
+      const campo = c.querySelector('input, select, textarea');
+      if (!rot || !campo || rot.htmlFor) return;
+      if (!campo.id) campo.id = `campo-${++idCampo}`;
+      rot.htmlFor = campo.id;
+    });
+    raiz.querySelectorAll('input[placeholder]:not([aria-label]), textarea[placeholder]:not([aria-label])').forEach((el) => {
+      if (!el.labels || !el.labels.length) el.setAttribute('aria-label', el.placeholder);
+    });
+    raiz.querySelectorAll('button.voltar:not([aria-label])').forEach((b) => b.setAttribute('aria-label', 'Voltar'));
+  }
+
   function render() {
     const telas = {
       inicio: telaInicio,
@@ -2035,11 +2122,12 @@ const UI = (() => {
       cronometro: telaCronometro,
     };
     app().innerHTML = (telas[estado.tela] || telaInicio)();
+    acessibilidade(app());
     renderNav();
   }
 
   return {
-    estado, render, ir, h, abrirModal, fecharModal, perfilTreino,
+    estado, render, ir, h, abrirModal, fecharModal, perfilTreino, PARQ,
     modal1RM, modalAnilhas, modalVolume, modalTesteFala,
     modalGerador, modalTrocarEquipamento, modalResumoTreino, modalRegistrarPeso,
     modalRegistrarFotoEvolucao, modalVerFotoEvolucao,

@@ -22,6 +22,12 @@ Data: 12/10/2026 · commit auditado: `4090d36` · **nenhum arquivo do app foi al
 > localStorage), A12 (triagem), A13-A15 (contraste, teclado, ilustrações) e o restante das médias
 > e baixas. **Nada foi commitado.**
 
+> **Atualização 2 (12/10/2026):** os ciclos 5 a 9 também foram aplicados, testados e publicados
+> ([historico/19](historico/19-auditoria-ciclos-5-a-9.md)). Continuam abertos, por decisão de escopo:
+> ~30 ilustrações sem o implemento desenhado (o movimento está certo), M14 (campo `padrao` explícito
+> na base), M18 (equilíbrio automático de volume semanal), streak semanal (M15), L4, L6 e os nomes
+> dos níveis de XP (L7).
+
 ## 1. Resumo
 
 1. **Ainda não está pronto para a família.** Há 3 bloqueantes:

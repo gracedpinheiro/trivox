@@ -34,19 +34,28 @@
   --azul-claro: #E1F0FF;
   --rosa: #FF7AB6;
 
+  /* tons "fortes": preenchimento com texto branco e texto colorido. As cores vivas acima ficam
+     para contorno, sombra, fundo claro e desenho — sozinhas nao passam no contraste AA (4,5:1)
+     com texto branco (auditoria 12/10/2026: botao coral dava 3:1, degrade amarelo 1,6:1) */
+  --coral-forte: #CC3633;
+  --turquesa-forte: #0A7F74;
+  --azul-forte: #1A6FD1;
+  --rosa-forte: #C2306F;
+  --uva-forte: #6D3FE0;
+
   /* nomes antigos, remapeados — o resto do app (ui.js) usa estes */
-  --destaque: var(--coral);
-  --destaque-clara: var(--coral);
+  --destaque: var(--coral-forte);
+  --destaque-clara: var(--coral-forte);
   --destaque-fraco: var(--coral-claro);
   --destaque-texto: #FFFFFF;
-  --gradiente: linear-gradient(120deg, #FF5E5B 0%, #FF8A4C 45%, #FFC531 100%);
+  --gradiente: linear-gradient(120deg, #CC3633 0%, #B8337A 50%, #6D3FE0 100%); /* texto branco legivel do inicio ao fim */
   --gradiente-suave: linear-gradient(135deg, #FFF0EC 0%, #FFF7DD 55%, #E4FAF6 100%);
   --festa: var(--sol);
   --festa-clara: #E0A100;
   --festa-fraca: var(--sol-claro);
-  --ok: #12A56A;
-  --aviso: #D99A00;
-  --perigo: #E5484D;
+  --ok: #0B7A4E;
+  --aviso: #8A6200;
+  --perigo: #C62F35;
 
   /* mapa muscular e figuras */
   --musculo-primario: #FF5E5B;
@@ -87,7 +96,9 @@ body {
 
 #app { max-width: 560px; margin: 0 auto; padding: 16px 16px 24px; }
 
-:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--azul-forte); outline-offset: 2px; }
+/* o elemento focado pelo teclado nao some atras da barra de baixo */
+html { scroll-padding-bottom: calc(var(--barra-baixo) + 24px); }
 
 .texto-gradiente {
   background: var(--gradiente);
@@ -108,7 +119,7 @@ h1 { font-size: 32px; }
 h2 { font-size: 24px; }
 h3 { font-size: 20px; font-weight: 700; }
 p { margin: 0 0 12px; }
-a { color: var(--azul); font-weight: 700; }
+a { color: var(--azul-forte); font-weight: 700; }
 
 .apagado { color: var(--apagado); }
 .pequeno { font-size: 15px; }
@@ -144,7 +155,7 @@ a { color: var(--azul); font-weight: 700; }
 }
 .cartao.clicavel { cursor: pointer; transition: transform 0.08s; }
 .cartao.clicavel:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--borda); }
-.cartao-gradiente { background: var(--gradiente); border-color: transparent; color: #fff; box-shadow: 0 5px 0 #F0B9A6; }
+.cartao-gradiente { background: var(--gradiente); border-color: transparent; color: #fff; box-shadow: 0 5px 0 #D9C4F5; }
 .cartao-gradiente h1, .cartao-gradiente h2, .cartao-gradiente h3 { color: #fff; }
 
 /* cartoes coloridos por tema (classe extra) */
@@ -180,12 +191,12 @@ a { color: var(--azul); font-weight: 700; }
   transition: transform 0.06s;
 }
 .btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--borda); }
-.btn-principal { background: var(--coral); border-color: var(--coral); color: #fff; box-shadow: 0 4px 0 #D9403E; }
-.btn-principal:active { box-shadow: 0 1px 0 #D9403E; }
+.btn-principal { background: var(--coral-forte); border-color: var(--coral-forte); color: #fff; box-shadow: 0 4px 0 #FF9C99; }
+.btn-principal:active { box-shadow: 0 1px 0 #FF9C99; }
 .btn-festa { background: var(--sol); border-color: var(--sol); color: #4A3500; box-shadow: 0 4px 0 #E0A100; }
-.btn-turquesa { background: var(--turquesa); border-color: var(--turquesa); color: #fff; box-shadow: 0 4px 0 #0A8E81; }
+.btn-turquesa { background: var(--turquesa-forte); border-color: var(--turquesa-forte); color: #fff; box-shadow: 0 4px 0 #7FDCD2; }
 .btn-largo { width: 100%; }
-.btn-pequeno { padding: 7px 12px; min-height: 40px; font-size: 15px; border-radius: 13px; }
+.btn-pequeno { padding: 7px 12px; min-height: 44px; min-width: 44px; font-size: 15px; border-radius: 13px; }
 .btn-perigo { color: var(--perigo); border-color: #FFD0D1; box-shadow: 0 3px 0 #FFD0D1; }
 .btn-fantasma { background: transparent; box-shadow: none; }
 .btn[disabled] { opacity: 0.5; }
@@ -198,9 +209,9 @@ a { color: var(--azul); font-weight: 700; }
 .chip {
   border: 2px solid var(--borda); background: var(--cartao); color: var(--texto);
   border-radius: 999px; padding: 7px 13px; font: inherit; font-size: 15px; font-weight: 700;
-  cursor: pointer; min-height: 40px;
+  cursor: pointer; min-height: 44px;
 }
-.chip.ativo { background: var(--turquesa); border-color: var(--turquesa); color: #fff; box-shadow: 0 3px 0 #0A8E81; }
+.chip.ativo { background: var(--turquesa-forte); border-color: var(--turquesa-forte); color: #fff; box-shadow: 0 3px 0 #7FDCD2; }
 
 /* opcoes grandes com icone (objetivo, local) */
 .opcoes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -224,11 +235,12 @@ input, select, textarea {
   border: 2px solid var(--borda);
   border-radius: 14px;
   color: var(--texto);
-  padding: 11px 13px;
+  padding: 12px 13px;
+  min-height: 44px;
   font-size: 16px;
   font-family: inherit; font-weight: 600;
 }
-input:focus, select:focus, textarea:focus { outline: none; border-color: var(--azul); background: #fff; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--azul-forte); outline-offset: 1px; border-color: var(--azul-forte); background: #fff; }
 textarea { min-height: 76px; resize: vertical; }
 select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--apagado) 50%), linear-gradient(135deg, var(--apagado) 50%, transparent 50%); background-position: right 16px center, right 11px center; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 34px; }
 
@@ -308,11 +320,11 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
 }
 .nav button .ic { font-size: 23px; line-height: 1; }
 .nav button.ativo { color: #fff; }
-.nav button.ativo[data-tela="inicio"] { background: var(--coral); }
-.nav button.ativo[data-tela="fichas"] { background: var(--turquesa); }
-.nav button.ativo[data-tela="cardio"] { background: var(--rosa); }
-.nav button.ativo[data-tela="evolucao"] { background: var(--uva); }
-.nav button.ativo[data-tela="perfil"] { background: var(--azul); }
+.nav button.ativo[data-tela="inicio"] { background: var(--coral-forte); }
+.nav button.ativo[data-tela="fichas"] { background: var(--turquesa-forte); }
+.nav button.ativo[data-tela="cardio"] { background: var(--rosa-forte); }
+.nav button.ativo[data-tela="evolucao"] { background: var(--uva-forte); }
+.nav button.ativo[data-tela="perfil"] { background: var(--azul-forte); }
 
 /* ---------- zonas de frequencia ---------- */
 
@@ -394,7 +406,7 @@ ol.passos li { counter-increment: passo; position: relative; padding-left: 40px;
 ol.passos li::before {
   content: counter(passo); position: absolute; left: 0; top: 0;
   width: 28px; height: 28px; border-radius: 50%;
-  background: var(--turquesa); color: #fff; font-weight: 800; font-size: 15px;
+  background: var(--turquesa-forte); color: #fff; font-weight: 800; font-size: 15px;
   display: flex; align-items: center; justify-content: center;
 }
 ul.lista { margin: 0; padding-left: 19px; }
@@ -403,13 +415,13 @@ ul.lista li { margin-bottom: 5px; font-size: 16px; }
 /* ---------- imagens do exercicio: abas foto / como fazer / musculos / aparelho ---------- */
 
 .midia { padding: 10px; }
-.midia-abas { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-bottom: 10px; }
+.midia-abas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; } /* quebra linha: a 5a aba ficava cortada */
 .midia-abas::-webkit-scrollbar { display: none; }
 .midia-aba {
   flex: 0 0 auto; border: 2px solid var(--borda); background: var(--cartao); color: var(--apagado);
-  border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 14.5px; font-weight: 800; cursor: pointer;
+  border-radius: 999px; padding: 6px 12px; min-height: 44px; font: inherit; font-size: 14.5px; font-weight: 800; cursor: pointer;
 }
-.midia-aba.ativo { background: var(--texto); border-color: var(--texto); color: #fff; }
+.midia-aba.ativo { background: var(--uva-forte); border-color: var(--uva-forte); color: #fff; }
 .midia-palco {
   background: linear-gradient(180deg, #F4F8FF 0%, #FFF8E8 100%);
   border-radius: 16px; min-height: 180px;
@@ -440,7 +452,7 @@ ul.lista li { margin-bottom: 5px; font-size: 16px; }
 /* ---------- cronometro ---------- */
 
 .relogio { font-family: var(--fonte-titulo); font-size: 72px; font-weight: 800; line-height: 1; color: var(--texto); font-variant-numeric: tabular-nums; }
-.relogio.acabando { color: var(--coral); animation: pulsa 0.5s ease-in-out infinite alternate; }
+.relogio.acabando { color: var(--coral-forte); animation: pulsa 0.5s ease-in-out infinite alternate; }
 @keyframes pulsa { from { transform: scale(1); } to { transform: scale(1.06); } }
 .anel { position: relative; width: 230px; height: 230px; margin: 0 auto; }
 .anel svg { position: absolute; inset: 0; transform: rotate(-90deg); }

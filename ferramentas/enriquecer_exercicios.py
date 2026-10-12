@@ -52,13 +52,14 @@ smith leg_press hack cadeira_extensora mesa_flexora cadeira_abdutora cadeira_adu
 supino_maquina voador_peck_deck remada_maquina desenvolvimento_maquina gluteo_maquina banco_romano esteira
 bicicleta eliptico remo_ergometro escada_agilidade cones raquete treno landmine bosu foam_roller toalha
 mochila""".split()
-# Chaves novas (máx. 5) — faltavam na lista fechada
+# Chaves novas — faltavam na lista fechada
 APARELHOS_NOVOS = {
     "maquina_abdominal": "Máquinas de abdominal / rotação de tronco",
     "maquina_bracos": "Máquinas de rosca / tríceps / mergulho",
     "pneu": "Pneu (virada, marreta)",
     "saco_areia": "Sandbag / atlas stone / objeto pesado / saco de pancadas",
     "hand_grip": "Hand grip, bolinha de apertar, wrist roller",
+    "escada_ergometrica": "Escada ergométrica (Stairmaster) — antes caía em esteira e desenhava esteira",
 }
 APARELHOS = set(APARELHOS_BASE) | set(APARELHOS_NOVOS)
 

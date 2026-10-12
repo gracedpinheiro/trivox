@@ -32,6 +32,7 @@
   }
 
   if (!Dados.perfilAtivoId()) Dados.criarPerfil('Eu');
+  await Dados.carregarFotos(); // fotos no IndexedDB (migra as antigas do localStorage)
 
   /** Perfis e backups antigos: objetivo legado (forca, resistencia, emagrecimento) vira o novo
    *  de vez, para os chips do Perfil e do gerador mostrarem o certo. "elite" e "parque" o motor
@@ -129,8 +130,16 @@
   function enviarLojaAgora(loja) {
     if (!sessaoNuvem) return; // saiu da conta durante a espera
     Nuvem.enviarDado(loja, Dados.lerLoja(loja), sessaoNuvem.user.id)
-      .then(() => pendentesNuvem.delete(loja))
-      .catch((e) => { pendentesNuvem.add(loja); console.warn('[nuvem] falha ao enviar', loja, e); });
+      .then(() => {
+        pendentesNuvem.delete(loja);
+        UI.estado.nuvem.pendentes = pendentesNuvem.size;
+        Dados.registrarEnvioNuvem();
+      })
+      .catch((e) => {
+        pendentesNuvem.add(loja);
+        UI.estado.nuvem.pendentes = pendentesNuvem.size;
+        console.warn('[nuvem] falha ao enviar', loja, e);
+      });
   }
 
   function enfileirarPushNuvem(loja) {
@@ -349,7 +358,7 @@
           if (est.tela === 'cronometro') UI.render();
         } else {
           // intervalado: trabalho -> descanso -> proxima rodada
-          if (iv.fase === 'trabalho' && iv.descanso > 0) {
+          if (iv.fase === 'trabalho' && iv.descanso > 0 && iv.rodada < iv.rodadas) {
             iv.fase = 'descanso'; c.ate = agora + iv.descanso * 1000; Alarme.troca();
           } else if (iv.rodada >= iv.rodadas) {
             c.rodando = false; c.pausadoRestante = null; iv.fase = 'trabalho'; iv.rodada = 1;
@@ -405,7 +414,7 @@
     return Math.max(0, ...Object.values(porSemana));
   }
 
-  const detectarRecorde = (itens) => itens.some((i) => i.sets.some((s) => (Number(s.carga) || 0) > (i.recordeAnterior || 0)));
+  const detectarRecorde = (itens) => itens.some((i) => i.recordeAnterior > 0 && i.sets.some((s) => (Number(s.carga) || 0) > i.recordeAnterior));
   const detectarQuebraPlato = (itens) => itens.some((i) => i.platoAntes && i.sets.some((s) => (Number(s.carga) || 0) > (i.ultimaCargaAntes || 0)));
 
   // ---------- spotify ----------
@@ -498,11 +507,25 @@
   }
 
   /** Le um .zip de backup e restaura dados + videos. Devolve quantos videos vieram e quantos existiam no manifesto. */
-  async function restaurarBackupZip(arquivo) {
-    const entradas = await Zip.ler(arquivo);
-    const entradaJson = entradas.find((e) => e.nome === 'backup.json');
-    if (!entradaJson) throw new Error('Esse .zip não tem um backup.json dentro — não parece ser um backup do TRIVOX.');
-    const pacote = JSON.parse(new TextDecoder().decode(entradaJson.dados));
+  /** Le o arquivo (.zip novo ou .json antigo) e valida, SEM gravar nada: assim um arquivo errado
+   *  e recusado antes da pergunta "vai substituir seus dados?". */
+  async function lerBackup(arquivo) {
+    const cabecalho = new Uint8Array(await arquivo.slice(0, 2).arrayBuffer());
+    const ehZip = cabecalho[0] === 0x50 && cabecalho[1] === 0x4B; // assinatura "PK" de .zip
+    let pacote, entradas = [];
+    if (ehZip) {
+      entradas = await Zip.ler(arquivo);
+      const entradaJson = entradas.find((e) => e.nome === 'backup.json');
+      if (!entradaJson) throw new Error('Esse .zip não tem um backup.json dentro — não parece ser um backup do TRIVOX.');
+      pacote = JSON.parse(new TextDecoder().decode(entradaJson.dados));
+    } else {
+      pacote = JSON.parse(await arquivo.text()); // backup antigo, sem video (compatibilidade)
+    }
+    Dados.validarBackup(pacote);
+    return { pacote, entradas };
+  }
+
+  async function restaurarBackup({ pacote, entradas }) {
     Dados.importar(pacote);
 
     const manifesto = pacote.videos || {};
@@ -571,7 +594,7 @@
     est.execucao = null;
     Dados.salvarExecucao(null);
     Lembretes.sincronizarComSW(Dados.perfil(), { treinouEm: new Date().toLocaleDateString('sv-SE') });
-    UI.ir('fichas');
+    if (est.tela === 'execucao') UI.ir('fichas'); else UI.render();
     UI.modalResumoTreino({ xpGanho, novosBadges, nivel: nivelDepois, subiuNivel: nivelDepois.chave !== nivelAntes.chave });
   }
 
@@ -584,6 +607,13 @@
     if (!alvo) return;
     const acao = alvo.dataset.acao;
     if (acao === 'buscar') return; // input, tratado em outro lugar
+
+    // rascunho dos campos da serie: sair para "Como executar" ou o cronometro nao perde o digitado
+    if (est.tela === 'execucao' && est.execucao && document.getElementById('exec-carga')) {
+      const it = est.execucao.itens[est.execucao.iEx];
+      const v = (id) => document.getElementById(id)?.value ?? '';
+      if (it) it.rascunho = { carga: v('exec-carga'), reps: v('exec-reps'), rir: v('exec-rir') };
+    }
 
     switch (acao) {
 
@@ -604,6 +634,11 @@
 
       case 'fechar-modal':
         UI.fecharModal();
+        break;
+
+      case 'alternar-animacao':
+        est.animacaoParada = !est.animacaoParada;
+        UI.render();
         break;
 
       // ----- fichas -----
@@ -805,6 +840,12 @@
         try {
           lista = Forca.completarSessao(f.exercicios, { base: UI.getBase(), ...UI.perfilTreino() }) || f.exercicios;
         } catch (e) { console.warn('[treino] completarSessao', e); }
+        // ficha antiga com exercicio que saiu da base: fica de fora (antes virava "Exercicio" sem imagem)
+        const existe = new Set(UI.getBase().map((e) => e.id));
+        const faltando = lista.filter((it) => !existe.has(it.exId)).length;
+        lista = lista.filter((it) => existe.has(it.exId));
+        if (!lista.length) { alert('Os exercícios desta ficha não existem mais na base. Monte a ficha de novo.'); break; }
+        if (faltando) alert(`${faltando} exercício(s) desta ficha não existem mais na base e ficaram de fora do treino.`);
         const itens = lista.map((item) => {
           const ex = UI.getBase().find((e) => e.id === item.exId);
           const historicoAntigo = Dados.historicoCarga(item.exId);
@@ -862,6 +903,7 @@
         const rirVal = document.getElementById('exec-rir')?.value;
         const rir = rirVal === '' || rirVal === undefined ? null : parseInt(rirVal, 10);
         item.sets.push({ carga, reps, rir });
+        delete item.rascunho;
         Dados.registrarCarga(item.exId, { carga, reps, rir });
         ex.descansando = true;
         ex.descansoTotal = item.descansoAlvo;
@@ -910,6 +952,7 @@
         item.nome = novo.nome;
         item.icon = novo.icon;
         item.sets = [];
+        delete item.rascunho; // a carga digitada era do exercicio anterior
         item.cargaSugerida = Forca.sugerirCarga(historicoNovo, item);
         item.recordeAnterior = Math.max(0, ...historicoNovo.map((h) => Number(h.carga) || 0));
         item.platoAntes = Forca.detectarPlato(historicoNovo).plato;
@@ -943,7 +986,7 @@
         Spotify.urlLogin(clientId).then(({ url, verificador, estado }) => {
           Dados.salvarSpotify({ pkceVerificador: verificador, pkceEstado: estado });
           location.href = url;
-        });
+        }).catch((e) => alert('Não consegui abrir o login do Spotify (ele só funciona no endereço https do app ou em 127.0.0.1): ' + e.message));
         break;
       }
 
@@ -1024,6 +1067,8 @@
       // ----- cardio -----
 
       case 'salvar-cardio': {
+        // registra uma sessao FEITA (conta XP e "treino de hoje") — por isso pergunta antes
+        if (!confirm('Registrar que você fez esta sessão de aeróbico hoje?')) break;
         const p = Dados.perfil();
         const fm = Aerobico.fcMax({ idade: Dados.idade(), medida: p.fcMaxMedida });
         const z = fm ? Aerobico.zonas({ fcMaxValor: fm.valor, fcRepouso: p.fcRepouso }) : null;
@@ -1038,6 +1083,7 @@
         });
         const gamAntes = Dados.gam();
         Dados.salvarGam({ xp: gamAntes.xp + xpGanho });
+        Lembretes.sincronizarComSW(p, { treinouEm: new Date().toLocaleDateString('sv-SE') });
         const sessoes = Dados.sessoes();
         const novosBadges = Gamificacao.avaliarBadges({
           totalSessoes: sessoes.length, totalForca: sessoes.filter((x) => x.tipo === 'forca').length,
@@ -1076,6 +1122,7 @@
       case 'midia-aba':
         est.midiaAba = alvo.dataset.aba;
         UI.render();
+        if (est.tela === 'exercicio') carregarVideoExercicio(est.exercicioId); // o card de video reseta no render
         break;
 
       // ----- cronometro -----
@@ -1176,6 +1223,15 @@
         Dados.salvarPerfil({ [alvo.dataset.campo]: alvo.dataset.valor });
         UI.render();
         break;
+
+      case 'parq': {
+        const respostas = [...((Dados.perfil().parq || {}).respostas || [])];
+        while (respostas.length < UI.PARQ.length) respostas.push(null);
+        respostas[Number(alvo.dataset.i)] = alvo.dataset.valor === '1';
+        Dados.salvarPerfil({ parq: { respostas, em: Date.now() } });
+        UI.render();
+        break;
+      }
 
       case 'toggle-equip-casa': {
         const p = Dados.perfil();
@@ -1364,16 +1420,11 @@
           const arq = inp.files?.[0];
           if (!arq) return;
           try {
-            const cabecalho = new Uint8Array(await arq.slice(0, 2).arrayBuffer());
-            const ehZip = cabecalho[0] === 0x50 && cabecalho[1] === 0x4B; // assinatura "PK" de .zip
-            if (!confirm('Importar vai substituir suas fichas, perfil e histórico atuais. Continuar?')) return;
-            if (ehZip) {
-              const { totalVideos, restaurados } = await restaurarBackupZip(arq);
-              if (totalVideos && restaurados < totalVideos) {
-                alert(`Dados restaurados. ${restaurados} de ${totalVideos} vídeo(s) recuperado(s) — os demais não estavam no arquivo.`);
-              }
-            } else {
-              Dados.importar(JSON.parse(await arq.text())); // backup antigo, sem video (compatibilidade)
+            const lido = await lerBackup(arq);
+            if (!confirm('Importar vai substituir suas fichas, perfil, histórico e fotos atuais. Continuar?')) return;
+            const { totalVideos, restaurados } = await restaurarBackup(lido);
+            if (totalVideos && restaurados < totalVideos) {
+              alert(`Dados restaurados. ${restaurados} de ${totalVideos} vídeo(s) recuperado(s) — os demais não estavam no arquivo.`);
             }
             migrarPerfilAntigo();
             Dados.registrarBackupFeito(); // importar prova que existe copia por fora — conta como backup em dia
@@ -1388,6 +1439,26 @@
     }
     // treino em andamento sempre gravado (ou apagado) depois de qualquer acao
     Dados.salvarExecucao(est.execucao);
+    manterTelaAcesa(!!est.execucao && est.tela === 'execucao');
+  });
+
+  // tela acesa durante o treino: com ela apagada o navegador congela o app e o alarme do
+  // descanso so toca quando a pessoa volta (auditoria 12/10/2026). O sistema solta sozinho se o
+  // app sair da frente; volta a pedir ao reabrir.
+  let wakeLock = null;
+  async function manterTelaAcesa(ligar) {
+    try {
+      if (ligar && !wakeLock && 'wakeLock' in navigator) {
+        wakeLock = await navigator.wakeLock.request('screen');
+        wakeLock.addEventListener('release', () => { wakeLock = null; });
+      } else if (!ligar && wakeLock) {
+        await wakeLock.release();
+        wakeLock = null;
+      }
+    } catch (e) { /* sem suporte ou economia de bateria: segue sem */ }
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') manterTelaAcesa(!!est.execucao && est.tela === 'execucao');
   });
 
   // ---------- digitacao (salva sem re-renderizar, para nao perder o foco) ----------
@@ -1540,6 +1611,11 @@
 
   document.addEventListener('keydown', (ev) => {
     if (ev.key === 'Escape') UI.fecharModal();
+    // div/span com data-acao (cartoes, itens da lista) acionam com Enter/Espaco como um botao
+    if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.getAttribute?.('role') === 'button' && ev.target.dataset.acao) {
+      ev.preventDefault();
+      ev.target.click();
+    }
     if (ev.key === 'Enter' && ev.target.id === 'coach-input') {
       document.querySelector('[data-acao="coach-enviar"]')?.click();
     }

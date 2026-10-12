@@ -78,7 +78,72 @@ const Dados = (() => {
     return `${RAIZ}:${pid}:${nome}`;
   }
 
-  const ler = (nome, padrao) => lerBruto(chave(nome), padrao);
+  // ---------- fotos: IndexedDB, fora da cota do localStorage ----------
+  // Cada foto e ~120 KB em texto: 35-40 lotavam os ~5 MB do localStorage e ai nem o treino
+  // gravava mais (auditoria 12/10/2026). As duas lojas de foto vivem no IndexedDB, com uma copia
+  // em memoria porque as telas desenham de forma sincrona. carregarFotos() roda 1x ao abrir,
+  // antes do 1o desenho, e migra o que ainda estiver no localStorage. Sem IndexedDB (ex.: aba
+  // privada), tudo continua no localStorage como antes.
+  const LOJAS_FOTO = new Set(['fotosEvolucao', 'fotosExercicio']);
+  const RE_CHAVE_FOTO = /:(fotosEvolucao|fotosExercicio)$/;
+  const memFotos = new Map(); // chave completa -> valor
+  let fotosNoBanco = false;
+  let bancoFotos = null;
+
+  function abrirBancoFotos() {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open('trivox-fotos', 1);
+      req.onupgradeneeded = () => { req.result.createObjectStore('lojas'); };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error || new Error('Falha ao abrir o banco de fotos.'));
+    });
+  }
+
+  function gravarFotoNoBanco(k, valor) {
+    return new Promise((resolve, reject) => {
+      const tx = bancoFotos.transaction('lojas', 'readwrite');
+      tx.objectStore('lojas').put(valor, k);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error || new Error('Falha ao salvar a foto.'));
+    });
+  }
+
+  async function carregarFotos() {
+    if (typeof indexedDB === 'undefined') return;
+    try {
+      bancoFotos = await abrirBancoFotos();
+      await new Promise((resolve, reject) => {
+        const cur = bancoFotos.transaction('lojas', 'readonly').objectStore('lojas').openCursor();
+        cur.onsuccess = (ev) => {
+          const c = ev.target.result;
+          if (!c) { resolve(); return; }
+          memFotos.set(c.key, c.value);
+          c.continue();
+        };
+        cur.onerror = () => reject(cur.error);
+      });
+      // migracao: so apaga do localStorage depois de gravado no banco
+      for (const k of Object.keys(localStorage).filter((x) => RE_CHAVE_FOTO.test(x))) {
+        if (!memFotos.has(k)) {
+          const v = lerBruto(k, null);
+          if (v !== null) { await gravarFotoNoBanco(k, v); memFotos.set(k, v); }
+        }
+        localStorage.removeItem(k);
+      }
+      fotosNoBanco = true;
+    } catch (e) {
+      console.warn('[dados] fotos continuam no localStorage', e);
+    }
+  }
+
+  function ler(nome, padrao) {
+    if (fotosNoBanco && LOJAS_FOTO.has(nome)) {
+      const v = memFotos.get(chave(nome));
+      if (v === undefined || v === null) return padrao;
+      return Array.isArray(v) ? [...v] : { ...v }; // copia: quem le pode mexer antes de gravar
+    }
+    return lerBruto(chave(nome), padrao);
+  }
 
   // avisa quem se inscrever (nuvem.js, via app.js) toda vez que uma "loja" muda — dados.js
   // continua sem saber nada de rede, so anuncia. Mantem esta camada pura e testavel offline.
@@ -86,7 +151,18 @@ const Dados = (() => {
   const aoSalvar = (callback) => { _aoSalvar = callback; };
 
   function gravar(nome, valor) {
-    const ok = gravarBruto(chave(nome), valor);
+    let ok;
+    if (fotosNoBanco && LOJAS_FOTO.has(nome)) {
+      const k = chave(nome);
+      memFotos.set(k, valor);
+      gravarFotoNoBanco(k, valor).catch((e) => {
+        console.error('[dados] falha ao gravar foto', e);
+        alert('Não consegui salvar a foto neste aparelho: ' + e.message);
+      });
+      ok = true;
+    } else {
+      ok = gravarBruto(chave(nome), valor);
+    }
     if (ok && _aoSalvar) _aoSalvar(nome, valor);
     return ok;
   }
@@ -129,6 +205,7 @@ const Dados = (() => {
     objetivo: 'condicionamento', // condicionamento | perda_peso | hipertrofia | 50mais | raquete (antigos forca/resistencia/emagrecimento ainda aceitos)
     equipCasa: null,      // equipamentos que tem em casa (chaves de aparelho; null = padrao de js/programas.js)
     esporte: null,        // 'pickleball' | 'beach_tennis' — so pro objetivo raquete
+    parq: null,           // triagem de saude: { respostas: [true|false|null x7], em } — ver UI.PARQ
     diasJogo: [],         // dias da semana com jogo (0-6) — treino de perna pesado sai desses dias e da vespera
     enfase: 'auto',       // auto | neutra | inferiores | superiores | gluteos
     lembreteAtivo: false, // chamada diaria pro treino (ver js/lembretes.js)
@@ -307,7 +384,7 @@ const Dados = (() => {
     lista.unshift(novo);
     lista.sort((a, b) => b.data - a.data);
     // fotos pesam muito mais que um numero de peso — teto mais conservador que o de pesos()
-    // pra nao estourar a cota do localStorage (ver comprimirImagem em app.js)
+    // (ficam no IndexedDB, mas tambem vao inteiras no backup e na nuvem)
     gravar('fotosEvolucao', lista.slice(0, 120));
     return novo;
   }
@@ -362,6 +439,8 @@ const Dados = (() => {
   const BACKUP_PADRAO = { ultimoEm: null };
   const backupMeta = () => ({ ...BACKUP_PADRAO, ...ler('backupMeta', {}) });
   const registrarBackupFeito = () => gravar('backupMeta', { ...backupMeta(), ultimoEm: Date.now() });
+  /** Ultimo envio para a nuvem que DEU CERTO (o "ultimoEm" acima e de export/login). */
+  const registrarEnvioNuvem = () => gravarBruto(chave('backupMeta'), { ...backupMeta(), nuvemOkEm: Date.now() });
 
   // ---------- backup ----------
 
@@ -374,10 +453,34 @@ const Dados = (() => {
     return pacote;
   }
 
+  // forma de cada loja (lista ou objeto): valida o backup e "zera" a loja que nao veio nele
+  const LOJAS_LISTA = new Set(['fichas', 'cardios', 'sessoes', 'pesos', 'fotosEvolucao']);
+
+  /** Lanca erro se o pacote nao for um backup valido — chamado ANTES de perguntar "substituir?". */
+  function validarBackup(pacote) {
+    if (!pacote || pacote.app !== 'treino' || !pacote.dados || typeof pacote.dados !== 'object') {
+      throw new Error('Arquivo não é um backup deste app.');
+    }
+    for (const nome of LOJAS_SINCRONIZAVEIS) {
+      const v = pacote.dados[nome];
+      if (v === null || v === undefined) continue;
+      const ok = LOJAS_LISTA.has(nome) ? Array.isArray(v) : typeof v === 'object' && !Array.isArray(v);
+      if (!ok) throw new Error(`O backup está com "${nome}" num formato que não reconheço.`);
+    }
+  }
+
+  /** Substitui de verdade: so as lojas de treino (nunca spotify/backupMeta), e a que nao veio no
+   *  backup fica vazia — antes, as fotos de quem estava no aparelho ficavam misturadas. */
   function importar(pacote) {
-    if (!pacote || pacote.app !== 'treino') throw new Error('Arquivo não é um backup deste app.');
-    for (const [nome, valor] of Object.entries(pacote.dados || {})) {
-      if (valor !== null && valor !== undefined) gravar(nome, valor);
+    validarBackup(pacote);
+    for (const nome of LOJAS_SINCRONIZAVEIS) {
+      let v = pacote.dados[nome];
+      if (nome === 'perfil' && v) {
+        v = { ...v };
+        // lista vinda como null quebrava as telas (p.diasTreino.includes)
+        for (const k of ['diasTreino', 'diasJogo', 'equipCasa']) if (v[k] !== undefined && !Array.isArray(v[k])) delete v[k];
+      }
+      gravar(nome, v ?? (LOJAS_LISTA.has(nome) ? [] : {}));
     }
   }
 
@@ -406,11 +509,11 @@ const Dados = (() => {
     fotosEvolucao, registrarFotoEvolucao, apagarFotoEvolucao,
     fotosExercicio, salvarFotoExercicio, apagarFotoExercicio, fotoExercicio,
     gam, salvarGam,
-    backupMeta, registrarBackupFeito,
+    backupMeta, registrarBackupFeito, registrarEnvioNuvem,
     spotify, salvarSpotify, desconectarSpotify,
-    exportar, importar,
+    exportar, importar, validarBackup,
     exercicios, acharExercicio,
     aoSalvar, lerLoja, gravarLoja, LOJAS_SINCRONIZAVEIS,
-    execucaoSalva, salvarExecucao,
+    execucaoSalva, salvarExecucao, carregarFotos,
   };
 })();

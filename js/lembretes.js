@@ -19,6 +19,9 @@ const Lembretes = (() => {
   function baixarCalendario(p) {
     const [hh, mm] = (p.lembreteHora || '18:00').split(':').map(Number);
     const d = new Date(); d.setHours(hh, mm, 0, 0);
+    // 1o evento num dia marcado (DTSTART fora do BYDAY cria uma ocorrencia extra em varios calendarios)
+    const marcados = diasDoLembrete(p);
+    while (!marcados.includes(d.getDay())) d.setDate(d.getDate() + 1);
     const pad = (n) => String(n).padStart(2, '0');
     const local = (x) => `${x.getFullYear()}${pad(x.getMonth() + 1)}${pad(x.getDate())}T${pad(x.getHours())}${pad(x.getMinutes())}00`;
     const fim = new Date(d.getTime() + 60 * 60000);
@@ -32,11 +35,11 @@ const Lembretes = (() => {
       `DTSTART:${local(d)}`, `DTEND:${local(fim)}`,
       `RRULE:FREQ=WEEKLY;BYDAY=${dias}`,
       'SUMMARY:💪 Hora do treino — TRIVOX',
-      `DESCRIPTION:Abra o TRIVOX e comece o treino de hoje: ${url}`,
+      'DESCRIPTION:Abra o TRIVOX e comece o treino de hoje.',
       `URL:${url}`,
       'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:Hora do treino!', 'TRIGGER:PT0M', 'END:VALARM',
       'END:VEVENT', 'END:VCALENDAR',
-    ].join('\r\n');
+    ].join('\r\n') + '\r\n';
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -49,7 +52,11 @@ const Lembretes = (() => {
   async function sincronizarComSW(p, extra = {}) {
     try {
       const c = await caches.open(CACHE_CFG);
+      // preserva o que o SW ja sabe (treinou hoje / ja avisou hoje): sem isso, abrir o app depois
+      // do treino apagava o "treinou" e o aviso podia chegar mesmo assim
+      const atual = await c.match(URL_CFG).then((r) => (r ? r.json() : {})).catch(() => ({}));
       const cfg = {
+        treinouEm: atual.treinouEm, avisadoEm: atual.avisadoEm,
         ativo: !!p.lembreteAtivo, hora: p.lembreteHora || '18:00', dias: diasDoLembrete(p),
         titulo: 'Hora do treino 💪', corpo: Motivacao.chamada(p.nome, extra.nomeFicha),
         ...extra,

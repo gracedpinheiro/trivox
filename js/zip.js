@@ -1,4 +1,5 @@
-/* Leitor/escritor minimo de .zip (metodo STORE, sem compressao) — sem dependencia nenhuma.
+/* Leitor/escritor minimo de .zip — sem dependencia nenhuma. Grava sem compressao (STORE); le
+   STORE e tambem deflate (zip feito em outro programa), conferindo o CRC de cada arquivo.
    Existe so pra uma coisa: o backup (Exportar/Importar) poder levar os videos dos exercicios
    junto com o resto dos dados, num arquivo so. Nao comprime porque video e foto ja vem
    comprimidos (recomprimir de novo so gastaria bateria/tempo por um ganho quase nulo).
@@ -93,6 +94,15 @@ const Zip = (() => {
   }
 
   /** Le um .zip escrito por este mesmo criar() → [{ nome, dados: Uint8Array }] */
+  /** Descompacta "deflate" (metodo 8, o que Windows/Mac usam ao compactar) com a API do navegador. */
+  async function inflar(bytes) {
+    if (typeof DecompressionStream === 'undefined') {
+      throw new Error('Este navegador não descompacta .zip comprimido — use o .zip exportado pelo próprio TRIVOX.');
+    }
+    const fluxo = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+    return new Uint8Array(await new Response(fluxo).arrayBuffer());
+  }
+
   async function ler(arquivoOuBlob) {
     const buf = new Uint8Array(await arquivoOuBlob.arrayBuffer());
     const dv = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
@@ -111,19 +121,23 @@ const Zip = (() => {
     for (let i = 0; i < numEntradas; i++) {
       if (dv.getUint32(pos, true) !== 0x02014b50) throw new Error('Central directory do .zip corrompido.');
       const metodo = dv.getUint16(pos + 10, true);
-      const tamanho = dv.getUint32(pos + 20, true);
+      const crcEsperado = dv.getUint32(pos + 16, true);
+      const tamanho = dv.getUint32(pos + 20, true); // tamanho comprimido
       const nomeLen = dv.getUint16(pos + 28, true);
       const extraLen = dv.getUint16(pos + 30, true);
       const comentLen = dv.getUint16(pos + 32, true);
       const offsetLocal = dv.getUint32(pos + 42, true);
       const nome = dec.decode(buf.subarray(pos + 46, pos + 46 + nomeLen));
 
-      if (metodo !== 0) throw new Error(`"${nome}" usa um método de compressão que este leitor não entende (só lê .zip criado pelo próprio TRIVOX).`);
+      if (metodo !== 0 && metodo !== 8) throw new Error(`"${nome}" usa um método de compressão que este leitor não entende.`);
 
       const nomeLenLocal = dv.getUint16(offsetLocal + 26, true);
       const extraLenLocal = dv.getUint16(offsetLocal + 28, true);
       const inicioDados = offsetLocal + 30 + nomeLenLocal + extraLenLocal;
-      const dados = buf.slice(inicioDados, inicioDados + tamanho);
+      const bruto = buf.subarray(inicioDados, inicioDados + tamanho); // subarray: sem copiar (video pesa)
+      const dados = metodo === 8 ? await inflar(bruto) : bruto;
+      // confere a integridade: antes um byte corrompido entrava calado no backup restaurado
+      if (crc32(dados) !== crcEsperado) throw new Error(`"${nome}" está corrompido dentro do .zip.`);
       saida.push({ nome, dados });
 
       pos += 46 + nomeLen + extraLen + comentLen;

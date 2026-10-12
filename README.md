@@ -254,7 +254,8 @@ Também dá pra anexar um **vídeo curto seu** fazendo o movimento — toque em 
 tela do exercício, grave ou escolha da galeria. Na próxima vez que quiser lembrar como faz,
 é só abrir o exercício e tocar em ▶. Um clipe de 5-15s de uma repetição limpa já é suficiente.
 
-Vídeo fica guardado separado das fotos (em IndexedDB, não localStorage) porque pesa muito mais.
+Vídeo e fotos (de evolução e por exercício) ficam no IndexedDB, fora da cota de ~5 MB do
+localStorage — com as fotos lá, umas 40 já travavam até o registro do treino.
 Ainda assim, **o vídeo vai junto no backup**: Perfil › Backup › Exportar agora baixa um `.zip`
 (não mais `.json`) com `backup.json` (perfil, fichas, histórico, fotos) mais uma pasta `videos/`
 com cada vídeo. É um `.zip` de verdade — dá pra abrir num computador com qualquer
@@ -285,6 +286,12 @@ antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o
   celular" (o mais garantido: avisa com o app fechado), notificação do app e, no Android com o
   app instalado, aviso em segundo plano.
 - **Motivação**: frase do dia na tela inicial e "missão do dia" com o treino de hoje.
+- **Saúde antes de treinar** (Perfil): triagem PAR-Q+ de 7 perguntas, pedida no Início para
+  50+ ou IMC ≥ 30. Com algum "sim": aviso de liberação médica e aeróbico só em zona leve. O
+  coach responde sintoma de alerta (dor no peito, tontura, falta de ar) com "pare e procure
+  atendimento", e a execução mostra os sinais de parar.
+- **Aeróbico**: 50+ e 65+ só em Z1-Z2 (limiar, 4x4 e HIIT saem da lista); zonas por FC de
+  reserva com faixas próprias quando há FC de repouso.
 - **Dias da semana de treino**: chips em Perfil › Treino; o gerador liga cada ficha a um dia.
 - **Peso & bioimpedância** (Perfil e Evolução): registro de pesagens ao longo do tempo, com
   gráfico de evolução (SVG puro). Peso é obrigatório; gordura corporal, massa muscular, água e
@@ -299,8 +306,8 @@ antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o
   recente lado a lado ("antes"/"atual"), mais uma tira com todas as fotos por baixo; tocar numa
   foto abre ela em tela cheia com opção de apagar. Toda foto (perfil e evolução) é redimensionada
   e recomprimida em JPEG no aparelho antes de salvar (maior lado ≤ 480px pra foto de perfil, ≤
-  900px pra evolução) — sem isso a cota do localStorage estoura rápido com fotos de celular
-  direto da câmera, que costumam vir na casa dos 3-5MB cada.
+  900px pra evolução) — fotos de celular direto da câmera vêm com 3-5MB cada. Ficam no
+  IndexedDB (as antigas do localStorage migram sozinhas ao abrir o app).
 
 ## O que ainda não existe
 
