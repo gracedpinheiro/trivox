@@ -273,8 +273,11 @@ antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o
   as montadas à mão (o app completa ao começar o treino).
 - **Último treino**: em cada exercício aparece "Última vez: 20kg × 12 · 22kg × 10..." e os
   campos já vêm com esses valores.
-- **Aparelho ocupado**: até 12 alternativas pro mesmo músculo, em aparelhos diferentes (em casa,
-  só o que dá pra fazer em casa).
+- **Aparelho ocupado**: até 12 alternativas pro mesmo músculo, em aparelhos diferentes, com as
+  mesmas regras do gerador (em casa só o que dá com o equipamento marcado; idade e IMC limitam
+  impacto e risco). As séries já feitas do exercício trocado continuam no treino.
+- **Treino em andamento**: fica salvo no aparelho; saindo da tela, Início e Treinos mostram
+  "Continuar treino" (também depois de fechar o app).
 - **Cronômetro** (Início ou ⏱️ no treino): timer com alarme, cronômetro com voltas e
   intervalado (Tabata/HIIT). Descanso entre séries com contagem 3-2-1, alarme, vibração e
   notificação. O tempo é calculado pelo relógio, então continua certo se a tela apagar.

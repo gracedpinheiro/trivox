@@ -337,7 +337,7 @@ const Forca = (() => {
   // Regras de idade: so baixo impacto no cardio para quem tem restricao; 65+ evita alongamento
   // que exige deitar/ajoelhar quando existe opcao em pe ou na cadeira.
 
-  const RE_CARDIO_LEVE = /marcha|caminhada|corrida estacionaria|bike|bicicleta|ciclismo|spinning|remo|esteira|step|shadow|escada|polichinelo|elipt|passadas laterais|skipping|toques/;
+  const RE_CARDIO_LEVE = /marcha|caminhada|corrida estacionaria|bike|bicicleta|ciclismo|spinning|remo|esteira|step|shadow|escada ergometrica|stairmaster|elipt|toques/;
   const RE_CARDIO_FORTE = /pesad|carga|rucking|treno|sprint|tabata|hiit|amrap|complex|circuito|interval|piramide|burpee|salto|double/;
 
   // candidatos de aquecimento/alongamento por contexto (base x local x equipamento x teto de nivel)
@@ -354,7 +354,7 @@ const Forca = (() => {
       cardios: base.filter((ex) => {
         const n = P.semAcento(ex.nome);
         return (ex.categoria === 'cardio' || P.padraoDe(ex) === 'cardio') && RE_CARDIO_LEVE.test(n) && !RE_CARDIO_FORTE.test(n)
-          && (nivelN[ex.nivel] ?? 0) === 0 && P.impactoPermitido(ex, P.menorImpacto(impCardio, 'medio'))
+          && (nivelN[ex.nivel] ?? 0) === 0 && P.impactoPermitido(ex, impCardio === 'alto' ? 'medio' : 'baixo')
           && !P.ehFormato(ex) && P.disponivel(ex, local, equipCasa);
       }),
       ativOmbro: ativ.filter((ex) => P.tagsDe(ex).has('manguito') || P.tagsDe(ex).has('escapula')),
@@ -429,12 +429,19 @@ const Forca = (() => {
       return 0;
     };
     const chaoPenal = (ex) => (P.exigeChao(ex) ? (idade >= 65 ? 4 : idade >= 50 ? 0.5 : 0) : 0);
+    // 65+: deitar/ajoelhar fica fora de vez (so volta se nao houver nenhuma opcao em pe/cadeira)
+    const semChao = (l) => {
+      if (idade < 65) return l;
+      const f = l.filter((ex) => !P.exigeChao(ex));
+      return f.length ? f : l;
+    };
 
     // ---- aquecimento ----
     const aquecimento = [];
     const cardio = melhor(listas.cardios, (ex) => {
       const n = P.semAcento(ex.nome);
-      return (superior ? /remo|elipt|shadow|polichinelo/.test(n) : /bike|bicicleta|esteira|step|marcha|caminhada|escada/.test(n)) ? 1 : 0;
+      if (!superior && /bracos?/.test(n)) return -2; // "Air Bike so com os bracos" nao aquece perna
+      return (superior ? /remo|elipt|shadow/.test(n) : /bike|bicicleta|esteira|step|marcha|caminhada|escada/.test(n)) ? 1 : 0;
     }, 'cardio');
     if (cardio) {
       usar(cardio);
@@ -444,13 +451,13 @@ const Forca = (() => {
     const nMob = Math.max(2, Math.min(3, Math.round((ctx.aquecMin || 8) / 3))) + (cardio ? 0 : 1); // bloco total <= 4 itens
     // ativacao: manguito/escapula para dia de superior (ou raquete), gluteo para dia de inferior
     const querManguito = superior || ctx.objetivo === 'raquete';
-    const ativs = querManguito ? listas.ativOmbro : listas.ativGluteo;
+    const ativs = semChao(querManguito ? listas.ativOmbro : listas.ativGluteo);
     const ativ = melhor(ativs, (ex) => (P.MAQUINAS.has(P.aparelhoPrincipal(ex)) ? -1 : 0) - chaoPenal(ex), 'ativ');
     if (ativ) {
       usar(ativ);
       aquecimento.push(itemBloco(ativ, 'aquecimento', '12-15 leve', { obs: 'Ativação: carga leve, sinta o músculo trabalhar.', grupo: querManguito ? 'ombros' : 'gluteos' }));
     }
-    const mobs = listas.mobs;
+    const mobs = semChao(listas.mobs);
     for (let i = 0; aquecimento.length - (cardio ? 1 : 0) < nMob && i < alvo.length + 3; i++) {
       const g = alvo[i % Math.max(1, alvo.length)];
       const diretos = g ? mobs.filter((e) => notaGrupo(e, g) >= 3 && !excluir.has(e.id)) : [];
@@ -462,7 +469,7 @@ const Forca = (() => {
 
     // ---- volta a calma ----
     const volta = [];
-    const alongs = listas.alongs;
+    const alongs = semChao(listas.alongs);
     const cobertos = new Set();
     const addAlong = (ex, g) => {
       usar(ex);
@@ -521,14 +528,14 @@ const Forca = (() => {
    * tem os dois blocos, devolve a mesma lista. Itens sem `bloco` contam como bloco principal e
    * nao sao alterados (exceto a obs de aproximacao no 1o composto, numa copia).
    */
-  function completarSessao(exercicios, { base = [], local = 'academia', idade = null, objetivo = 'hipertrofia', nivel = 'intermediario', equipCasa = null, rotacao = null } = {}) {
+  function completarSessao(exercicios, { base = [], local = 'academia', idade = null, objetivo = 'hipertrofia', nivel = 'intermediario', equipCasa = null, rotacao = null, peso = null, altura = null } = {}) {
     const itens = exercicios || [];
     const temAq = itens.some((it) => it.bloco === 'aquecimento');
     const temVc = itens.some((it) => it.bloco === 'volta_calma');
     if ((temAq && temVc) || !itens.length || !temProgramas()) return itens;
     const porId = mapaPorId(base);
     const { objetivo: obj } = Programas.normalizarObjetivo(objetivo);
-    const aj = Programas.ajustesPerfil({ objetivo: obj, nivel, idade });
+    const aj = Programas.ajustesPerfil({ objetivo: obj, nivel, idade, peso, altura }); // IMC alto: aquecimento sem impacto
     const prm = Programas.parametros(obj, nivel);
     const principal = itens.filter((it) => !it.bloco || it.bloco === 'principal' || it.bloco === 'circuito');
     const chave = itens.map((it) => it.exId).join(',');
@@ -792,6 +799,19 @@ const Forca = (() => {
       const nPrincipal = modelo.leve ? slots.length : prm.ex[1];
       // vagas obrigatorias de enfase entram no corte; o resto e por ordem de prioridade
       const cortados = slots.slice(0, nPrincipal);
+      // raquete: prevencao (antebraco, panturrilha, manguito) nunca sai no corte — e o que evita
+      // epicondilite e lesao de Aquiles. Sai antes um isolado, depois o 3o composto, depois a potencia.
+      if (obj === 'raquete') {
+        for (const prev of slots.slice(nPrincipal).filter((s) => s.tipo === 'prevencao')) {
+          const ultimo = (f) => cortados.map(f).lastIndexOf(true);
+          let k = ultimo((s) => s.tipo === 'isolado' || s.tipo === 'equilibrio');
+          if (k < 0 && cortados.filter((s) => s.tipo === 'composto').length >= 3) k = ultimo((s) => s.tipo === 'composto');
+          if (k < 0) k = ultimo((s) => s.tipo === 'potencia');
+          if (k < 0) break;
+          cortados.splice(k, 1);
+          cortados.push(prev);
+        }
+      }
 
       // aquecimento (escolhido depois do principal para nao "roubar" exercicios de mobilidade
       // do bloco de equilibrio/mobilidade das sessoes leves) — aqui so reservamos
@@ -1003,7 +1023,7 @@ const Forca = (() => {
    * fica intacto — e por exId, nao por "posicao na ficha", entao trocar nao apaga nada.
    * rotacao: decide QUAL substituto entra quando ha mais de um candidato — sem random, testavel.
    */
-  function variarFicha(ficha, base, { objetivo = 'hipertrofia', fracao = 0.5, rotacao = 0, local = null, equipCasa = null, idade = null } = {}) {
+  function variarFicha(ficha, base, { objetivo = 'hipertrofia', fracao = 0.5, rotacao = 0, local = null, equipCasa = null, idade = null, nivel = null, peso = null, altura = null } = {}) {
     const itens = ficha.exercicios || [];
     // so o bloco principal varia (aquecimento/circuito/volta a calma ja mudam no "gerar de novo")
     const principal = (it) => !it.bloco || it.bloco === 'principal';
@@ -1013,20 +1033,12 @@ const Forca = (() => {
     const nTrocar = Math.round(comExercicio.length * fracao);
     const idsParaTrocar = new Set([...isolados, ...compostos].slice(0, nTrocar).map((x) => x.item.exId));
     const naFicha = new Set(itens.map((it) => it.exId));
-    const aj = temProgramas() ? Programas.ajustesPerfil({ objetivo, idade }) : null;
-    const pode = (c) => {
-      if (naFicha.has(c.id)) return false;
-      if (!temProgramas()) return true;
-      if (local && !Programas.disponivel(c, local, equipCasa)) return false;
-      if (aj && !Programas.impactoPermitido(c, aj.impactoMax)) return false;
-      if (aj && aj.excluirRisco && Programas.riscoAlto(c)) return false;
-      return true;
-    };
+    const perfil = { objetivo, nivel, idade, peso, altura, local, equipCasa };
 
     const exercicios = itens.map((item) => {
       if (!idsParaTrocar.has(item.exId)) return item;
       const exAtual = base.find((e) => e.id === item.exId);
-      const opcoes = substitutos(exAtual, base, { limite: 12 }).filter(pode).slice(0, 6);
+      const opcoes = substitutos(exAtual, base, { limite: 12, perfil }).filter((c) => !naFicha.has(c.id)).slice(0, 6);
       if (!opcoes.length) return item; // sem alternativa segura — mantem como esta
       const escolhido = opcoes[rotacao % opcoes.length];
       naFicha.add(escolhido.id);
@@ -1069,12 +1081,36 @@ const Forca = (() => {
   };
 
   /**
+   * O que o perfil permite numa lista de troca ("aparelho ocupado" e "variar"): as mesmas regras
+   * do gerador — local e equipamento de casa, impacto e risco por idade/IMC, aparelhos vetados
+   * (ex.: argolas para 65+) e no maximo 1 nivel acima do da pessoa.
+   */
+  function filtroPerfil({ objetivo = null, nivel = null, idade = null, peso = null, altura = null, local = null, equipCasa = null } = {}) {
+    if (!temProgramas()) return () => true;
+    const P = Programas;
+    const aj = P.ajustesPerfil({ objetivo, nivel, idade, peso, altura });
+    const impacto = P.menorImpacto(aj.impactoMax, aj.impactoMaxCardio);
+    const tetoNivel = aj.nivelExMax ?? (nivel ? Math.min(3, (nivelN[nivel] ?? 1) + 1) : 3);
+    return (c) => (!local || P.disponivel(c, local, equipCasa))
+      && P.impactoPermitido(c, impacto)
+      && !(aj.excluirRisco && P.riscoAlto(c))
+      && !aj.excluirAparelhos.includes(P.aparelhoPrincipal(c))
+      && (nivelN[c.nivel] ?? 0) <= tetoNivel;
+  }
+
+  /**
    * Alternativas pra quando o equipamento do exercicio atual esta ocupado:
    * mesmo padrao de movimento (musculos primarios em comum), equipamento diferente.
    * Ordena por quantos musculos primarios em comum, depois secundarios, depois nivel parecido.
+   * perfil (opcional): { objetivo, nivel, idade, peso, altura, local, equipCasa } — ver filtroPerfil.
    */
-  function substitutos(ex, base, { limite = 4, local = null } = {}) {
+  function substitutos(ex, base, { limite = 4, local = null, perfil = null } = {}) {
     if (!ex) return [];
+    // musculo comparado por GRUPO: a base tem ~136 grafias ("Deltóide Completo", "Deltoide
+    // Anterior e Lateral"...) e a comparacao letra a letra deixava 14 exercicios sem substituto
+    const grupo = (m) => (temProgramas() && Programas.grupoMuscular(m)) || m;
+    const gruposEx = new Set((ex.musculos_primarios || []).map(grupo));
+    const permitido = perfil ? filtroPerfil(perfil) : () => true;
     const primariosEx = new Set(ex.musculos_primarios || []);
     const secundariosEx = new Set(ex.musculos_secundarios || []);
     const catsAceitas = new Set(CATEGORIAS_IRMAS[ex.categoria] || [ex.categoria]);
@@ -1085,16 +1121,21 @@ const Forca = (() => {
 
     const candidatos = base
       .filter((c) => c.id !== ex.id)
-      .filter((c) => catsAceitas.has(c.categoria) || (c.musculos_primarios || []).some((m) => primariosEx.has(m)))
+      .filter((c) => catsAceitas.has(c.categoria) || (c.musculos_primarios || []).some((m) => gruposEx.has(grupo(m))))
       .filter((c) => aparelhoDe(c) !== aparelhoDe(ex)) // o ponto todo: outro equipamento
       .filter((c) => !local || !Array.isArray(c.local) || c.local.includes(local))
+      .filter(permitido)
       .map((c) => {
-        const comuns = (c.musculos_primarios || []).filter((m) => primariosEx.has(m)).length;
+        const gruposC = new Set((c.musculos_primarios || []).map(grupo));
+        // grupo em comum vale 3; musculo identico ainda soma, pra ordenar o mais parecido primeiro
+        const comuns = [...gruposC].filter((g) => gruposEx.has(g)).length
+          + (c.musculos_primarios || []).filter((m) => primariosEx.has(m)).length / 3;
         const comunsSec = (c.musculos_secundarios || []).filter((m) => secundariosEx.has(m)).length;
         const distNivel = Math.abs((nivelN[c.nivel] ?? 1) - (nivelN[ex.nivel] ?? 1));
         return { ex: c, pontos: comuns * 3 + comunsSec * 0.7 + (c.categoria === ex.categoria ? 1 : 0) + (distNivel === 0 ? 0.6 : distNivel === 1 ? 0.2 : -1)
           // nao trocar exercicio de forca por salto/sprint/cardio (e vice-versa)
           - ((c.impacto === 'alto') !== (ex.impacto === 'alto') ? 2 : 0)
+          - ((c.impacto || 'baixo') !== 'baixo' && (ex.impacto || 'baixo') === 'baixo' && c.categoria !== ex.categoria ? 2 : 0)
           - ((c.categoria === 'cardio') !== (ex.categoria === 'cardio') ? 2 : 0) };
       })
       .filter((c) => c.pontos >= 3) // pelo menos 1 musculo primario em comum

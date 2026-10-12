@@ -380,7 +380,7 @@ const Programas = (() => {
     if (c === 'pernas' || c === 'pernas_cal' || c === 'gluteos') {
       if (has(/abdu|clamshell|fire hydrant|monster|lateral walk/)) return 'gluteo';
       if (has(/adu[cç]|adutor|copenhag/)) return 'adutor';
-      if (has(/stiff|rdl|terra|flexora|nordic|good morning|bom dia|leg curl|hip hinge|romanian|mesa flexora|ghr|glute.?ham/)) return 'dobrar_quadril';
+      if (has(/stiff|rdl|terra|flexora|nordic|good morning|bom dia|leg curl|hip hinge|romanian|romeno|pull.?through|mesa flexora|ghr|glute.?ham/)) return 'dobrar_quadril';
       if (has(/hip thrust|elevacao pelvica|ponte|bridge|kickback|gluteo|coice|frog pump/)) return 'gluteo';
       if (has(/lateral|cossack/)) return 'lateral';
       return 'agachar';
@@ -423,7 +423,7 @@ const Programas = (() => {
     if (p === 'agilidade' || /agilidade|cones|escada|shuffle|split step|reacao/.test(n)) t.add('agilidade');
     // pliometria = salto de verdade: impacto alto em qualquer padrao de perna/deslocamento, ou nome de salto
     if (!semSalto && (imp === 'alto' && ['agachar', 'metabolico', 'cardio', 'lateral', 'agilidade', 'potencia', 'dobrar_quadril', 'gluteo', 'panturrilha', 'equilibrio'].includes(p)
-      || /\b(saltos?|hops?|pogo|jumps?|skater|bounds?|pliometric\w*|drop jump|tuck)\b/.test(n))) t.add('pliometria');
+      || /\b(saltos?|hops?|pogo|jumps?|skater(?! squat)|bounds?|pliometric\w*|drop jump|tuck jump)\b/.test(n))) t.add('pliometria');
     if (!semSalto && /throw|arremesso|slam|swing|clean|snatch|jerk|explosiv|salto|jump|push press|smash/.test(n)) t.add('potencia');
     if (p === 'metabolico' || p === 'cardio' || /burpee|mountain|battle|slam|swing|thruster|wall ball|jumping|polichinelo|corrida|kettlebell complex|amrap/.test(n)) t.add('metabolico');
     if (['cardio', 'agilidade'].includes(p)) t.add('cardio');
@@ -695,7 +695,7 @@ const Programas = (() => {
       a.impactoMaxCardio = 'baixo';
       // no 50+ o exercicio fica no nivel da pessoa (sem a margem de +1 dos outros objetivos)
       a.nivelExMax = Math.min(a.nivelExMax ?? 3, nivelN[nivel] ?? 0);
-      if (nivelPrograma(nivel) === 'iniciante') a.excluirAparelhos = ['barra_fixa', 'aneis', 'paralelas'];
+      if (nivelPrograma(nivel) === 'iniciante') a.excluirAparelhos = ['barra_fixa', 'argolas', 'paralelas'];
     }
     // hipertrofia e perda de peso nao ganham nada com skills/olimpicos/muscle-up: so risco
     if (o === 'hipertrofia' || o === 'perda_peso') a.excluirRisco = true;
@@ -704,7 +704,7 @@ const Programas = (() => {
       a.impactoMax = 'baixo';
       a.impactoMaxCardio = 'baixo';
       a.nivelExMax = Math.min(1, nivelN[nivel] ?? 0); // sem margem acima do nivel da pessoa
-      a.excluirAparelhos = ['barra_fixa', 'aneis', 'paralelas'];
+      a.excluirAparelhos = ['barra_fixa', 'argolas', 'paralelas'];
       a.aquecExtra += 2;
       a.equilibrioMin = 2;        // OMS: multicomponente com equilibrio para 65+
       a.rirMin = 2;

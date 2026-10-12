@@ -5602,7 +5602,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "corda_pular",
     "imagens": [
       "data/imagens/fedb/Rope_Jumping_0.jpg",
@@ -5734,7 +5734,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "peso_corporal"
   },
   {
@@ -11043,7 +11043,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "treno"
   },
   {
@@ -19046,7 +19046,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "corda_pular",
     "imagens": [
       "data/imagens/fedb/Rope_Jumping_0.jpg",
@@ -20596,7 +20596,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "corda_pular",
     "imagens": [
       "data/imagens/fedb/Rope_Jumping_0.jpg",
@@ -20688,7 +20688,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "esteira",
     "imagens": [
       "data/imagens/fedb/Running_Treadmill_0.jpg",
@@ -30109,7 +30109,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "peso_corporal"
   },
   {
@@ -30244,7 +30244,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "peso_corporal"
   },
   {
@@ -30289,7 +30289,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "peso_corporal"
   },
   {
@@ -30801,7 +30801,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "esteira",
     "fedb_id": "Running_Treadmill",
     "imagens": [
@@ -39857,7 +39857,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "peso_corporal"
   },
   {
@@ -39904,7 +39904,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "peso_corporal",
     "fedb_id": "Fast_Skipping",
     "imagens": [
@@ -41656,7 +41656,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "corda_pular"
   },
   {
@@ -41704,7 +41704,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "corda_pular"
   },
   {
@@ -41752,7 +41752,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "corda_pular"
   },
   {
@@ -44309,7 +44309,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "peso_corporal"
   },
   {
@@ -44566,7 +44566,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "cones"
   },
   {
@@ -44612,7 +44612,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "mini_band"
   },
   {
@@ -44755,7 +44755,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "trx"
   },
   {
@@ -44849,7 +44849,7 @@
       "perda_peso",
       "raquete"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "polia"
   },
   {
@@ -65732,7 +65732,7 @@
       "condicionamento",
       "perda_peso"
     ],
-    "impacto": "medio",
+    "impacto": "alto",
     "aparelho": "kettlebell",
     "fedb_id": "Plyo_Kettlebell_Pushups",
     "imagens": [

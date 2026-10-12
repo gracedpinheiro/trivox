@@ -1,7 +1,7 @@
 /* Service worker: deixa o app funcionar sem internet (dentro da academia o sinal cai).
    Estrategia: cache-first para o shell, network-first para o resto. */
 
-const VERSAO = 'trivox-v30';
+const VERSAO = 'trivox-v31';
 
 // unica excecao de origem externa no cache: o SDK do Supabase (ver js/nuvem.js e index.html).
 // sem isso, o app ficaria sem sincronizar na nuvem toda vez que abrisse offline, mesmo depois
@@ -46,7 +46,7 @@ self.addEventListener('install', (ev) => {
   ev.waitUntil(
     caches.open(VERSAO)
       // addAll falha inteiro se um item falhar; adiciona um a um para ser tolerante
-      .then((c) => Promise.allSettled(SHELL.map((u) => c.add(u))))
+      .then((c) => Promise.allSettled(SHELL.map((u) => c.add(new Request(u, { cache: 'reload' })))))
       .then(() => self.skipWaiting())
   );
 });

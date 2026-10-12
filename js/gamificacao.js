@@ -118,12 +118,21 @@ const Gamificacao = (() => {
   // ---------- coach (banco de frases por tema + palavra-chave, sem IA) ----------
 
   const COACH_TEMAS = {
+    // vem primeiro de proposito: sintoma de alerta nunca pode cair em "motivacao para treinar"
+    saude: {
+      nome: '🩺 Sinal de alerta', icon: '🩺',
+      frases: [
+        'Pare o treino agora. Dor ou aperto no peito, falta de ar fora do normal, tontura, desmaio ou palpitação: procure atendimento (SAMU 192). Não volte a treinar sem liberação médica.',
+        'Pare o treino. Sintoma no peito, tontura ou falta de ar desproporcional ao esforço é motivo para avaliação médica antes de continuar — ligue para o SAMU 192 se for agora.',
+        'Dor em articulação (joelho, ombro, coluna) que aparece no movimento ou não passa em poucos dias: pare esse exercício e procure avaliação. Pressão alta: treine só com ela controlada e liberação do seu médico.',
+      ],
+    },
     treino: {
       nome: '💪 Dica de treino', icon: '💪',
       frases: [
         'Progressão importa mais que a série perfeita: se hoje você fez 1 rep a mais que semana passada, já valeu.',
         'Exercício composto primeiro, isolado depois. A ordem errada rouba força justamente do que mais cansa.',
-        'RIR 1-2 na maior parte das séries é o ponto ideal: perto da falha sem quebrar a técnica.',
+        'Siga o RIR da sua ficha (1 a 3 reps de sobra): perto da falha sem quebrar a técnica. Acima de 50 anos, 2-3 reps de sobra.',
         'Descanso curto não é disciplina, é carga desperdiçada. Composto pesado pede 90-180s.',
         'Se três semanas seguidas você não sobe nem carga nem reps em algo, isso é platô — hora de mudar uma variável.',
       ],
@@ -153,14 +162,17 @@ const Gamificacao = (() => {
         'Treino sem comer o suficiente é treino que não vira resultado — o corpo não tem matéria-prima pra reconstruir.',
         'Não existe alimento mágico pré-treino. O que importa é a rotina dos outros dias.',
         'Para emagrecer sem perder força, corte devagar: 300-500 kcal abaixo da manutenção é suficiente.',
+        'Acima de 50, proteína ajuda a manter o músculo: cerca de 1,0-1,2 g/kg por dia, 25-30 g em cada refeição. Com doença nos rins, combine a quantidade com seu médico.',
+        'Hidratação no jogo: 400-600 ml umas 2 h antes e goles a cada troca de lado. No sol e na areia, cada 1 kg perdido no treino é cerca de 1 L para repor.',
       ],
     },
   };
 
   // palavras-chave -> tema, pra quando a pessoa digita livre em vez de escolher o botao
   const PALAVRAS_TEMA = [
+    [/(dor|aperto|press[aã]o|pontada) no peito|peito apertad|tontu|desmai|falta de ar|sem ar|palpita|arritmi|cora[cç][aã]o|press[aã]o (alta|baixa)|hipertens|\bdor\b(?! muscular)|\bd[oó]i\b|les[aã]o|machuc|inchad|tor[cç]/i, 'saude'],
     [/dorm|sono|descans|recup|dolorid|dor muscular/i, 'recuperacao'],
-    [/prote|caloria|dieta|comer|nutri|macro|emagre/i, 'nutricao'],
+    [/prote|caloria|dieta|comer|nutri|macro|emagre|[aá]gua|hidrat|sede|calor/i, 'nutricao'],
     [/desanim|cansad[ao] de|sem vontade|desist|motiva/i, 'motivacao'],
     [/plato|estagn|carga|serie|repeti[cç][aã]o|treino/i, 'treino'],
   ];
@@ -181,7 +193,7 @@ const Gamificacao = (() => {
 
     let extra = '';
     if (tema === 'motivacao' && contexto.streak >= 3) {
-      extra = ` Você está numa sequência de ${contexto.streak} dias — não quebra ela hoje.`;
+      extra = ` Você está numa sequência de ${contexto.streak} dias — e dia de descanso planejado também conta.`;
     }
 
     return { tema, temaNome: banco.nome, icon: banco.icon, texto: frase + extra };

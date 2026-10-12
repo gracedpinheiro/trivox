@@ -20,14 +20,18 @@ const Dados = (() => {
     }
   }
 
+  let ultimoAlertaCota = 0;
   function gravarBruto(chave, valor) {
     try {
       localStorage.setItem(chave, JSON.stringify(valor));
       return true;
     } catch (e) {
-      // cota estourada: avisa em vez de perder o treino em silencio
+      // cota estourada: avisa em vez de perder o treino em silencio (1x por minuto, nao a cada tecla)
       console.error('[dados] falha ao gravar', chave, e);
-      alert('Não consegui salvar: o armazenamento do navegador está cheio. Exporte seus dados em Perfil › Backup.');
+      if (Date.now() - ultimoAlertaCota > 60000) {
+        ultimoAlertaCota = Date.now();
+        alert('Não consegui salvar: o armazenamento do navegador está cheio. Apague fotos antigas ou exporte seus dados em Perfil › Backup.');
+      }
       return false;
     }
   }
@@ -95,6 +99,16 @@ const Dados = (() => {
   // lojas que saem do aparelho (backup .zip e nuvem) — deliberadamente SEM 'spotify' nem
   // qualquer sessao/token: credenciais nunca saem do aparelho, so dado de treino sai.
   const LOJAS_SINCRONIZAVEIS = ['perfil', 'fichas', 'cardios', 'cargas', 'sessoes', 'gam', 'pesos', 'fotosEvolucao', 'fotosExercicio'];
+
+  // treino em andamento: so neste aparelho (fora da nuvem e do backup). Sobrevive a recarregar
+  // ou ao iOS fechar o app no meio do treino. Falha de cota aqui nao alerta: e conveniencia.
+  const execucaoSalva = () => ler('execucao', null);
+  function salvarExecucao(ex) {
+    try {
+      if (ex) localStorage.setItem(chave('execucao'), JSON.stringify(ex));
+      else localStorage.removeItem(chave('execucao'));
+    } catch (e) { console.warn('[dados] treino em andamento nao salvo', e); }
+  }
 
   // ---------- perfil (medidas e preferencias) ----------
 
@@ -249,8 +263,7 @@ const Dados = (() => {
   function registrarSessao(sessao) {
     const lista = sessoes();
     lista.unshift({ id: id(), data: Date.now(), ...sessao });
-    gravar('sessoes', lista.slice(0, 300));
-    return lista;
+    return gravar('sessoes', lista.slice(0, 300)); // false = cota cheia, a sessao NAO foi salva
   }
 
   /** Dias distintos (aaaa-mm-dd, fuso local) em que houve pelo menos 1 sessão. */
@@ -398,5 +411,6 @@ const Dados = (() => {
     exportar, importar,
     exercicios, acharExercicio,
     aoSalvar, lerLoja, gravarLoja, LOJAS_SINCRONIZAVEIS,
+    execucaoSalva, salvarExecucao,
   };
 })();

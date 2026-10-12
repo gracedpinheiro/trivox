@@ -27,8 +27,8 @@ const Lembretes = (() => {
     const ics = [
       'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//TRIVOX//Treino//PT-BR', 'CALSCALE:GREGORIAN',
       'BEGIN:VEVENT',
-      `UID:trivox-treino-${Date.now()}@trivox`,
-      `DTSTAMP:${local(new Date())}`,
+      'UID:trivox-treino@trivox', // fixo: baixar de novo ATUALIZA o evento em vez de duplicar
+      `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`, // RFC 5545: em UTC
       `DTSTART:${local(d)}`, `DTEND:${local(fim)}`,
       `RRULE:FREQ=WEEKLY;BYDAY=${dias}`,
       'SUMMARY:💪 Hora do treino — TRIVOX',

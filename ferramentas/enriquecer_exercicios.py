@@ -26,6 +26,10 @@ import sys
 import unicodedata
 from collections import Counter, OrderedDict
 
+# no Windows o console e cp1252 e quebra no "≥" das tabelas
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(AQUI)
 ARQ = os.path.join(RAIZ, "data", "exercicios.json")
@@ -201,6 +205,13 @@ IMPACTO_MEDIO = set("""cardio_jumping_jack aquec_pular_corda cardio_corrida_est 
   func_power_clean_from_hang comp_muscle_snatch func_batch3_7 cal_muscle_up pu_ring_muscle_up pu_explosive_pull
   func_batch3_3 fn_deadmill_sprint cond_sled_sprint func_atlas_stone func_batch3_0 om_batch3_1 func_push_press
   cal_free_hs""".split())
+# Auditoria 12/10/2026: tudo que tem fase de voo (corda, polichinelo, saltito, skipping, pliometria)
+# ou sprint vale como ALTO — com "medio" esses itens chegavam a 50-64 anos e IMC >= 30.
+# Vale para antigos e novos (aplicado depois de juntar as duas listas).
+IMPACTO_ALTO_REVISAO = set("""aquec_pular_corda cond_batch3_7 fn_jump_rope_complex cf3_corda_corrida cf3_corda_esqui
+  cf3_corda_cruzada cardio_jumping_jack hiit_polichinelo_cruzado cf3_seal_jack cf3_miniband_polichinelo hiit_plank_jack
+  sr3_saltitos_linha sr3_skipping_rapido hiit_skipping cf3_trx_agach_salto pt3_flexao_plio_kb cond_sled_sprint
+  fn_deadmill_sprint hiit_esteira_intervalos cf3_polia_sprint cf3_zigue_zague_cones""".split())
 
 # ---------------------------------------------------------------------------
 # 3) OBJETIVOS dos antigos — regras + listas revisadas
@@ -519,6 +530,9 @@ def main():
         fedb_ids = {x["id"] for x in json.load(open(FEDB, encoding="utf-8"))}
 
     final = antigos + novos
+    for e in final:
+        if e["id"] in IMPACTO_ALTO_REVISAO:
+            e["impacto"] = "alto"
     erros = validar(final, ids_antigos, fedb_ids)
     if erros:
         for x in erros:

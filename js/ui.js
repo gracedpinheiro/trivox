@@ -195,6 +195,22 @@ const UI = (() => {
 
   // ---------- tela: inicio ----------
 
+  /** Cartao "treino em andamento" (Inicio e Treinos): sem ele, sair pela barra de baixo no meio
+   *  do treino nao tinha caminho de volta e "Treinar" de novo zerava as series. */
+  function cartaoTreinoEmAndamento() {
+    const ex = estado.execucao;
+    if (!ex) return '';
+    const feitas = ex.itens.reduce((s, i) => s + (i.sets || []).length, 0);
+    return `
+      <div class="cartao c-coral">
+        <div class="rotulo" style="color:#C23431">Treino em andamento</div>
+        <h2 style="margin:2px 0 4px">${h(ex.fichaNome)}</h2>
+        <div class="pequeno apagado">Exercício ${ex.iEx + 1} de ${ex.itens.length} · ${feitas} série(s) registrada(s)</div>
+        <button class="btn btn-largo btn-principal" data-acao="ir" data-tela="execucao" style="margin-top:12px">▶ Continuar treino</button>
+        <button class="btn btn-largo" data-acao="encerrar-treino-confirma" style="margin-top:8px">Encerrar treino</button>
+      </div>`;
+  }
+
   function telaInicio() {
     const p = Dados.perfil();
     const fichas = Dados.fichas();
@@ -255,7 +271,8 @@ const UI = (() => {
           <div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="exportar">Exportar agora</button></div>
         </div>` : ''}
 
-      ${fichaParaHoje && !jaTreinouHoje ? `
+      ${cartaoTreinoEmAndamento()}
+      ${fichaParaHoje && !jaTreinouHoje && !estado.execucao ? `
         <div class="cartao c-turquesa missao">
           <div style="display:flex;gap:12px;align-items:center">
             <div style="flex:1;min-width:0">
@@ -355,6 +372,7 @@ const UI = (() => {
         <h1>Treinos</h1>
         <button class="btn btn-pequeno btn-principal" data-acao="nova-ficha">+ Nova</button>
       </div>
+      ${cartaoTreinoEmAndamento()}
 
       <div class="cartao clicavel cartao-gradiente" data-acao="abrir-gerador">
         <div style="display:flex;align-items:center;gap:12px">
@@ -409,12 +427,27 @@ const UI = (() => {
       </button>`).join('')}</div>`;
   }
 
+  /** Perfil pronto para o motor de treino, com os valores antigos traduzidos: objetivo legado
+   *  (forca, resistencia, emagrecimento) pelo MAPA_LEGADO, elite = avancado, e "parque" continua
+   *  parque (o motor sabe o que tem numa praca) em vez de virar academia. */
+  function perfilTreino() {
+    const p = Dados.perfil();
+    const legado = typeof Programas !== 'undefined' ? Programas.MAPA_LEGADO[p.objetivo] : null;
+    return {
+      objetivo: Forca.OBJETIVOS[p.objetivo] ? p.objetivo : legado || 'condicionamento',
+      nivel: p.nivel === 'elite' ? 'avancado' : p.nivel || 'iniciante',
+      local: ['casa', 'parque'].includes(p.local) ? p.local : 'academia',
+      equipCasa: p.equipCasa, idade: Dados.idade(), peso: p.peso, altura: p.altura,
+    };
+  }
+
   /** Modal de configuracao do gerador automatico. */
   function modalGerador() {
     const p = Dados.perfil();
     const g = estado.gerador;
-    const obj = g.objetivo || (NOME_OBJETIVO_CURTO[p.objetivo] ? p.objetivo : 'condicionamento');
-    const local = g.local || (p.local === 'casa' ? 'casa' : 'academia');
+    const pt = perfilTreino();
+    const obj = g.objetivo || pt.objetivo;
+    const local = g.local || pt.local;
     const nivel = g.nivel || nivelTela(p.nivel);
     const temDias = p.diasTreino.length > 0;
     const diasTxt = temDias
@@ -785,7 +818,7 @@ const UI = (() => {
     const presc = Forca.prescrever(p.objetivo, e);
     const hist = Dados.historicoCarga(e.id);
     const plato = Forca.detectarPlato(hist);
-    const subs = Forca.substitutos(e, BASE, { limite: 10, local: p.local === 'casa' ? 'casa' : null });
+    const subs = Forca.substitutos(e, BASE, { limite: 10, perfil: perfilTreino() });
 
     const cronologico = [...hist].reverse();
     const grafico = cronologico.length >= 2 ? graficoLinha(cronologico.map((r) => Number(r.carga) || 0)) : '';
@@ -1233,7 +1266,7 @@ const UI = (() => {
     const item = ex.itens[ex.iEx];
     const dadosEx = BASE.find((x) => x.id === item.exId);
     const p = Dados.perfil();
-    const subs = Forca.substitutos(dadosEx, BASE, { limite: 12, local: p.local === 'casa' ? 'casa' : null });
+    const subs = Forca.substitutos(dadosEx, BASE, { limite: 12, perfil: perfilTreino() });
     abrirModal(`
       <h2>🔁 Aparelho ocupado? Troque por:</h2>
       <p class="pequeno apagado">Mesmo músculo, outro equipamento. Suas cargas de cada exercício ficam guardadas separadas.</p>
@@ -2006,7 +2039,7 @@ const UI = (() => {
   }
 
   return {
-    estado, render, ir, h, abrirModal, fecharModal,
+    estado, render, ir, h, abrirModal, fecharModal, perfilTreino,
     modal1RM, modalAnilhas, modalVolume, modalTesteFala,
     modalGerador, modalTrocarEquipamento, modalResumoTreino, modalRegistrarPeso,
     modalRegistrarFotoEvolucao, modalVerFotoEvolucao,

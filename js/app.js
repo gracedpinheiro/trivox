@@ -33,6 +33,16 @@
 
   if (!Dados.perfilAtivoId()) Dados.criarPerfil('Eu');
 
+  /** Perfis e backups antigos: objetivo legado (forca, resistencia, emagrecimento) vira o novo
+   *  de vez, para os chips do Perfil e do gerador mostrarem o certo. "elite" e "parque" o motor
+   *  ja entende (ver UI.perfilTreino) — ficam como estao. */
+  function migrarPerfilAntigo() {
+    const p = Dados.perfil();
+    const novo = !Forca.OBJETIVOS[p.objetivo] && Programas.MAPA_LEGADO[p.objetivo];
+    if (novo) Dados.salvarPerfil({ objetivo: novo });
+  }
+  migrarPerfilAntigo();
+
   // Pede ao navegador pra tratar o armazenamento deste site como "persistente" — reduz a chance
   // dele ser limpo automaticamente sob pouco espaço (aconteceu de verdade num iPhone: dados
   // sumiram sozinhos no mesmo dia, mesmo icone, sem nenhuma acao da pessoa). Nao garante 100%,
@@ -41,6 +51,10 @@
   if (navigator.storage && navigator.storage.persist) {
     navigator.storage.persist().catch(() => {});
   }
+
+  // volta do link de login da nuvem (o SDK le e limpa o #access_token sozinho ao iniciar):
+  // precisa ser lido ANTES, senao o app acha que "ja estava logado" e nao restaura nada
+  const veioDoLinkNuvem = /access_token=|token_hash=/.test(location.hash + location.search);
 
   // ---------- volta do login do Spotify ----------
 
@@ -69,6 +83,9 @@
     try { sessaoNuvem = await Nuvem.sessaoAtual(); } catch (e) { console.warn('[nuvem] sessao', e); }
   }
   UI.estado.nuvem.sessao = sessaoNuvem;
+
+  // treino que estava em andamento quando o app fechou/recarregou: volta para "continuar"
+  UI.estado.execucao = Dados.execucaoSalva();
 
   UI.render();
 
@@ -106,14 +123,33 @@
 
   const filaPushNuvem = new Map(); // loja -> timeoutId
 
-  function enfileirarPushNuvem(loja, valor) {
+  const pendentesNuvem = new Set(); // lojas cujo envio falhou (sem rede): reenviadas quando der
+
+  /** Sobe o valor ATUAL da loja (nao o da hora em que entrou na fila). */
+  function enviarLojaAgora(loja) {
+    if (!sessaoNuvem) return; // saiu da conta durante a espera
+    Nuvem.enviarDado(loja, Dados.lerLoja(loja), sessaoNuvem.user.id)
+      .then(() => pendentesNuvem.delete(loja))
+      .catch((e) => { pendentesNuvem.add(loja); console.warn('[nuvem] falha ao enviar', loja, e); });
+  }
+
+  function enfileirarPushNuvem(loja) {
     if (!sessaoNuvem) return;
     clearTimeout(filaPushNuvem.get(loja));
     filaPushNuvem.set(loja, setTimeout(() => {
       filaPushNuvem.delete(loja);
-      Nuvem.enviarDado(loja, valor, sessaoNuvem.user.id).catch((e) => console.warn('[nuvem] falha ao enviar', loja, e));
+      enviarLojaAgora(loja);
     }, 2500));
   }
+
+  /** Esvazia a fila na hora: o app indo para segundo plano (o iOS pode suspender antes dos
+   *  2,5 s) e a internet voltando (reenvia o que falhou). */
+  function esvaziarFilaNuvem() {
+    for (const [loja, t] of filaPushNuvem) { clearTimeout(t); filaPushNuvem.delete(loja); enviarLojaAgora(loja); }
+    for (const loja of [...pendentesNuvem]) enviarLojaAgora(loja);
+  }
+  document.addEventListener('visibilitychange', esvaziarFilaNuvem);
+  window.addEventListener('online', esvaziarFilaNuvem);
 
   Dados.aoSalvar((loja, valor) => {
     if (Dados.LOJAS_SINCRONIZAVEIS.includes(loja)) enfileirarPushNuvem(loja, valor);
@@ -132,6 +168,7 @@
         Dados.LOJAS_SINCRONIZAVEIS.forEach((loja) => {
           if (remoto[loja] !== undefined) Dados.gravarLoja(loja, remoto[loja]);
         });
+        migrarPerfilAntigo();
       };
       const semearNuvem = () => {
         Dados.LOJAS_SINCRONIZAVEIS.forEach((loja) => enfileirarPushNuvem(loja, Dados.lerLoja(loja)));
@@ -157,11 +194,15 @@
   }
 
   if (Nuvem.disponivel()) {
-    let jaSincronizou = !!sessaoNuvem; // ja carregou logada: nao repete a comparacao agora
+    let jaSincronizou = !!sessaoNuvem; // ja carregou logada: nao repete a comparacao agora...
+    // ...exceto se acabou de voltar do link do e-mail: ai e um login de verdade (aparelho novo,
+    // dados apagados) e precisa comparar/restaurar ja, antes de qualquer gravacao local subir
+    if (sessaoNuvem && veioDoLinkNuvem) sincronizarAoLogar(sessaoNuvem);
     Nuvem.aoMudarSessao((_evento, sessao) => {
       const tinhaAntes = !!sessaoNuvem;
       sessaoNuvem = sessao;
       UI.estado.nuvem.sessao = sessao;
+      if (!sessao) jaSincronizou = false; // saiu: o proximo login (mesmo outra conta) compara de novo
       if (sessao && !tinhaAntes && !jaSincronizou) {
         jaSincronizou = true;
         sincronizarAoLogar(sessao);
@@ -335,6 +376,7 @@
       if (ex.iEx + 1 >= ex.itens.length) { finalizarTreino(); return; }
       ex.iEx++;
     }
+    Dados.salvarExecucao(ex);
     if (est.tela === 'execucao') UI.render();
   }
 
@@ -346,6 +388,7 @@
     ex.descansando = false;
     if (ex.iEx + 1 >= ex.itens.length) { finalizarTreino(); return; }
     ex.iEx++;
+    Dados.salvarExecucao(ex);
     window.scrollTo(0, 0);
     UI.render();
   }
@@ -482,16 +525,24 @@
     const itensComSet = ex.itens.filter((i) => i.sets.length);
     const duracaoSeg = Math.max(1, Math.round((Date.now() - ex.inicioTs) / 1000));
 
-    if (!itensComSet.length) { est.execucao = null; UI.ir('fichas'); return; }
+    if (!itensComSet.length) { est.execucao = null; Dados.salvarExecucao(null); UI.ir('fichas'); return; }
 
     const volumeTotal = itensComSet.reduce((s, i) => s + i.sets.reduce((t, st) => t + (Number(st.carga) || 0) * (Number(st.reps) || 0), 0), 0);
     const xpGanho = Gamificacao.xpSessaoForca({ numExercicios: itensComSet.length, duracaoMin: Math.round(duracaoSeg / 60) });
 
-    Dados.registrarSessao({
+    const salvou = Dados.registrarSessao({
       tipo: 'forca', fichaId: ex.fichaId, fichaNome: ex.fichaNome, duracaoSeg,
       exercicios: itensComSet.map((i) => ({ exId: i.exId, nome: i.nome, sets: i.sets })),
       volumeTotal, xpGanho,
     });
+    if (!salvou) {
+      // armazenamento cheio: o treino continua aberto (nada de "concluido" sem ter gravado)
+      ex.descansando = false;
+      ex.timerItem = null;
+      if (est.tela !== 'execucao') UI.ir('execucao'); else UI.render();
+      alert('O treino NÃO foi salvo: o armazenamento está cheio. Ele continua aberto aqui. Apague fotos antigas (Perfil › Fotos de evolução) ou exporte um backup, e toque em ‹ (sair do treino) de novo.');
+      return;
+    }
 
     const gamAntes = Dados.gam();
     const novoXp = gamAntes.xp + xpGanho;
@@ -518,6 +569,7 @@
     Dados.salvarGam({ xp: novoXp, badges: [...gamAntes.badges, ...novosBadges.map((b) => b.id)] });
 
     est.execucao = null;
+    Dados.salvarExecucao(null);
     Lembretes.sincronizarComSW(Dados.perfil(), { treinouEm: new Date().toLocaleDateString('sv-SE') });
     UI.ir('fichas');
     UI.modalResumoTreino({ xpGanho, novosBadges, nivel: nivelDepois, subiuNivel: nivelDepois.chave !== nivelAntes.chave });
@@ -538,7 +590,13 @@
       case 'ir':
         if (alvo.dataset.voltar) est.voltarTela = alvo.dataset.voltar;
         pararTimer();
-        pararSpotify();
+        // voltando para o treino (do "Como executar" ou do cartao "continuar"): religa musica e relogio
+        if (alvo.dataset.tela === 'execucao') {
+          iniciarSpotify();
+          if (est.execucao?.descansando || est.execucao?.timerItem) garantirLoop();
+        } else {
+          pararSpotify();
+        }
         est.escolhendoPara = null;
         est.limite = 40;
         UI.ir(alvo.dataset.tela);
@@ -684,9 +742,10 @@
       case 'gerar-plano': {
         const p = Dados.perfil();
         const g = est.gerador;
-        const objetivo = g.objetivo || (Forca.OBJETIVOS[p.objetivo] ? p.objetivo : 'condicionamento');
-        const local = g.local || (p.local === 'casa' ? 'casa' : 'academia');
-        const nivel = g.nivel || (p.nivel === 'elite' ? 'avancado' : p.nivel);
+        const pt = UI.perfilTreino();
+        const objetivo = g.objetivo || pt.objetivo;
+        const local = g.local || pt.local;
+        const nivel = g.nivel || pt.nivel;
         // "gerar de novo" sempre muda: contador que so cresce (melhor variedade que contar fichas)
         let rotacao = 0;
         try { rotacao = Number(localStorage.getItem('at:rotacao') || 0) + 1; localStorage.setItem('at:rotacao', String(rotacao)); } catch (e) { rotacao = Date.now() % 97; }
@@ -710,7 +769,6 @@
       }
 
       case 'variar-treino': {
-        const p = Dados.perfil();
         const fichas = Dados.fichas();
         // muda a cada ciclo de SEMANAS_PARA_VARIAR sem precisar guardar contador nenhum —
         // so olha quantos ciclos ja se passaram desde o epoch. Cada ficha usa um deslocamento
@@ -720,7 +778,7 @@
         let totalTrocado = 0;
         fichas.forEach((f, i) => {
           if (!(f.exercicios || []).length) return;
-          const { exercicios, trocados } = Forca.variarFicha(f, UI.getBase(), { objetivo: p.objetivo, rotacao: cicloAtual + i });
+          const { exercicios, trocados } = Forca.variarFicha(f, UI.getBase(), { ...UI.perfilTreino(), rotacao: cicloAtual + i });
           Dados.atualizarFicha(f.id, { exercicios, ultimaVariacaoEm: Date.now() });
           totalTrocado += trocados;
         });
@@ -736,14 +794,16 @@
       case 'iniciar-treino': {
         const f = Dados.acharFicha(alvo.dataset.id);
         if (!f || !f.exercicios?.length) break;
-        const p = Dados.perfil();
+        // ja tem treino aberto: a mesma ficha so continua; outra ficha pergunta antes de descartar
+        const aberto = est.execucao;
+        if (aberto && aberto.itens.some((i) => i.sets.length || i.feito)) {
+          if (aberto.fichaId === f.id) { UI.ir('execucao'); iniciarSpotify(); break; }
+          if (!confirm(`Você tem um treino em andamento (${aberto.fichaNome}). Começar outro descarta as séries que não foram salvas. Continuar?`)) break;
+        }
         // ficha montada a mao: ganha aquecimento no inicio e alongamento no fim, pros musculos do dia
         let lista = f.exercicios;
         try {
-          lista = Forca.completarSessao(f.exercicios, {
-            base: UI.getBase(), local: p.local === 'casa' ? 'casa' : 'academia', idade: Dados.idade(),
-            objetivo: p.objetivo, nivel: p.nivel === 'elite' ? 'avancado' : p.nivel, equipCasa: p.equipCasa,
-          }) || f.exercicios;
+          lista = Forca.completarSessao(f.exercicios, { base: UI.getBase(), ...UI.perfilTreino() }) || f.exercicios;
         } catch (e) { console.warn('[treino] completarSessao', e); }
         const itens = lista.map((item) => {
           const ex = UI.getBase().find((e) => e.id === item.exId);
@@ -836,7 +896,15 @@
         if (!ex) break;
         const novo = UI.getBase().find((e) => e.id === alvo.dataset.id);
         if (!novo) break;
-        const item = ex.itens[ex.iEx];
+        let item = ex.itens[ex.iEx];
+        if (item.sets.length) {
+          // series ja feitas continuam na sessao; o substituto entra logo depois com as que faltam
+          const novoItem = { ...item, feito: false, seriesAlvo: Math.max(1, item.seriesAlvo - item.sets.length) };
+          item.seriesAlvo = item.sets.length;
+          ex.itens.splice(ex.iEx + 1, 0, novoItem);
+          ex.iEx++;
+          item = novoItem;
+        }
         const historicoNovo = Dados.historicoCarga(novo.id);
         item.exId = novo.id;
         item.nome = novo.nome;
@@ -1307,6 +1375,7 @@
             } else {
               Dados.importar(JSON.parse(await arq.text())); // backup antigo, sem video (compatibilidade)
             }
+            migrarPerfilAntigo();
             Dados.registrarBackupFeito(); // importar prova que existe copia por fora — conta como backup em dia
             UI.ir('inicio');
           } catch (e) {
@@ -1317,6 +1386,8 @@
         break;
       }
     }
+    // treino em andamento sempre gravado (ou apagado) depois de qualquer acao
+    Dados.salvarExecucao(est.execucao);
   });
 
   // ---------- digitacao (salva sem re-renderizar, para nao perder o foco) ----------
@@ -1404,6 +1475,36 @@
 
   // ---------- selects, sliders soltos e saida de campo ----------
 
+  /** Seletor estavel de um campo, para achar o "mesmo" campo depois de um render. */
+  function seletorDoCampo(el) {
+    if (!el || el === document.body || !el.matches('input, select, textarea')) return null;
+    const d = el.dataset;
+    if (el.id) return `#${CSS.escape(el.id)}`;
+    if (d.perfil) return `[data-perfil="${CSS.escape(d.perfil)}"]`;
+    if (d.prop && d.item !== undefined) return `[data-item="${CSS.escape(d.item)}"][data-prop="${CSS.escape(d.prop)}"]`;
+    if (d.campo) return `[data-campo="${CSS.escape(d.campo)}"]`;
+    return null;
+  }
+
+  /** O change dispara ao sair do campo, ANTES do foco chegar no proximo. Redesenhar ali
+   *  trocava o proximo campo por um novo e o que a pessoa digitava nele se perdia (auditoria
+   *  12/10/2026). Por isso: redesenha no tique seguinte e devolve foco e cursor a quem tem. */
+  let renderAdiado = null;
+  function renderMantendoFoco() {
+    clearTimeout(renderAdiado);
+    renderAdiado = setTimeout(() => {
+      const ativo = document.activeElement;
+      const sel = seletorDoCampo(ativo);
+      let cursor = null;
+      try { cursor = ativo.selectionStart; } catch (e) { /* number/select nao tem cursor */ }
+      UI.render();
+      const novo = sel && document.querySelector(sel);
+      if (!novo) return;
+      novo.focus({ preventScroll: true });
+      try { if (cursor !== null) novo.setSelectionRange(cursor, cursor); } catch (e) { /* idem */ }
+    }, 0);
+  }
+
   document.body.addEventListener('change', (ev) => {
     const el = ev.target;
 
@@ -1431,7 +1532,7 @@
 
     // select de RIR e campos numericos da ficha: re-renderiza para atualizar a analise
     if ((el.dataset.item !== undefined && el.dataset.prop) || el.dataset.perfil) {
-      UI.render();
+      renderMantendoFoco();
     }
   });
 
