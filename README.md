@@ -234,14 +234,18 @@ dados dela sobem sozinhos sempre que mudam, isolados dos demais.
   [free-exercise-db](https://github.com/yuhonas/free-exercise-db) (domínio público), associadas
   uma a uma por especialista (só quando é o mesmo movimento com o mesmo equipamento) e guardadas
   dentro do app (`data/imagens/fedb/`, ~38 MB, baixadas sob demanda e cacheadas).
-- **Como fazer** — ilustração animada do movimento com o aparelho (todos os 1535), boneca ou
-  boneco conforme o sexo do perfil ([js/figuras.js](js/figuras.js)).
+- **Como fazer** — ilustração gerada por IA (Canva) com a posição inicial → final, num estilo
+  único (`data/ilustracoes/`, uma imagem por movimento + implemento). 1021 exercícios têm a
+  própria e 441 usam a do mesmo movimento; os que ainda não têm caem no boneco animado sem
+  gênero ([js/figuras.js](js/figuras.js)). O índice exercício → arquivo é gerado por
+  `node ferramentas/indice_ilustracoes.js`.
 - **Músculos** — corpo de frente e costas com a região trabalhada (principal e auxiliar).
 - **Aparelho** — desenho do equipamento usado.
 - **Minha foto** — a foto que a pessoa tirou (abaixo).
 
-Não havia gerador de imagem por IA disponível nesta rodada; as ilustrações são vetoriais, feitas
-por código. Se no futuro houver fotos/vídeos melhores, basta preencher `imagens` no json.
+Para adicionar ilustrações: salve o jpg 1280x720 em `data/ilustracoes/` com o nome
+`<movimento>__<implemento>__<apoio>.jpg` (chaves de `data/figuras_mapa.json`) e rode o script do
+índice. Se no futuro houver fotos/vídeos melhores, basta preencher `imagens` no json.
 
 ### Sua própria foto e vídeo por exercício
 

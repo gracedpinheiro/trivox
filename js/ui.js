@@ -103,6 +103,10 @@ const UI = (() => {
   const nivelTela = (n) => (n === 'elite' ? 'avancado' : n);
   const nomeAparelho = (k) => ((typeof Figuras !== 'undefined') && Figuras.APARELHOS && Figuras.APARELHOS[k]) || k || '';
 
+  // ilustracao gerada por IA (data/ilustracoes/indice.json: exId -> arquivo), inicio -> fim
+  let ILUSTRACOES = {};
+  const ilustracaoDe = (exId) => (ILUSTRACOES[exId] ? `data/ilustracoes/${ILUSTRACOES[exId]}` : null);
+
   /** Miniatura pra listas: foto real (ou a do usuario) se tiver; senao o mapa muscular pequeno. */
   function thumbExercicio(e) {
     if (!e) return '🏋️';
@@ -137,6 +141,9 @@ const UI = (() => {
     if (escolhida === 'minha') {
       palco = `<img src="${h(fotoPropria)}" alt="${h(e.nome)}" style="object-fit:cover;max-height:340px">`;
       legenda = 'sua foto';
+    } else if (escolhida === 'como' && ilustracaoDe(e.id)) {
+      palco = `<img src="${h(ilustracaoDe(e.id))}" alt="${h(e.nome)}: posição inicial e final" loading="lazy" style="background:#F2F7FF">`;
+      legenda = 'posição inicial → final';
     } else if (escolhida === 'como') {
       // estado.animacaoParada: botao "parar animacao" (WCAG 2.2.2); sem ele, segue o sistema
       const parada = estado.animacaoParada || reduzSistema;
@@ -159,7 +166,7 @@ const UI = (() => {
         </div>
         <div class="midia-palco" data-acao="ampliar-midia" aria-label="Ampliar imagem" style="cursor:zoom-in;${compacto ? 'min-height:150px' : ''}">${palco}</div>
         ${legenda ? `<div class="midia-legenda">${h(legenda)} · toque para ampliar</div>` : '<div class="midia-legenda">toque para ampliar</div>'}
-        ${escolhida === 'como' && !reduzSistema ? `<button class="btn btn-pequeno btn-fantasma" data-acao="alternar-animacao" style="margin-top:4px">${estado.animacaoParada ? '▶ Animar' : '⏸ Parar animação'}</button>` : ''}
+        ${escolhida === 'como' && !reduzSistema && !ilustracaoDe(e.id) ? `<button class="btn btn-pequeno btn-fantasma" data-acao="alternar-animacao" style="margin-top:4px">${estado.animacaoParada ? '▶ Animar' : '⏸ Parar animação'}</button>` : ''}
       </div>`;
   }
 
@@ -2191,5 +2198,6 @@ const UI = (() => {
     modalRegistrarFotoEvolucao, modalVerFotoEvolucao,
     calcular1RM, calcularAnilhas, renderSpotifyWidget, renderVideoExercicio,
     setBase: (b) => { BASE = b; }, getBase: () => BASE, minutosTexto, formatarMs,
+    setIlustracoes: (m) => { ILUSTRACOES = m || {}; }, ilustracaoDe, urlsIlustracoes: () => [...new Set(Object.values(ILUSTRACOES))].map((f) => `data/ilustracoes/${f}`),
   };
 })();

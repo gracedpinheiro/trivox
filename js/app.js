@@ -19,6 +19,8 @@
   try {
     const base = await Dados.exercicios();
     UI.setBase(base);
+    // ilustracoes geradas (uma por movimento): sem o indice, "Como fazer" usa o boneco vetorial
+    try { UI.setIlustracoes(await fetch('./data/ilustracoes/indice.json').then((r) => (r.ok ? r.json() : {}))); } catch (e) { /* offline sem cache: boneco */ }
   } catch (e) {
     app.innerHTML = `
       <div class="nota atencao" style="margin-top:40px">
@@ -619,7 +621,11 @@
     if (!navigator.onLine || !('serviceWorker' in navigator)) return;
     const porId = new Map(UI.getBase().map((e) => [e.id, e]));
     const urls = new Set();
-    for (const f of Dados.fichas()) for (const it of f.exercicios || []) (porId.get(it.exId)?.imagens || []).forEach((u) => urls.add(u));
+    for (const f of Dados.fichas()) for (const it of f.exercicios || []) {
+      (porId.get(it.exId)?.imagens || []).forEach((u) => urls.add(u));
+      const ilus = UI.ilustracaoDe(it.exId);
+      if (ilus) urls.add(ilus);
+    }
     if (urls.size) baixarFotos([...urls]);
   }
   setTimeout(guardarFotosDasFichas, 8000);
@@ -1349,7 +1355,7 @@
         break;
 
       case 'baixar-fotos': {
-        const todas = [...new Set(UI.getBase().flatMap((e) => e.imagens || []))];
+        const todas = [...new Set([...UI.getBase().flatMap((e) => e.imagens || []), ...UI.urlsIlustracoes()])];
         alvo.disabled = true;
         baixarFotos(todas, (feitas) => { alvo.textContent = `Baixando… ${feitas} de ${todas.length}`; })
           .then((falhas) => {

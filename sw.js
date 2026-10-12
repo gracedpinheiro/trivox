@@ -3,7 +3,7 @@
    cache na hora e atualiza por tras (stale-while-revalidate), entao a versao nova entra na
    abertura seguinte. Cache limitado ao app: ~40 MB com todas as 1066 fotos vistas. */
 
-const VERSAO = 'trivox-v35';
+const VERSAO = 'trivox-v36';
 
 // unica excecao de origem externa no cache: o SDK do Supabase (ver js/nuvem.js e index.html).
 // sem isso, o app ficaria sem sincronizar na nuvem toda vez que abrisse offline, mesmo depois
@@ -68,7 +68,9 @@ self.addEventListener('fetch', (ev) => {
   const origem = new URL(req.url).origin;
   if (origem !== self.location.origin && !ORIGENS_EXTERNAS_PERMITIDAS.includes(origem)) return;
 
-  const imutavel = /\/(data\/imagens|fonts)\//.test(new URL(req.url).pathname);
+  const caminho = new URL(req.url).pathname;
+  // fotos, fontes e ilustracoes (.jpg) nao mudam; o indice.json das ilustracoes muda, entao nao entra
+  const imutavel = /\/(data\/imagens|fonts)\//.test(caminho) || /\/data\/ilustracoes\/[^/]+\.jpg$/.test(caminho);
   ev.respondWith(
     caches.match(req).then((cacheada) => {
       if (cacheada && imutavel) return cacheada;
