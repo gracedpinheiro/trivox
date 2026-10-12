@@ -27,7 +27,7 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 19 | 12/10/2026 | [Auditoria: ciclos 5 a 9](19-auditoria-ciclos-5-a-9.md) | Fotos no IndexedDB, contraste AA e teclado, ilustrações corrigidas, triagem PAR-Q e aeróbico 50+ leve, acabamento (heatmap, importar, zip, .ics, XSS) |
 | 20 | 12/10/2026 | [Pedidos do teste no celular](20-pedidos-do-teste-no-celular.md) | Vários objetivos ao mesmo tempo, esportes desmarcáveis, 2 horários de lembrete, "Concluir série" sem rolar |
 | 21 | 12/10/2026 | [Segundo teste no celular](21-segundo-teste-no-celular.md) | Calendario abria o Safari (dados separados), Spotify, foto na execucao, coach, "de sobra", fotos offline, boneco sem genero, ampliar imagem, comecar do zero |
-| 22 | 12/10/2026 | [Ilustrações por IA](22-ilustracoes-ia.md) | "Como fazer" com imagem gerada no Canva (início → fim): 317 imagens, 1462 dos 1535 exercícios cobertos |
+| 22 | 12/10/2026 | [Ilustrações por IA](22-ilustracoes-ia.md) | "Como fazer" com imagem gerada no Canva (início → fim): 421 imagens, 1534 dos 1535 exercícios cobertos |
 
 ## Como usar
 

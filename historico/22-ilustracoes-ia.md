@@ -13,25 +13,28 @@ preferência todas.
   - dois quadros por imagem, posição inicial → final.
 - **Uma imagem por combinação de movimento + implemento + apoio**, as mesmas chaves de
   `data/figuras_mapa.json`. Os 361 movimentos principais vêm primeiro.
-- **Já estão no app 317 imagens** (`data/ilustracoes/`, 1280x720, cerca de 50 KB cada):
-  - 1021 dos 1535 exercícios têm imagem própria;
-  - 441 usam a imagem do mesmo movimento com outro implemento;
-  - 73 seguem com o boneco animado.
+- **Já estão no app 421 imagens** (`data/ilustracoes/`, 1280x720, cerca de 50 KB cada):
+  - 1217 dos 1535 exercícios têm imagem própria;
+  - 317 usam a imagem do mesmo movimento com outro implemento;
+  - 1 segue com o boneco animado (alongamento de quadríceps deitado de lado).
+- **Implemento "-"** (sem implemento padrão) vira "x" no nome do arquivo, para não colidir
+  com o movimento-base (ex.: `flexao__x__.jpg` x `flexao____.jpg`).
 - **`ferramentas/indice_ilustracoes.js`** gera `data/ilustracoes/indice.json`, o mapa
   exercício → arquivo.
 - **No app:**
   - a aba "Como fazer" mostra a ilustração com a legenda "posição inicial → final";
   - sem ilustração, a aba continua com o boneco;
   - a imagem entra no cache offline, no "Baixar todas as fotos" e nas fotos das fichas;
-  - o service worker trata os jpgs como imutáveis (VERSAO `trivox-v36`).
+  - o service worker trata os jpgs como imutáveis (VERSAO `trivox-v37`; subiu porque 5 jpgs mudaram de conteúdo).
 - **Revisão:** cada imagem foi olhada antes de entrar. Algumas mostram o movimento, mas
   podem ser refeitas: patinador, step down, transferência de peso, caranguejo e tibial com
   elástico.
 
 ## Em aberto
-- Continuar a partir do item #322. As 5 imagens já aprovadas e ainda não exportadas são:
-  supino na bola, agachamento com rotação, oito com a raquete, escada ergométrica e bike em pé.
-- Variações de implemento: hoje usam a imagem do movimento-base.
+- Os 361 movimentos principais estão feitos, menos o alongamento de quadríceps deitado de
+  lado: a IA errou duas vezes (a perna ia para a frente em vez de o calcanhar ir ao glúteo).
+- Variações de implemento: feitas até o item #425. Próximo passo: #426 a #721.
+- Refazer: corrida estacionária, tornozelo com elástico e rotação externa no cabo (a IA errou).
 - Fotos dos aparelhos sem pessoas (pedido do teste no celular): ainda depende de decisão.
 
 ## Testes

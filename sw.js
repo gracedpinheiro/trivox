@@ -3,7 +3,7 @@
    cache na hora e atualiza por tras (stale-while-revalidate), entao a versao nova entra na
    abertura seguinte. Cache limitado ao app: ~40 MB com todas as 1066 fotos vistas. */
 
-const VERSAO = 'trivox-v36';
+const VERSAO = 'trivox-v37';
 
 // unica excecao de origem externa no cache: o SDK do Supabase (ver js/nuvem.js e index.html).
 // sem isso, o app ficaria sem sincronizar na nuvem toda vez que abrisse offline, mesmo depois

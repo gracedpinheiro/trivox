@@ -15,7 +15,8 @@ const DIR = path.join(RAIZ, 'data', 'ilustracoes');
 const mapa = JSON.parse(fs.readFileSync(path.join(RAIZ, 'data', 'figuras_mapa.json'), 'utf8'));
 const base = JSON.parse(fs.readFileSync(path.join(RAIZ, 'data', 'exercicios.json'), 'utf8'));
 
-const arquivoDe = (chave) => chave.replace(/\|/g, '__').replace(/[^a-z0-9_]/gi, '') + '.jpg';
+// implemento "-" (sem implemento padrao) vira "x", para nao colidir com o implemento vazio
+const arquivoDe = (chave) => chave.split('|').map((s) => (s === '-' ? 'x' : s)).join('__').replace(/[^a-z0-9_]/gi, '') + '.jpg';
 const existentes = new Set(fs.readdirSync(DIR).filter((f) => f.endsWith('.jpg')));
 
 // por template: a primeira imagem existente (qualquer implemento) serve de reserva
