@@ -1,0 +1,765 @@
+# V3 — COSTAS, BÍCEPS E ANTEBRAÇO (latíssimo, romboides, trapézio médio/inferior, redondo maior,
+# eretores, bíceps, braquial, braquiorradial, punho e pegada) — origem trivox_v2
+# Objetivo: sempre existir um substituto com OUTRO equipamento para o mesmo músculo (academia e casa).
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+# =====================================================================
+# LATÍSSIMO / REDONDO MAIOR
+# =====================================================================
+
+cb3_puxada_corda_pulley | Puxada com Corda no Pulley | costas | Pulley (puxador alto) + corda | int | 🪢 | puxador_pulley | a | b | CH | 3 | 10-12
+P: Latíssimo, Redondo Maior
+S: Bíceps, Braquial, Rombóides
+I: Prenda a corda no puxador alto e sente com as coxas travadas sob o apoio | Segure uma ponta da corda em cada mão, palmas viradas uma para a outra | Incline o tronco uns 10° para trás e leve os cotovelos para baixo e para trás, abrindo as pontas da corda | Termine com as mãos na altura do peito e as escápulas juntas | Suba devagar até os braços quase estenderem, sem soltar a tensão
+E: Puxar com o tronco balançando para trás | Deixar os ombros subirem até as orelhas no final | Encurtar a amplitude em cima
+PR: Puxada com corda com pausa de 2s embaixo
+RG: Puxada neutra no pulley com carga leve
+
+cb3_puxada_pausa_peito | Puxada Frontal com Pausa no Peito | costas | Pulley (puxador alto) + barra longa | ini | ⏸️ | puxador_pulley | a | b | H5 | 3 | 8-10
+P: Latíssimo, Redondo Maior
+S: Rombóides, Trapézio Inferior, Bíceps
+I: Sente com as coxas presas e segure a barra um pouco mais aberta que os ombros, palmas para frente | Antes de puxar, abaixe os ombros (afaste-os das orelhas) | Puxe a barra até a parte de cima do peito levando os cotovelos para baixo | Segure 2 segundos parado com o peito alto e as escápulas apertadas | Volte devagar em 2-3 segundos até os braços estenderem
+E: Usar carga alta e perder a pausa | Levar a barra atrás da nuca | Projetar a cabeça para frente
+PR: Puxada frontal com descida lenta de 4s
+RG: Puxada com elástico ajoelhado
+
+cb3_puxada_excentrica_lenta | Puxada Frontal com Descida Lenta (4s) | costas | Pulley (puxador alto) + barra longa | ava | 🐢 | puxador_pulley | a | b | H | 4 | 6-8
+P: Latíssimo, Redondo Maior
+S: Bíceps, Rombóides, Trapézio Inferior
+I: Escolha uma carga cerca de 10% mais pesada que a sua puxada normal de 10 repetições | Puxe a barra até o peito de forma firme, em 1 segundo | Na volta, conte 4 segundos subindo a barra com controle total | Estenda quase por completo os cotovelos, sinta o alongamento nas laterais das costas e puxe de novo
+E: Descer rápido na metade final | Arquear muito a lombar para conseguir puxar | Contar rápido demais os 4 segundos
+PR: Pull-up com descida de 4s
+RG: Puxada frontal com pausa no peito
+
+cb3_puxada_amplitude_total | Puxada com Inclinação de Tronco (Amplitude Total) | costas | Pulley (puxador alto) + barra longa | int | ↕️ | puxador_pulley | a | b | H | 3 | 10-12
+P: Latíssimo
+S: Redondo Maior, Rombóides, Bíceps
+I: Sente com as coxas presas e segure a barra aberta, braços estendidos e tronco levemente inclinado à frente | Comece a puxada endireitando o tronco enquanto os cotovelos descem | Termine com o tronco um pouco inclinado para trás e a barra no alto do peito | Volte invertendo a ordem: braços sobem e o tronco inclina de novo à frente para alongar ao máximo
+E: Transformar em balanço com impulso | Arredondar a lombar ao inclinar à frente | Usar carga que impede a amplitude completa
+PR: Puxada frontal com descida lenta de 4s
+F: Full_Range-Of-Motion_Lat_Pulldown
+
+cb3_puxada_articulada_unilateral | Puxada Articulada Unilateral | costas | Máquina de puxada articulada (alavancas independentes) | ini | 🦾 | puxador_pulley | a | b | CH5 | 3 | 10-12 cada lado
+P: Latíssimo, Redondo Maior
+S: Bíceps, Rombóides, Core
+I: Ajuste o banco para alcançar a alavanca com o braço estendido e as coxas presas | Segure uma das alavancas e mantenha a outra mão apoiada na coxa | Puxe levando o cotovelo para baixo e para o lado do corpo, sem girar o tronco | Pare quando a mão chegar perto do ombro e volte devagar | Termine todas as repetições de um lado e troque
+E: Girar o tronco para ajudar | Encolher o ombro do lado que puxa | Soltar a alavanca de uma vez na volta
+PR: Puxada unilateral no cabo
+RG: Puxada articulada com os dois braços e carga leve
+
+cb3_puxada_unilateral_elastico_ajoelhado | Puxada Unilateral Ajoelhada com Elástico | costas | Elástico preso no alto (porta ou barra) | ini | 🎗️ | elastico | ca | b | CP5R | 3 | 12-15 cada lado
+P: Latíssimo
+S: Redondo Maior, Bíceps, Core
+I: Prenda o elástico no alto da porta (com âncora) ou numa barra e ajoelhe-se de frente, a um passo de distância | Segure o elástico com uma mão, braço esticado acima da cabeça | Puxe o cotovelo para baixo, em direção ao bolso da calça, mantendo o peito aberto | Segure 1 segundo embaixo e volte devagar até esticar o braço
+E: Inclinar o tronco para o lado que puxa | Elástico frouxo no início (sem tensão) | Puxar com a mão e não com o cotovelo
+PR: Puxada com elástico mais forte ou de pé em base de raquete
+RG: Puxada bilateral com elástico leve
+
+cb3_remada_alta_ajoelhado_polia | Remada Alta Ajoelhado na Polia | costas | Polia alta + barra longa ou corda | int | 🧎 | polia | a | b | CH | 3 | 10-12
+P: Latíssimo, Rombóides
+S: Redondo Maior, Bíceps, Trapézio Médio
+I: Ajuste a polia no alto e ajoelhe-se de frente para ela, a uns 60 cm de distância | Segure a barra com as palmas para baixo, braços estendidos para cima e à frente | Puxe a barra em direção ao queixo/peito, levando os cotovelos para trás e para baixo | Aperte as escápulas no final e volte devagar até estender os braços
+E: Sentar nos calcanhares e usar o peso do corpo | Cotovelos abrindo para cima | Arquear a lombar
+PR: Remada alta unilateral ajoelhado
+RG: Puxada frontal no pulley
+F: Kneeling_High_Pulley_Row
+
+cb3_remada_alta_unilateral_ajoelhado | Remada Alta Unilateral Ajoelhado na Polia | costas | Polia alta + pegador | int | 🎯 | polia | a | b | HR | 3 | 10-12 cada lado
+P: Latíssimo
+S: Rombóides, Redondo Maior, Oblíquos, Bíceps
+I: Ajoelhe-se de frente para a polia alta com um pegador na mão, braço estendido acima da cabeça | Mantenha o quadril firme e o abdômen contraído | Puxe o pegador até o lado do peito, girando levemente a palma para dentro no final | Volte devagar deixando o braço subir e o ombro alongar, sem perder a postura
+E: Torcer o tronco para puxar | Subir o ombro no final da volta | Puxar rápido sem controlar a volta
+PR: Remada alta unilateral em pé em base de afundo
+F: Kneeling_Single-Arm_High_Pulley_Row
+
+cb3_pulldown_corda | Pulldown com Corda (Braços Estendidos) | costas | Polia alta + corda | ini | 🪢 | polia | a | b | CH5R | 3 | 12-15
+P: Latíssimo
+S: Redondo Maior, Tríceps Longo, Core
+I: Em pé, de frente para a polia alta, segure a corda com os braços quase estendidos à frente da cabeça | Afaste os pés na largura do quadril e incline o tronco uns 20° à frente | Desça a corda em arco até as mãos passarem ao lado das coxas, abrindo as pontas | Segure 1 segundo e suba devagar até os braços ficarem acima da linha dos ombros
+E: Dobrar os cotovelos e virar tríceps | Usar o tronco para empurrar o peso | Subir a corda alto demais e perder a tensão
+PR: Pulldown unilateral de braço estendido
+RG: Pulldown com elástico
+F: Rope_Straight-Arm_Pulldown
+
+cb3_pulldown_unilateral_cabo | Pulldown Unilateral de Braço Estendido | costas | Polia alta + pegador | int | ☝️ | polia | a | b | HR | 3 | 12 cada lado
+P: Latíssimo
+S: Redondo Maior, Oblíquos, Core
+I: Fique de lado ou levemente de frente para a polia alta, pegador em uma mão, braço estendido acima | Mantenha o cotovelo levemente dobrado e fixo | Desça o braço em arco até a mão chegar ao lado do quadril, sem girar o tronco | Volte devagar até o braço passar a linha da cabeça, sentindo a lateral alongar
+E: Dobrar o cotovelo durante o movimento | Inclinar o tronco para o lado | Carga pesada demais (vira impulso)
+PR: Pulldown no cabo deitado no banco inclinado
+
+cb3_pulldown_banco_inclinado | Pulldown no Cabo Deitado no Banco Inclinado | costas | Polia alta + barra reta + banco inclinado | int | 📐 | polia | a | b | H | 3 | 10-12
+P: Latíssimo
+S: Redondo Maior, Tríceps Longo, Peitoral
+I: Posicione um banco inclinado (30-45°) de costas para a polia alta | Deite com a cabeça perto da polia e segure a barra com os braços estendidos atrás da cabeça | Com os cotovelos levemente dobrados e fixos, traga a barra em arco até a altura do quadril | Volte devagar até os braços passarem da cabeça, sem arquear a lombar
+E: Dobrar os cotovelos (vira tríceps) | Lombar descolando do banco | Volta rápida sem controle
+PR: Pullover com barra no banco
+F: Cable_Incline_Pushdown
+
+cb3_pullover_barra_banco | Pullover com Barra no Banco | costas | Barra reta + banco reto | ava | 🏋️ | barra | a | b | H | 3 | 8-10
+P: Latíssimo, Peitoral
+S: Redondo Maior, Tríceps Longo, Serrátil
+I: Deite no banco reto com a cabeça na ponta e segure uma barra com pegada um pouco mais fechada que os ombros | Comece com a barra acima do peito e cotovelos levemente dobrados | Leve a barra para trás da cabeça em arco, mantendo o ângulo dos cotovelos, até sentir alongar as costas | Traga a barra de volta acima do peito puxando com as costas
+E: Abrir os cotovelos e virar extensão de tríceps | Descer além da mobilidade do ombro | Arquear muito a lombar
+PR: Pullover com barra com pausa de 1s no alongamento
+RG: Pullover com halter
+F: Bent-Arm_Barbell_Pullover
+
+cb3_pullover_kettlebell_chao | Pullover com Kettlebell Deitado no Chão | costas | Kettlebell + colchonete | ini | 🔔 | kettlebell | ca | b | CH5 | 3 | 12-15
+P: Latíssimo
+S: Peitoral, Tríceps Longo, Core
+I: Deite de barriga para cima no colchonete com os joelhos dobrados e os pés no chão | Segure o kettlebell pelos chifres (lados da alça) acima do peito | Leve-o para trás da cabeça até ele quase tocar o chão, braços levemente dobrados | Puxe de volta acima do peito, mantendo as costas coladas no chão
+E: Bater o kettlebell no chão | Descolar a lombar do chão | Usar peso pesado demais no início
+PR: Pullover com halter apoiado na bola suíça
+RG: Pullover com mochila no chão
+
+cb3_pullover_mochila_chao | Pullover com Mochila Deitado no Chão | costas | Mochila com livros ou garrafas | ini | 🎒 | mochila | c | b | CPH5 | 3 | 15
+P: Latíssimo
+S: Peitoral, Tríceps Longo, Core
+I: Coloque 3-6 kg na mochila (livros ou garrafas) e feche bem | Deite no chão com joelhos dobrados e segure a mochila pelas laterais acima do peito | Leve a mochila para trás da cabeça em arco, braços quase estendidos, até encostar no chão de leve | Puxe de volta acima do peito contraindo o abdômen
+E: Peso solto dentro da mochila balançando | Arquear a lombar ao levar para trás | Dobrar demais os cotovelos
+PR: Pullover com kettlebell no chão
+
+cb3_pullover_bola_suica | Pullover com Halter Apoiado na Bola Suíça | costas | Halter + bola suíça | int | ⚽ | bola_suica | ca | b | CH | 3 | 10-12
+P: Latíssimo
+S: Peitoral, Glúteos, Core, Tríceps Longo
+I: Apoie apenas as escápulas e a cabeça na bola suíça, quadril alto alinhado com joelhos e ombros (posição de ponte) | Segure um halter com as duas mãos acima do peito | Leve o halter para trás da cabeça mantendo o quadril alto | Puxe de volta acima do peito sem deixar o quadril cair
+E: Quadril caindo durante o movimento | Bola rolando por falta de base (pés juntos demais) | Descer o halter além da mobilidade
+PR: Pullover com barra no banco
+RG: Pullover com kettlebell no chão
+
+cb3_barra_pes_cadeira | Barra Fixa com Pés Apoiados na Cadeira | costas | Barra fixa de porta + cadeira | ini | 🪑 | barra_fixa | ca | b | CH | 3 | 6-10
+P: Latíssimo, Bíceps
+S: Redondo Maior, Rombóides, Antebraços
+I: Coloque uma cadeira firme à frente (ou atrás) da barra e segure a barra com pegada na largura dos ombros | Apoie os calcanhares na cadeira com os joelhos dobrados, corpo pendurado | Puxe o peito em direção à barra usando as pernas o mínimo possível | Desça devagar até os braços estenderem
+E: Empurrar demais com as pernas | Cadeira instável ou que escorrega | Descer soltando o corpo
+PR: Pull-up negativo
+RG: Remada invertida sob a mesa
+
+cb3_pullup_pausa_90 | Pull-up com Pausa a 90° | costas | Barra fixa | ava | ⏱️ | barra_fixa | ca | b | CH | 4 | 4-6
+P: Latíssimo, Bíceps
+S: Redondo Maior, Rombóides, Core
+I: Pendure-se na barra com pegada pronada um pouco mais aberta que os ombros | Puxe até os cotovelos formarem 90° e segure 2 segundos | Continue puxando até o queixo passar a barra | Desça devagar parando de novo 2 segundos nos 90° | Estenda os braços por completo antes da próxima
+E: Balançar as pernas para passar o ponto difícil | Encurtar a descida | Prender a respiração na pausa por muito tempo
+PR: Pull-up com peso
+RG: Pull-up com banda de resistência
+
+cb3_arrasto_toalhas_chao | Puxada Deslizante no Chão com Toalhas | costas | Duas toalhas + piso liso | ava | 🧽 | toalha | c | b | CH | 3 | 6-10
+P: Latíssimo
+S: Redondo Maior, Core, Tríceps Longo
+I: Deite de barriga para baixo num piso liso, cada antebraço sobre uma toalha, braços esticados à frente | Contraia o abdômen e os glúteos para o corpo ficar firme como uma prancha | Pressione as toalhas contra o chão e puxe-as em direção ao peito, arrastando o corpo para frente | Estique os braços de novo deslizando as toalhas e repita
+E: Puxar só com os bíceps | Arquear a lombar | Piso com atrito (o corpo trava)
+PR: Pull-up na barra fixa
+RG: Puxada isométrica com toalha sentado
+
+cb3_puxada_crossover_ajoelhado | Puxada Ajoelhada no Crossover | costas | Crossover (duas polias altas) + pegadores | int | ✖️ | crossover | a | b | H | 3 | 10-12
+P: Latíssimo, Redondo Maior
+S: Rombóides, Bíceps, Trapézio Inferior
+I: Coloque as duas polias no alto e ajoelhe-se no centro do crossover | Segure um pegador em cada mão, braços abertos e estendidos para cima em V | Puxe os cotovelos para baixo e para trás até as mãos ficarem ao lado dos ombros | Segure 1 segundo com o peito alto e suba devagar
+E: Sentar nos calcanhares durante a puxada | Encolher os ombros no final | Carga diferente entre os lados
+PR: Puxada frontal com descida lenta de 4s
+RG: Puxada frontal no pulley
+
+cb3_puxada_isometrica_toalha | Puxada Isométrica com Toalha Sentado | costas | Toalha de banho + cadeira | ini | 🧺 | toalha | c | b | CP5 | 3 | 6 x 6s
+P: Latíssimo
+S: Redondo Maior, Trapézio Inferior, Rombóides
+I: Sente na beirada da cadeira com a coluna alta e segure uma toalha esticada acima da cabeça, mãos bem afastadas | Puxe as pontas para fora como se fosse rasgar a toalha | Mantendo essa força, desça a toalha até a altura do queixo/peito, cotovelos apontando para baixo | Segure 6 segundos puxando forte para fora, relaxe e volte a toalha para cima
+E: Prender a respiração | Toalha frouxa (sem força para fora) | Projetar a cabeça para frente
+PR: Puxada unilateral ajoelhada com elástico
+
+# =====================================================================
+# ROMBOIDES / TRAPÉZIO MÉDIO / REMADAS
+# =====================================================================
+
+cb3_remada_curvada_supinada | Remada Curvada Supinada com Barra | costas | Barra reta | int | 🔄 | barra | a | b | H | 4 | 8-10
+P: Latíssimo, Rombóides
+S: Bíceps, Trapézio Médio, Eretores da Espinha
+I: Segure a barra com as palmas para cima, mãos na largura dos ombros | Dobre levemente os joelhos e incline o tronco a uns 45°, coluna neutra | Puxe a barra em direção ao umbigo, cotovelos rentes ao corpo | Aperte as costas 1 segundo e desça a barra devagar até os braços estenderem
+E: Levantar o tronco a cada repetição | Arredondar a lombar | Puxar para o peito (perde o latíssimo)
+PR: Remada Pendlay
+RG: Remada curvada no Smith
+F: Reverse_Grip_Bent-Over_Rows
+
+cb3_remada_pendlay | Remada Pendlay | costas | Barra reta + anilhas | ava | 💥 | barra | a | m | CH | 5 | 5-6
+P: Latíssimo, Rombóides, Trapézio Médio
+S: Eretores da Espinha, Bíceps, Isquiotibiais
+I: Barra no chão, pés na largura do quadril e pegada pronada um pouco mais aberta que os ombros | Incline o tronco quase paralelo ao chão, coluna neutra e quadril alto | Puxe a barra de forma explosiva do chão até o abdômen superior | Devolva a barra ao chão com controle e reajuste a postura antes da próxima
+E: Levantar o tronco para puxar | Arredondar as costas no chão | Deixar a barra cair sem controle
+PR: Remada Pendlay com pausa de 1s no abdômen
+RG: Remada curvada com barra
+
+cb3_remada_landmine_unilateral_ajoelhado | Remada Unilateral no Landmine Ajoelhado | costas | Landmine + pegador ou mão na ponta | int | 📍 | landmine | a | b | HR | 3 | 10 cada lado
+P: Latíssimo, Rombóides
+S: Oblíquos, Bíceps, Core
+I: Ajoelhe-se ao lado da ponta do landmine, joelho de fora apoiado e o outro pé à frente | Segure a ponta da barra com a mão de dentro, braço estendido | Incline levemente o tronco à frente e puxe a barra até o lado do quadril | Desça devagar sem girar o tronco
+E: Girar o tronco para puxar | Ombro caindo no final da descida | Usar anilhas grandes que batem no chão
+PR: Meadows Row
+RG: Remada unilateral com halter
+
+cb3_remada_dois_halteres_pronada | Remada Curvada com Dois Halteres (Cotovelos Abertos) | costas | Halteres | int | 🏋️ | halteres | ca | b | CH | 4 | 10-12
+P: Rombóides, Trapézio Médio
+S: Deltóide Posterior, Latíssimo, Eretores da Espinha
+I: Segure um halter em cada mão com as palmas viradas para as coxas (pronadas) | Incline o tronco a 45°, joelhos levemente dobrados e coluna neutra | Puxe os halteres levando os cotovelos para fora, na linha do peito | Aperte as escápulas no topo e desça devagar
+E: Arredondar a coluna | Encolher os ombros ao puxar | Balançar o tronco
+PR: Remada Pendlay
+RG: Remada com halteres apoiado no banco inclinado
+F: Bent_Over_Two-Dumbbell_Row
+
+cb3_remada_halteres_neutra | Remada Curvada com Halteres Pegada Neutra | costas | Halteres | ini | 🤲 | halteres | ca | b | CPH | 3 | 10-12
+P: Latíssimo
+S: Rombóides, Bíceps, Eretores da Espinha
+I: Segure os halteres com as palmas viradas uma para a outra | Incline o tronco à frente com os joelhos levemente dobrados e as costas retas | Puxe os halteres até a cintura, cotovelos raspando no corpo | Desça devagar até estender os braços
+E: Olhar para cima forçando o pescoço | Puxar para o peito | Dobrar e esticar o tronco junto
+PR: Remada curvada com dois halteres (cotovelos abertos)
+RG: Serrote com apoio no banco
+F: Bent_Over_Two-Dumbbell_Row_With_Palms_In
+
+cb3_remada_kettlebell_unilateral | Remada Unilateral com Kettlebell | costas | Kettlebell + banco ou cadeira | ini | 🔔 | kettlebell | ca | b | CPH5 | 3 | 10-12 cada lado
+P: Latíssimo, Rombóides
+S: Bíceps, Trapézio Médio, Core
+I: Apoie uma mão e o joelho do mesmo lado num banco ou cadeira firme | Segure o kettlebell pela alça com a outra mão, braço estendido | Puxe o kettlebell até o quadril, cotovelo junto ao corpo | Desça devagar até estender o braço
+E: Girar o tronco para cima | Puxar com o ombro encolhido | Costas arredondadas
+PR: Remada alternada com dois kettlebells
+RG: Remada unilateral com elástico
+F: One-Arm_Kettlebell_Row
+
+cb3_remada_kettlebell_alternada | Remada Alternada com Dois Kettlebells | costas | 2 kettlebells | int | ⚖️ | kettlebell | ca | b | CPH | 3 | 8-10 cada lado
+P: Latíssimo, Rombóides
+S: Core, Eretores da Espinha, Bíceps
+I: Coloque dois kettlebells entre os pés e segure as alças, pés na largura do quadril | Incline o tronco a 45°, coluna neutra e joelhos levemente dobrados | Puxe um kettlebell até o quadril enquanto o outro fica parado embaixo | Desça e puxe o outro lado, sem girar o tronco
+E: Rotação do tronco a cada puxada | Perder a inclinação ao longo da série | Puxar os dois juntos sem perceber
+PR: Remada Renegade
+F: Alternating_Kettlebell_Row
+
+cb3_remada_baixa_pausa | Remada Baixa com Pausa e Retração Escapular | costas | Remada baixa (polia sentada) + triângulo | ini | ⏸️ | remada_baixa | a | b | CH5 | 3 | 10-12
+P: Rombóides, Trapézio Médio
+S: Latíssimo, Bíceps, Deltóide Posterior
+I: Sente com os pés na plataforma e joelhos levemente dobrados, segurando o triângulo | Mantenha o tronco reto (sem balançar) | Puxe o triângulo até o abdômen, juntando as escápulas atrás | Segure 2 segundos apertando as costas e volte devagar
+E: Balançar o tronco para frente e para trás | Ombros subindo | Soltar o peso rápido na volta
+PR: Remada baixa unilateral no cabo
+RG: Remada sentada com elástico
+
+cb3_remada_baixa_supinada | Remada Baixa com Barra Supinada | costas | Remada baixa (polia sentada) + barra reta | int | 🔃 | remada_baixa | a | b | H | 3 | 10-12
+P: Latíssimo
+S: Bíceps, Rombóides, Redondo Maior
+I: Prenda uma barra reta na remada baixa e segure com as palmas para cima, mãos na largura dos ombros | Sente com o tronco ereto e joelhos levemente dobrados | Puxe a barra até o umbigo com os cotovelos colados ao corpo | Volte devagar até os braços estenderem, deixando as escápulas abrirem
+E: Puxar alto, na altura do peito | Inclinar demais o tronco para trás | Punhos dobrados para trás
+PR: Remada curvada supinada com barra
+
+cb3_remada_polia_rotacao | Remada Unilateral em Pé na Polia com Rotação | costas | Polia média + pegador | int | 🌀 | polia | a | b | CPR | 3 | 10-12 cada lado
+P: Latíssimo, Rombóides
+S: Oblíquos, Glúteos, Bíceps
+I: Ajuste a polia na altura do peito e fique em base de afundo, pé contrário ao braço que puxa à frente | Segure o pegador com o braço estendido e o tronco levemente girado na direção da polia | Puxe o pegador até a lateral do peito girando o tronco para o lado oposto | Volte devagar deixando o tronco girar de novo para a polia
+E: Girar só os braços e não o tronco | Joelho da frente para dentro | Perder o equilíbrio por base estreita
+PR: Remada unilateral no TRX
+RG: Remada unilateral com elástico e rotação
+
+cb3_remada_t_deitado | Remada T Deitado (Apoio no Peito) | costas | Máquina de remada T com apoio de peito | ava | 🔩 | remada_maquina | a | b | H | 4 | 8-10
+P: Rombóides, Latíssimo, Trapézio Médio
+S: Bíceps, Deltóide Posterior
+I: Deite de bruços no apoio inclinado da máquina com o peito bem encostado | Segure as alças (aberta para trapézio/romboides ou fechada para latíssimo) | Puxe até as alças chegarem perto do peito, cotovelos para trás | Desça devagar até estender os braços, sem tirar o peito do apoio
+E: Levantar o peito para ganhar impulso | Encolher os ombros | Descer rápido
+PR: Remada T deitado com pausa de 2s
+RG: Remada articulada unilateral
+F: Lying_T-Bar_Row
+
+cb3_remada_smith_unilateral | Remada Unilateral no Smith de Lado | costas | Máquina Smith | int | 🧱 | smith | a | b | H | 3 | 10 cada lado
+P: Latíssimo, Rombóides
+S: Bíceps, Core, Eretores da Espinha
+I: Fique de lado para a barra do Smith, posicionada na altura do joelho | Incline o tronco e apoie a mão livre na coxa | Segure a barra pelo meio com uma mão e destrave | Puxe a barra até o quadril com o cotovelo junto ao corpo | Desça controlando e trave ao terminar o lado
+E: Pegada fora do centro (barra entorta a mão) | Girar o tronco | Esquecer de travar a barra
+PR: Meadows Row
+RG: Remada unilateral com kettlebell
+
+cb3_remada_invertida_smith | Remada Invertida no Smith | costas | Máquina Smith (barra travada) | ini | 🧱 | smith | a | b | CPH5 | 3 | 8-12
+P: Latíssimo, Rombóides
+S: Bíceps, Core, Deltóide Posterior
+I: Trave a barra do Smith na altura da cintura (quanto mais alta, mais fácil) | Segure com pegada na largura dos ombros e caminhe com os pés à frente, corpo inclinado e reto | Puxe o peito até a barra apertando as escápulas | Desça devagar até os braços estenderem
+E: Quadril caindo | Puxar com o queixo para frente | Barra mal travada
+PR: Remada invertida com pés elevados
+RG: Remada no TRX
+F: Inverted_Row
+
+cb3_remada_invertida_mesa | Remada Invertida sob a Mesa | costas | Mesa firme de madeira | int | 🍽️ | peso_corporal | c | b | CPH | 3 | 8-12
+P: Latíssimo, Rombóides
+S: Bíceps, Core, Glúteos
+I: Teste antes se a mesa é pesada e firme (não use mesa de vidro ou dobrável) | Deite embaixo dela e segure a borda com as mãos na largura dos ombros | Com joelhos dobrados (mais fácil) ou pernas estendidas, faça uma ponte com o quadril | Puxe o peito até a borda da mesa e desça devagar
+E: Mesa leve que levanta ou tomba | Quadril caindo durante a puxada | Bater a cabeça na borda ao subir
+PR: Barra fixa com pés apoiados na cadeira
+RG: Remada com toalha na porta
+
+cb3_remada_unilateral_trx | Remada Unilateral no TRX | costas | TRX (ambas alças em uma mão) | ava | 🎯 | trx | ca | b | CHR | 3 | 8 cada lado
+P: Latíssimo, Rombóides
+S: Oblíquos, Core, Bíceps
+I: Junte as duas alças do TRX e segure com uma mão | Incline o corpo para trás com os pés à frente, braço estendido | Puxe o corpo para cima levando o cotovelo para trás, sem deixar o tronco girar | Desça devagar até estender o braço
+E: Tronco girando para o lado livre | Quadril cedendo | Ombro subindo no final
+PR: Remada unilateral no TRX com pés mais à frente
+RG: Remada no TRX
+
+cb3_remada_aberta_trx | Remada Aberta no TRX (Cotovelos Altos) | costas | TRX | int | 🕊️ | trx | ca | b | CHR5 | 3 | 10-12
+P: Rombóides, Trapézio Médio
+S: Deltóide Posterior, Latíssimo, Core
+I: Segure as alças do TRX com as palmas para baixo e incline o corpo para trás | Mantenha o corpo reto do calcanhar à cabeça | Puxe abrindo os cotovelos para os lados, na altura dos ombros | Aperte as escápulas no topo e desça devagar
+E: Cotovelos caindo junto ao corpo (vira remada comum) | Quadril cedendo | Puxar só com os braços
+PR: Remada unilateral no TRX
+RG: Remada aberta no TRX com o corpo mais em pé
+
+cb3_remada_elastico_rotacao | Remada Unilateral com Elástico e Rotação | costas | Elástico preso na altura do peito | int | 🌀 | elastico | ca | b | CPR5 | 3 | 12 cada lado
+P: Latíssimo, Rombóides
+S: Oblíquos, Glúteos, Core
+I: Prenda o elástico na altura do peito (porta com âncora ou poste) | Fique em base de afundo, pé contrário ao braço que puxa à frente | Puxe o elástico até o peito girando o tronco para trás, como na preparação do forehand | Volte devagar girando de novo para frente
+E: Joelho da frente entrando | Rotação só do braço | Elástico sem tensão no início
+PR: Remada unilateral em pé na polia com rotação
+RG: Remada sentada com elástico
+
+cb3_remada_mochila_unilateral | Remada Unilateral com Mochila Apoiado na Cadeira | costas | Mochila com peso + cadeira | ini | 🎒 | mochila | c | b | CPH5 | 3 | 12-15 cada lado
+P: Latíssimo, Rombóides
+S: Bíceps, Trapézio Médio
+I: Coloque 4-10 kg na mochila e segure pela alça superior | Apoie a mão livre no encosto ou assento de uma cadeira firme, tronco inclinado à frente | Puxe a mochila até o quadril com o cotovelo junto ao corpo | Desça devagar até estender o braço
+E: Alça fina machucando a mão (enrole uma toalha) | Girar o tronco | Costas arredondadas
+PR: Remada unilateral com kettlebell
+RG: Remada com toalha na porta
+
+cb3_remada_garrafas | Remada Curvada com Garrafas de Água | costas | Garrafas PET de 2 L cheias (ou galões) | ini | 🧴 | halteres | c | b | CP5 | 3 | 15-20
+P: Rombóides, Latíssimo
+S: Trapézio Médio, Bíceps, Eretores da Espinha
+I: Segure uma garrafa cheia em cada mão pelo gargalo ou alça | Incline o tronco à frente com joelhos dobrados e coluna reta | Puxe as garrafas até a cintura apertando as escápulas | Desça devagar e repita num ritmo constante
+E: Arredondar as costas | Puxar rápido sem apertar as costas | Garrafa mal fechada
+PR: Remada curvada com mochila
+RG: Remada isométrica com toalha
+
+cb3_remada_isometrica_toalha | Remada Isométrica com Toalha nos Pés | costas | Toalha de banho + colchonete | ini | 🧺 | toalha | c | b | C5 | 3 | 5 x 8s
+P: Rombóides, Trapézio Médio
+S: Latíssimo, Bíceps, Eretores da Espinha
+I: Sente no chão com as pernas estendidas e a coluna alta | Passe a toalha pela sola dos pés e segure uma ponta em cada mão | Puxe a toalha forte, levando os cotovelos para trás e juntando as escápulas | Segure 8 segundos respirando normalmente e relaxe
+E: Arredondar as costas para puxar | Prender a respiração | Encolher os ombros
+PR: Remada curvada com garrafas de água
+
+cb3_scap_row_trx | Retração Escapular no TRX | costas | TRX | ini | 🪽 | trx | ca | b | CR5 | 3 | 12-15
+P: Rombóides, Trapézio Médio
+S: Trapézio Inferior, Deltóide Posterior
+I: Segure as alças do TRX e incline o corpo levemente para trás, braços estendidos | Sem dobrar os cotovelos, aproxime as escápulas uma da outra | O corpo sobe poucos centímetros: o movimento é só das escápulas | Segure 2 segundos e solte devagar
+E: Dobrar os cotovelos | Encolher os ombros em vez de juntar as escápulas | Inclinar demais o corpo no início
+PR: Remada aberta no TRX
+RG: Band Pull Apart
+
+# =====================================================================
+# TRAPÉZIO INFERIOR / DEPRESSÃO ESCAPULAR
+# =====================================================================
+
+cb3_y_banco_inclinado | Elevação em Y Deitado no Banco Inclinado | costas | Halteres leves + banco inclinado | ini | 🙌 | halteres | a | b | HR5 | 3 | 12-15
+P: Trapézio Inferior
+S: Deltóide Posterior, Rombóides, Manguito Rotador
+I: Deite de bruços no banco inclinado a 30-45° com um halter leve em cada mão, polegares para cima | Abaixe as escápulas (afaste os ombros das orelhas) | Eleve os braços estendidos em diagonal formando um Y até a linha das orelhas | Segure 1 segundo e desça devagar
+E: Usar carga alta e encolher os ombros | Levantar o peito do banco | Braços abrindo em T em vez de Y
+PR: Elevação em Y no cabo
+RG: Elevação em Y com elástico em pé
+
+cb3_depressao_escapular_pulley | Puxada Escapular no Pulley | costas | Pulley (puxador alto) + barra longa | ini | 🔽 | puxador_pulley | a | b | HR5 | 3 | 12-15
+P: Trapézio Inferior, Latíssimo
+S: Serrátil, Rombóides
+I: Sente no pulley com as coxas presas e segure a barra com os braços estendidos | Deixe os ombros subirem até as orelhas (posição inicial) | Sem dobrar os cotovelos, puxe os ombros para baixo e para trás | Segure 2 segundos e deixe subir devagar
+E: Dobrar os cotovelos (vira puxada) | Inclinar o tronco para trás | Movimento rápido e curto
+PR: Scapular Pull-up
+RG: Depressão escapular sentado na cadeira
+
+cb3_y_elastico_em_pe | Elevação em Y com Elástico em Pé | costas | Elástico de faixa | ini | 🎗️ | elastico | ca | b | CR5 | 3 | 15
+P: Trapézio Inferior
+S: Deltóide Posterior, Rombóides, Manguito Rotador
+I: Pise no meio do elástico com os pés na largura do quadril, ou prenda-o baixo à frente | Segure as pontas com os polegares para cima | Eleve os braços em diagonal formando um Y acima da cabeça, mantendo os ombros longe das orelhas | Segure 1 segundo e desça devagar
+E: Arquear a lombar para subir | Encolher os ombros | Elástico forte demais
+PR: Elevação em Y no TRX
+
+# =====================================================================
+# ERETORES DA ESPINHA
+# =====================================================================
+
+cb3_extensao_lombar_isometrica | Extensão Lombar Isométrica no Banco 45° | costas | Banco romano / hiperextensão 45° | ini | 🧘 | banco_romano | a | b | CH5 | 3 | 20-40s
+P: Eretores da Espinha
+S: Glúteos, Isquiotibiais
+I: Ajuste o apoio do banco 45° logo abaixo da linha do quadril e prenda os tornozelos | Cruze os braços no peito | Mantenha o corpo em linha reta do calcanhar à cabeça, sem descer | Contraia glúteos e abdômen e respire normalmente até o fim do tempo
+E: Hiperestender a lombar (olhar para cima) | Apoio na altura da barriga | Prender a respiração
+PR: Extensão lombar com anilha no peito
+RG: Superman
+
+cb3_extensao_lombar_anilha | Extensão Lombar com Anilha no Peito | costas | Banco romano / hiperextensão 45° + anilha | int | 💿 | banco_romano | a | b | H | 3 | 10-12
+P: Eretores da Espinha
+S: Glúteos, Isquiotibiais
+I: Ajuste o banco 45° com o apoio abaixo do quadril e segure uma anilha abraçada ao peito | Desça o tronco devagar flexionando o quadril até sentir alongar | Suba até o corpo ficar em linha reta, sem passar dela | Contraia os glúteos no topo
+E: Subir além da linha do corpo | Movimento com tranco | Anilha pesada antes de dominar o peso do corpo
+PR: Good Morning sentado
+RG: Extensão lombar isométrica no banco 45°
+
+cb3_nadador_deitado | Nadador Deitado (Swimmer) | costas | Colchonete | ini | 🏊 | colchonete | ca | b | CP5R | 3 | 20-30s
+P: Eretores da Espinha, Trapézio Inferior
+S: Glúteos, Deltóide Posterior, Isquiotibiais
+I: Deite de bruços com braços estendidos à frente e testa apoiada | Tire levemente braços, peito e pernas do chão | Alterne braço direito com perna esquerda e vice-versa em pequenas batidas, como na natação | Mantenha o olhar para o chão e respire de forma contínua
+E: Levantar muito a cabeça | Movimentos grandes que forçam a lombar | Prender a respiração
+PR: Extensão lombar com pés presos no sofá
+RG: Bird Dog
+
+cb3_good_morning_sentado | Good Morning Sentado com Barra | costas | Barra reta + banco | ava | 🌅 | barra | a | b | H | 3 | 8-10
+P: Eretores da Espinha
+S: Glúteos, Adutores, Isquiotibiais
+I: Sente na ponta do banco com as pernas afastadas e a barra apoiada nas costas, como no agachamento | Coluna neutra e peito aberto | Incline o tronco à frente, levando o quadril para trás, até perto de 45° | Volte à posição sentada contraindo lombar e glúteos
+E: Arredondar a coluna | Carga alta demais | Descer além do controle
+PR: Good Morning
+RG: Extensão lombar com anilha no peito
+F: Seated_Good_Mornings
+
+# =====================================================================
+# BÍCEPS
+# =====================================================================
+
+cb3_rosca_barra_aberta | Rosca com Barra Pegada Aberta | biceps | Barra reta | ini | 💪 | barra | a | b | H | 3 | 10-12
+P: Bíceps
+S: Braquial, Antebraços
+I: Fique em pé e segure a barra com as palmas para cima, mãos mais afastadas que os ombros | Cotovelos colados ao lado do corpo | Suba a barra até a altura do peito sem mover os cotovelos para frente | Desça devagar até estender os braços
+E: Balançar o tronco | Cotovelos indo para frente | Descer rápido
+PR: Rosca com barra pegada fechada
+F: Wide-Grip_Standing_Barbell_Curl
+
+cb3_rosca_barra_fechada | Rosca com Barra Pegada Fechada | biceps | Barra reta | int | 💪 | barra | a | b | H | 3 | 8-10
+P: Bíceps
+S: Braquial, Braquiorradial
+I: Segure a barra com as palmas para cima e as mãos a um palmo de distância | Cotovelos colados ao corpo e ombros para trás | Suba a barra contraindo o bíceps até perto do peito | Desça em 3 segundos até estender os braços
+E: Punhos dobrando para trás | Balançar o quadril | Abrir os cotovelos
+PR: Rosca Spider com barra W
+RG: Rosca com barra pegada aberta
+F: Close-Grip_Standing_Barbell_Curl
+
+cb3_rosca_spider_barra_w | Rosca Spider com Barra W | biceps | Barra W + banco Scott (lado vertical) ou banco inclinado | ava | 🕷️ | barra_ez | a | b | H | 3 | 8-10
+P: Bíceps
+S: Braquial
+I: Apoie o peito no lado vertical do banco Scott (ou num banco inclinado), braços pendurados verticalmente | Segure a barra W na pegada mais fechada, palmas para cima | Suba a barra sem levar os cotovelos para frente, até contrair forte o bíceps | Segure 1 segundo e desça devagar até estender
+E: Balançar os braços | Tirar o peito do apoio | Descer sem estender
+PR: Rosca Spider com pausa de 2s no topo
+RG: Rosca Scott
+F: Spider_Curl
+
+cb3_rosca_scott_maquina | Rosca Scott na Máquina | biceps | Máquina de rosca Scott | ini | 🦾 | maquina_bracos | a | b | H5 | 3 | 10-12
+P: Bíceps
+S: Braquial, Braquiorradial
+I: Ajuste o banco para que as axilas fiquem bem encaixadas no topo do apoio | Segure as alças com as palmas para cima | Dobre os cotovelos levando as alças até perto dos ombros | Desça devagar até quase estender, sem travar os cotovelos
+E: Tirar os braços do apoio | Esticar o cotovelo de forma brusca | Banco baixo demais
+PR: Rosca Scott no cabo
+F: Machine_Preacher_Curls
+
+cb3_rosca_scott_cabo | Rosca Scott no Cabo | biceps | Polia baixa + barra W + banco Scott | int | 🎯 | polia | a | b | H | 3 | 10-12
+P: Bíceps
+S: Braquial
+I: Posicione o banco Scott de frente para a polia baixa e prenda uma barra W | Apoie os braços no banco e segure a barra com as palmas para cima | Suba até contrair o bíceps, mantendo a tensão do cabo | Desça devagar até quase estender os braços
+E: Banco longe demais da polia (o cabo perde tensão) | Tirar os cotovelos do apoio | Usar o ombro para levantar
+PR: Rosca Spider com barra W
+RG: Rosca Scott na máquina
+F: Cable_Preacher_Curl
+
+cb3_rosca_deitado_cabo | Rosca Deitado no Cabo | biceps | Polia baixa + barra reta + colchonete | int | 🛌 | polia | a | b | H5 | 3 | 12-15
+P: Bíceps
+S: Braquial
+I: Deite de barriga para cima no chão (ou banco) com os pés voltados para a polia baixa | Segure a barra com as palmas para cima e braços estendidos ao lado do corpo | Dobre os cotovelos trazendo a barra até o peito, cotovelos fixos no chão | Desça devagar até estender
+E: Tirar os cotovelos do chão | Ficar perto demais da polia | Puxar com os ombros
+PR: Rosca Scott no cabo
+F: Lying_Cable_Curl
+
+cb3_rosca_polia_alta_deitado | Rosca na Polia Alta Deitado no Banco | biceps | Polia alta + barra reta + banco | ava | 🔝 | polia | a | b | H | 3 | 10-12
+P: Bíceps
+S: Braquial
+I: Coloque um banco reto embaixo da polia alta e deite com a cabeça perto dela | Segure a barra com pegada fechada, palmas viradas para você, braços estendidos para cima | Mantenha os braços perpendiculares ao corpo e dobre os cotovelos trazendo a barra para a testa | Volte devagar até estender
+E: Mover os braços para ajudar | Carga alta e cotovelos saindo da vertical | Volta rápida
+PR: Rosca Bíceps na Polia Alta
+F: Lying_Close-Grip_Bar_Curl_On_High_Pulley
+
+cb3_rosca_concentrada_em_pe | Rosca Concentrada em Pé (Tronco Inclinado) | biceps | Halter | int | 🎯 | halteres | ca | b | H | 3 | 10-12 cada braço
+P: Bíceps
+S: Braquial
+I: Fique com as pernas afastadas e incline o tronco à frente, mão livre apoiada na coxa | Deixe o braço com o halter pendurado verticalmente | Suba o halter até perto do ombro, sem mover o braço | Desça devagar até estender
+E: Balançar o tronco | Girar o ombro para cima | Coluna arredondada
+PR: Rosca Spider com barra W
+RG: Rosca Concentrada sentado
+F: Standing_Concentration_Curl
+
+cb3_rosca_deitado_banco_reto | Rosca Deitado no Banco Reto (Braços Pendentes) | biceps | Halteres + banco alto | ava | 🛌 | halteres | a | b | H | 3 | 8-10
+P: Bíceps
+S: Braquial, Antebraços
+I: Deite de barriga para cima num banco reto alto, com um halter leve em cada mão | Deixe os braços pendurados ao lado do banco, palmas para cima, sentindo o bíceps alongar | Suba os halteres sem mover os braços para frente | Desça devagar até o alongamento total
+E: Carga alta (o ombro fica em posição de estresse) | Mover os cotovelos | Descer rápido no alongamento
+PR: Rosca Bayesiana
+RG: Rosca inclinada
+F: Lying_Supine_Dumbbell_Curl
+
+cb3_rosca_rotacao_externa | Rosca com Halteres em Rotação Externa | biceps | Halteres | int | 🤸 | halteres | ca | b | H | 3 | 10-12
+P: Bíceps
+S: Braquial, Deltóide Anterior
+I: Em pé, segure os halteres com as palmas para frente e os braços levemente abertos | Mantenha os cotovelos junto ao corpo | Suba os halteres em direção aos ombros, deixando as mãos irem para fora (abertas) | Desça devagar até estender
+E: Afastar os cotovelos do corpo | Balançar | Carga pesada demais
+PR: Rosca inclinada
+F: Standing_Inner-Biceps_Curl
+
+cb3_rosca_kettlebell | Rosca com Kettlebell | biceps | Kettlebell | ini | 🔔 | kettlebell | ca | b | CH | 3 | 10-12
+P: Bíceps
+S: Braquial, Antebraços
+I: Segure um kettlebell pelos chifres (laterais da alça) com as duas mãos, palmas para cima | Cotovelos colados no corpo | Suba o kettlebell até o peito | Desça devagar até estender os braços
+E: Balançar o tronco | Abrir os cotovelos | Descer sem controle
+PR: Rosca com kettlebell unilateral
+RG: Rosca com mochila
+
+cb3_rosca_mochila | Rosca com Mochila | biceps | Mochila com peso | ini | 🎒 | mochila | c | b | CPH5 | 3 | 12-15
+P: Bíceps
+S: Braquial, Antebraços
+I: Coloque 3-8 kg na mochila e segure pelas alças de ombro, uma em cada mão, palmas para cima | Fique em pé com os cotovelos colados ao corpo | Suba a mochila até o peito | Desça devagar até estender os braços
+E: Balançar o corpo | Peso solto dentro da mochila | Descer rápido
+PR: Rosca com kettlebell
+
+cb3_rosca_toalha_isometrica | Rosca Isométrica com Toalha sob o Pé | biceps | Toalha de banho | ini | 🧺 | toalha | c | b | H5 | 3 | 4 x 8s cada braço
+P: Bíceps
+S: Braquial, Antebraços
+I: Sente numa cadeira e pise no meio de uma toalha dobrada | Segure as duas pontas com uma mão, palma para cima, cotovelo a 90° | Puxe para cima com força máxima por 8 segundos, sem tirar o pé | Relaxe, troque de braço e repita em outro ângulo (cotovelo mais aberto ou mais fechado)
+E: Prender a respiração | Inclinar o tronco para trás | Força fraca demais
+PR: Rosca com mochila
+
+cb3_rosca_bayesiana_elastico | Rosca Bayesiana com Elástico | biceps | Elástico preso baixo atrás do corpo | int | 🎗️ | elastico | ca | b | H | 3 | 12 cada braço
+P: Bíceps
+S: Braquial
+I: Prenda o elástico baixo (pé de mesa ou porta) e fique de costas para ele, um passo à frente | Segure com uma mão, braço estendido e levemente atrás do corpo | Dobre o cotovelo trazendo a mão até o ombro, sem levar o cotovelo para frente | Volte devagar até estender, sentindo alongar o bíceps
+E: Cotovelo indo para frente | Inclinar o tronco | Elástico sem tensão no início
+PR: Rosca Bayesiana
+RG: Rosca com elástico
+
+cb3_rosca_trx | Rosca no TRX | biceps | TRX | int | 🪢 | trx | ca | b | CH | 3 | 10-12
+P: Bíceps
+S: Braquial, Core
+I: Segure as alças com as palmas para cima e incline o corpo para trás, braços estendidos à frente | Mantenha o corpo reto e os cotovelos na altura dos ombros | Dobre os cotovelos trazendo as mãos até a testa, puxando o corpo para cima | Desça devagar até estender
+E: Cotovelos caindo (vira remada) | Quadril cedendo | Pés longe demais no início
+PR: Rosca corporal no Smith
+RG: Rosca no TRX com o corpo mais em pé
+
+cb3_rosca_toalha_macaneta | Rosca com Toalha na Maçaneta da Porta | biceps | Toalha + porta fechada | ini | 🚪 | toalha | c | b | CP | 3 | 10-15
+P: Bíceps
+S: Braquial, Core, Antebraços
+I: Feche bem a porta e passe a toalha em volta das duas maçanetas (ou de uma) | Segure as pontas com as palmas para cima e incline o corpo para trás, braços estendidos | Dobre os cotovelos puxando o corpo em direção à porta, cotovelos na altura dos ombros | Volte devagar até estender
+E: Porta mal fechada ou maçaneta frouxa | Usar as costas para puxar | Inclinar demais logo no início
+PR: Rosca no TRX
+
+cb3_rosca_corporal_smith | Rosca Corporal no Smith | biceps | Máquina Smith (barra travada) | ava | 🧱 | smith | a | b | H | 3 | 8-10
+P: Bíceps
+S: Braquial, Core
+I: Trave a barra do Smith na altura do peito | Segure com pegada supinada na largura dos ombros e caminhe com os pés à frente, corpo inclinado | Mantenha o corpo reto e dobre os cotovelos levando a testa até a barra | Desça devagar até estender os braços
+E: Puxar como remada (cotovelos para trás) | Quadril cedendo | Barra mal travada
+PR: Chin-up Pegada Fechada
+RG: Rosca no TRX
+
+cb3_rosca_excentrica_lenta | Rosca com Halteres Excêntrica Lenta (5s) | biceps | Halteres | int | 🐢 | halteres | ca | b | H5 | 3 | 6-8
+P: Bíceps
+S: Braquial, Braquiorradial
+I: Sentado ou em pé, segure os halteres com as palmas para cima | Suba os dois halteres em 1 segundo | Desça contando 5 segundos, controlando até os braços estenderem | Respire na descida e não descanse embaixo
+E: Encurtar a descida no fim da série | Balançar para subir | Peso leve demais (sem desafio)
+PR: Rosca Spider com barra W
+RG: Rosca alternada
+
+cb3_rosca_maquina_unilateral | Rosca na Máquina Unilateral | biceps | Máquina de rosca (bíceps) | ini | 🦾 | maquina_bracos | a | b | H5 | 3 | 10-12 cada braço
+P: Bíceps
+S: Braquial
+I: Ajuste o assento para o cotovelo ficar alinhado com o eixo da máquina | Segure só uma alça, palma para cima, com o braço apoiado | Suba até contrair o bíceps e desça devagar | Termine as repetições e troque o braço
+E: Cotovelo fora do eixo | Tirar o braço do apoio | Descer de forma brusca
+PR: Rosca Scott no cabo
+
+cb3_rosca_landmine | Rosca no Landmine | biceps | Landmine (ponta da barra) | int | 📍 | landmine | a | b | H | 3 | 10-12
+P: Bíceps
+S: Braquial, Antebraços
+I: Fique de frente para a ponta do landmine e segure-a com as duas mãos entrelaçadas, palmas para cima | Cotovelos colados ao corpo, joelhos levemente dobrados | Dobre os cotovelos levando a ponta da barra até o peito | Desça devagar até estender os braços
+E: Balançar o tronco | Ficar longe demais da barra | Cotovelos saindo do corpo
+PR: Rosca com barra pegada fechada
+
+# =====================================================================
+# BRAQUIAL / BRAQUIORRADIAL
+# =====================================================================
+
+cb3_rosca_martelo_inclinada | Rosca Martelo no Banco Inclinado | biceps | Halteres + banco inclinado | int | 🔨 | halteres | a | b | H | 3 | 10-12
+P: Braquial, Braquiorradial
+S: Bíceps
+I: Sente num banco inclinado a 45-60° com as costas apoiadas | Deixe os braços pendurados com os halteres em pegada neutra (polegares para frente) | Suba os halteres mantendo os braços na vertical | Desça devagar até estender
+E: Tirar as costas do banco | Levar os cotovelos para frente | Descer rápido
+PR: Rosca Scott martelo com halter
+F: Incline_Hammer_Curls
+
+cb3_rosca_scott_martelo | Rosca Scott Martelo com Halter | biceps | Halter + banco Scott | int | 🔨 | halteres | a | b | H | 3 | 10 cada braço
+P: Braquial, Braquiorradial
+S: Bíceps
+I: Apoie o braço no banco Scott com o halter em pegada neutra | Mantenha a axila encaixada no topo do apoio | Suba o halter até perto do ombro sem tirar o braço do banco | Desça devagar até quase estender
+E: Estender o cotovelo de forma brusca | Girar o punho | Tirar o braço do apoio
+PR: Rosca Zottman no Scott
+F: Preacher_Hammer_Dumbbell_Curl
+
+cb3_rosca_martelo_elastico | Rosca Martelo com Elástico | biceps | Elástico de faixa ou tubo | ini | 🎗️ | elastico | ca | b | CH5R | 3 | 15
+P: Braquial, Braquiorradial
+S: Bíceps, Antebraços
+I: Pise no meio do elástico com os pés na largura do quadril | Segure as pontas com as palmas viradas uma para a outra | Suba as mãos até os ombros com os cotovelos colados ao corpo | Desça devagar contra a resistência
+E: Elástico fino que não dá desafio | Cotovelos para frente | Punhos dobrados
+PR: Rosca martelo com halteres
+RG: Rosca martelo com elástico unilateral leve
+
+cb3_rosca_inversa_scott_w | Rosca Inversa no Scott com Barra W | biceps | Barra W + banco Scott | int | 🔁 | barra_ez | a | b | HR | 3 | 10-12
+P: Braquiorradial, Braquial
+S: Extensores do Pulso, Bíceps
+I: Apoie os braços no banco Scott e segure a barra W com as palmas para baixo | Mantenha os punhos retos, alinhados com o antebraço | Suba a barra até perto dos ombros | Desça devagar até quase estender
+E: Punhos caindo para baixo | Carga alta (o punho cede) | Tirar os braços do apoio
+PR: Rosca Zottman no Scott
+RG: Rosca inversa no cabo
+F: Reverse_Barbell_Preacher_Curls
+
+cb3_rosca_inversa_cabo | Rosca Inversa na Polia Baixa | biceps | Polia baixa + barra reta | ini | 🔁 | polia | a | b | HR5 | 3 | 12-15
+P: Braquiorradial, Braquial
+S: Extensores do Pulso, Bíceps
+I: Prenda a barra reta na polia baixa e segure com as palmas para baixo, mãos na largura dos ombros | Fique em pé com os cotovelos colados ao corpo | Suba a barra até a altura do peito com os punhos retos | Desça devagar até estender
+E: Dobrar os punhos | Balançar o tronco | Abrir os cotovelos
+PR: Rosca inversa no Scott com barra W
+F: Reverse_Cable_Curl
+
+cb3_rosca_inversa_halteres | Rosca Inversa com Halteres | biceps | Halteres | ini | 🔁 | halteres | ca | b | HR5 | 3 | 12-15
+P: Braquiorradial, Braquial
+S: Extensores do Pulso, Bíceps
+I: Em pé, segure os halteres com as palmas para trás (pegada pronada) | Cotovelos colados ao corpo | Suba os halteres até a altura dos ombros mantendo os punhos firmes | Desça devagar até estender
+E: Punhos caindo | Peso alto demais | Cotovelos indo para frente
+PR: Rosca Zottman
+F: Standing_Dumbbell_Reverse_Curl
+
+cb3_rosca_inversa_elastico | Rosca Inversa com Elástico | biceps | Elástico de faixa ou tubo | ini | 🎗️ | elastico | ca | b | CR5 | 3 | 15
+P: Braquiorradial, Extensores do Pulso
+S: Braquial, Bíceps
+I: Pise no meio do elástico e segure as pontas com as palmas para trás | Cotovelos junto ao corpo e punhos retos | Suba as mãos até a altura do peito | Desça devagar contra a resistência
+E: Dobrar os punhos | Elástico sem tensão no início | Inclinar o tronco
+PR: Rosca inversa com halteres
+
+cb3_rosca_inversa_anilha | Rosca Inversa com Anilha (Pegada na Borda) | biceps | Anilha | int | 💿 | anilha | a | b | R | 3 | 10-12
+P: Braquiorradial, Flexores dos Dedos
+S: Braquial, Extensores do Pulso
+I: Segure uma anilha pelas bordas laterais com as duas mãos, palmas viradas para baixo/trás | Cotovelos colados ao corpo | Suba a anilha até a altura do peito apertando bem os dedos | Desça devagar sem deixar a anilha escorregar
+E: Anilha escorregando (pegada fraca) | Balançar o tronco | Anilha pesada demais no início
+PR: Rosca inversa no Scott com barra W
+F: Reverse_Plate_Curls
+
+cb3_rosca_zottman_scott | Rosca Zottman no Scott | biceps | Halter + banco Scott | ava | 🔄 | halteres | a | b | HR | 3 | 8-10 cada braço
+P: Braquiorradial, Bíceps
+S: Braquial, Extensores do Pulso
+I: Apoie o braço no banco Scott e segure o halter com a palma para cima | Suba o halter até perto do ombro (rosca normal) | No topo, gire a mão para baixo (palma para baixo) | Desça bem devagar nessa pegada e gire de novo para cima embaixo
+E: Descer rápido na fase invertida | Tirar o braço do apoio | Girar com o punho dobrado
+PR: Rosca Zottman no Scott com descida de 4s
+RG: Rosca Zottman
+F: Zottman_Preacher_Curl
+
+cb3_rosca_martelo_toalha_kettlebell | Rosca Martelo com Toalha no Kettlebell | biceps | Kettlebell + toalha | int | 🧺 | kettlebell | ca | b | HR | 3 | 8-10 cada braço
+P: Braquial, Braquiorradial
+S: Flexores dos Dedos, Antebraços
+I: Passe uma toalha pela alça do kettlebell e segure as duas pontas juntas com uma mão | Fique em pé com o cotovelo colado ao corpo e o kettlebell pendurado | Suba a toalha até o ombro em pegada neutra, apertando forte | Desça devagar sem deixar a toalha escorregar
+E: Kettlebell balançando | Soltar a pegada no meio da série | Cotovelo indo para frente
+PR: Rosca martelo com toalha no kettlebell mais pesado
+RG: Rosca martelo com elástico
+
+# =====================================================================
+# ANTEBRAÇO / PUNHO / PEGADA
+# =====================================================================
+
+cb3_rosca_punho_barra_banco | Rosca de Punho com Barra no Banco | biceps | Barra reta + banco | ini | ✊ | barra | a | b | HR | 3 | 15-20
+P: Flexores do Pulso
+S: Antebraços, Flexores dos Dedos
+I: Ajoelhe-se ao lado de um banco e apoie os antebraços nele, punhos para fora da borda | Segure a barra com as palmas para cima | Deixe a barra descer dobrando os punhos para baixo | Suba dobrando os punhos para cima, sem tirar os antebraços do banco
+E: Tirar os antebraços do apoio | Movimento rápido e curto | Carga alta que trava o punho
+PR: Rosca de punho com barra atrás das costas
+F: Palms-Up_Barbell_Wrist_Curl_Over_A_Bench
+
+cb3_extensao_punho_barra_banco | Extensão de Punho com Barra no Banco | biceps | Barra reta ou barra W + banco | ini | 🖐️ | barra | a | b | R5 | 3 | 15-20
+P: Extensores do Pulso
+S: Antebraços, Braquiorradial
+I: Ajoelhe-se ao lado do banco e apoie os antebraços nele, palmas para baixo e punhos para fora | Segure uma barra leve | Deixe a barra descer dobrando os punhos para baixo | Levante o dorso das mãos o máximo possível e segure 1 segundo
+E: Carga alta (extensores são pequenos) | Levantar os cotovelos | Descer rápido
+PR: Rosca inversa com halteres
+F: Palms-Down_Wrist_Curl_Over_A_Bench
+
+cb3_rosca_punho_atras_costas | Rosca de Punho com Barra Atrás das Costas | biceps | Barra reta (rack) | int | 🔙 | barra | a | b | HR | 3 | 12-15
+P: Flexores do Pulso
+S: Flexores dos Dedos, Antebraços
+I: Segure a barra atrás das coxas com as palmas viradas para trás, mãos na largura dos ombros | Braços estendidos e corpo ereto | Deixe a barra rolar levemente até a ponta dos dedos | Feche a mão e dobre os punhos para cima ao máximo, segure 1 segundo
+E: Dobrar os cotovelos | Deixar a barra cair da mão | Balançar o corpo
+PR: Rosca de dedos com barra
+F: Standing_Palms-Up_Barbell_Behind_The_Back_Wrist_Curl
+
+cb3_rosca_dedos_barra | Rosca de Dedos com Barra | biceps | Barra reta + banco | ava | 🤏 | barra | a | b | R | 3 | 15-20
+P: Flexores dos Dedos
+S: Flexores do Pulso, Antebraços
+I: Sente na ponta do banco com os antebraços apoiados nas coxas e a barra nas mãos, palmas para cima | Abra os dedos devagar deixando a barra rolar até a ponta deles | Feche os dedos trazendo a barra de volta à palma | No final, dobre o punho para cima e repita
+E: Deixar a barra cair (comece leve) | Antebraços saindo das coxas | Movimento sem controle
+PR: Pinça de anilhas
+F: Finger_Curls
+
+cb3_rosca_punho_cabo | Rosca de Punho na Polia Baixa | biceps | Polia baixa + barra reta + banco | ini | 🎯 | polia | a | b | R5 | 3 | 15-20
+P: Flexores do Pulso
+S: Antebraços
+I: Sente num banco de frente para a polia baixa com a barra presa | Apoie os antebraços nas coxas, palmas para cima e punhos além dos joelhos | Dobre os punhos para cima contra o cabo | Desça devagar alongando os antebraços
+E: Levantar os antebraços das coxas | Carga alta | Movimento curto
+PR: Rosca de punho com barra no banco
+F: Cable_Wrist_Curl
+
+cb3_pinca_anilhas | Pinça de Anilhas | biceps | 2 anilhas lisas iguais | int | 🫳 | anilha | a | b | R | 3 | 20-40s
+P: Flexores dos Dedos
+S: Antebraços, Flexores do Pulso
+I: Junte duas anilhas lisas (lado liso para fora) | Segure-as com uma mão, polegar de um lado e dedos do outro, em pinça | Fique em pé com o braço estendido ao lado do corpo | Mantenha pelo tempo planejado e troque a mão
+E: Usar o corpo para apoiar as anilhas | Anilhas pesadas demais (deixa cair no pé) | Dobrar o cotovelo
+PR: Pinça de anilhas caminhando
+RG: Aperto de Bolinha (Hand Grip Leve)
+F: Plate_Pinch
+
+cb3_bottoms_up_kettlebell | Sustentação Bottoms-Up com Kettlebell | biceps | Kettlebell leve | int | 🔔 | kettlebell | ca | b | CR | 3 | 20-30s cada mão
+P: Flexores dos Dedos, Antebraços
+S: Manguito Rotador, Bíceps, Core
+I: Segure o kettlebell pela alça de cabeça para baixo (fundo virado para cima) | Cotovelo a 90° e junto ao corpo, punho reto | Aperte forte a alça para o kettlebell não tombar | Mantenha pelo tempo e troque de mão
+E: Kettlebell pesado demais e tombando | Punho dobrado para trás | Afastar o cotovelo do corpo
+PR: Sustentação bottoms-up caminhando
+RG: Treino de pegada com hand grip
+
+cb3_suspensao_unilateral | Suspensão Unilateral na Barra | biceps | Barra fixa | ava | ☝️ | barra_fixa | ca | b | R | 3 | 10-20s cada mão
+P: Flexores dos Dedos, Antebraços
+S: Latíssimo, Trapézio Inferior, Core
+I: Pendure-se na barra com as duas mãos e retire uma devagar | Mantenha o ombro ativo (não deixe ele subir até a orelha) | Segure o tempo planejado com o corpo parado | Volte a segunda mão antes de soltar e troque de lado
+E: Ombro totalmente solto | Balançar o corpo | Soltar de uma vez sem controle
+PR: Suspensão unilateral na toalha
+RG: Dead Hang
+F: One_Handed_Hang
+
+cb3_rolo_punho_caseiro | Rolo de Punho Caseiro (Cabo de Vassoura) | biceps | Cabo de vassoura + corda + garrafa com água | ini | 🧹 | hand_grip | c | b | R5 | 3 | 2-3 subidas
+P: Flexores do Pulso, Extensores do Pulso
+S: Antebraços, Flexores dos Dedos
+I: Amarre uma corda de ~1 m no meio de um cabo de vassoura e uma garrafa de água cheia na outra ponta | Segure o cabo com os braços estendidos à frente, na altura dos ombros | Gire o cabo, uma mão de cada vez, enrolando a corda até a garrafa subir | Desenrole devagar até a garrafa descer, controlando
+E: Baixar os braços durante o exercício | Girar rápido sem controle | Garrafa pesada demais
+PR: Rolo de Punho (Wrist Roller)
+
+cb3_extensao_dedos_elastico | Extensão de Dedos com Elástico | biceps | Elástico de dinheiro ou mini elástico | ini | 🖐️ | elastico | ca | b | R5 | 3 | 20-25 cada mão
+P: Extensores do Pulso
+S: Antebraços
+I: Coloque um elástico de dinheiro (ou dois) em volta dos cinco dedos, perto das pontas | Com o antebraço apoiado, abra os dedos o máximo possível contra o elástico | Segure 1 segundo | Feche devagar e repita
+E: Elástico fraco demais | Movimento rápido sem controle | Dobrar o punho junto
+PR: Extensão de punho com elástico
+RG: Série de Mobilidade de Pulsos
+
+cb3_extensao_punho_elastico | Extensão de Punho com Elástico | biceps | Elástico de faixa ou tubo | ini | 🎗️ | elastico | ca | b | R5 | 3 | 15-20 cada mão
+P: Extensores do Pulso
+S: Antebraços, Braquiorradial
+I: Sente e apoie o antebraço na coxa, palma para baixo e punho para fora do joelho | Pise numa ponta do elástico e segure a outra | Levante o dorso da mão o máximo possível contra o elástico | Desça devagar em 3 segundos
+E: Levantar o antebraço da coxa | Elástico muito forte | Descer rápido
+PR: Extensão de punho com barra no banco
+
+cb3_remada_toalha_halter | Remada com Pegada de Toalha no Halter | costas | Halter ou kettlebell + toalha | int | 🧺 | halteres | ca | b | HR | 3 | 8-10 cada lado
+P: Latíssimo, Flexores dos Dedos
+S: Rombóides, Antebraços, Bíceps
+I: Passe uma toalha pelo cabo do halter (ou pela alça do kettlebell) e segure as duas pontas juntas | Apoie a mão livre e o joelho num banco ou cadeira | Puxe a carga até o quadril apertando forte a toalha | Desça devagar sem deixar a toalha escorregar
+E: Soltar a pegada no meio da série | Girar o tronco | Carga que balança
+PR: Pull-up na Toalha
+RG: Remada unilateral com kettlebell
+
+cb3_sustentacao_barra_grossa | Sustentação com Pegada Grossa (Toalha na Barra) | biceps | Barra reta + toalha enrolada | ava | 🏋️ | barra | a | b | R | 3 | 15-30s
+P: Flexores dos Dedos, Antebraços
+S: Trapézio, Flexores do Pulso
+I: Enrole uma toalha em cada ponto de pegada da barra para engrossar o cabo | Tire a barra do rack (ou do chão com levantamento terra) com a pegada dupla pronada | Fique em pé, braços estendidos, apertando a barra o mais forte possível | Segure o tempo planejado e devolva a barra com controle
+E: Usar pegada mista ou straps | Carga que não permite segurar nem 10s | Arredondar as costas ao pegar a barra
+PR: Pinça de anilhas
+RG: Dead Hang

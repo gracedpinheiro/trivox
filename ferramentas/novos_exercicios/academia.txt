@@ -1,0 +1,379 @@
+# EXERCÍCIOS DE ACADEMIA (máquinas, polias, variações de pegada/ângulo, unilaterais) — origem trivox_v2
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+acad_leg_press_horizontal | Leg Press Horizontal | pernas | Máquina leg press horizontal (sentado) | ini | 🦵 | leg_press | a | b | CPH5 | 3 | 12-15
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Panturrilha
+I: Sente com as costas totalmente apoiadas e os pés na plataforma, na largura do quadril | Ajuste o banco para os joelhos começarem dobrados a cerca de 90° | Empurre a plataforma até quase estender os joelhos, sem travar | Volte devagar até os 90°, sem tirar o quadril do banco
+E: Travar os joelhos no final | Quadril descolando do encosto | Joelhos fechando ao empurrar
+PR: Leg press 45°
+RG: Leg press horizontal com amplitude menor
+
+acad_leg_press_pes_juntos | Leg Press com Pés Juntos | pernas | Máquina leg press 45° | int | 🦶 | leg_press | a | b | CPH | 4 | 10-12
+P: Quadríceps
+S: Glúteos, Adutores
+I: Sente no leg press e apoie os pés juntos (ou a um palmo) no centro baixo da plataforma | Destrave e desça controlando até os joelhos ficarem perto de 90° | Empurre focando no quadríceps, joelhos alinhados com os pés | Não trave os joelhos no topo
+E: Pés altos demais na plataforma (vira glúteo) | Lombar descolando no fundo | Descer rápido
+PR: Hack squat com base fechada
+F: Narrow_Stance_Leg_Press
+
+acad_panturrilha_leg_press | Panturrilha no Leg Press | pernas | Máquina leg press | ini | 🦵 | leg_press | a | b | HR5 | 4 | 12-20
+P: Gastrocnêmio, Sóleo
+S: Tibial Anterior
+I: Sente no leg press e apoie só a parte da frente dos pés na borda inferior da plataforma | Estenda os joelhos sem travá-los e mantenha a trava de segurança ao alcance | Empurre a plataforma com a ponta dos pés o máximo possível | Volte devagar deixando os calcanhares descerem para alongar
+E: Dobrar os joelhos para ajudar | Amplitude curta | Pés escorregando da plataforma
+PR: Panturrilha unilateral no leg press
+F: Calf_Press_On_The_Leg_Press_Machine
+
+acad_hack_reverso | Hack Reverso (de Frente para a Máquina) | gluteos | Máquina hack | int | 🔁 | hack | a | b | CPH | 3 | 10-12
+P: Glúteos, Isquiotibiais
+S: Quadríceps, Eretores da Espinha
+I: Entre na máquina hack de frente para o encosto, peito apoiado e ombros sob as almofadas | Pés na plataforma na largura do quadril | Desça levando o quadril para trás, tronco inclinado à frente | Suba empurrando com os calcanhares e apertando os glúteos
+E: Arredondar a lombar | Joelhos indo muito à frente | Usar carga alta antes de dominar o movimento
+PR: Hack reverso unilateral
+RG: Hip thrust na máquina
+
+acad_smith_afundo | Afundo no Smith | pernas | Máquina Smith | ini | 🦿 | smith | a | b | CPH5R | 3 | 10-12 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Isquiotibiais, Core
+I: Posicione a barra do Smith nas costas como num agachamento | Dê um passo longo à frente com um pé, o de trás apoiado na ponta | Destrave a barra e desça até o joelho de trás quase tocar o chão | Suba empurrando com o pé da frente e complete o lado
+E: Passo curto (joelho da frente sobrecarregado) | Tronco caindo à frente | Esquecer de travar a barra
+PR: Búlgaro no Smith
+RG: Afundo com peso corporal
+F: Smith_Single-Leg_Split_Squat
+
+acad_smith_hip_thrust | Hip Thrust no Smith | gluteos | Máquina Smith + banco | int | 🍑 | smith | a | b | CPH | 4 | 8-12
+P: Glúteos
+S: Isquiotibiais, Quadríceps
+I: Coloque um banco transversal ao Smith e apoie as escápulas nele | Posicione a barra (com proteção) sobre o quadril | Pés firmes e joelhos a 90° no topo | Destrave e eleve o quadril até alinhar com o tronco, apertando os glúteos | Desça controlando e trave ao final
+E: Hiperestender a lombar | Barra sem proteção | Pés longe demais
+PR: Hip thrust com barra livre
+RG: Ponte de glúteo com halter
+
+acad_smith_stiff | Stiff no Smith | pernas | Máquina Smith | int | 🎋 | smith | a | b | CPH | 3 | 10-12
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Antebraços
+I: Barra do Smith na altura das coxas, pegada na largura dos ombros | Joelhos levemente dobrados e fixos | Desça a barra deslizando perto das pernas, levando o quadril para trás | Pare quando sentir alongar o posterior e volte apertando os glúteos
+E: Arredondar as costas | Dobrar os joelhos durante a descida | Descer além da flexibilidade
+PR: Stiff com barra livre
+RG: Stiff com halteres leves
+F: Smith_Machine_Stiff-Legged_Deadlift
+
+acad_gluteo_maquina | Glúteo na Máquina (Coice) | gluteos | Máquina de glúteo | ini | 🍑 | gluteo_maquina | a | b | H5 | 3 | 12-15 cada perna
+P: Glúteos
+S: Isquiotibiais
+I: Apoie o peito e os antebraços na máquina, um joelho na almofada | Encaixe o pé da perna que trabalha na plataforma ou rolo | Empurre para trás e para cima estendendo o quadril | Aperte o glúteo no topo e volte devagar sem bater o peso
+E: Arquear a lombar | Usar impulso | Amplitude curta
+PR: Glúteo na polia com tornozeleira
+RG: Coice de quatro apoios no chão
+
+acad_flexora_em_pe | Flexora em Pé Unilateral | pernas | Máquina flexora em pé | ini | 🦵 | mesa_flexora | a | b | H5 | 3 | 10-12 cada perna
+P: Isquiotibiais
+S: Panturrilha
+I: Apoie o tronco na máquina e encaixe o rolo logo acima do tornozelo | Joelho de trabalho alinhado ao eixo da máquina | Flexione o joelho trazendo o calcanhar em direção ao glúteo | Volte devagar até quase estender
+E: Mover o quadril para ajudar | Soltar o peso de uma vez | Joelho fora do eixo
+PR: Mesa flexora com pausa
+F: Standing_Leg_Curl
+
+acad_pull_through | Pull Through no Cabo | gluteos | Polia baixa + corda | int | 🪢 | polia | a | b | CPH5 | 3 | 12-15
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Core
+I: De costas para a polia baixa, segure a corda entre as pernas | Dê dois passos à frente, pés um pouco além do quadril | Leve o quadril para trás deixando a corda passar entre as pernas, coluna reta | Estenda o quadril com força apertando os glúteos até ficar em pé
+E: Puxar com os braços | Agachar em vez de levar o quadril para trás | Hiperestender a lombar no final
+PR: Kettlebell swing
+RG: Hip hinge com bastão
+F: Pull_Through
+
+acad_abdutora_inclinada | Abdutora com Tronco Inclinado | gluteos | Cadeira abdutora | ini | 🦋 | cadeira_abdutora | a | b | H5 | 3 | 15-20
+P: Glúteo Médio, Glúteos
+S: Abdutores
+I: Sente na cadeira abdutora e ajuste a almofada por fora dos joelhos | Incline o tronco à frente segurando nas manoplas, coluna reta | Abra as pernas contra a resistência | Volte devagar sem deixar as placas baterem
+E: Usar impulso | Fechar rápido | Arredondar as costas
+PR: Abdução em pé no cabo
+
+acad_adutor_cabo | Adução em Pé no Cabo | pernas | Polia baixa + tornozeleira | ini | ↩️ | polia | a | b | H5R | 3 | 12-15 cada perna
+P: Adutores
+S: Core, Glúteo Médio
+I: Prenda a tornozeleira na perna mais próxima da polia baixa | Afaste-se até o cabo ficar tenso, segure em um apoio | Traga a perna para dentro cruzando à frente da perna de apoio | Volte devagar até sentir alongar a parte interna da coxa
+E: Inclinar o tronco | Dobrar o joelho | Carga pesada com movimento curto
+PR: Copenhagen plank
+F: Cable_Hip_Adduction
+
+acad_panturrilha_smith | Panturrilha em Pé no Smith | pernas | Máquina Smith + step | ini | 🦶 | smith | a | b | H5R | 4 | 12-15
+P: Gastrocnêmio
+S: Sóleo
+I: Coloque um step sob a barra do Smith | Posicione a barra nos ombros e apoie a ponta dos pés no step | Suba o máximo nas pontas dos pés | Desça abaixo da linha do step para alongar e repita
+E: Dobrar os joelhos | Quicar no fundo | Pés escorregando do step
+PR: Panturrilha unilateral com halter
+F: Smith_Machine_Calf_Raise
+
+acad_agach_landmine | Agachamento Landmine | pernas | Barra no suporte landmine | ini | 🦯 | landmine | a | b | CPH5 | 3 | 10-12
+P: Quadríceps, Glúteos
+S: Core, Adutores
+I: Segure a ponta da barra landmine com as duas mãos junto ao peito | Incline levemente o corpo em direção à barra | Agache mantendo o tronco ereto e a barra junto ao peito | Suba empurrando o chão com o pé inteiro
+E: Barra afastando do peito | Joelhos para dentro | Peso na ponta dos pés
+PR: Agachamento landmine com pausa
+RG: Agachamento goblet leve
+
+acad_supino_maq_inclinado | Supino Inclinado na Máquina | peito | Máquina de supino inclinado | ini | 📐 | supino_maquina | a | b | CPH5 | 3 | 10-12
+P: Peitoral Superior
+S: Deltóide Anterior, Tríceps
+I: Ajuste o banco para as manoplas ficarem na altura da parte alta do peito | Costas apoiadas e escápulas retraídas | Empurre para cima e à frente até quase estender os braços | Volte devagar até sentir alongar o peito
+E: Banco mal ajustado | Descolar os ombros do encosto | Travar os cotovelos com tranco
+PR: Supino inclinado com halteres
+F: Leverage_Incline_Chest_Press
+
+acad_supino_smith_reto | Supino Reto no Smith | peito | Máquina Smith + banco | ini | 🏋️ | smith | a | b | CPH5 | 4 | 8-12
+P: Peitoral
+S: Tríceps, Deltóide Anterior
+I: Posicione o banco reto para a barra descer sobre o meio do peito | Pegada um pouco mais larga que os ombros, escápulas retraídas | Destrave e desça até tocar levemente o peito | Empurre até quase estender os cotovelos e trave a barra ao final
+E: Barra descendo no pescoço | Cotovelos abertos a 90° | Esquecer de travar a barra
+PR: Supino reto com barra livre
+F: Smith_Machine_Bench_Press
+
+acad_crossover_unilateral | Crossover Unilateral | peito | Polia/crossover | int | 🤚 | crossover | a | b | H5 | 3 | 10-12 cada lado
+P: Peitoral
+S: Deltóide Anterior, Core
+I: Fique de lado para a polia alta ou média, segurando a manopla com a mão mais próxima | Dê um passo à frente, cotovelo levemente dobrado | Traga a mão em arco até cruzar a linha do corpo | Volte devagar até sentir alongar o peito, sem girar o tronco
+E: Girar o tronco para ajudar | Dobrar o cotovelo | Carga alta demais
+PR: Crossover bilateral com pausa
+F: Single-Arm_Cable_Crossover
+
+acad_supino_cabo_pe | Supino em Pé no Cabo | peito | Polia/crossover | int | 🫸 | crossover | a | b | CPH | 3 | 10-12
+P: Peitoral, Tríceps
+S: Deltóide Anterior, Core, Serrátil
+I: Polias na altura do peito, fique no centro de costas para elas com um pé à frente | Segure as manoplas junto ao peito | Empurre as mãos à frente até estender os braços, juntando-as no final | Volte devagar mantendo o tronco firme
+E: Inclinar demais o tronco | Arquear a lombar | Cotovelos subindo acima dos ombros
+PR: Supino unilateral em pé no cabo
+F: Standing_Cable_Chest_Press
+
+acad_supino_neutro | Supino com Halteres Pegada Neutra | peito | Halteres + banco | ini | 🤲 | halteres | a | b | CPH5 | 3 | 10-12
+P: Peitoral, Tríceps
+S: Deltóide Anterior
+I: Deite no banco com os halteres acima do peito, palmas viradas uma para a outra | Escápulas retraídas e pés firmes | Desça os halteres ao lado do peito com cotovelos junto ao corpo | Empurre de volta até estender os braços
+E: Abrir os cotovelos | Bater os halteres no topo | Descer pouco
+PR: Supino com halteres pegada neutra inclinado
+RG: Supino na máquina
+F: Dumbbell_Bench_Press_with_Neutral_Grip
+
+acad_supino_declinado_maq | Supino Declinado na Máquina | peito | Máquina de supino declinado | ini | 📉 | supino_maquina | a | b | CPH | 3 | 10-12
+P: Peitoral
+S: Tríceps, Deltóide Anterior
+I: Ajuste o banco para as manoplas ficarem na altura da parte baixa do peito | Costas apoiadas e escápulas retraídas | Empurre para frente e levemente para baixo até quase estender os braços | Volte devagar
+E: Ombros descolando do encosto | Travar os cotovelos com tranco | Banco mal ajustado
+PR: Paralelas assistidas
+F: Leverage_Decline_Chest_Press
+
+acad_mergulho_maquina | Mergulho na Máquina | triceps | Máquina de mergulho (dip machine) | ini | ⬇️ | maquina_bracos | a | b | CPH | 3 | 10-12
+P: Tríceps
+S: Peitoral, Deltóide Anterior
+I: Sente na máquina e segure as manoplas ao lado do corpo | Mantenha os ombros para baixo e o peito aberto | Empurre as manoplas para baixo até estender os cotovelos | Volte devagar até os cotovelos ficarem a cerca de 90°
+E: Ombros subindo até as orelhas | Inclinar o tronco à frente demais | Soltar o peso de uma vez
+PR: Paralelas assistidas na máquina graviton
+F: Dip_Machine
+
+acad_rosca_maquina | Rosca na Máquina | biceps | Máquina de rosca bíceps | ini | 💪 | maquina_bracos | a | b | H5 | 3 | 10-12
+P: Bíceps
+S: Braquial, Braquiorradial
+I: Ajuste o banco para a axila encostar no topo da almofada | Braços apoiados, cotovelos alinhados ao eixo da máquina | Flexione os cotovelos trazendo as manoplas em direção aos ombros | Desça devagar até quase estender
+E: Tirar os cotovelos da almofada | Banco baixo demais | Amplitude incompleta
+PR: Rosca Scott com barra W
+F: Machine_Bicep_Curl
+
+acad_rosca_martelo_corda | Rosca Martelo na Corda | biceps | Polia baixa + corda | ini | 🪢 | polia | a | b | H5R | 3 | 12-15
+P: Braquiorradial, Braquial
+S: Bíceps, Antebraços
+I: Prenda a corda na polia baixa e segure as pontas com as palmas viradas uma para a outra | Cotovelos junto ao corpo | Flexione os cotovelos até as mãos chegarem perto dos ombros | Desça devagar mantendo a pegada neutra
+E: Balançar o tronco | Cotovelos indo à frente | Soltar a tensão no fundo
+PR: Rosca Zottman
+F: Cable_Hammer_Curls_-_Rope_Attachment
+
+acad_triceps_testa_polia | Tríceps Testa na Polia | triceps | Polia baixa + banco | int | 🧠 | polia | a | b | H5 | 3 | 10-12
+P: Tríceps
+S: Antebraços
+I: Deite no banco com a cabeça voltada para a polia baixa, segurando a barra reta ou W | Braços apontando para o teto, levemente inclinados para trás | Dobre os cotovelos levando a barra em direção à testa | Estenda os cotovelos sem mexer os ombros
+E: Abrir os cotovelos | Mover os ombros junto | Descer rápido
+PR: Tríceps testa com barra W
+F: Cable_Lying_Triceps_Extension
+
+acad_triceps_coice_cabo | Tríceps Coice no Cabo | triceps | Polia baixa | ini | 🐴 | polia | a | b | H5 | 3 | 12-15 cada braço
+P: Tríceps
+S: Deltóide Posterior
+I: Fique de frente para a polia baixa, segure a manopla sem pegador ou o próprio cabo | Incline o tronco à frente, apoie a outra mão na coxa | Cotovelo colado ao corpo e braço paralelo ao chão | Estenda o cotovelo para trás e volte devagar
+E: Cotovelo descendo | Balançar o braço | Tronco muito ereto
+PR: Tríceps coice inclinado com halter
+
+acad_remada_baixa_unilateral | Remada Baixa Unilateral no Cabo | costas | Polia baixa / remada sentada | ini | 🚣 | remada_baixa | a | b | CPH5 | 3 | 10-12 cada braço
+P: Latíssimo, Rombóides
+S: Bíceps, Oblíquos, Trapézio Médio
+I: Sente na remada baixa com a manopla de uma mão | Pés apoiados, joelhos levemente dobrados, tronco ereto | Puxe a manopla até o lado do abdômen levando o cotovelo para trás | Volte devagar deixando o ombro ir levemente à frente, sem girar o tronco
+E: Girar o tronco para puxar | Inclinar para trás | Encolher o ombro
+PR: Remada unilateral com halter apoiado
+F: Seated_One-arm_Cable_Pulley_Rows
+
+acad_remada_alta_maquina | Remada Alta na Máquina (High Row) | costas | Máquina de remada articulada | ini | ↘️ | remada_maquina | a | b | CPH5 | 3 | 10-12
+P: Latíssimo, Rombóides
+S: Bíceps, Trapézio Inferior
+I: Sente com o peito apoiado (se houver) e segure as manoplas acima da cabeça | Puxe para baixo e para trás levando os cotovelos ao lado das costelas | Aperte as escápulas no final | Volte devagar até estender os braços
+E: Puxar só com os braços | Encolher os ombros | Soltar rápido
+PR: Barra fixa com elástico
+F: Leverage_High_Row
+
+acad_barra_graviton | Barra Fixa Assistida (Graviton) | puxar | Máquina graviton de barra e paralela | ini | 🛗 | barra_fixa | a | b | CPH5 | 3 | 8-12
+P: Latíssimo, Bíceps
+S: Rombóides, Trapézio Inferior, Antebraços
+I: Selecione o contrapeso (quanto maior, mais fácil) e ajoelhe-se ou fique de pé na plataforma | Segure a barra com pegada um pouco além dos ombros | Puxe até o queixo passar a barra, levando os cotovelos para baixo | Desça devagar até estender os braços
+E: Balançar o corpo | Subir só até a metade | Descer de uma vez
+PR: Barra fixa com elástico ou negativa
+RG: Puxada frontal no pulley
+
+acad_hiperextensao_gluteo | Extensão de Quadril no Banco Romano (Foco Glúteo) | gluteos | Banco romano 45° | int | 🍑 | banco_romano | a | b | CH5 | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Eretores da Espinha
+I: Ajuste a almofada para ficar abaixo da linha do quadril | Pés levemente virados para fora e costas levemente arredondadas na parte alta | Desça o tronco dobrando o quadril | Suba empurrando o quadril contra a almofada e apertando os glúteos, sem hiperestender a lombar
+E: Subir arqueando a lombar | Almofada alta demais (trava o quadril) | Usar impulso
+PR: Extensão de quadril com anilha no peito
+
+acad_desenv_maquina | Desenvolvimento na Máquina | ombros | Máquina de desenvolvimento | ini | 🙆 | desenvolvimento_maquina | a | b | CPH5 | 3 | 10-12
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Trapézio Superior
+I: Ajuste o banco para as manoplas ficarem na altura dos ombros | Costas apoiadas e abdômen contraído | Empurre as manoplas para cima até quase estender os braços | Desça devagar até a altura dos ombros
+E: Arquear a lombar | Travar os cotovelos com tranco | Banco baixo demais
+PR: Desenvolvimento com halteres sentado
+F: Leverage_Shoulder_Press
+
+acad_desenv_smith | Desenvolvimento no Smith | ombros | Máquina Smith + banco | int | 🙌 | smith | a | b | CPH | 3 | 8-10
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Trapézio Superior
+I: Banco com encosto vertical sob a barra do Smith, barra na altura do queixo | Pegada um pouco mais larga que os ombros | Destrave e empurre a barra para cima até estender os braços | Desça até a altura do queixo, sem levar atrás da nuca
+E: Barra atrás da nuca | Arquear a lombar | Esquecer de travar a barra
+PR: Desenvolvimento com barra em pé
+F: Smith_Machine_Overhead_Shoulder_Press
+
+acad_crucifixo_inverso_maq | Crucifixo Inverso no Peck Deck | ombros | Máquina voador (peck deck) | ini | 🦅 | voador_peck_deck | a | b | H5R | 3 | 12-15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio
+I: Sente de frente para o encosto do voador com o peito apoiado | Segure as manoplas na altura dos ombros, braços estendidos | Abra os braços para trás em arco até ficarem alinhados com o corpo | Volte devagar sem deixar o peso encostar
+E: Encolher os ombros | Dobrar os cotovelos (vira remada) | Usar impulso
+PR: Crucifixo inverso no cabo
+F: Reverse_Machine_Flyes
+
+acad_crucifixo_inverso_cabo | Crucifixo Inverso no Cabo | ombros | Crossover (polias altas) | int | ✖️ | crossover | a | b | H5R | 3 | 12-15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio, Manguito Rotador
+I: Fique no centro do crossover e segure os cabos cruzados (mão direita no cabo esquerdo e vice-versa), na altura dos ombros | Braços à frente, cotovelos levemente dobrados | Abra os braços para os lados e para trás em arco | Volte devagar cruzando os cabos à frente
+E: Puxar com as costas e encolher os ombros | Dobrar demais os cotovelos | Carga pesada
+PR: Crucifixo inverso unilateral no cabo
+F: Cable_Rear_Delt_Fly
+
+acad_y_raise_cabo | Elevação em Y no Cabo | ombros | Polia baixa / crossover | int | 🙆 | crossover | a | b | H5R | 3 | 12-15
+P: Trapézio Inferior, Deltóide Medial
+S: Manguito Rotador, Serrátil
+I: Fique entre as polias baixas segurando os cabos cruzados à frente das coxas | Incline levemente o tronco à frente | Eleve os braços estendidos em diagonal formando um Y acima da cabeça | Desça devagar até cruzar as mãos de novo
+E: Encolher os ombros | Arquear a lombar | Carga pesada demais
+PR: Y-T-W com halteres no banco inclinado
+
+acad_rotacao_externa_cabo | Rotação Externa no Cabo | ombros | Polia na altura do cotovelo | ini | 🔃 | polia | a | b | C5R | 3 | 12-15 cada braço
+P: Manguito Rotador
+S: Deltóide Posterior, Rombóides
+I: Fique de lado para a polia na altura do cotovelo, segurando com a mão mais distante | Toalha enrolada entre o cotovelo e o corpo, cotovelo a 90° | Gire o antebraço para fora, afastando a mão da barriga | Volte devagar sem deixar a toalha cair
+E: Afastar o cotovelo do corpo | Girar o tronco | Carga pesada
+PR: Rotação externa a 90° de abdução
+F: External_Rotation_with_Cable
+
+acad_rotacao_interna_cabo | Rotação Interna no Cabo | ombros | Polia na altura do cotovelo | ini | 🔄 | polia | a | b | C5R | 3 | 12-15 cada braço
+P: Manguito Rotador
+S: Peitoral, Latíssimo
+I: Fique de lado para a polia na altura do cotovelo, segurando com a mão mais próxima | Cotovelo a 90° colado ao corpo (use uma toalha) | Gire o antebraço em direção à barriga | Volte devagar até a posição neutra
+E: Cotovelo saindo do corpo | Girar o tronco | Ritmo rápido
+PR: Rotação interna a 90° de abdução com elástico
+F: Cable_Internal_Rotation
+
+acad_elev_joelhos_paralelas | Elevação de Joelhos nas Paralelas (Cadeira do Capitão) | core | Paralelas / cadeira do capitão | ini | 🪑 | paralelas | a | b | CH | 3 | 10-15
+P: Reto Abdominal, Flexores do Quadril
+S: Oblíquos, Ombros
+I: Apoie os antebraços nas almofadas e as costas no encosto, pernas penduradas | Contraia o abdômen | Eleve os joelhos em direção ao peito enrolando levemente a pelve | Desça devagar sem balançar
+E: Balançar as pernas | Descer rápido | Encolher os ombros
+PR: Elevação de pernas estendidas
+F: Knee_Hip_Raise_On_Parallel_Bars
+
+acad_abdominal_declinado | Abdominal no Banco Declinado | core | Banco declinado | int | 📉 | banco_inclinado | a | b | CH | 3 | 10-15
+P: Reto Abdominal
+S: Oblíquos, Flexores do Quadril
+I: Prenda os pés no banco declinado e deite com os joelhos dobrados | Mãos cruzadas no peito ou ao lado da cabeça sem puxar | Enrole o tronco subindo até a metade do caminho | Desça devagar controlando
+E: Puxar o pescoço | Subir com impulso | Descer de uma vez
+PR: Abdominal declinado com anilha
+F: Decline_Crunch
+
+acad_trx_remada | Remada no TRX | costas | Fita de suspensão (TRX) | ini | 🎗️ | trx | ca | b | CPH5 | 3 | 10-15
+P: Latíssimo, Rombóides
+S: Bíceps, Core, Deltóide Posterior
+I: Segure as alças com as palmas viradas uma para a outra e incline o corpo para trás, braços estendidos | Corpo rígido em linha reta | Puxe o peito em direção às mãos levando os cotovelos para trás | Desça devagar estendendo os braços
+E: Quadril caindo | Encolher os ombros | Descer de uma vez
+PR: Remada no TRX com pés à frente (mais inclinado)
+RG: Remada no TRX mais em pé
+F: Suspended_Row
+
+acad_trx_agach | Agachamento Assistido no TRX | pernas | Fita de suspensão (TRX) | ini | 🎗️ | trx | ca | b | CPH5 | 3 | 12-15
+P: Quadríceps, Glúteos
+S: Core, Isquiotibiais
+I: Segure as alças do TRX com os braços estendidos à frente | Pés na largura dos ombros | Agache levando o quadril para trás, usando a fita só para equilíbrio | Suba empurrando o chão com o pé inteiro
+E: Puxar com os braços para subir | Joelhos para dentro | Calcanhares saindo do chão
+PR: Agachamento livre
+RG: Agachamento no TRX com amplitude menor
+
+acad_trx_flexao | Flexão no TRX | peito | Fita de suspensão (TRX) | int | 🎗️ | trx | ca | b | CPH | 3 | 8-12
+P: Peitoral, Tríceps
+S: Core, Deltóide Anterior, Serrátil
+I: De costas para a ancoragem, segure as alças e incline o corpo à frente | Corpo rígido e braços estendidos | Desça dobrando os cotovelos, controlando para as alças não abrirem | Empurre de volta juntando as mãos
+E: Alças abrindo para os lados | Quadril caindo | Ombros subindo
+PR: Flexão no TRX com pés nas alças
+F: Suspended_Push-Up
+
+acad_trx_fallout | Fallout no TRX | core | Fita de suspensão (TRX) | ava | 🎗️ | trx | ca | b | CH | 3 | 8-10
+P: Core, Reto Abdominal
+S: Latíssimo, Serrátil, Ombros
+I: De costas para a ancoragem, segure as alças com os braços estendidos e incline o corpo | Contraia abdômen e glúteos | Leve os braços acima da cabeça deixando o corpo inclinar à frente em linha reta | Puxe de volta com os braços retos sem arquear a lombar
+E: Lombar afundando | Ir longe demais no início | Dobrar o quadril
+PR: Ab wheel em pé
+RG: Fallout no TRX mais em pé
+F: Suspended_Fallout
+
+acad_trx_y | Elevação em Y no TRX | ombros | Fita de suspensão (TRX) | int | 🎗️ | trx | ca | b | H5R | 3 | 10-12
+P: Trapézio Inferior, Deltóide Posterior
+S: Rombóides, Manguito Rotador, Core
+I: Segure as alças com as palmas para baixo e incline o corpo para trás, braços à frente | Corpo rígido em linha reta | Eleve os braços estendidos em Y, puxando o corpo para cima | Desça devagar
+E: Dobrar os cotovelos | Quadril caindo | Encolher os ombros
+PR: TRX Y com corpo mais inclinado
+
+acad_trx_bulgaro | Búlgaro no TRX | pernas | Fita de suspensão (TRX) | int | 🎗️ | trx | ca | b | CPHR | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Core, Equilíbrio
+I: Ajuste as alças a cerca de 50 cm do chão e encaixe o peito do pé de trás em uma alça | Pé da frente bem à frente, mãos na cintura | Desça dobrando o joelho da frente enquanto a perna de trás vai para trás | Suba empurrando com o pé da frente
+E: Pé da frente perto demais | Joelho para dentro | Tronco desabando
+PR: Búlgaro no TRX com halteres
+F: Suspended_Split_Squat
+
+acad_bosu_agach | Agachamento no Bosu | pernas | Bosu | int | 🌗 | bosu | a | b | CR5 | 3 | 10-12
+P: Quadríceps, Glúteos
+S: Core, Tornozelo, Equilíbrio
+I: Suba no bosu com o lado redondo para baixo (plataforma para cima) ou para cima, pés afastados | Estabilize antes de começar | Agache devagar mantendo a plataforma nivelada | Suba controlando o equilíbrio
+E: Joelhos para dentro | Descer rápido | Olhar para baixo o tempo todo
+PR: Agachamento no bosu com halteres
+RG: Agachamento com apoio de mão próximo ao bosu
+
+acad_landmine_afundo | Afundo Reverso no Landmine | pernas | Barra no suporte landmine | int | 🦯 | landmine | a | b | CPH5R | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Core, Adutores
+I: Segure a ponta da barra landmine junto ao peito com as duas mãos | Dê um passo para trás e desça até o joelho de trás quase tocar o chão | Mantenha o tronco ereto | Volte empurrando com o pé da frente e alterne
+E: Barra afastando do peito | Passo curto | Joelho batendo no chão
+PR: Afundo reverso com barra
+RG: Afundo reverso sem carga
+
+acad_rosca_scott_unilateral | Rosca Scott Unilateral com Halter | biceps | Halter + banco Scott | int | 💪 | halteres | a | b | H | 3 | 10-12 cada braço
+P: Bíceps
+S: Braquial
+I: Sente no banco Scott com a axila encaixada no topo da almofada | Segure o halter com o braço estendido e a palma para cima | Flexione o cotovelo até a altura do ombro | Desça devagar até quase estender, sem hiperestender o cotovelo
+E: Esticar totalmente com tranco no fundo | Levantar o cotovelo da almofada | Carga pesada demais
+PR: Rosca Scott com barra W
+F: One_Arm_Dumbbell_Preacher_Curl

@@ -72,6 +72,26 @@
 
   UI.render();
 
+  // ---------- chamada diaria pro treino (ver js/lembretes.js) ----------
+
+  function checarLembrete() {
+    try {
+      const hoje = new Date().toLocaleDateString('sv-SE');
+      const ficha = Dados.fichas().find((f) => f.diaSemana === new Date().getDay() && (f.exercicios || []).length);
+      Lembretes.verificar({ perfil: Dados.perfil(), jaTreinouHoje: Dados.diasTreinados().includes(hoje), nomeFicha: ficha ? ficha.nome : '' });
+    } catch (e) { console.warn('[lembrete]', e); }
+  }
+  setTimeout(checarLembrete, 3000);
+  setInterval(checarLembrete, 60000);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      checarLembrete();
+      // voltou pro app: o loop de tempo recalcula pelo horario (descanso/cronometro certos)
+      if (est.execucao?.descansando || est.execucao?.timerItem || est.crono.rodando) { garantirLoop(); tick(); }
+    }
+  });
+  if (Dados.perfil().lembreteAtivo) Lembretes.sincronizarComSW(Dados.perfil());
+
   // ---------- service worker ----------
 
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
@@ -214,26 +234,95 @@
   // ---------- cronometro de descanso ----------
   // um setInterval so, guardado aqui fora do UI (que so cuida de render).
 
-  let timerId = null;
-  const pararTimer = () => { if (timerId) { clearInterval(timerId); timerId = null; } };
+  // Um loop so (4x por segundo) cuida de tudo que tem tempo: descanso entre series, exercicio
+  // por tempo (aquecimento/alongamento) e a tela de cronometro. Tudo e calculado pelo HORARIO
+  // de termino (Date.now), nao contando ticks — assim, se o celular travar a tela ou o navegador
+  // pausar o app em segundo plano, ao voltar o tempo esta certo e o alarme dispara na hora.
+  // O loop se desliga sozinho quando nada esta contando.
 
-  function iniciarTimer() {
-    pararTimer();
-    timerId = setInterval(() => {
-      const ex = est.execucao;
-      if (!ex || !ex.descansando) { pararTimer(); return; }
-      ex.segundosRestantes--;
-      if (ex.segundosRestantes <= 0) { pararTimer(); terminarDescanso(); return; }
-      // atualiza so o numero do cronometro, sem reconstruir a tela inteira a cada segundo
-      // (o pictograma SVG e o resto do card nao mudam durante o descanso)
-      const el = document.getElementById('descanso-timer');
-      if (el) {
-        const min = Math.floor(ex.segundosRestantes / 60), seg = ex.segundosRestantes % 60;
-        el.textContent = `${min}:${String(seg).padStart(2, '0')}`;
+  let loopId = null;
+  const bipado = {}; // evita bipar duas vezes no mesmo segundo
+  const garantirLoop = () => { if (!loopId) loopId = setInterval(tick, 250); };
+  const iniciarTimer = garantirLoop;
+  const pararTimer = () => {}; // compatibilidade: navegar nao para mais o descanso
+
+  function contagem(chave, r) {
+    if (r >= 1 && r <= 3 && bipado[chave] !== r) { bipado[chave] = r; Alarme.tique(); }
+  }
+
+  /** Atualiza so o numero e o anel do relogio, sem redesenhar a tela. */
+  function atualizarVisor(id, restante, total) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const min = Math.floor(restante / 60), seg = restante % 60;
+    el.textContent = `${min}:${String(seg).padStart(2, '0')}`;
+    el.classList.toggle('acabando', restante <= 3);
+    const anel = document.getElementById(id + '-anel');
+    if (anel && total) {
+      const c = Number(anel.dataset.c);
+      anel.setAttribute('stroke-dashoffset', (c * (1 - Math.max(0, Math.min(1, restante / total)))).toFixed(1));
+    }
+  }
+
+  function tick() {
+    let algo = false;
+    const agora = Date.now();
+    const ex = est.execucao;
+
+    if (ex && ex.descansando) {
+      algo = true;
+      const r = Math.ceil((ex.fimDescanso - agora) / 1000);
+      if (r <= 0) {
+        Alarme.fim();
+        Alarme.notificar('Descanso acabou ⏱️', 'Bora pra próxima série 💪', { tag: 'descanso' });
+        terminarDescanso();
+      } else { contagem('descanso', r); atualizarVisor('descanso-timer', r, ex.descansoTotal); }
+    }
+
+    if (ex && ex.timerItem) {
+      algo = true;
+      const r = Math.ceil((ex.timerItem.ate - agora) / 1000);
+      if (r <= 0) {
+        ex.timerItem = null;
+        Alarme.fim();
+        Alarme.notificar('Tempo! ⏱️', 'Pode passar pro próximo.', { tag: 'item' });
+        if (est.tela === 'execucao') UI.render();
+      } else { contagem('item', r); atualizarVisor('item-timer', r, ex.timerItem.total); }
+    }
+
+    const c = est.crono;
+    if (c.rodando) {
+      algo = true;
+      if (c.modo === 'cronometro') {
+        const el = document.getElementById('crono-visor');
+        if (el) el.innerHTML = UI.formatarMs((c.acumulado || 0) + agora - c.inicio);
       } else {
-        UI.render(); // tela nao esta com o cronometro visivel por algum motivo — reconstroi por seguranca
+        const r = Math.ceil((c.ate - agora) / 1000);
+        const iv = c.intervalo;
+        const totalFase = c.modo === 'timer' ? c.total : (iv.fase === 'trabalho' ? iv.trabalho : iv.descanso);
+        if (r > 0) { contagem('crono', r); atualizarVisor('crono-visor', r, totalFase); }
+        else if (c.modo === 'timer') {
+          c.rodando = false; c.pausadoRestante = null;
+          Alarme.fim();
+          Alarme.notificar('Tempo esgotado ⏱️', 'Seu timer terminou.', { tag: 'crono' });
+          if (est.tela === 'cronometro') UI.render();
+        } else {
+          // intervalado: trabalho -> descanso -> proxima rodada
+          if (iv.fase === 'trabalho' && iv.descanso > 0) {
+            iv.fase = 'descanso'; c.ate = agora + iv.descanso * 1000; Alarme.troca();
+          } else if (iv.rodada >= iv.rodadas) {
+            c.rodando = false; c.pausadoRestante = null; iv.fase = 'trabalho'; iv.rodada = 1;
+            Alarme.fim();
+            Alarme.notificar('Intervalado concluído 🎉', 'Mandou bem!', { tag: 'crono' });
+          } else {
+            iv.rodada++; iv.fase = 'trabalho'; c.ate = agora + iv.trabalho * 1000; Alarme.troca();
+          }
+          if (est.tela === 'cronometro') UI.render();
+        }
       }
-    }, 1000);
+    }
+
+    if (!algo) { clearInterval(loopId); loopId = null; }
   }
 
   /** Fim do descanso: avanca pro proximo set ou proximo exercicio; se acabou tudo, finaliza. */
@@ -246,7 +335,18 @@
       if (ex.iEx + 1 >= ex.itens.length) { finalizarTreino(); return; }
       ex.iEx++;
     }
-    if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+    if (est.tela === 'execucao') UI.render();
+  }
+
+  /** Avanca pro proximo item do treino (ou finaliza, se era o ultimo). */
+  function proximoItem() {
+    const ex = est.execucao;
+    if (!ex) return;
+    ex.timerItem = null;
+    ex.descansando = false;
+    if (ex.iEx + 1 >= ex.itens.length) { finalizarTreino(); return; }
+    ex.iEx++;
+    window.scrollTo(0, 0);
     UI.render();
   }
 
@@ -418,13 +518,16 @@
     Dados.salvarGam({ xp: novoXp, badges: [...gamAntes.badges, ...novosBadges.map((b) => b.id)] });
 
     est.execucao = null;
+    Lembretes.sincronizarComSW(Dados.perfil(), { treinouEm: new Date().toLocaleDateString('sv-SE') });
     UI.ir('fichas');
     UI.modalResumoTreino({ xpGanho, novosBadges, nivel: nivelDepois, subiuNivel: nivelDepois.chave !== nivelAntes.chave });
   }
 
   // ---------- cliques ----------
 
+  let audioDestravado = false;
   document.body.addEventListener('click', (ev) => {
+    if (!audioDestravado) { audioDestravado = true; Alarme.destravar(); }
     const alvo = ev.target.closest('[data-acao]');
     if (!alvo) return;
     const acao = alvo.dataset.acao;
@@ -497,8 +600,10 @@
 
         // ja entra com series/reps/descanso sugeridos pelo objetivo do perfil
         const p = Dados.perfil();
-        const presc = Forca.prescrever(p.objetivo, ex);
-        const itens = [...(f.exercicios || []), {
+        const presc = Forca.prescrever(p.objetivo, ex, { nivel: p.nivel, idade: Dados.idade() });
+        const atuais = [...(f.exercicios || [])];
+        const posFim = atuais.findIndex((it) => ['circuito', 'volta_calma'].includes(it.bloco));
+        const novoItem = {
           exId: ex.id,
           series: presc.series,
           reps: presc.reps,
@@ -508,7 +613,10 @@
           descanso: presc.descanso,
           carga: null,
           obs: '',
-        }];
+          ...(atuais.some((it) => it.bloco) ? { bloco: 'principal' } : {}),
+        };
+        if (posFim >= 0) atuais.splice(posFim, 0, novoItem); else atuais.push(novoItem);
+        const itens = atuais;
         Dados.atualizarFicha(fid, { exercicios: itens });
         est.escolhendoPara = null;
         UI.ir('ficha', { fichaId: fid });
@@ -544,7 +652,9 @@
         break;
 
       case 'ver-exercicio':
+        if (!alvo.dataset.id) break;
         est.voltarTela = alvo.dataset.voltar || est.tela;
+        est.midiaAba = null;
         UI.ir('exercicio', { exercicioId: alvo.dataset.id });
         carregarVideoExercicio(alvo.dataset.id);
         break;
@@ -560,20 +670,40 @@
         UI.modalGerador();
         break;
 
+      case 'ger-objetivo': case 'ger-local': case 'ger-nivel': {
+        est.gerador[acao.replace('ger-', '')] = alvo.dataset.valor;
+        UI.modalGerador();
+        break;
+      }
+
+      case 'ger-substituir':
+        est.gerador.substituir = alvo.dataset.valor === '1';
+        UI.modalGerador();
+        break;
+
       case 'gerar-plano': {
         const p = Dados.perfil();
-        const objetivo = document.getElementById('ger-objetivo')?.value || p.objetivo;
-        est.gerador.objetivo = objetivo;
-        // rotacao varia com quantas fichas ja existem — nao usa random, mas "gerar de novo" muda o resultado
-        const rotacao = Dados.fichas().length;
+        const g = est.gerador;
+        const objetivo = g.objetivo || (Forca.OBJETIVOS[p.objetivo] ? p.objetivo : 'condicionamento');
+        const local = g.local || (p.local === 'casa' ? 'casa' : 'academia');
+        const nivel = g.nivel || (p.nivel === 'elite' ? 'avancado' : p.nivel);
+        // "gerar de novo" sempre muda: contador que so cresce (melhor variedade que contar fichas)
+        let rotacao = 0;
+        try { rotacao = Number(localStorage.getItem('at:rotacao') || 0) + 1; localStorage.setItem('at:rotacao', String(rotacao)); } catch (e) { rotacao = Date.now() % 97; }
         const planos = Forca.gerarPlano({
-          objetivo, nivel: p.nivel, local: p.local, freqForca: p.freqForca,
+          objetivo, nivel, local, freqForca: p.freqForca,
           diasSemana: p.diasTreino, base: UI.getBase(), rotacao,
+          sexo: p.sexo, idade: Dados.idade(), peso: p.peso, altura: p.altura,
+          equipCasa: p.equipCasa, diasJogo: p.diasJogo, enfase: p.enfase,
         });
+        if (!planos.length) { alert('Não consegui montar fichas com essas opções. Tente outro local ou nível.'); break; }
+        Dados.salvarPerfil({ objetivo, local, nivel });
+        if (g.substituir !== false) Dados.fichas().forEach((f) => Dados.apagarFicha(f.id));
         planos.forEach((pl) => {
           const f = Dados.novaFicha(pl.nome);
-          Dados.atualizarFicha(f.id, { exercicios: pl.exercicios, diaSemana: pl.diaSemana });
+          Dados.atualizarFicha(f.id, { exercicios: pl.exercicios, diaSemana: pl.diaSemana, obs: pl.porque || '', objetivo: pl.objetivo, ultimaVariacaoEm: Date.now() });
         });
+        est.gerador = { objetivo: null };
         UI.fecharModal();
         UI.ir('fichas');
         break;
@@ -606,11 +736,22 @@
       case 'iniciar-treino': {
         const f = Dados.acharFicha(alvo.dataset.id);
         if (!f || !f.exercicios?.length) break;
-        const itens = f.exercicios.map((item) => {
+        const p = Dados.perfil();
+        // ficha montada a mao: ganha aquecimento no inicio e alongamento no fim, pros musculos do dia
+        let lista = f.exercicios;
+        try {
+          lista = Forca.completarSessao(f.exercicios, {
+            base: UI.getBase(), local: p.local === 'casa' ? 'casa' : 'academia', idade: Dados.idade(),
+            objetivo: p.objetivo, nivel: p.nivel === 'elite' ? 'avancado' : p.nivel, equipCasa: p.equipCasa,
+          }) || f.exercicios;
+        } catch (e) { console.warn('[treino] completarSessao', e); }
+        const itens = lista.map((item) => {
           const ex = UI.getBase().find((e) => e.id === item.exId);
           const historicoAntigo = Dados.historicoCarga(item.exId);
           return {
             exId: item.exId, nome: ex?.nome || 'Exercício', icon: ex?.icon || '',
+            bloco: item.bloco || 'principal', tempoSeg: item.tempoSeg || null, grupo: item.grupo || '',
+            obs: item.obs || '', repsTexto: item.reps || '', superserie: item.superserie || null,
             seriesAlvo: Number(item.series) || 3,
             repsAlvoMin: item.repsMin || 8, repsAlvoMax: item.repsMax || 12,
             rirAlvo: item.rirAlvo ?? 1, descansoAlvo: Number(item.descanso) || 90,
@@ -621,11 +762,36 @@
             sets: [],
           };
         });
-        est.execucao = { fichaId: f.id, fichaNome: f.nome, itens, iEx: 0, descansando: false, segundosRestantes: 0, inicioTs: Date.now() };
+        est.execucao = { fichaId: f.id, fichaNome: f.nome, itens, iEx: 0, descansando: false, fimDescanso: 0, descansoTotal: 0, timerItem: null, inicioTs: Date.now() };
+        est.midiaAba = null;
         UI.ir('execucao');
         iniciarSpotify();
         break;
       }
+
+      case 'iniciar-tempo-item': {
+        const ex = est.execucao;
+        const item = ex && ex.itens[ex.iEx];
+        if (!item || !item.tempoSeg) break;
+        ex.timerItem = { ate: Date.now() + item.tempoSeg * 1000, total: item.tempoSeg };
+        garantirLoop();
+        UI.render();
+        break;
+      }
+
+      case 'concluir-simples': {
+        const ex = est.execucao;
+        if (!ex) break;
+        ex.itens[ex.iEx].feito = true;
+        est.midiaAba = null;
+        proximoItem();
+        break;
+      }
+
+      case 'pular-exercicio':
+        est.midiaAba = null;
+        proximoItem();
+        break;
 
       case 'concluir-serie': {
         const ex = est.execucao;
@@ -638,7 +804,9 @@
         item.sets.push({ carga, reps, rir });
         Dados.registrarCarga(item.exId, { carga, reps, rir });
         ex.descansando = true;
-        ex.segundosRestantes = item.descansoAlvo;
+        ex.descansoTotal = item.descansoAlvo;
+        ex.fimDescanso = Date.now() + item.descansoAlvo * 1000;
+        est.midiaAba = null;
         iniciarTimer();
         UI.render();
         break;
@@ -647,7 +815,9 @@
       case 'ajustar-descanso': {
         const ex = est.execucao;
         if (!ex) break;
-        ex.segundosRestantes = Math.max(0, ex.segundosRestantes + Number(alvo.dataset.seg));
+        const seg = Number(alvo.dataset.seg);
+        ex.fimDescanso = Math.max(Date.now(), ex.fimDescanso + seg * 1000);
+        ex.descansoTotal = Math.max(5, ex.descansoTotal + seg);
         UI.render();
         break;
       }
@@ -684,7 +854,10 @@
       case 'encerrar-treino-confirma': {
         const ex = est.execucao;
         const feitoAlgo = ex && ex.itens.some((i) => i.sets.length);
-        if (!feitoAlgo) { pararTimer(); pararSpotify(); est.execucao = null; UI.ir('fichas'); break; }
+        if (!feitoAlgo) {
+          if (ex && ex.itens.some((i) => i.feito) && !confirm('Sair do treino? Nenhuma série foi registrada ainda.')) break;
+          pararSpotify(); est.execucao = null; UI.ir('fichas'); break;
+        }
         if (confirm('Encerrar o treino agora? O que já foi feito fica salvo.')) finalizarTreino();
         break;
       }
@@ -829,6 +1002,142 @@
       case 'volume': UI.modalVolume(); break;
 
       // ----- perfil: dias de treino e peso -----
+
+      // ----- imagens do exercicio -----
+
+      case 'midia-aba':
+        est.midiaAba = alvo.dataset.aba;
+        UI.render();
+        break;
+
+      // ----- cronometro -----
+
+      case 'ir-cronometro':
+        UI.ir('cronometro');
+        garantirLoop();
+        break;
+
+      case 'crono-modo': {
+        const c = est.crono;
+        if (c.rodando && !confirm('Parar o que está contando e trocar de modo?')) break;
+        Object.assign(c, { modo: alvo.dataset.modo, rodando: false, pausadoRestante: null, acumulado: 0, voltas: [] });
+        c.intervalo.fase = 'trabalho'; c.intervalo.rodada = 1;
+        UI.render();
+        break;
+      }
+
+      case 'crono-preset':
+        Object.assign(est.crono, { total: Number(alvo.dataset.seg), rodando: false, pausadoRestante: null });
+        UI.render();
+        break;
+
+      case 'crono-iv-preset':
+        Object.assign(est.crono.intervalo, { trabalho: Number(alvo.dataset.t), descanso: Number(alvo.dataset.d), rodadas: Number(alvo.dataset.r), fase: 'trabalho', rodada: 1 });
+        est.crono.pausadoRestante = null;
+        UI.render();
+        break;
+
+      case 'crono-ajustar': {
+        const c = est.crono;
+        const seg = Number(alvo.dataset.seg);
+        if (c.rodando) c.ate = Math.max(Date.now() + 1000, c.ate + seg * 1000);
+        else if (c.pausadoRestante !== null) c.pausadoRestante = Math.max(1, c.pausadoRestante + seg);
+        else c.total = Math.max(5, c.total + seg);
+        UI.render();
+        break;
+      }
+
+      case 'crono-iniciar': {
+        const c = est.crono;
+        const agora = Date.now();
+        if (c.modo === 'cronometro') { c.inicio = agora; }
+        else if (c.modo === 'timer') { c.ate = agora + (c.pausadoRestante ?? c.total) * 1000; }
+        else {
+          const iv = c.intervalo;
+          const dur = c.pausadoRestante ?? (iv.fase === 'trabalho' ? iv.trabalho : iv.descanso);
+          c.ate = agora + dur * 1000;
+          if (c.pausadoRestante === null) Alarme.troca();
+        }
+        c.rodando = true; c.pausadoRestante = null;
+        garantirLoop();
+        UI.render();
+        break;
+      }
+
+      case 'crono-pausar': {
+        const c = est.crono;
+        if (!c.rodando) break;
+        if (c.modo === 'cronometro') c.acumulado = (c.acumulado || 0) + Date.now() - c.inicio;
+        else c.pausadoRestante = Math.max(1, Math.ceil((c.ate - Date.now()) / 1000));
+        c.rodando = false;
+        UI.render();
+        break;
+      }
+
+      case 'crono-volta': {
+        const c = est.crono;
+        c.voltas = [((c.acumulado || 0) + Date.now() - c.inicio), ...(c.voltas || [])];
+        UI.render();
+        break;
+      }
+
+      case 'crono-zerar':
+        Object.assign(est.crono, { rodando: false, pausadoRestante: null, acumulado: 0, voltas: [] });
+        est.crono.intervalo.fase = 'trabalho'; est.crono.intervalo.rodada = 1;
+        UI.render();
+        break;
+
+      case 'som-toggle':
+        Alarme.ligarSom(!Alarme.somLigado());
+        if (Alarme.somLigado()) Alarme.tique();
+        UI.render();
+        break;
+
+      case 'pedir-notificacao':
+        Alarme.pedirPermissao().then(() => { Lembretes.registrarPeriodico(); UI.render(); });
+        break;
+
+      // ----- perfil: objetivo, nivel, local, casa, raquete, lembrete -----
+
+      case 'perfil-objetivo':
+        Dados.salvarPerfil({ objetivo: alvo.dataset.valor });
+        UI.render();
+        break;
+
+      case 'perfil-chip':
+        Dados.salvarPerfil({ [alvo.dataset.campo]: alvo.dataset.valor });
+        UI.render();
+        break;
+
+      case 'toggle-equip-casa': {
+        const p = Dados.perfil();
+        const atual = p.equipCasa || ((typeof Programas !== 'undefined') && Programas.EQUIP_CASA_PADRAO) || [];
+        const k = alvo.dataset.valor;
+        Dados.salvarPerfil({ equipCasa: atual.includes(k) ? atual.filter((x) => x !== k) : [...atual, k] });
+        UI.render();
+        break;
+      }
+
+      case 'toggle-dia-jogo': {
+        const dia = Number(alvo.dataset.dia);
+        const dj = Dados.perfil().diasJogo || [];
+        Dados.salvarPerfil({ diasJogo: dj.includes(dia) ? dj.filter((d) => d !== dia) : [...dj, dia].sort() });
+        UI.render();
+        break;
+      }
+
+      case 'toggle-lembrete': {
+        const ligar = !Dados.perfil().lembreteAtivo;
+        Dados.salvarPerfil({ lembreteAtivo: ligar });
+        if (ligar) Alarme.pedirPermissao().then(() => { Lembretes.registrarPeriodico(); UI.render(); });
+        Lembretes.sincronizarComSW(Dados.perfil());
+        UI.render();
+        break;
+      }
+
+      case 'lembrete-calendario':
+        Lembretes.baixarCalendario(Dados.perfil());
+        break;
 
       case 'toggle-dia-treino': {
         const dia = Number(alvo.dataset.dia);
@@ -1057,6 +1366,14 @@
       return;
     }
 
+    // cronometro intervalado: trabalho / descanso / rodadas
+    if (el.dataset.crono) {
+      const v = Math.max(el.dataset.crono === 'descanso' ? 0 : 1, parseInt(el.value, 10) || 0);
+      est.crono.intervalo[el.dataset.crono] = v;
+      est.crono.pausadoRestante = null;
+      return;
+    }
+
     // spotify: client id
     if (el.id === 'spotify-client-id') {
       Dados.salvarSpotify({ clientId: el.value.trim() });
@@ -1069,6 +1386,7 @@
       const numericos = ['peso', 'altura', 'fcRepouso', 'fcMaxMedida', 'freqForca', 'freqCardio', 'barra'];
       const valor = numericos.includes(campo) ? (naoVazio(el.value) === null ? null : Number(el.value)) : el.value;
       Dados.salvarPerfil({ [campo]: valor });
+      if (campo === 'lembreteHora') Lembretes.sincronizarComSW(Dados.perfil());
       return;
     }
 

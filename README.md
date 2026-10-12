@@ -1,6 +1,6 @@
-# TRIVOX — Força e Aeróbico
+# TRIVOX — Treino em casa e na academia
 
-PWA de musculação e treino aeróbico. Sem build, sem `node_modules`, sem servidor na nuvem:
+PWA de treino (musculação, condicionamento, aeróbico) para casa e academia. Sem build, sem `node_modules`, sem servidor na nuvem:
 tudo roda no navegador e os dados ficam no aparelho.
 
 > Este README documenta o estado **atual**. Pra entender como e por que ele chegou nesse estado
@@ -73,38 +73,51 @@ mandar pra você mesma por e-mail já resolve. A nuvem cobre os dados de treino;
 | Arquivo | O que faz |
 |---|---|
 | [index.html](index.html) | Casca do app: só carrega os scripts |
-| [js/dados.js](js/dados.js) | Persistência. Chaves já separadas por perfil (`at:v1:<perfilId>:<coisa>`) — trocar por banco na nuvem depois é reescrever só este arquivo |
-| [js/forca.js](js/forca.js) | Engine de musculação: 1RM, autorregulação por RIR, platô, volume semanal, deload, anilhas, gerador automático de ficha, substituição por equipamento ocupado |
-| [js/aerobico.js](js/aerobico.js) | Engine aeróbica: FCmáx, zonas, modelos de sessão, carga, progressão, interferência com a força |
-| [js/gamificacao.js](js/gamificacao.js) | XP, nível, badges, streak e o coach por chat (banco de frases por tema, não é IA) |
-| [js/pictogramas.js](js/pictogramas.js) | Ilustrações SVG por padrão de movimento (referência visual do exercício) |
-| [js/spotify.js](js/spotify.js) | Controle de música durante o treino — OAuth PKCE, sem client secret |
-| [js/videos.js](js/videos.js) | Vídeo pessoal por exercício — IndexedDB (fora do localStorage, pesa mais) |
-| [js/zip.js](js/zip.js) | Leitor/escritor de `.zip` sem dependência — usado só no backup, pra levar vídeo junto |
-| [js/nuvem.js](js/nuvem.js) | Login por link mágico + sincronização automática com o Supabase — única dependência externa do projeto (SDK oficial via CDN, cacheado offline) |
+| [js/dados.js](js/dados.js) | Persistência. Chaves já separadas por perfil (`at:v1:<perfilId>:<coisa>`) |
+| [js/programas.js](js/programas.js) | Regras de treino por objetivo × nível (séries, reps, descanso, RIR, blocos, progressão, deload) e ajustes por idade, sexo e IMC — ver [ferramentas/programas.md](ferramentas/programas.md) |
+| [js/forca.js](js/forca.js) | Engine de musculação: 1RM, RIR, platô, volume, gerador de fichas (`gerarPlano`), aquecimento/alongamento por grupo do dia (`completarSessao`), troca por aparelho ocupado (`substitutos`), variação a cada 4 semanas |
+| [js/aerobico.js](js/aerobico.js) | Engine aeróbica: FCmáx, zonas, modelos de sessão |
+| [js/gamificacao.js](js/gamificacao.js) | XP, nível, badges, streak e o coach por chat (banco de frases, não é IA) |
+| [js/motivacao.js](js/motivacao.js) | Frase do dia (muda 1x por dia, pelo contexto: objetivo, idade, sequência, dias parado) e texto da chamada diária |
+| [js/figuras.js](js/figuras.js) | Ilustração animada de **todo** exercício (boneco/boneca + aparelho, 368 movimentos) e desenho de cada aparelho (60) — vetorial, offline |
+| [js/mapa-muscular.js](js/mapa-muscular.js) | Corpo de frente e costas com a região trabalhada pintada (desenho do react-body-highlighter, MIT) |
+| [js/alarme.js](js/alarme.js) | Som (Web Audio, sem arquivo), vibração e notificação — descanso, cronômetro, lembrete |
+| [js/lembretes.js](js/lembretes.js) | Chamada diária pro treino: arquivo de calendário (.ics), notificação do app e sincronização periódica (Android) |
+| [js/pictogramas.js](js/pictogramas.js) | Pictogramas antigos (reserva, se a ilustração não carregar) |
+| [js/spotify.js](js/spotify.js) | Música durante o treino — OAuth PKCE, sem client secret |
+| [js/videos.js](js/videos.js) | Vídeo pessoal por exercício — IndexedDB |
+| [js/zip.js](js/zip.js) | Leitor/escritor de `.zip` sem dependência — backup |
+| [js/nuvem.js](js/nuvem.js) | Login por link/código + sincronização automática com o Supabase |
 | [js/ui.js](js/ui.js) | Telas (render por string) |
-| [js/app.js](js/app.js) | Eventos, cronômetro de descanso e ligação entre telas e dados |
-| [data/exercicios.json](data/exercicios.json) | 563 exercícios, migrados do X IRON v7 + LOBAS MOTION/VYRON |
-| [sw.js](sw.js) | Cache offline |
+| [js/app.js](js/app.js) | Eventos, relógio único (descanso, tempo por exercício, cronômetro) e ligação entre telas e dados |
+| [data/exercicios.json](data/exercicios.json) | 1535 exercícios (ver abaixo) |
+| [data/imagens/fedb/](data/imagens/fedb/) | Fotos reais de execução (free-exercise-db, domínio público), reduzidas |
+| [fonts/](fonts/) | Baloo 2 e Nunito (OFL), servidas pelo próprio app — funcionam offline |
+| [ferramentas/](ferramentas/) | Scripts que geram/validam a base, as fotos e as ilustrações, e os testes (`node ferramentas/teste_*.js`) |
+| [sw.js](sw.js) | Cache offline + lembrete em segundo plano |
 | [servidor.js](servidor.js) | Servidor local, só com o que já vem no Node |
 
-## Marca
+## Visual
 
-Nome e logomarca reaproveitados de `APP DE TREINO/tryvox/TRIVOX/index e logo/` (logo.png.png e
-icon.png.png). A paleta é um gradiente vibrante (azul → violeta → rosa) derivado da cor da
-logomarca (amostrada por pixel: `#6477C7`), mais uma cor de comemoração (`--festa`, âmbar) para
-conquistas e treino concluído.
+Claro, alegre e divertido (out/2026 — antes era escuro). Fundo céu claro, cartões brancos com
+contorno e sombra sólida colorida ("brinquedo de academia"), cores com papel fixo: coral = ação,
+turquesa = treino/ok, sol = conquista, uva = evolução, azul = informação. Cada aba da barra de
+baixo tem a sua cor. Títulos em Baloo 2, texto em Nunito. Ícone: o símbolo da logomarca TRIVOX
+em branco sobre gradiente coral → sol.
 
 ## De onde veio a base de exercícios
 
-563 exercícios, sem repetição, consolidados de dois apps antigos:
-- **X IRON v7** (501): musculação, calistenia (empurrar/puxar/pernas/core), skills, mobilidade, cardio.
-- **LOBAS MOTION / VYRON** (+64, mesma base nos dois apps): glúteos isolados, alongamento e
-  equilíbrio — três categorias que o X IRON não tinha.
+**1535 exercícios** (eram 563). Os 563 originais (X IRON v7 + LOBAS/VYRON) mantêm os mesmos ids —
+o histórico de carga depende disso. 106 fichas antigas genéricas foram reescritas. Os 972 novos
+foram escritos por especialistas (em [ferramentas/novos_exercicios/](ferramentas/novos_exercicios/),
+formato texto, convertidos por `python3 ferramentas/enriquecer_exercicios.py`), pensando em:
+sempre haver outro exercício pro mesmo músculo quando o aparelho está ocupado, casa com
+variação de verdade (cadeira, degrau, mochila, toalha, elástico, halteres...), 50+ e raquete.
 
-Todos com músculos primários/secundários, instruções passo a passo, erros comuns e nível.
-Validado na extração: nenhum id duplicado, nenhum nome duplicado, nenhum exercício sem
-instruções ou sem músculo mapeado.
+Todo exercício tem agora: `local` (casa/academia), `objetivos` (condicionamento, perda_peso,
+hipertrofia, 50mais, raquete), `impacto` (baixo/médio/alto) e `aparelho` (chave normalizada,
+60 tipos). Todas as combinações local × nível × objetivo têm pelo menos 15 exercícios.
+Relatório: [ferramentas/relatorio_exercicios.md](ferramentas/relatorio_exercicios.md).
 
 ## Decisões de treino embutidas no código
 
@@ -138,9 +151,7 @@ instruções ou sem músculo mapeado.
   redesenhados: os do VYRON dependiam de um programa fixo de 12 semanas que este app não tem;
   aqui checam dado real (sessões, streak, recordes, platô quebrado, volume equilibrado).
 - **Coach por chat**: banco de frases por tema + palavra-chave, sem IA — funciona offline e sem custo.
-- **Imagem do exercício**: nenhum app antigo tinha foto real (o único que tentava, o LOBAS,
-  chamava um serviço externo pra gerar uma caixa colorida com texto — nem era foto, e quebraria
-  o app offline). Em vez disso, pictogramas SVG por padrão de movimento.
+- **Imagem do exercício**: ver "Imagens dos exercícios" abaixo.
 
 ## Spotify — como ativar
 
@@ -218,19 +229,19 @@ dados dela sobem sozinhos sempre que mudam, isolados dos demais.
 
 ## Imagens dos exercícios
 
-**22 exercícios têm foto real** (não pictograma): os mais comuns/fundamentais — Agachamento
-Livre, Levantamento Terra, Stiff, Supino Reto, Leg Press, Hip Thrust, Face Pull, Bom Dia,
-Superman, Handstand Push-up, Arnold Press, Farmers Walk, Box Jump, entre outros. Fotos vêm do
-[free-exercise-db](https://github.com/yuhonas/free-exercise-db) (domínio público), baixadas e
-hospedadas dentro do próprio app em `data/imagens/` — funcionam offline, sem depender de link
-externo. Nome, instruções, músculos e erros comuns continuam 100% em português, vindos da nossa
-base — só a imagem veio de lá.
+**Todo exercício tem imagem.** Na tela do exercício (e durante o treino) há abas:
+- **Fotos** — foto real de início e fim do movimento: 689 exercícios, do
+  [free-exercise-db](https://github.com/yuhonas/free-exercise-db) (domínio público), associadas
+  uma a uma por especialista (só quando é o mesmo movimento com o mesmo equipamento) e guardadas
+  dentro do app (`data/imagens/fedb/`, ~38 MB, baixadas sob demanda e cacheadas).
+- **Como fazer** — ilustração animada do movimento com o aparelho (todos os 1535), boneca ou
+  boneco conforme o sexo do perfil ([js/figuras.js](js/figuras.js)).
+- **Músculos** — corpo de frente e costas com a região trabalhada (principal e auxiliar).
+- **Aparelho** — desenho do equipamento usado.
+- **Minha foto** — a foto que a pessoa tirou (abaixo).
 
-Os outros 541 exercícios continuam com pictograma. Não migrei mais porque tentei casar por nome
-(português) contra o banco (inglês) automaticamente e a taxa de erro foi alta demais pra
-confiar — decenas de exercícios diferentes caindo na mesma foto genérica por engano (ver
-[histórico](historico/09-fotos-reais-de-exercicios.md) pros detalhes). Prefiro pictograma
-honesto a foto real errada.
+Não havia gerador de imagem por IA disponível nesta rodada; as ilustrações são vetoriais, feitas
+por código. Se no futuro houver fotos/vídeos melhores, basta preencher `imagens` no json.
 
 ### Sua própria foto e vídeo por exercício
 
@@ -250,13 +261,28 @@ com cada vídeo. É um `.zip` de verdade — dá pra abrir num computador com qu
 descompactador. Importar aceita tanto esse `.zip` novo quanto um `.json` antigo (backup feito
 antes desse recurso existir) — nesse caso só não tem vídeo pra restaurar, o resto volta normal.
 
-## Perfil, nível e peso
+## Perfil, objetivo e treino
 
-- **Nível**: iniciante, intermediário, avançado ou elite.
-- **Dias da semana de treino**: chips de domingo a sábado em Perfil › Treino. Só avisa "hoje é
-  dia de treino" na tela inicial — quem decide quantas fichas o gerador automático cria continua
-  sendo os campos numéricos de musculação/aeróbico (dias/semana), sem sincronização forçada
-  entre os dois pra não criar mágica escondida.
+- **Objetivos**: condicionamento físico, perda de peso, hipertrofia, especial 50+ e especial raquete
+  (pickleball/beach tennis — com dias de jogo: nesses dias e na véspera a ficha vira ativação leve).
+- **Nível**: iniciante, intermediário ou avançado (o "elite" antigo vale como avançado).
+- **Onde treina**: academia ou casa; em casa, a pessoa marca os equipamentos que tem.
+- **Sexo, idade e peso/altura** personalizam o gerador: 50+ e 65+ ficam sem salto e com mais
+  equilíbrio; IMC alto evita impacto; sexo só muda a ênfase padrão (nunca exclui nada).
+- **Toda ficha** começa com aquecimento e termina com alongamento dos músculos do dia — inclusive
+  as montadas à mão (o app completa ao começar o treino).
+- **Último treino**: em cada exercício aparece "Última vez: 20kg × 12 · 22kg × 10..." e os
+  campos já vêm com esses valores.
+- **Aparelho ocupado**: até 12 alternativas pro mesmo músculo, em aparelhos diferentes (em casa,
+  só o que dá pra fazer em casa).
+- **Cronômetro** (Início ou ⏱️ no treino): timer com alarme, cronômetro com voltas e
+  intervalado (Tabata/HIIT). Descanso entre séries com contagem 3-2-1, alarme, vibração e
+  notificação. O tempo é calculado pelo relógio, então continua certo se a tela apagar.
+- **Chamada diária** (Perfil › Chamada pro treino): horário + botão "colocar no calendário do
+  celular" (o mais garantido: avisa com o app fechado), notificação do app e, no Android com o
+  app instalado, aviso em segundo plano.
+- **Motivação**: frase do dia na tela inicial e "missão do dia" com o treino de hoje.
+- **Dias da semana de treino**: chips em Perfil › Treino; o gerador liga cada ficha a um dia.
 - **Peso & bioimpedância** (Perfil e Evolução): registro de pesagens ao longo do tempo, com
   gráfico de evolução (SVG puro). Peso é obrigatório; gordura corporal, massa muscular, água e
   gordura visceral são opcionais — só pra quem tem balança de bioimpedância. Cada pesagem nova

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRIVOX · Figuras dos exercícios</title>
+<!-- Verificacao visual do js/figuras.js: grade de exercicios variados (todos os grupos, casa e academia)
+     + todas as ilustracoes de aparelho. Abra direto no navegador (funciona via file://).
+     Os dados dos exercicios abaixo sao uma copia de data/exercicios.json, gerada por ferramentas/mapear_figuras.py. -->
+<style>
+  :root { --fundo:#FFFBF2; --cartao:#FFFFFF; --texto:#2E3148; --apagado:#6B7090; --coral:#FF6B6B; --turq:#12C2B9; --sol:#FFC93C; --roxo:#8B5CF6; --azul:#3B82F6; --verde:#22C55E; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--fundo); color: var(--texto); }
+  header { padding: 28px 20px 8px; text-align: center; }
+  h1 { margin: 0; font-size: 30px; font-weight: 900; background: linear-gradient(90deg, var(--coral), var(--sol) 45%, var(--turq)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  header p { margin: 6px 0 0; color: var(--apagado); }
+  .controles { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 14px 0 4px; }
+  .controles button { border: 0; border-radius: 999px; padding: 9px 16px; font: inherit; font-weight: 800; cursor: pointer; background: #fff; color: var(--texto); box-shadow: 0 2px 0 #f0e4cc; }
+  .controles button[aria-pressed="true"] { background: var(--turq); color: #fff; box-shadow: 0 2px 0 #0b9a92; }
+  h2 { margin: 26px 20px 10px; font-size: 21px; font-weight: 900; }
+  h2 span { display: inline-block; padding: 4px 14px; border-radius: 999px; background: var(--sol); }
+  .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; padding: 0 20px 10px; }
+  .cartao { background: var(--cartao); border-radius: 20px; padding: 10px 10px 12px; box-shadow: 0 3px 0 #f1e6cf, 0 8px 24px rgba(255, 140, 90, .08); display: flex; flex-direction: column; gap: 8px; }
+  .cartao .fig { display: flex; justify-content: center; }
+  .cartao h3 { margin: 0 4px; font-size: 15px; font-weight: 800; line-height: 1.25; }
+  .chips { display: flex; gap: 5px; flex-wrap: wrap; margin: 0 4px; }
+  .chip { font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 999px; color: #fff; }
+  .c-cat { background: var(--roxo); } .c-casa { background: var(--verde); } .c-acad { background: var(--azul); } .c-ap { background: #FFE9A8; color: #6B4E00; }
+  .aparelhos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 0 20px 30px; }
+  .aparelhos > div { background: #fff; border-radius: 18px; padding: 8px; display: flex; justify-content: center; box-shadow: 0 3px 0 #f1e6cf; }
+  code { font-size: 10px; color: var(--apagado); margin: 0 4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Como fazer cada exercício</h1>
+  <p>Ilustrações geradas por código (js/figuras.js): boneco articulado + aparelho, animados em loop.</p>
+  <div class="controles" role="group" aria-label="Opções de visualização">
+    <button id="bAnim" aria-pressed="true">Animação</button>
+    <button id="bQuadros" aria-pressed="false">Quadros-chave</button>
+    <button id="bM" aria-pressed="true">Boneco</button>
+    <button id="bF" aria-pressed="false">Boneca</button>
+  </div>
+</header>
+<main>
+  <h2 id="tEx"><span>Exercícios</span></h2>
+  <section class="grade" id="exercicios" aria-labelledby="tEx"></section>
+  <h2 id="tAp"><span>Aparelhos</span></h2>
+  <section class="aparelhos" id="aparelhos" aria-labelledby="tAp"></section>
+</main>
+<script src="../js/figuras.js"></script>
+<script>
+  const DADOS = {"ex": [{"id": "pe_agachu", "nome": "Agachamento Livre", "categoria": "pernas", "aparelho": "barra", "local": ["academia"]}, {"id": "pe_agach_bul", "nome": "Agachamento Búlgaro", "categoria": "pernas", "aparelho": "halteres", "local": ["academia", "casa"]}, {"id": "pe_leg_press", "nome": "Leg Press 45°", "categoria": "pernas", "aparelho": "leg_press", "local": ["academia"]}, {"id": "pe_cadeira_ext", "nome": "Cadeira Extensora", "categoria": "pernas", "aparelho": "cadeira_extensora", "local": ["academia"]}, {"id": "pe_mesa_flex", "nome": "Mesa Flexora", "categoria": "pernas", "aparelho": "mesa_flexora", "local": ["academia"]}, {"id": "pe_stiff", "nome": "Stiff", "categoria": "pernas", "aparelho": "barra", "local": ["academia"]}, {"id": "pe_hip_thrust", "nome": "Hip Thrust", "categoria": "pernas", "aparelho": "barra", "local": ["academia"]}, {"id": "casa_agach_mochila", "nome": "Agachamento com Mochila", "categoria": "pernas", "aparelho": "mochila", "local": ["casa"]}, {"id": "casa_bulgaro_cadeira_mochila", "nome": "Búlgaro na Cadeira com Mochila", "categoria": "pernas", "aparelho": "mochila", "local": ["casa"]}, {"id": "s50_sentar_levantar", "nome": "Sentar e Levantar da Cadeira", "categoria": "pernas_cal", "aparelho": "cadeira", "local": ["academia", "casa"]}, {"id": "qp3_pant_halteres_degrau", "nome": "Panturrilha em Pé com Halteres no Degrau", "categoria": "pernas", "aparelho": "halteres", "local": ["academia", "casa"]}, {"id": "gp3_abducao_polia_em_pe", "nome": "Abdução de Quadril em Pé na Polia", "categoria": "gluteos", "aparelho": "polia", "local": ["academia"]}, {"id": "lb_gl9", "nome": "Clamshell", "categoria": "gluteos", "aparelho": "mini_band", "local": ["academia", "casa"]}, {"id": "cal_glute_bridge", "nome": "Ponte de Glúteo", "categoria": "pernas_cal", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "gp3_coice_4apoios", "nome": "Coice em 4 Apoios (Donkey Kick)", "categoria": "gluteos", "aparelho": "colchonete", "local": ["casa"]}, {"id": "co_puxada_f", "nome": "Puxada Frontal", "categoria": "costas", "aparelho": "puxador_pulley", "local": ["academia"]}, {"id": "co_remada_c", "nome": "Remada Curvada", "categoria": "costas", "aparelho": "barra", "local": ["academia"]}, {"id": "co_remada_hal", "nome": "Remada Unilateral", "categoria": "costas", "aparelho": "halteres", "local": ["academia", "casa"]}, {"id": "co_remada_h", "nome": "Remada Baixa", "categoria": "costas", "aparelho": "remada_baixa", "local": ["academia"]}, {"id": "acad_trx_remada", "nome": "Remada no TRX", "categoria": "costas", "aparelho": "trx", "local": ["academia", "casa"]}, {"id": "cal_pull_up", "nome": "Pull-up (Barra Fixa)", "categoria": "puxar", "aparelho": "barra_fixa", "local": ["academia", "casa"]}, {"id": "cal_inverted_row", "nome": "Remada Invertida", "categoria": "puxar", "aparelho": "barra", "local": ["academia", "casa"]}, {"id": "casa_remada_toalha_porta", "nome": "Remada com Toalha na Porta", "categoria": "costas", "aparelho": "toalha", "local": ["casa"]}, {"id": "co_bird_dog", "nome": "Bird Dog", "categoria": "costas", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "pe_supino_r", "nome": "Supino Reto", "categoria": "peito", "aparelho": "barra", "local": ["academia"]}, {"id": "pe_supino_inc", "nome": "Supino Inclinado", "categoria": "peito", "aparelho": "banco_inclinado", "local": ["academia"]}, {"id": "pe_crucifixo", "nome": "Crucifixo", "categoria": "peito", "aparelho": "halteres", "local": ["academia"]}, {"id": "pe_crossover", "nome": "Crossover", "categoria": "peito", "aparelho": "crossover", "local": ["academia"]}, {"id": "pe_peck_deck", "nome": "Peck Deck", "categoria": "peito", "aparelho": "voador_peck_deck", "local": ["academia"]}, {"id": "cal_flex", "nome": "Flexão de Braços", "categoria": "empurrar", "aparelho": "peso_corporal", "local": ["academia", "casa"]}, {"id": "casa_flexao_inclinada", "nome": "Flexão Inclinada na Bancada", "categoria": "peito", "aparelho": "cadeira", "local": ["academia", "casa"]}, {"id": "s50_flexao_parede", "nome": "Flexão na Parede", "categoria": "peito", "aparelho": "parede", "local": ["academia", "casa"]}, {"id": "pe_mergulho", "nome": "Paralela (Dips)", "categoria": "peito", "aparelho": "paralelas", "local": ["academia"]}, {"id": "om_elev_lat", "nome": "Elevação Lateral", "categoria": "ombros", "aparelho": "halteres", "local": ["academia", "casa"]}, {"id": "om_dev_front", "nome": "Desenvolvimento", "categoria": "ombros", "aparelho": "halteres", "local": ["academia", "casa"]}, {"id": "om_face_pull_rope", "nome": "Face Pull com Corda", "categoria": "ombros", "aparelho": "polia", "local": ["academia"]}, {"id": "casa_elev_lateral_elastico", "nome": "Elevação Lateral com Elástico", "categoria": "ombros", "aparelho": "elastico", "local": ["academia", "casa"]}, {"id": "rq_re_90_elastico", "nome": "Rotação Externa a 90° com Elástico", "categoria": "ombros", "aparelho": "elastico", "local": ["academia", "casa"]}, {"id": "at_rosca_d", "nome": "Rosca Direta", "categoria": "biceps", "aparelho": "barra", "local": ["academia"]}, {"id": "at_rosca_scott", "nome": "Rosca Scott", "categoria": "biceps", "aparelho": "barra_ez", "local": ["academia"]}, {"id": "tr_triceps_p", "nome": "Tríceps Pulley", "categoria": "triceps", "aparelho": "polia", "local": ["academia"]}, {"id": "tr_triceps_t", "nome": "Tríceps Testa", "categoria": "triceps", "aparelho": "barra_ez", "local": ["academia"]}, {"id": "tr_kickback", "nome": "Tríceps Coice", "categoria": "triceps", "aparelho": "halteres", "local": ["academia", "casa"]}, {"id": "ab_prancha", "nome": "Prancha", "categoria": "core", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "ab_prancha_lat", "nome": "Prancha Lateral", "categoria": "core", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "ab_crunch", "nome": "Crunch", "categoria": "core", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "ab_russian_twist", "nome": "Russian Twist", "categoria": "core", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "ab_cable_woodchop", "nome": "Wood Chop no Cabo", "categoria": "core", "aparelho": "polia", "local": ["academia"]}, {"id": "ab_wheel", "nome": "Ab Wheel", "categoria": "core", "aparelho": "roda_abdominal", "local": ["academia", "casa"]}, {"id": "func_mountain_climb", "nome": "Mountain Climber", "categoria": "funcional", "aparelho": "peso_corporal", "local": ["academia", "casa"]}, {"id": "func_burpee", "nome": "Burpee", "categoria": "funcional", "aparelho": "peso_corporal", "local": ["academia", "casa"]}, {"id": "func_kettlebell_swing", "nome": "Kettlebell Swing", "categoria": "funcional", "aparelho": "kettlebell", "local": ["academia", "casa"]}, {"id": "cardio_jumping_jack", "nome": "Polichinelo", "categoria": "cardio", "aparelho": "peso_corporal", "local": ["academia", "casa"]}, {"id": "aquec_pular_corda", "nome": "Pular Corda", "categoria": "cardio", "aparelho": "corda_pular", "local": ["academia", "casa"]}, {"id": "cond_rowing_machine", "nome": "Remo Ergômetro", "categoria": "cardio", "aparelho": "remo_ergometro", "local": ["academia"]}, {"id": "cond_batch3_0", "nome": "Bicicleta Indoor (Spinning)", "categoria": "cardio", "aparelho": "bicicleta", "local": ["academia"]}, {"id": "hiit_esteira_intervalos", "nome": "Corrida Intervalada na Esteira", "categoria": "cardio", "aparelho": "esteira", "local": ["academia"]}, {"id": "func_battle_rope", "nome": "Battle Rope", "categoria": "funcional", "aparelho": "corda_naval", "local": ["academia"]}, {"id": "func_box_jump", "nome": "Box Jump", "categoria": "funcional", "aparelho": "caixa_pliometrica", "local": ["academia"]}, {"id": "rq_split_step", "nome": "Split Step (Passo de Prontidão)", "categoria": "cardio", "aparelho": "peso_corporal", "local": ["academia", "casa"]}, {"id": "rq_shadow_swing", "nome": "Golpes de Sombra com Raquete", "categoria": "cardio", "aparelho": "raquete", "local": ["academia", "casa"]}, {"id": "rq_mb_scoop", "nome": "Arremesso Rotacional Baixo (Scoop Toss)", "categoria": "funcional", "aparelho": "medicine_ball", "local": ["academia"]}, {"id": "mobi_cat_cow", "nome": "Gato-Camelo", "categoria": "mobilidade", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "lb_al7", "nome": "Child's Pose", "categoria": "alongamento", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "mobi_hip_flexor_stretch", "nome": "Alongamento do Flexor do Quadril", "categoria": "mobilidade", "aparelho": "colchonete", "local": ["academia", "casa"]}, {"id": "s50_marcha_sentado", "nome": "Marcha Sentada na Cadeira", "categoria": "cardio", "aparelho": "cadeira", "local": ["academia", "casa"]}, {"id": "s50_tandem", "nome": "Equilíbrio em Tandem (Pé à Frente do Pé)", "categoria": "equilibrio", "aparelho": "peso_corporal", "local": ["academia", "casa"]}], "ap": ["anilha", "argolas", "banco", "banco_inclinado", "banco_romano", "barra", "barra_ez", "barra_fixa", "bicicleta", "bola_suica", "bosu", "cadeira", "cadeira_abdutora", "cadeira_adutora", "cadeira_extensora", "caixa_pliometrica", "colchonete", "cones", "corda_naval", "corda_pular", "crossover", "degrau_step", "desenvolvimento_maquina", "elastico", "eliptico", "escada_agilidade", "esteira", "foam_roller", "gluteo_maquina", "hack", "halteres", "hand_grip", "kettlebell", "landmine", "leg_press", "maquina_abdominal", "maquina_bracos", "medicine_ball", "mesa_flexora", "mini_band", "mochila", "panturrilha_maquina", "paralelas", "parede", "peso_corporal", "pneu", "polia", "puxador_pulley", "raquete", "remada_baixa", "remada_maquina", "remo_ergometro", "roda_abdominal", "saco_areia", "smith", "supino_maquina", "toalha", "treno", "trx", "voador_peck_deck"]};
+  const CAT = { pernas: 'Pernas', pernas_cal: 'Pernas', gluteos: 'Glúteos', costas: 'Costas', puxar: 'Puxar', peito: 'Peito', empurrar: 'Empurrar',
+    ombros: 'Ombros', biceps: 'Bíceps', triceps: 'Tríceps', core: 'Core', core_cal: 'Core', cardio: 'Cardio', funcional: 'Funcional',
+    mobilidade: 'Mobilidade', alongamento: 'Alongamento', equilibrio: 'Equilíbrio', skills: 'Skills' };
+  const estado = { quadros: new URLSearchParams(location.search).has('quadros'), genero: new URLSearchParams(location.search).get('genero') || 'm' };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  function desenhar() {
+    const grade = document.getElementById('exercicios');
+    grade.style.gridTemplateColumns = estado.quadros ? 'repeat(auto-fill, minmax(296px, 1fr))' : '';
+    grade.innerHTML = DADOS.ex.map(e => {
+      const m = Figuras.template(e);
+      return `<article class="cartao">
+        <div class="fig">${Figuras.svg(e, { largura: estado.quadros ? 272 : 236, quadros: estado.quadros || undefined, genero: estado.genero })}</div>
+        <h3>${esc(e.nome)}</h3>
+        <div class="chips"><span class="chip c-cat">${CAT[e.categoria] || e.categoria}</span>
+          ${e.local.includes('casa') ? '<span class="chip c-casa">casa</span>' : ''}${e.local.includes('academia') ? '<span class="chip c-acad">academia</span>' : ''}
+          <span class="chip c-ap">${esc(Figuras.APARELHOS[e.aparelho] || e.aparelho)}</span></div>
+        <code>${m.t}${m.p ? ' · ' + m.p : ''}${m.a ? ' · ' + m.a : ''}</code>
+      </article>`;
+    }).join('');
+    document.getElementById('aparelhos').innerHTML = DADOS.ap.map(k => `<div>${Figuras.aparelho(k, { largura: 150, genero: estado.genero })}</div>`).join('');
+    document.getElementById('bAnim').setAttribute('aria-pressed', !estado.quadros);
+    document.getElementById('bQuadros').setAttribute('aria-pressed', estado.quadros);
+    document.getElementById('bM').setAttribute('aria-pressed', estado.genero === 'm');
+    document.getElementById('bF').setAttribute('aria-pressed', estado.genero === 'f');
+  }
+  document.getElementById('bAnim').onclick = () => { estado.quadros = false; desenhar(); };
+  document.getElementById('bQuadros').onclick = () => { estado.quadros = true; desenhar(); };
+  document.getElementById('bM').onclick = () => { estado.genero = 'm'; desenhar(); };
+  document.getElementById('bF').onclick = () => { estado.genero = 'f'; desenhar(); };
+  desenhar();
+</script>
+</body>
+</html>

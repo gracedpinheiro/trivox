@@ -1,0 +1,860 @@
+# V3 — 50+ e ESPORTES DE RAQUETE (pickleball e beach tennis)
+# Foco: substitutos por equipamento para cada músculo (academia e casa), equilíbrio/prevenção de quedas,
+# força funcional, pegada, postura, manguito, punho/cotovelo, agilidade, footwork, potência rotacional,
+# pliometria dosada, desaceleração e aquecimento pré-jogo.
+# Objetivo "5" só quando é seguro para iniciante 50+: baixo impacto, sem carga axial pesada, sem inversão.
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+# ===================== PERNAS / QUADRÍCEPS =====================
+
+sr3_leg_press_excentrico | Leg Press 45° com Descida Lenta (4 s) | pernas | Leg press 45° | int | 🦵 | leg_press | a | b | CH5 | 3 | 8-10
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Panturrilha
+F: Leg_Press
+I: Sente com lombar e quadril totalmente apoiados no encosto e pés no meio da plataforma, na largura do quadril | Destrave a plataforma e desça contando 4 segundos até os joelhos formarem cerca de 90° | Sem pausa relaxada embaixo, empurre a plataforma com o pé inteiro em 1-2 segundos | Pare um pouco antes de travar os joelhos no topo e reinicie a descida lenta | Expire ao empurrar e mantenha as mãos nas alavancas de segurança
+E: Descer rápido e "quicar" no fundo | Tirar o quadril do banco no final da descida | Travar os joelhos estendidos no topo | Joelhos caindo para dentro
+PR: Leg Press Unilateral
+RG: Leg press com amplitude menor e sem tempo controlado
+
+sr3_agach_halter_banco | Agachamento com Halteres até o Banco | pernas | Halteres + banco ou cadeira firme | ini | 🪑 | halteres | ca | b | CH5 | 3 | 10-12
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Core, Antebraços
+F: Dumbbell_Squat_To_A_Bench
+I: Posicione um banco (ou cadeira firme encostada na parede) atrás de você e segure um halter em cada mão ao lado do corpo | Pés na largura dos ombros, pontas levemente para fora | Leve o quadril para trás e desça até encostar de leve no banco, sem sentar | Empurre o chão com o pé inteiro e volte em pé, apertando os glúteos no final | Mantenha o peito aberto e o olhar à frente durante todo o movimento
+E: Sentar e relaxar no banco | Arredondar as costas para pegar impulso | Joelhos se juntando na subida
+PR: Agachamento Goblet com Pausa
+RG: Sentar e Levantar da Cadeira sem carga
+
+sr3_agach_pendulo | Agachamento no Pêndulo (Pendulum Squat) | pernas | Máquina pêndulo | int | 🕰️ | hack | a | b | H5 | 3 | 8-12
+P: Quadríceps, Glúteos
+S: Adutores, Isquiotibiais, Core
+I: Ajuste as almofadas nos ombros e apoie as costas inteiras no encosto da máquina | Pés no centro da plataforma, na largura do quadril, levemente à frente | Destrave e desça em arco controlado (3 s) até a coxa ficar paralela à plataforma | Empurre com o meio do pé até quase estender os joelhos | Trave a máquina ao terminar a série antes de sair
+E: Tirar o calcanhar da plataforma | Descer além do que a lombar permite (pelve "enrolando") | Travar os joelhos no topo
+PR: Pêndulo com pausa de 2 s embaixo
+RG: Leg Press 45° com Descida Lenta (4 s)
+
+sr3_split_squat_halteres | Afundo Estático com Halteres (Split Squat) | pernas | Halteres | int | 🏋️ | halteres | ca | b | CH5R | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Glúteo Médio, Core, Equilíbrio
+I: Segure um halter em cada mão e dê um passo largo à frente, calcanhar de trás elevado | Desça o joelho de trás em direção ao chão, tronco levemente inclinado à frente | Pare com o joelho de trás a 2-3 cm do chão e a canela da frente quase vertical | Suba empurrando o pé da frente sem mudar a posição dos pés | Faça todas as repetições de um lado e troque
+E: Base estreita demais (pés em linha, perde equilíbrio) | Bater o joelho de trás no chão | Joelho da frente caindo para dentro
+PR: Agachamento Búlgaro
+RG: Afundo Estático com Apoio
+
+sr3_afundo_reverso_trx | Afundo Reverso Assistido no TRX | pernas_cal | TRX / fita de suspensão | ini | 🎗️ | trx | a | b | C5R | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Core, Equilíbrio
+I: Segure as alças do TRX com os braços estendidos à frente e as fitas esticadas | Dê um passo para trás com uma perna, pisando com a ponta do pé | Desça o joelho de trás em direção ao chão usando as alças só como apoio de equilíbrio | Empurre o calcanhar da frente para voltar à posição inicial | Alterne as pernas ou complete um lado de cada vez
+E: Puxar as alças com os braços para subir | Passo para trás curto demais | Inclinar o tronco muito à frente
+PR: Afundo Reverso sem apoio
+RG: Afundo Estático com Apoio
+
+sr3_extensora_isometrica | Cadeira Extensora Isométrica a 60° (Tendão Patelar) | pernas | Cadeira extensora | ini | ⏸️ | cadeira_extensora | a | b | H5R | 4 | 30-45s
+P: Quadríceps
+S: Reto Femoral, Joelho
+I: Ajuste o encosto para que o eixo da máquina fique alinhado ao joelho e o rolo apoie acima do tornozelo | Escolha uma carga moderada e estenda o joelho até cerca de 60° de flexão (perna não totalmente reta) | Segure parado nessa posição empurrando o rolo com força constante | Respire normalmente durante a contração, sem prender o ar | Desça devagar e descanse 1-2 minutos entre as séries
+E: Prender a respiração (pressão sobe) | Usar carga que gera dor no tendão acima de 3/10 | Tirar o quadril do banco
+PR: Extensora Unilateral
+RG: Extensão de Joelho Sentado
+
+# ===================== GLÚTEOS / GLÚTEO MÉDIO / ADUTORES =====================
+
+sr3_abducao_pe_cabo | Abdução de Quadril em Pé no Cabo | gluteos | Polia baixa + tornozeleira | ini | ↔️ | polia | a | b | H5R | 3 | 12-15 cada perna
+P: Glúteo Médio
+S: Abdutores, Core, Equilíbrio
+I: Prenda a tornozeleira na polia baixa e no tornozelo da perna mais distante da máquina | Fique de lado para a polia, segurando na estrutura para se equilibrar | Leve a perna para o lado, afastando-a da máquina, com o pé apontado para a frente | Suba até cerca de 30-40° sem inclinar o tronco e volte devagar | Complete as repetições e troque de lado
+E: Inclinar o tronco para o lado para subir mais | Girar o pé para cima (vira flexor de quadril) | Deixar a carga bater na volta
+PR: Abdução no cabo sem segurar no apoio
+RG: Abdução Lateral Deitado
+
+sr3_aducao_bola_joelhos | Adução Isométrica Sentado com Almofada entre os Joelhos | pernas_cal | Cadeira + almofada ou bola pequena | ini | 🛋️ | cadeira | ca | b | C5R | 3 | 6 x 10s
+P: Adutores
+S: Core, Assoalho Pélvico
+I: Sente na frente da cadeira com os pés apoiados e joelhos a 90° | Coloque uma almofada, travesseiro dobrado ou bola pequena entre os joelhos | Aperte a almofada com força progressiva até cerca de 70% do máximo | Segure 10 segundos respirando normalmente e solte devagar | Descanse 5 segundos e repita
+E: Prender a respiração | Apertar de forma explosiva (risco de dor na virilha) | Encolher os ombros durante o esforço
+PR: Adução de Quadril Deitado de Lado
+RG: Apertar com menos força e por 5 segundos
+
+sr3_aducao_deitado | Adução de Quadril Deitado de Lado | pernas_cal | Colchonete | ini | 🧘 | colchonete | ca | b | C5R | 3 | 12-15 cada perna
+P: Adutores
+S: Core, Flexores do Quadril
+I: Deite de lado com a cabeça apoiada no braço de baixo | Cruze a perna de cima à frente, pé apoiado no chão na frente do joelho de baixo | Mantenha a perna de baixo esticada e levante-a alguns centímetros do chão | Segure 1 segundo no alto e desça devagar sem encostar totalmente | Complete as repetições e troque de lado
+E: Rolar o quadril para trás | Dobrar o joelho da perna que sobe | Fazer rápido, sem controle
+PR: Adução Copenhagen Curta
+RG: Adução Isométrica Sentado com Almofada entre os Joelhos
+
+sr3_afundo_lateral_kb | Afundo Lateral Goblet com Kettlebell | pernas | Kettlebell | int | 🔔 | kettlebell | ca | b | CHR | 3 | 8 cada lado
+P: Adutores, Glúteos
+S: Quadríceps, Glúteo Médio, Core
+I: Segure o kettlebell pelos chifres junto ao peito, pés juntos | Dê um passo largo para o lado, pé apontando para a frente | Leve o quadril para trás e dobre o joelho da perna que deu o passo, mantendo a outra estendida | Desça até a coxa ficar quase paralela ao chão, com o peito aberto | Empurre o pé de apoio com força e volte à posição inicial
+E: Joelho passando muito da ponta do pé e caindo para dentro | Arredondar as costas para descer | Tirar o calcanhar do chão
+PR: Afundo Lateral no Landmine
+RG: Squat Lateral
+
+sr3_afundo_lateral_toalha | Afundo Lateral Deslizante com Toalha | pernas_cal | Toalha em piso liso | int | 🧺 | toalha | c | b | CHR | 3 | 8-10 cada lado
+P: Adutores, Glúteos
+S: Quadríceps, Glúteo Médio, Core
+I: Em piso liso, coloque uma toalha dobrada sob um dos pés | Com o peso na perna de apoio, deslize o pé da toalha para o lado enquanto agacha na perna de apoio | Vá até onde mantiver as costas retas e o calcanhar de apoio no chão | Puxe o pé da toalha de volta contraindo a parte interna da coxa e suba | Complete as repetições e troque o lado
+E: Deixar o peso ir para a perna que desliza | Joelho de apoio caindo para dentro | Deslizar rápido demais sem controle na volta
+PR: Afundo Lateral Goblet com Kettlebell
+RG: Squat Lateral
+
+sr3_afundo_lateral_landmine | Afundo Lateral no Landmine | pernas | Landmine | int | 🗼 | landmine | a | b | HR | 3 | 8 cada lado
+P: Adutores, Glúteos
+S: Quadríceps, Core, Glúteo Médio
+I: Segure a ponta da barra do landmine com as duas mãos junto ao peito | Fique de frente para o suporte, pés juntos | Dê um passo largo para o lado e agache sobre essa perna, mantendo a outra estendida | A barra acompanha o tronco e ajuda a manter o peito aberto | Empurre o chão e volte ao centro
+E: Barra afastando do peito (sobrecarrega a lombar) | Pé que dá o passo virado para fora | Passo curto demais
+PR: Afundo lateral no landmine com pausa de 2 s embaixo
+RG: Afundo Lateral Goblet com Kettlebell
+
+sr3_cossack_trx | Agachamento Cossaco Assistido no TRX | pernas_cal | TRX / fita de suspensão | int | 🤸 | trx | a | b | CR | 3 | 6-8 cada lado
+P: Adutores, Glúteos
+S: Quadríceps, Tornozelo, Core
+I: Segure as alças do TRX com os braços estendidos à frente e pés bem afastados | Transfira o peso para uma perna e agache sobre ela, mantendo a outra estendida com a ponta do pé para cima | Use as alças para manter o tronco ereto e o calcanhar no chão | Desça só até onde mantiver a coluna neutra | Empurre e passe para o outro lado pelo centro
+E: Tirar o calcanhar da perna dobrada do chão | Arredondar a coluna no fundo | Puxar demais com os braços
+PR: Cossack Squat
+RG: Squat Lateral
+
+sr3_elevacao_pelvica_maquina | Elevação Pélvica na Máquina | gluteos | Máquina de hip thrust | int | 🍑 | gluteo_maquina | a | b | H5 | 3 | 10-12
+P: Glúteos
+S: Isquiotibiais, Core, Adutores
+I: Sente na máquina com as costas na almofada (altura da escápula) e o cinto ou rolo sobre o quadril | Pés na plataforma, na largura do quadril, joelhos a cerca de 90° no topo | Empurre com os calcanhares e suba o quadril até alinhar com o tronco | Segure 1 segundo apertando os glúteos, queixo levemente recolhido | Desça devagar sem apoiar a carga totalmente
+E: Arquear a lombar no topo em vez de estender o quadril | Pés longe demais (vira exercício de posterior) | Olhar para cima jogando a cabeça para trás
+PR: Hip Thrust Unilateral
+RG: Ponte de Glúteo
+
+sr3_ponte_bola_suica | Ponte de Glúteo com Ombros na Bola Suíça | gluteos | Bola suíça | int | 🔵 | bola_suica | ca | b | CH5R | 3 | 10-12
+P: Glúteos
+S: Isquiotibiais, Core, Equilíbrio
+F: Physioball_Hip_Bridge
+I: Sente na frente da bola e role até apoiar a parte alta das costas e a cabeça nela | Pés no chão na largura do quadril, joelhos dobrados | Deixe o quadril descer em direção ao chão sem perder o apoio | Empurre os calcanhares e suba o quadril até formar uma "mesa" com o tronco | Segure 2 segundos e desça controlando a bola
+E: Bola rolando por falta de controle do core | Arquear a lombar no topo | Pés muito juntos (base instável)
+PR: Ponte unilateral com ombros na bola
+RG: Glute Bridge
+
+# ===================== POSTERIOR / ISQUIOTIBIAIS =====================
+
+sr3_flexora_elastico_sentado | Flexora Sentado com Elástico | pernas_cal | Elástico + cadeira | ini | 🎀 | elastico | ca | b | H5 | 3 | 12-15 cada perna
+P: Isquiotibiais
+S: Panturrilha
+F: Seated_Band_Hamstring_Curl
+I: Prenda o elástico em um ponto baixo e firme (pé da mesa ou porta) e sente numa cadeira de frente para ele | Passe o elástico atrás do tornozelo com a perna quase estendida | Dobre o joelho puxando o calcanhar para baixo da cadeira | Segure 1 segundo e volte devagar resistindo ao elástico | Complete as repetições e troque a perna
+E: Escorregar o quadril na cadeira | Voltar rápido deixando o elástico "puxar" | Elástico frouxo no início do movimento
+PR: Flexora na Bola Suíça
+RG: Elástico mais leve e amplitude menor
+
+sr3_terra_cabo | Levantamento Terra no Cabo (Polia Baixa) | pernas | Crossover com polias baixas | ini | 🔗 | crossover | a | b | CH5 | 3 | 10-12
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Quadríceps, Antebraços
+F: Cable_Deadlifts
+I: Coloque as duas polias na posição mais baixa e fique no centro do crossover | Agache com quadril para trás e pegue os puxadores, braços estendidos | Peito aberto e costas retas, empurre o chão e estenda quadril e joelhos juntos | Fique em pé com os glúteos contraídos, sem inclinar para trás | Desça levando o quadril para trás e os puxadores rente às pernas
+E: Arredondar as costas para pegar os puxadores | Puxar com os braços | Hiperestender a lombar no topo
+PR: Levantamento Terra com Kettlebell
+RG: Hip Hinge
+
+sr3_rdl_kickstand | Stiff Unilateral Apoiado (Kickstand) com Halter | pernas | Halter | int | 🦩 | halteres | ca | b | H5R | 3 | 8-10 cada perna
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Glúteo Médio, Equilíbrio
+I: Segure um halter na mão oposta à perna de trabalho | Coloque o pé de trás meio passo atrás, apoiado só na ponta, como um "descanso" (80% do peso na perna da frente) | Leve o quadril para trás inclinando o tronco, joelho da frente levemente dobrado | Desça o halter até a metade da canela sentindo alongar o posterior | Suba empurrando o calcanhar da frente e aperte o glúteo
+E: Dividir o peso igualmente entre as pernas | Arredondar as costas | Girar o quadril para o lado do halter
+PR: RDL Unilateral
+RG: Hip Hinge
+
+sr3_mesa_flexora_uni_exc | Mesa Flexora Unilateral Excêntrica | pernas | Mesa flexora | ava | 🐢 | mesa_flexora | a | b | HR | 3 | 6-8 cada perna
+P: Isquiotibiais
+S: Panturrilha
+I: Deite de bruços com o rolo logo acima do tornozelo e o joelho alinhado ao eixo da máquina | Suba a carga com as duas pernas | Tire uma perna e desça a carga só com a outra em 4-5 segundos | Repita subindo com as duas e descendo com uma | Mantenha o quadril colado no banco o tempo todo
+E: Tirar o quadril do banco | Descer rápido no final da amplitude | Carga alta demais logo no início (dor no posterior no dia seguinte excessiva)
+PR: Nordic Curl
+RG: Mesa Flexora Deitado
+
+sr3_terra_uni_landmine | Stiff Unilateral no Landmine | pernas | Landmine | ava | 🛬 | landmine | a | b | HR | 3 | 8 cada perna
+P: Isquiotibiais, Glúteos
+S: Glúteo Médio, Core, Equilíbrio
+I: Fique ao lado da ponta da barra do landmine e segure-a com a mão oposta à perna de apoio | Com o joelho de apoio levemente dobrado, incline o tronco e estenda a perna livre para trás | A barra guia o movimento em arco e dá estabilidade | Desça até sentir o posterior alongar com quadril alinhado (sem abrir) | Suba empurrando o calcanhar e contraia o glúteo no topo
+E: Abrir o quadril da perna de trás | Dobrar muito o joelho de apoio (vira agachamento) | Encolher o ombro que segura a barra
+PR: RDL Unilateral com halter pesado
+RG: Stiff Unilateral Apoiado (Kickstand) com Halter
+
+# ===================== PANTURRILHA / TORNOZELO / TIBIAL =====================
+
+sr3_panturrilha_sentado_halter | Panturrilha Sentado Unilateral com Halter | pernas | Halter + degrau | ini | 🦶 | halteres | ca | b | H5R | 3 | 12-15 cada perna
+P: Sóleo, Panturrilha
+S: Tornozelo
+F: Dumbbell_Seated_One-Leg_Calf_Raise
+I: Sente num banco ou cadeira e apoie a ponta de um pé num degrau ou anilha | Coloque o halter em pé sobre a coxa, logo acima do joelho, segurando com as mãos | Deixe o calcanhar descer abaixo do degrau | Suba o calcanhar o máximo possível e segure 1 segundo | Desça devagar e troque de perna ao final
+E: Movimento curto, sem descer o calcanhar | Usar as mãos para empurrar a coxa | Fazer rápido, sem pausa no topo
+PR: Panturrilha Sentado na máquina
+RG: Sem halter, só o peso da perna
+
+sr3_panturrilha_elastico | Flexão Plantar Sentado com Elástico | pernas_cal | Elástico | ini | 🩰 | elastico | ca | b | 5R | 3 | 15-20 cada pé
+P: Panturrilha
+S: Tornozelo, Sóleo
+I: Sente no chão ou num banco com a perna estendida | Passe o meio do elástico na sola do pé e segure as pontas com as mãos | Empurre a ponta do pé para frente como se pisasse num acelerador | Segure 1 segundo no final e volte devagar | Mantenha o joelho reto e o calcanhar parado
+E: Dobrar o joelho | Deixar o elástico puxar o pé de volta rápido | Elástico frouxo
+PR: Elevação de Calcanhares com Apoio
+RG: Elástico mais leve
+
+sr3_dorsiflexao_elastico | Dorsiflexão com Elástico (Tibial Anterior) | pernas_cal | Elástico | ini | 🦿 | elastico | ca | b | 5R | 3 | 15 cada pé
+P: Tibial Anterior
+S: Tornozelo
+I: Sente no chão com a perna estendida e prenda o elástico num ponto baixo à sua frente (pé de mesa) | Passe a outra ponta do elástico no peito do pé | Afaste-se até o elástico ficar esticado | Puxe a ponta do pé em direção a você contra a resistência | Volte devagar e repita
+E: Elástico frouxo | Mexer o joelho em vez do tornozelo | Voltar rápido
+PR: Elevação de Ponta de Pé na Parede (Tibial)
+RG: Sem elástico, só o movimento
+
+sr3_inversao_eversao | Inversão e Eversão de Tornozelo com Elástico | pernas_cal | Elástico | ini | 🔄 | elastico | ca | b | 5R | 2 | 15 cada direção
+P: Tornozelo
+S: Tibial Anterior, Perôneos, Panturrilha
+I: Sente com a perna estendida e o calcanhar apoiado numa toalha dobrada | Para eversão: prenda o elástico à parte interna e gire a sola do pé para fora contra a resistência | Para inversão: prenda o elástico à parte externa e gire a sola do pé para dentro | Mexa só o tornozelo, joelho e coxa parados | Volte devagar em 2 segundos
+E: Girar a perna inteira em vez do tornozelo | Fazer rápido sem controle | Elástico pesado demais (compensação)
+PR: Equilíbrio unipodal em superfície instável
+RG: Movimento sem elástico
+
+# ===================== EQUILÍBRIO / PREVENÇÃO DE QUEDAS =====================
+
+sr3_marcha_re | Caminhada para Trás com Apoio (Marcha Ré) | equilibrio | Corredor + parede ou corrimão | ini | ⏪ | parede | ca | b | C5 | 3 | 10 passos x 3
+P: Equilíbrio
+S: Isquiotibiais, Glúteos, Panturrilha
+I: Fique de costas para um corredor livre, com uma das mãos encostando na parede ou corrimão | Dê passos para trás apoiando primeiro a ponta do pé e depois o calcanhar | Mantenha o tronco ereto e o olhar à frente | Dê passos de tamanho normal e sem pressa | Ao final do corredor, vire com cuidado e repita
+E: Olhar para trás o tempo todo (perde postura) | Passos curtos e arrastados | Fazer em lugar com tapete solto
+PR: Marcha ré sem apoio da mão
+RG: Caminhada Lateral com Apoio
+
+sr3_passo_reativo | Passo de Recuperação (Treino Anti-Queda) | equilibrio | Peso corporal + parceiro | int | 🛟 | peso_corporal | ca | b | C5 | 3 | 5 cada direção
+P: Equilíbrio
+S: Quadríceps, Glúteos, Coordenação
+I: Fique em pé num espaço livre com o parceiro ao lado, pronto para segurar | Incline o corpo inteiro à frente (como uma tábua) até sentir que vai perder o equilíbrio | Dê um passo rápido e largo à frente para "pegar" o corpo e pare firme | Volte e repita para os lados e para trás | Aumente a inclinação só quando o passo estiver seguro
+E: Dar vários passinhos pequenos em vez de um passo firme | Dobrar só o quadril sem inclinar o corpo todo | Treinar sem alguém por perto
+PR: Inclinação liberada pelo parceiro em momento surpresa
+RG: Transferência de Peso (Frente-Trás e Lateral)
+
+sr3_marcha_giro_cabeca | Marcha com Giros de Cabeça (Treino Vestibular) | equilibrio | Corredor | int | 👀 | peso_corporal | ca | b | C5 | 3 | 10 m x 3
+P: Equilíbrio
+S: Coordenação, Core
+I: Caminhe num corredor livre perto da parede, em ritmo normal | A cada 2 passos, gire a cabeça para olhar à direita, depois à esquerda | Mantenha a linha reta e o passo regular | Na volta, faça o mesmo olhando para cima e para baixo | Pare se sentir tontura e retome mais devagar
+E: Diminuir o passo até quase parar | Girar o tronco junto com a cabeça | Fazer longe de um apoio no início
+PR: Caminhada em tandem com giros de cabeça
+RG: Giros de cabeça parado em pé com apoio
+
+sr3_olhos_fechados_unipodal | Equilíbrio Unipodal de Olhos Fechados | equilibrio | Peso corporal + apoio | ava | 🙈 | peso_corporal | ca | b | C5R | 3 | 3 x 15-30s cada perna
+P: Equilíbrio
+S: Tornozelo, Glúteo Médio, Core
+I: Fique de lado para uma bancada ou parede, com a mão a poucos centímetros dela | Fique sobre uma perna, joelho de apoio levemente destravado | Feche os olhos e mantenha a posição | Toque o apoio se precisar e reabra os olhos | Troque de perna
+E: Prender a respiração | Travar o joelho | Treinar sem nada por perto para segurar
+PR: Fazer sobre almofada ou colchonete dobrado
+RG: Equilíbrio com Olhos Fechados (Pés Juntos)
+
+sr3_unipodal_bola_parede | Equilíbrio Unipodal com Passe de Bola na Parede | equilibrio | Bola + parede | int | 🏀 | parede | ca | b | C5R | 3 | 20-30s cada perna
+P: Equilíbrio
+S: Glúteo Médio, Tornozelo, Coordenação
+I: Fique a 1-2 metros de uma parede, apoiado numa perna | Lance uma bola leve contra a parede com as duas mãos | Pegue a bola sem apoiar o outro pé | Varie a altura e o lado dos passes | Troque de perna ao final
+E: Joelho de apoio caindo para dentro | Apoiar o pé livre a cada passe | Lançar forte demais no início
+PR: Equilíbrio no Bosu com Lançamento de Bola
+RG: Mesmo exercício com os dois pés em tandem
+
+sr3_bosu_unipodal | Mini Agachamento Unipodal no Bosu | equilibrio | Bosu | ava | 🌗 | bosu | a | b | CR | 3 | 6-8 cada perna
+P: Equilíbrio, Quadríceps
+S: Glúteo Médio, Tornozelo, Core
+I: Coloque o Bosu perto de um apoio, com a parte arredondada para cima | Suba com um pé no centro do Bosu e estabilize por 5 segundos | Desça num mini agachamento (cerca de 30-45° de joelho) mantendo o joelho alinhado com o pé | Suba devagar sem tocar o outro pé | Troque de perna ao final
+E: Joelho caindo para dentro | Pé fora do centro do Bosu | Descer demais e perder o controle
+PR: Mini agachamento unipodal no Bosu com passe de bola
+RG: Agachamento no Bosu
+
+sr3_pallof_unipodal | Pallof Press em Apoio Unipodal | core | Elástico ou polia | int | 🧲 | elastico | ca | b | C5R | 3 | 8 cada lado
+P: Core, Oblíquos
+S: Glúteo Médio, Equilíbrio, Transverso Abdominal
+I: Prenda o elástico na altura do peito e fique de lado para o ponto de fixação | Segure o elástico com as duas mãos junto ao esterno e afaste-se até ele ficar tenso | Fique apoiado na perna mais próxima da fixação | Estenda os braços à frente sem deixar o tronco girar e segure 2 segundos | Volte as mãos ao peito e repita, depois troque de lado
+E: Deixar o tronco girar em direção ao elástico | Quadril caindo para o lado da perna livre | Prender a respiração
+PR: Pallof Press com Deslocamento Lateral
+RG: Pallof Press com Elástico
+
+sr3_flexao_quadril_elastico | Flexão de Quadril em Pé com Elástico | pernas_cal | Elástico + apoio | ini | 🦵 | elastico | ca | b | 5R | 3 | 12 cada perna
+P: Flexores do Quadril
+S: Core, Equilíbrio, Psoas
+F: Hip_Flexion_with_Band
+I: Prenda o elástico num ponto baixo atrás de você e a outra ponta no tornozelo | Fique de costas para a fixação, segurando numa cadeira ou parede | Eleve o joelho à frente até a altura do quadril | Segure 1 segundo e desça devagar | Troque de perna ao final
+E: Inclinar o tronco para trás para subir o joelho | Deixar o elástico puxar a perna de volta | Encolher os ombros
+PR: Marcha com Joelho Alto
+RG: Mesmo movimento sem elástico
+
+# ===================== COSTAS / POSTURA =====================
+
+sr3_remada_articulada_uni | Remada Articulada Unilateral | costas | Máquina de remada articulada | ini | 🚣 | remada_maquina | a | b | H5 | 3 | 10-12 cada braço
+P: Latíssimo, Rombóides
+S: Bíceps, Deltóide Posterior, Trapézio Médio
+F: Leverage_Iso_Row
+I: Ajuste o banco para que as pegadas fiquem na altura do peito e apoie o peito na almofada | Segure uma pegada com a mão neutra, braço estendido | Puxe o cotovelo para trás, rente ao corpo, aproximando a escápula da coluna | Segure 1 segundo e volte devagar até estender o braço | Faça um lado e depois o outro
+E: Tirar o peito do apoio para puxar | Girar o tronco | Encolher o ombro em direção à orelha
+PR: Remada na Máquina com as duas mãos e mais carga
+RG: Remada Sentada com Elástico
+
+sr3_puxada_ajoelhado_uni | Puxada Unilateral Ajoelhado na Polia Alta | costas | Polia alta + pegador | int | 🧎 | polia | a | b | H5R | 3 | 10-12 cada braço
+P: Latíssimo
+S: Rombóides, Bíceps, Core
+F: Kneeling_Single-Arm_High_Pulley_Row
+I: Ajoelhe-se de frente para a polia alta e segure o pegador com uma mão, braço estendido acima | Tronco ereto, abdômen firme, quadril estendido | Puxe o cotovelo para baixo e para trás, girando a palma para dentro no caminho | Termine com o cotovelo ao lado das costelas e o ombro baixo | Volte devagar deixando a escápula subir de leve
+E: Inclinar o tronco para trás | Puxar com o bíceps sem descer a escápula | Girar o tronco para alcançar mais
+PR: Puxada Unilateral no Cabo em pé
+RG: Puxada com Elástico
+
+sr3_remada_corda_rosto | Remada Baixa com Corda até o Rosto | costas | Polia baixa + corda | int | 🪢 | remada_baixa | a | b | H5R | 3 | 12-15
+P: Deltóide Posterior, Rombóides
+S: Trapézio Médio, Manguito Rotador, Bíceps
+F: Low_Pulley_Row_To_Neck
+I: Sente no banco da remada baixa com a corda presa e joelhos levemente dobrados | Segure a corda com as palmas para baixo, tronco quase vertical | Puxe a corda em direção ao queixo/pescoço, cotovelos altos e abertos | Aproxime as escápulas no final e segure 1 segundo | Volte devagar estendendo os braços
+E: Balançar o tronco para trás | Cotovelos abaixo da linha dos ombros | Carga alta que faz encolher os ombros
+PR: Face Pull com Corda
+RG: Face Pull com Elástico
+
+sr3_remada_cadeira_halteres | Remada Curvada Sentado na Cadeira com Halteres | costas | Halteres + cadeira | ini | 💺 | halteres | ca | b | H5 | 3 | 10-12
+P: Latíssimo, Rombóides
+S: Deltóide Posterior, Bíceps, Eretores da Espinha
+I: Sente na beira da cadeira com os pés afastados e um halter de cada lado no chão | Incline o tronco à frente com as costas retas até o peito ficar perto das coxas | Pegue os halteres com as palmas voltadas uma para a outra | Puxe os cotovelos para trás e para cima, rente ao corpo | Desça os halteres devagar até estender os braços
+E: Arredondar as costas | Levantar o tronco para ajudar a puxar | Cotovelos muito abertos
+PR: Serrote (Remada Haltere)
+RG: Remada Sentada com Elástico
+
+sr3_remada_elastico_afundo | Remada Unilateral com Elástico em Base de Afundo | costas | Elástico preso na porta | int | 🎯 | elastico | ca | b | CH5R | 3 | 10-12 cada braço
+P: Latíssimo, Rombóides
+S: Oblíquos, Glúteos, Bíceps
+I: Prenda o elástico na altura do peito (fechado na porta) | Fique em base de afundo com a perna oposta ao braço de trabalho à frente | Segure o elástico com braço estendido e tronco de frente para a porta | Puxe o cotovelo para trás rente ao corpo sem girar o tronco | Volte devagar e troque de lado ao final
+E: Girar o tronco junto com a puxada | Base estreita (perde estabilidade) | Ombro subindo em direção à orelha
+PR: Remada Rotacional no TRX
+RG: Remada Sentada com Elástico
+
+sr3_retracao_banco_inclinado | Retração Escapular Deitado no Banco Inclinado | costas | Halteres + banco inclinado | ini | 🪽 | banco_inclinado | a | b | 5R | 3 | 12-15
+P: Rombóides, Trapézio Médio
+S: Trapézio Inferior, Deltóide Posterior
+F: Middle_Back_Shrug
+I: Deite de bruços no banco inclinado a 30-45°, um halter em cada mão, braços estendidos para o chão | Mantenha os cotovelos estendidos e as palmas voltadas uma para a outra | Aproxime as escápulas uma da outra, como se segurasse uma caneta entre elas | Segure 2 segundos sem dobrar os cotovelos | Solte devagar e repita
+E: Dobrar os cotovelos e transformar em remada | Encolher os ombros para as orelhas | Tirar o peito do banco
+PR: Remada com Apoio no Peito
+RG: Retração escapular sentado sem carga
+
+# ===================== OMBROS / MANGUITO ROTADOR =====================
+
+sr3_crucifixo_inverso_inclinado | Crucifixo Inverso Deitado no Banco Inclinado | ombros | Halteres + banco inclinado | ini | 🦅 | halteres | a | b | H5R | 3 | 12-15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio, Manguito Rotador
+F: Dumbbell_Lying_Rear_Lateral_Raise
+I: Deite de bruços num banco levemente inclinado com um halter leve em cada mão | Braços pendurados, palmas voltadas uma para a outra, cotovelos levemente dobrados | Abra os braços para os lados até a altura dos ombros | Segure 1 segundo e desça devagar | Mantenha o peito e o queixo apoiados no banco
+E: Usar carga alta e balançar | Levantar o peito do banco | Dobrar muito os cotovelos
+PR: Crucifixo Inverso com Rotação Externa
+RG: Band Pull Apart
+
+sr3_scaption | Scaption (Elevação no Plano da Escápula) | ombros | Halteres leves | ini | ✈️ | halteres | ca | b | H5R | 3 | 12-15
+P: Deltóides, Manguito Rotador
+S: Serrátil, Trapézio Inferior
+F: Dumbbell_Scaption
+I: Em pé, halteres leves ao lado do corpo, polegares apontando para cima | Abra os braços cerca de 30° à frente da linha do corpo (formando um "V") | Eleve os braços com cotovelos estendidos até a altura dos ombros | Segure 1 segundo e desça em 3 segundos | Mantenha os ombros longe das orelhas
+E: Subir acima da linha dos ombros com dor | Polegar virado para baixo | Arquear a lombar para levantar
+PR: Elevação em Y no Cabo
+RG: Sem halteres ou com garrafas de água
+
+sr3_passaro_rot_externa | Crucifixo Inverso com Rotação Externa | ombros | Halteres + banco inclinado | int | 🔁 | halteres | a | b | HR | 3 | 10-12
+P: Deltóide Posterior, Manguito Rotador
+S: Rombóides, Trapézio Inferior, Infraespinal
+F: Reverse_Flyes_With_External_Rotation
+I: Deite de bruços num banco inclinado a 30°, halteres leves nas mãos, palmas para baixo | Abra os braços para os lados até a altura dos ombros, cotovelos levemente dobrados | No topo, dobre os cotovelos a 90° e gire os antebraços para cima (rotação externa) | Desfaça a rotação e desça os braços devagar | Faça cada fase com controle, sem balanço
+E: Carga alta demais para o manguito | Perder o ângulo de 90° no cotovelo ao girar | Encolher os ombros
+PR: Rotação Externa Excêntrica a 90° no Cabo
+RG: Crucifixo Inverso Deitado no Banco Inclinado
+
+sr3_rot_externa_isometrica_parede | Rotação Externa Isométrica na Parede | ombros | Parede + toalha | ini | 🧱 | parede | ca | b | 5R | 3 | 5 x 10s cada braço
+P: Manguito Rotador
+S: Infraespinal, Deltóide Posterior
+I: Fique de lado para a parede com o cotovelo dobrado a 90°, colado ao corpo | Coloque uma toalha dobrada entre o cotovelo e a costela | Encoste o dorso da mão (lado de fora) na parede | Empurre a parede para fora como se girasse o braço, sem mexer o corpo | Segure 10 segundos com força moderada e relaxe
+E: Afastar o cotovelo do corpo | Fazer força máxima com dor | Girar o tronco em vez do ombro
+PR: Rotação Externa com elástico
+RG: Força bem leve por 5 segundos
+
+sr3_rot_externa_sentado_joelho | Rotação Externa Sentado com Cotovelo no Joelho | ombros | Halter leve + cadeira | int | 🪑 | halteres | ca | b | 5R | 3 | 12 cada braço
+P: Manguito Rotador
+S: Infraespinal, Redondo Menor, Deltóide Posterior
+I: Sente numa cadeira e apoie o pé do mesmo lado do braço de trabalho num degrau ou caixa | Apoie o cotovelo no joelho, braço à frente na altura do ombro e cotovelo a 90° | Com o halter leve, deixe o antebraço descer à frente (rotação interna) | Gire o antebraço para cima até ficar vertical | Desça em 3 segundos e repita
+E: Halter pesado demais | Levantar o cotovelo do joelho | Arquear as costas
+PR: Rotação Externa a 90° com Elástico
+RG: Rotação Externa de Ombro Deitado
+
+sr3_d2_cabo | Diagonal D2 no Cabo (Movimento de Saque) | ombros | Polia baixa | int | 🎾 | polia | a | b | HR | 3 | 10-12 cada braço
+P: Manguito Rotador, Deltóides
+S: Trapézio Inferior, Serrátil, Core
+I: Fique de lado para a polia baixa e segure o pegador com a mão mais distante, na altura do quadril oposto | Palma voltada para o corpo e cotovelo levemente dobrado | Puxe em diagonal para cima e para fora, girando a palma para frente, até o braço ficar acima da cabeça | Termine com o polegar apontando para trás, como na preparação do saque | Volte devagar pelo mesmo caminho
+E: Arquear a lombar no final | Fazer rápido, usando o impulso | Carga alta que tira o ombro do lugar
+PR: Diagonal D2 com pausa de 2 s em cima
+RG: Diagonal D2 com Elástico (Saque/Smash)
+
+sr3_d2_extensao_elastico | Diagonal D2 em Extensão com Elástico (Desaceleração) | ombros | Elástico preso alto | int | ↘️ | elastico | ca | b | 5R | 3 | 12 cada braço
+P: Manguito Rotador, Latíssimo
+S: Deltóide Posterior, Core, Serrátil
+I: Prenda o elástico num ponto alto e fique de lado para ele | Segure o elástico com a mão mais próxima da fixação, braço acima da cabeça e polegar para trás | Puxe em diagonal para baixo, cruzando à frente do corpo até o quadril oposto | Termine com a palma voltada para trás, como no final do saque | Volte devagar resistindo ao elástico em 3 segundos
+E: Deixar o elástico "jogar" o braço para cima | Girar o tronco demais | Ombro subindo na volta
+PR: Diagonal D2 no Cabo (Movimento de Saque)
+RG: Elástico mais leve e amplitude menor
+
+sr3_rot_externa_exc_cabo | Rotação Externa Excêntrica a 90° no Cabo | ombros | Polia na altura do ombro | ava | 🐌 | polia | a | b | HR | 3 | 6-8 cada braço
+P: Manguito Rotador
+S: Infraespinal, Redondo Menor, Deltóide Posterior
+I: Ajuste a polia na altura do ombro e fique de frente para ela | Braço abduzido a 90° (cotovelo na altura do ombro) e cotovelo dobrado a 90° | Com ajuda da outra mão, leve o antebraço para a posição vertical (rotação externa) | Solte a mão de ajuda e deixe o antebraço descer para a frente em 4-5 segundos | Repita ajudando sempre na subida
+E: Cotovelo caindo abaixo da linha do ombro | Descer rápido no final | Carga que causa dor no ombro
+PR: Arremesso 90/90 de Bola Leve na Parede
+RG: Rotação Externa no Cabo com cotovelo junto ao corpo
+
+sr3_arremesso_9090_parede | Arremesso 90/90 de Bola Leve na Parede | ombros | Bola de 0,5-1 kg + parede | ava | 🏐 | medicine_ball | ca | m | CR | 3 | 20-30s cada braço
+P: Manguito Rotador
+S: Deltóides, Serrátil, Coordenação
+I: Fique de frente para a parede, a cerca de 1 metro | Braço em 90/90 (cotovelo na altura do ombro e dobrado a 90°) segurando uma bola leve | Faça passes rápidos e curtos na parede só com o antebraço | Pegue a bola na mesma posição, desacelerando atrás | Mantenha o cotovelo alto o tempo todo
+E: Cotovelo descendo | Bola pesada demais | Usar o tronco para lançar
+PR: Aumentar a velocidade e o tempo
+RG: Rotação Externa a 90° com Elástico
+
+sr3_drop_catch_prono | Solta e Pega a Bola Deitado de Bruços (Ombro 90/90) | ombros | Bola leve + banco ou cama | int | 🤲 | medicine_ball | ca | b | R | 3 | 20-30s cada braço
+P: Manguito Rotador
+S: Deltóide Posterior, Trapézio Inferior
+I: Deite de bruços num banco ou cama com o braço para fora, ombro a 90° e cotovelo dobrado a 90° | Segure uma bola leve com a mão voltada para o chão | Solte a bola e pegue-a rapidamente logo abaixo, sem deixar o braço cair | Repita soltando e pegando no ritmo mais rápido possível | Mantenha o ombro estável o tempo todo
+E: Deixar o cotovelo descer | Mover o ombro inteiro para pegar | Bola pesada
+PR: Arremesso 90/90 de Bola Leve na Parede
+RG: Segurar a posição 90/90 sem bola
+
+sr3_serratil_punch | Soco para o Teto com Halter (Serrátil) | ombros | Halter + colchonete | ini | 👊 | halteres | ca | b | 5R | 3 | 12-15
+P: Serrátil
+S: Deltóide Anterior, Peitoral
+I: Deite de costas com os joelhos dobrados e um halter na mão, braço estendido para o teto | Mantenha o cotovelo travado durante todo o movimento | Empurre o halter em direção ao teto descolando a escápula do chão | Desça a escápula devagar até tocar o chão novamente | Faça todas de um lado e troque
+E: Dobrar o cotovelo (vira supino) | Girar o tronco | Movimento rápido sem controle
+PR: Flexão Plus (Protração Escapular)
+RG: Sem halter
+
+sr3_landmine_ajoelhado | Desenvolvimento Landmine Meio-Ajoelhado Unilateral | ombros | Landmine | int | 🗼 | landmine | a | b | H5R | 3 | 8-10 cada braço
+P: Deltóide Anterior, Serrátil
+S: Tríceps, Core, Peitoral Superior
+I: Ajoelhe-se com o joelho do lado do braço de trabalho no chão e o outro pé à frente | Segure a ponta da barra junto ao ombro | Empurre a barra para cima e para frente até estender o braço, deixando a escápula acompanhar | Mantenha o glúteo do joelho apoiado contraído e o tronco sem girar | Desça devagar até o ombro
+E: Arquear a lombar | Girar o tronco para empurrar | Pegar a barra muito baixa na ponta
+PR: Landmine Press em pé
+RG: Desenvolvimento com Elástico
+
+sr3_desenv_cabo_sentado | Desenvolvimento Sentado no Cabo | ombros | Polias baixas + banco | int | ⬆️ | crossover | a | b | H5 | 3 | 10-12
+P: Deltóides
+S: Tríceps, Trapézio Superior, Core
+F: Seated_Cable_Shoulder_Press
+I: Coloque um banco com encosto no centro do crossover, polias na posição baixa | Sente e segure os pegadores na altura dos ombros, cotovelos a 90° | Empurre para cima até quase estender os braços, aproximando as mãos | Desça devagar até a altura das orelhas | Mantenha as costas apoiadas e o abdômen firme
+E: Arquear a lombar para empurrar | Descer abaixo da linha do queixo | Bater as mãos no topo
+PR: Desenvolvimento na Máquina
+RG: Desenvolvimento com Elástico
+
+sr3_elev_lateral_cabo_sentado | Elevação Lateral Sentado entre Polias | ombros | Polias baixas + banco | int | 💺 | crossover | a | b | H5 | 3 | 12-15
+P: Deltóide Medial
+S: Trapézio Superior, Manguito Rotador
+F: Cable_Seated_Lateral_Raise
+I: Sente num banco no centro do crossover com as polias baixas | Segure o pegador da polia direita com a mão esquerda e vice-versa (cabos cruzados à frente) | Eleve os braços para os lados até a altura dos ombros | Segure 1 segundo e volte devagar | Mantenha o tronco parado e os cotovelos levemente dobrados
+E: Subir acima da linha dos ombros com encolhimento | Inclinar o tronco | Voltar rápido
+PR: Elevação Lateral Unilateral no Cabo
+RG: Elevação Lateral Sentado com halteres leves
+
+# ===================== PEITO =====================
+
+sr3_supino_inc_neutro | Supino Inclinado com Halteres Pegada Neutra | peito | Halteres + banco inclinado | int | 🔺 | banco_inclinado | a | b | H5 | 3 | 8-12
+P: Peitoral Superior
+S: Tríceps, Deltóide Anterior
+F: Hammer_Grip_Incline_DB_Bench_Press
+I: Ajuste o banco em 30° e deite com um halter em cada mão sobre as coxas | Leve os halteres até o peito e posicione-os com as palmas voltadas uma para a outra | Empurre para cima até quase estender os braços | Desça devagar até os halteres ficarem ao lado do peito, cotovelos perto do corpo | Escápulas encaixadas no banco durante todo o movimento
+E: Banco inclinado demais (vira desenvolvimento) | Descer rápido e quicar | Tirar o quadril do banco
+PR: Supino com Halteres Inclinado com mais carga
+RG: Supino Inclinado na Máquina
+
+sr3_supino_bola_suica | Supino com Halteres na Bola Suíça | peito | Halteres + bola suíça | int | 🔵 | bola_suica | ca | b | CHR | 3 | 10-12
+P: Peitoral
+S: Tríceps, Glúteos, Core
+I: Sente na bola com os halteres nas coxas e role até apoiar a parte alta das costas e a cabeça | Quadril alto em ponte, pés firmes no chão na largura dos ombros | Empurre os halteres para cima sobre o peito | Desça devagar até os cotovelos ficarem um pouco abaixo do tronco | Mantenha o quadril alto durante toda a série
+E: Quadril caindo durante a série | Bola rolando por falta de controle | Halteres pesados demais para a estabilidade
+PR: Supino alternado na bola suíça
+RG: Supino no Chão
+
+sr3_supino_cabo_uni_afundo | Supino Unilateral no Cabo em Base de Afundo | peito | Polia na altura do peito | int | 🥊 | polia | a | b | CHR | 3 | 10 cada braço
+P: Peitoral
+S: Tríceps, Oblíquos, Serrátil
+I: Ajuste a polia na altura do peito e fique de costas para ela | Segure o pegador com uma mão junto ao peito e coloque o pé oposto à frente (base de afundo) | Empurre o pegador à frente até estender o braço, sem deixar o tronco girar | Volte devagar até a mão ficar ao lado do peito | Complete as repetições e troque de lado
+E: Tronco girando em direção à polia | Ombro subindo no final | Base curta e instável
+PR: Supino unilateral no cabo com rotação de tronco
+RG: Supino em Pé com Elástico
+
+# ===================== ANTEBRAÇO / PUNHO / PEGADA =====================
+
+sr3_plate_pinch | Pinça com Anilhas (Plate Pinch) | funcional | Anilhas lisas | int | 🤏 | anilha | a | b | 5R | 3 | 20-40s cada mão
+P: Flexores dos Dedos, Antebraços
+S: Flexores do Pulso
+F: Plate_Pinch
+I: Junte duas anilhas lisas de 5 kg (ou 2,5 kg para começar) com as faces lisas para fora | Segure pela borda com os dedos de um lado e o polegar do outro | Levante e mantenha as anilhas ao lado do corpo, braço estendido | Segure pelo tempo indicado sem deixar escorregar | Coloque as anilhas no chão com controle e troque de mão
+E: Apoiar as anilhas na perna | Dobrar o cotovelo | Soltar as anilhas no chão de qualquer jeito
+PR: Pinça com anilhas mais pesadas ou caminhando
+RG: Torção de Toalha (Força de Pegada)
+
+sr3_rosca_punho_cabo | Flexão de Punho na Polia Baixa | biceps | Polia baixa + barra reta | ini | ✊ | polia | a | b | 5R | 3 | 15-20
+P: Flexores do Pulso, Antebraços
+S: Flexores dos Dedos
+F: Cable_Wrist_Curl
+I: Coloque um banco em frente à polia baixa com uma barra reta | Sente e apoie os antebraços nas coxas, punhos para fora dos joelhos, palmas para cima | Deixe a barra descer abrindo um pouco os dedos | Feche a mão e flexione o punho para cima o máximo possível | Desça devagar em 2-3 segundos
+E: Levantar os antebraços das coxas | Carga alta que só permite meio movimento | Fazer rápido
+PR: Rosca de Punho (Flexão de Punho)
+RG: Carga mínima com amplitude total
+
+sr3_rosca_inversa_cabo | Rosca Inversa no Cabo | biceps | Polia baixa + barra reta | int | 🔃 | polia | a | b | HR | 3 | 10-12
+P: Braquiorradial, Extensores do Pulso
+S: Bíceps, Braquial
+F: Reverse_Cable_Curl
+I: Fique de frente para a polia baixa e segure a barra com as palmas para baixo, na largura dos ombros | Cotovelos colados ao corpo e punhos retos | Flexione os cotovelos levando a barra até a altura do peito | Desça devagar sem deixar os punhos dobrarem | Mantenha o tronco parado
+E: Punhos dobrando para baixo na subida | Cotovelos indo para frente | Balançar o corpo
+PR: Rosca Inversa com barra
+RG: Rosca Martelo
+
+sr3_ext_punho_exc_elastico | Extensão de Punho Excêntrica com Elástico | biceps | Elástico | ini | 🖐️ | elastico | ca | b | 5R | 3 | 15 cada braço
+P: Extensores do Pulso
+S: Braquiorradial, Antebraços
+I: Sente e apoie o antebraço na coxa, mão para fora do joelho com a palma para baixo | Prenda o elástico sob o pé e segure a outra ponta | Use a outra mão para ajudar a levantar o punho (fase fácil) | Solte a ajuda e desça o punho devagar em 3-4 segundos | Repita; dor leve no cotovelo (até 3/10) é aceitável
+E: Descer rápido | Tirar o antebraço da coxa | Elástico tão forte que aumenta a dor
+PR: Extensão de Punho com Halter (Prevenção de Epicondilite)
+RG: Movimento sem elástico
+
+sr3_rosca_martelo_toalha | Rosca Martelo com Pegada Grossa (Toalha) | biceps | Halteres + toalha | int | 🧻 | halteres | ca | b | HR | 3 | 8-12
+P: Braquiorradial, Braquial
+S: Bíceps, Flexores dos Dedos
+I: Enrole uma toalha de rosto no cabo de cada halter para engrossar a pegada | Em pé, segure os halteres com as palmas voltadas uma para a outra | Flexione os cotovelos sem tirá-los do lado do corpo | Aperte bem a toalha durante a subida e segure 1 segundo no alto | Desça devagar
+E: Pegar com a ponta dos dedos | Balançar o tronco | Halter pesado demais para a pegada grossa
+PR: Rosca Martelo Cruzada com pegada grossa
+RG: Rosca Martelo
+
+sr3_extensores_dedos | Abertura dos Dedos com Elástico | funcional | Elástico de borracha (de dinheiro) | ini | ✋ | elastico | ca | b | 5R | 3 | 20 cada mão
+P: Extensor dos Dedos
+S: Extensores do Pulso, Antebraços
+I: Coloque um ou dois elásticos de borracha em volta de todos os dedos, perto das unhas | Junte as pontas dos dedos | Abra os dedos o máximo possível contra o elástico | Segure 1 segundo e feche devagar | Troque de mão
+E: Fazer rápido sem controle | Dobrar o punho | Elástico muito apertado na circulação
+PR: Mais elásticos ou elástico mais grosso
+RG: Abrir e fechar os dedos sem elástico
+
+sr3_rosca_punho_costas | Flexão de Punho com Barra Atrás do Corpo | biceps | Barra | int | 🔙 | barra | a | b | R | 3 | 12-15
+P: Flexores do Pulso
+S: Flexores dos Dedos, Antebraços
+F: Standing_Palms-Up_Barbell_Behind_The_Back_Wrist_Curl
+I: Em pé, segure uma barra atrás do corpo, palmas viradas para trás, mãos na largura dos ombros | Braços estendidos e barra encostada nos glúteos | Deixe a barra rolar até a ponta dos dedos | Feche os dedos e flexione os punhos levando a barra para cima | Desça devagar e repita
+E: Dobrar os cotovelos | Usar carga alta e fazer meio movimento | Inclinar o tronco
+PR: Rolo de Punho (Wrist Roller)
+RG: Flexão de Punho na Polia Baixa
+
+sr3_carry_bottoms_up | Caminhada com Kettlebell de Cabeça para Baixo (Bottoms-Up Carry) | funcional | Kettlebell | ava | 🛎️ | kettlebell | ca | b | CR | 4 | 20-30 m cada braço
+P: Antebraços, Manguito Rotador
+S: Core, Flexores dos Dedos, Deltóides
+I: Segure um kettlebell leve pela alça, com a base virada para cima | Cotovelo dobrado a 90°, punho reto, kettlebell à frente do ombro | Aperte a alça com força para manter o kettlebell equilibrado | Caminhe devagar e com passos firmes pelo percurso | Troque de mão e repita
+E: Punho dobrando para trás | Kettlebell pesado demais | Inclinar o tronco para o lado
+PR: Press com Kettlebell Invertido
+RG: Waiter Carry
+
+sr3_farmer_sacolas | Caminhada com Sacolas (Farmer Caseiro) | funcional | Sacolas, galões ou mochilas com peso | ini | 🛍️ | mochila | c | b | CP5 | 3 | 30-40 m
+P: Antebraços, Trapézio
+S: Core, Glúteos, Panturrilha
+I: Encha duas sacolas resistentes com garrafas de água ou pacotes, com pesos iguais | Agache com as costas retas e pegue uma em cada mão | Fique ereto, ombros para trás e para baixo | Caminhe pela casa ou quintal com passos normais | Coloque as sacolas no chão agachando, sem curvar as costas
+E: Pegar do chão curvando a coluna | Ombros caindo para frente | Passos curtos e arrastados
+PR: Farmers Walk
+RG: Sacolas mais leves e percurso curto
+
+sr3_rucking_mochila | Caminhada com Mochila Carregada (Rucking) | cardio | Mochila com peso | int | 🎒 | mochila | c | b | CP5 | 1 | 15-30 min
+P: Cardio, Glúteos
+S: Quadríceps, Core, Trapézio, Panturrilha
+I: Coloque na mochila livros ou garrafas (comece com 5-10% do peso corporal), bem junto às costas | Ajuste as alças para o peso ficar alto e próximo da coluna | Caminhe em ritmo firme, mantendo o tronco ereto | Inclua subidas ou escadas quando estiver confortável | Hidrate-se e pare se sentir dor nas costas
+E: Peso solto balançando na mochila | Inclinar o tronco muito à frente | Aumentar o peso rápido demais
+PR: Mochila mais pesada ou percurso com subidas
+RG: Caminhada Rápida (Treino de Marcha)
+
+# ===================== CORE / POTÊNCIA ROTACIONAL =====================
+
+sr3_shot_put_mb | Arremesso Tipo Peso (Shot Put) com Medicine Ball | funcional | Medicine ball 2-4 kg + parede | ava | ☄️ | medicine_ball | ca | m | CPR | 4 | 5 cada lado
+P: Oblíquos, Glúteos
+S: Peitoral, Tríceps, Potência
+I: Fique de lado para uma parede firme, a 2-3 metros | Segure a bola junto ao ombro de trás, com a mão por trás e o cotovelo alto | Carregue o peso na perna de trás girando um pouco o tronco | Gire o quadril explosivamente e empurre a bola contra a parede com um braço | Pegue o rebote, reposicione e repita, depois troque de lado
+E: Arremessar só com o braço | Cotovelo baixo (sobrecarrega o ombro) | Pés parados sem girar o quadril
+PR: Bola mais pesada ou com passo à frente
+RG: Arremesso Rotacional Meio-Ajoelhado
+
+sr3_arremesso_ajoelhado | Arremesso Rotacional Meio-Ajoelhado | funcional | Medicine ball + parede | int | 🧎 | medicine_ball | ca | m | CR | 3 | 6 cada lado
+P: Oblíquos, Core
+S: Deltóides, Peitoral, Potência
+I: Ajoelhe-se de lado para a parede, com o joelho mais próximo da parede no chão | Segure a bola com as duas mãos na altura do quadril de trás | Gire o tronco para trás e depois para a parede, lançando a bola com força | Pegue o rebote e repita | Mantenha o quadril parado: a rotação vem do tronco
+E: Sentar sobre o calcanhar | Lançar só com os braços | Girar a lombar em vez do tronco torácico
+PR: Arremesso Rotacional com Medicine Ball em pé
+RG: Rotação de tronco ajoelhado sem lançar
+
+sr3_arremesso_tras | Arremesso para Trás por Cima da Cabeça | funcional | Medicine ball | ava | 🎆 | medicine_ball | a | m | CPR | 4 | 5
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Ombros, Potência
+F: Backward_Medicine_Ball_Throw
+I: Em espaço aberto, fique de costas para a área de lançamento, pés na largura dos ombros | Segure a bola com os braços estendidos à frente | Agache com quadril para trás levando a bola entre as pernas | Estenda quadril e joelhos explosivamente e lance a bola por cima da cabeça para trás | Busque a bola e repita sem pressa entre os lançamentos
+E: Arremessar com os braços e curvar a lombar | Olhar para trás durante o lançamento | Espaço sem verificar se há pessoas
+PR: Bola mais pesada ou série de saltos antes
+RG: Kettlebell Swing
+
+sr3_passe_peito_deitado | Arremesso de Peito Deitado (Supine Chest Throw) | funcional | Medicine ball 1-3 kg | int | 🛫 | medicine_ball | ca | m | CR | 3 | 8
+P: Peitoral, Tríceps
+S: Deltóide Anterior, Potência
+F: Supine_Chest_Throw
+I: Deite de costas com joelhos dobrados e a bola apoiada no peito | Segure a bola por baixo com as duas mãos | Empurre a bola para cima o mais rápido possível, estendendo os braços | Pegue a bola com os braços estendidos e desça amortecendo até o peito | Faça uma pausa curta e repita
+E: Lançar para frente (a bola cai no rosto) | Bola pesada demais | Pegar com os braços travados
+PR: Arremesso de Peito com Medicine Ball em pé
+RG: Supino no chão com halter leve e velocidade
+
+sr3_rotacao_cabo_peito | Rotação de Tronco no Cabo na Altura do Peito | core | Polia | int | 🌀 | polia | a | b | CR | 3 | 10 cada lado
+P: Oblíquos, Core
+S: Glúteos, Deltóides
+I: Ajuste a polia na altura do peito e fique de lado para ela, pés na largura dos ombros | Segure o pegador com as duas mãos, braços estendidos em frente ao esterno | Gire o tronco para longe da polia, pivotando o pé de trás como num golpe | Mantenha os braços estendidos e as mãos alinhadas ao peito | Volte devagar resistindo à carga
+E: Dobrar os cotovelos e puxar com os braços | Pés travados sem pivô | Voltar rápido
+PR: Arremesso Rotacional com Medicine Ball
+RG: Pallof Press
+
+sr3_backhand_elastico | Backhand com Elástico | funcional | Elástico preso na altura da cintura | int | 🏓 | elastico | ca | b | CR | 3 | 12 cada lado
+P: Deltóide Posterior, Oblíquos
+S: Manguito Rotador, Rombóides, Extensores do Pulso
+I: Prenda o elástico na altura da cintura e fique de lado, com o ombro do braço de trabalho mais perto da fixação | Segure o elástico com a mão cruzada à frente do quadril oposto | Gire o tronco e leve o braço para fora e para frente, como num backhand | Termine com o braço estendido e o peito de frente para a "rede" | Volte devagar resistindo ao elástico
+E: Fazer só com o braço, sem rotação | Dobrar o punho para trás no final | Elástico muito forte
+PR: Backhand com elástico em deslocamento lateral
+RG: Golpes de Sombra com Raquete
+
+sr3_pallof_deslocamento | Pallof Press com Deslocamento Lateral | core | Polia | int | 🚶 | polia | a | b | C5R | 3 | 6 passos cada lado
+P: Core, Oblíquos
+S: Glúteo Médio, Transverso Abdominal
+I: Ajuste a polia na altura do peito e fique de lado para ela | Segure o pegador com as duas mãos e estenda os braços à frente do peito | Mantendo os braços estendidos, dê passos laterais afastando-se da polia | Volte com passos laterais sem deixar o tronco girar | Troque de lado ao final
+E: Tronco girando em direção à polia | Cruzar os pés | Encolher os ombros
+PR: Pallof Press Rotacional
+RG: Pallof Press
+
+sr3_passe_rotacional_costas | Passe Rotacional Costas com Costas (Medicine Ball) | core | Medicine ball + parceiro | int | 🔄 | medicine_ball | ca | b | CR | 3 | 10 cada lado
+P: Oblíquos, Core
+S: Deltóides, Glúteos
+F: Medicine_Ball_Full_Twist
+I: Fique de costas para o parceiro, a cerca de 60-90 cm | Segure a bola à frente do tronco com os braços levemente dobrados | Gire o tronco e os ombros para um lado e entregue a bola ao parceiro | Gire para o outro lado para receber a bola dele | Faça as repetições e inverta o sentido
+E: Girar só os braços | Pés travados sem acompanhar | Ficar longe demais do parceiro
+PR: Bola mais pesada ou ritmo mais rápido
+RG: Rotação de Tronco em Pé com Bola Suíça
+
+sr3_dead_bug_elastico | Dead Bug com Elástico Acima da Cabeça | core | Elástico | int | 🐞 | elastico | ca | b | C5R | 3 | 8 cada lado
+P: Core, Transverso Abdominal
+S: Latíssimo, Flexores do Quadril
+I: Prenda o elástico num ponto baixo atrás da cabeça e deite de costas | Segure o elástico com as duas mãos, braços estendidos acima do peito e elástico tenso | Joelhos e quadril a 90° (mesa) e lombar encostada no chão | Estenda uma perna devagar até quase tocar o chão mantendo os braços parados | Volte e troque de perna
+E: Lombar descolando do chão | Braços indo para trás com o elástico | Prender a respiração
+PR: Descida de Pernas (Leg Lowering)
+RG: Dead Bug
+
+sr3_chop_elastico_ajoelhado | Chop Meio-Ajoelhado com Elástico | core | Elástico preso alto | ini | 🪓 | elastico | ca | b | C5R | 3 | 10 cada lado
+P: Oblíquos, Core
+S: Deltóides, Glúteos
+I: Prenda o elástico num ponto alto e ajoelhe-se de lado para ele, joelho mais próximo no chão | Segure o elástico com as duas mãos acima do ombro mais próximo | Puxe em diagonal para baixo, passando à frente do corpo até o quadril oposto | Mantenha o tronco alto e o quadril parado | Volte devagar
+E: Dobrar o tronco para frente | Puxar só com os braços | Perder o equilíbrio por base estreita
+PR: Wood Chop no Cabo
+RG: Elástico mais leve e amplitude menor
+
+sr3_prancha_lateral_joelhos | Prancha Lateral com Joelhos Apoiados | core | Colchonete | ini | 📐 | colchonete | ca | b | C5R | 3 | 15-30s cada lado
+P: Oblíquos
+S: Glúteo Médio, Core, Quadrado Lombar
+I: Deite de lado apoiado no antebraço, cotovelo embaixo do ombro | Dobre os joelhos a 90° com os pés para trás | Suba o quadril do chão até formar uma linha reta do joelho à cabeça | Segure respirando normalmente | Desça com controle e troque de lado
+E: Quadril caindo ou indo para trás | Ombro afundando | Prender a respiração
+PR: Prancha Lateral
+RG: Prancha Inclinada na Parede
+
+sr3_rotacao_bola_suica | Rotação de Tronco em Pé com Bola Suíça | core | Bola suíça | ini | 🌐 | bola_suica | ca | b | C5R | 2 | 10 cada lado
+P: Oblíquos
+S: Coluna Torácica, Core
+F: Torso_Rotation
+I: Em pé, pés na largura dos ombros, segure uma bola suíça com os braços estendidos à frente | Gire o tronco para um lado acompanhando a bola com os olhos | Deixe o pé de trás pivotar levemente | Volte ao centro devagar e gire para o outro lado | Mantenha os braços estendidos e os ombros relaxados
+E: Girar só os braços | Fazer rápido com impulso | Travar os joelhos
+PR: Passe Rotacional Costas com Costas (Medicine Ball)
+RG: Rotação de Tronco Sentado
+
+# ===================== AGILIDADE / FOOTWORK / PLIOMETRIA DOSADA =====================
+
+sr3_carioca | Carioca Rápida (Passo Cruzado Lateral) | cardio | Peso corporal | int | 💃 | peso_corporal | ca | m | CPR | 4 | 10-15 m cada lado
+P: Adutores, Glúteo Médio
+S: Oblíquos, Panturrilha, Coordenação
+F: Carioca_Quick_Step
+I: Fique de lado para a direção do deslocamento, joelhos levemente dobrados | Cruze o pé de trás por trás do pé da frente, depois abra o pé da frente | Na passada seguinte, cruze o pé de trás pela frente | Deixe o quadril girar livremente e os ombros ficarem de frente | Aumente a velocidade só quando o padrão estiver fluido
+E: Olhar para os pés o tempo todo | Girar os ombros junto com o quadril | Passos longos e lentos
+PR: Carioca com reação a sinal de troca de direção
+RG: Passo Cruzado (Grapevine) com Apoio
+
+sr3_backpedal | Corrida de Costas com Frenagem (Backpedal) | cardio | Cones | int | ⏮️ | cones | ca | m | CPR | 4 | 5 x 5-8 m
+P: Quadríceps, Panturrilha
+S: Glúteos, Isquiotibiais, Coordenação
+I: Coloque dois cones a 5-8 metros de distância | Em posição atlética, corra de costas com passos curtos e rápidos, peso na ponta dos pés | Mantenha o tronco levemente inclinado à frente | No cone, freie com 2-3 passos e saia correndo para frente de volta | Caminhe para recuperar e repita
+E: Tronco inclinado para trás (risco de queda) | Calcanhares batendo no chão | Passos longos demais
+PR: Backpedal com mudança de direção diagonal
+RG: Marcha ré rápida
+
+sr3_drill_z | Drill em Z com Cones | cardio | 4-6 cones | int | ⚡ | cones | ca | m | CPR | 4 | 3 percursos
+P: Quadríceps, Adutores
+S: Glúteo Médio, Panturrilha, Cardio
+I: Monte cones em zigue-zague: 3 de cada lado, a 3-5 metros entre si | Corra em diagonal do primeiro ao segundo cone | Em cada cone, abaixe o quadril, plante o pé de fora e mude de direção | Mantenha o tronco baixo nas mudanças | Caminhe de volta ao início para recuperar
+E: Fazer curvas abertas sem plantar o pé | Ficar alto na mudança de direção | Joelho caindo para dentro na frenagem
+PR: Drill em Z com shuffle lateral entre cones
+RG: Fazer o percurso caminhando rápido
+
+sr3_amarelinha_escada | Escada de Agilidade: Amarelinha (Hopscotch) | cardio | Escada de agilidade | int | 🪜 | escada_agilidade | ca | m | CPR | 4 | 3 passagens
+P: Panturrilha, Quadríceps
+S: Tornozelo, Coordenação, Cardio
+I: Fique no início da escada de agilidade | Salte com os dois pés abertos fora do primeiro quadrado | Salte para dentro do próximo quadrado apoiando só um pé | Alterne: dois pés fora, um pé dentro, trocando a perna a cada vez | Aterre suave na ponta dos pés
+E: Aterrissar com os calcanhares | Olhar para baixo o tempo todo | Pisar nas fitas da escada
+PR: Amarelinha com retorno de costas
+RG: Escada de Agilidade: Icky Shuffle
+
+sr3_hop_lateral_unipodal | Salto Lateral Unipodal sobre Cone | pernas_cal | Cone baixo | ava | 🦘 | cones | ca | a | CPR | 3 | 6-8 cada perna
+P: Glúteo Médio, Panturrilha
+S: Quadríceps, Tornozelo, Equilíbrio
+F: Single-Leg_Lateral_Hop
+I: Fique ao lado de um cone baixo, apoiado numa perna, joelho levemente dobrado | Faça um pequeno contramovimento e salte de lado sobre o cone | Aterrisse na mesma perna e estabilize 1 segundo | Salte de volta ao lado inicial | Complete as repetições e troque de perna
+E: Joelho caindo para dentro na aterrissagem | Aterrissar com a perna travada | Cone alto demais para o nível
+PR: Saltos sem pausa (reativos)
+RG: Salto Unipodal com Estabilização
+
+sr3_shuffle_resistido | Shuffle Lateral Resistido com Elástico | cardio | Elástico longo + parceiro ou ponto fixo | ava | 🪢 | elastico | ca | m | CPR | 4 | 15-20s cada lado
+P: Glúteo Médio, Quadríceps
+S: Adutores, Panturrilha, Core
+I: Passe um elástico longo na cintura, preso a um ponto firme ou segurado pelo parceiro ao seu lado | Afaste-se até o elástico ficar tenso, em posição atlética | Faça shuffles laterais afastando-se do ponto de fixação sem cruzar os pés | Volte controlando a tração do elástico | Troque de lado ao final
+E: Deixar o elástico puxar o tronco | Cruzar os pés | Ficar alto, sem dobrar os joelhos
+PR: Shuffle resistido com reação a sinal
+RG: Shuffle Lateral com Toque no Cone
+
+sr3_barreiras_lateral | Passada Lateral sobre Mini Barreiras | cardio | Mini barreiras ou cones | int | 🚧 | cones | ca | m | CPR | 4 | 3 passagens cada lado
+P: Flexores do Quadril, Glúteo Médio
+S: Panturrilha, Coordenação, Core
+I: Coloque 4-6 mini barreiras (ou cones deitados) em linha, a 60-80 cm entre si | Fique de lado para a fileira | Passe lateralmente sobre cada barreira levantando o joelho de fora primeiro e depois o de dentro | Mantenha os ombros nivelados e a ponta dos pés ativa | Ao final, volte puxando com a outra perna
+E: Cruzar os pés | Inclinar o tronco para levantar a perna | Bater os pés nas barreiras
+PR: Aumentar a velocidade e incluir sprint ao final
+RG: Marcha com Ultrapassagem de Obstáculos
+
+sr3_drop_saida_lateral | Aterrissagem do Degrau com Saída Lateral | pernas_cal | Degrau baixo + cones | ava | 🛬 | degrau_step | ca | a | CR | 4 | 4 cada lado
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Panturrilha, Coordenação
+I: Suba num degrau baixo (20-30 cm) com dois cones a 3 metros, um de cada lado | Dê um passo para fora do degrau e aterrisse com os dois pés, joelhos dobrados | Assim que tocar o chão, saia explosivo com shuffle para o cone indicado | Volte caminhando e repita alternando o lado | Aterrissagem silenciosa e joelhos alinhados com os pés
+E: Pular do degrau em vez de dar um passo | Aterrissar com as pernas retas | Atrasar a saída depois do contato
+PR: Saída ao sinal do parceiro
+RG: Aterrissagem Controlada (Drop and Stick)
+
+sr3_saltitos_linha | Saltitos Laterais na Linha (Line Hops) | pernas_cal | Fita ou linha no chão | int | ➖ | peso_corporal | ca | m | CPR | 3 | 15-20s
+P: Panturrilha
+S: Tornozelo, Quadríceps, Coordenação
+I: Marque uma linha no chão com fita ou use uma linha da quadra | Fique com os pés juntos ao lado da linha | Salte de um lado para o outro da linha com saltos curtos e rápidos | Mantenha o contato com o chão o mais curto possível, na ponta dos pés | Mantenha o tronco estável e os braços soltos
+E: Saltar alto (perde velocidade) | Aterrissar com os calcanhares | Tronco balançando muito
+PR: Saltitos laterais numa perna só
+RG: Pés Rápidos (Fast Feet)
+
+sr3_skipping_rapido | Skipping Saltitado Rápido (Fast Skip) | cardio | Peso corporal | ini | 🏃 | peso_corporal | ca | m | CPR | 4 | 15-20 m
+P: Panturrilha, Flexores do Quadril
+S: Quadríceps, Coordenação, Cardio
+F: Fast_Skipping
+I: Comece em posição relaxada com uma perna levemente à frente | Faça o padrão passo-saltito: direita-direita, esquerda-esquerda | Mantenha os passos curtos, rápidos e na ponta dos pés | Coordene os braços com as pernas | Caminhe de volta e repita
+E: Saltitos altos e lentos | Calcanhares batendo no chão | Braços parados
+PR: Skipping Alto (High Knees)
+RG: Marcha com Joelho Alto
+
+sr3_cone_unico | Giro Rápido no Cone (Single-Cone Drill) | cardio | Um cone | int | 🔶 | cones | ca | m | CPR | 4 | 3 voltas cada sentido
+P: Quadríceps, Panturrilha
+S: Glúteo Médio, Adutores, Coordenação
+F: Single-Cone_Sprint_Drill
+I: Coloque um cone no chão e fique ao lado dele em posição atlética | Dê passos curtos e muito rápidos ("pés picados") em volta do cone | Mantenha o quadril baixo e o tronco inclinado para dentro da curva | Complete as voltas num sentido e inverta | Use os braços em ritmo com as pernas
+E: Passos longos que afastam do cone | Ficar ereto | Cruzar os pés sem controle
+PR: Giro no cone com sprint de saída
+RG: Caminhada rápida em volta do cone
+
+sr3_bounding_diagonal | Saltos Alternados em Diagonal (Bounding Lateral) | pernas_cal | Peso corporal | ava | 🐸 | peso_corporal | ca | a | CPR | 4 | 6-8 saltos
+P: Glúteos, Quadríceps
+S: Glúteo Médio, Panturrilha, Potência
+F: Alternate_Leg_Diagonal_Bound
+I: Fique numa perna, joelho levemente dobrado | Salte em diagonal para a frente e para o lado, aterrissando na outra perna | Absorva a aterrissagem dobrando o joelho e o quadril | Salte imediatamente para a diagonal oposta | Faça em espaço livre ou areia
+E: Joelho caindo para dentro na aterrissagem | Aterrissagem barulhenta e rígida | Volume alto demais (muitas séries)
+PR: Bounding com distância máxima
+RG: Salto Patinador (Skater)
+
+sr3_reacao_bola_parede | Reação com Bola na Parede (Pegar no Quique) | cardio | Bola de tênis + parede | ini | 🎾 | parede | ca | b | C5R | 3 | 30-45s
+P: Coordenação
+S: Antebraços, Equilíbrio, Ombros
+I: Fique a 1,5-2 metros de uma parede lisa, joelhos levemente dobrados | Jogue uma bola de tênis contra a parede com uma mão | Pegue a bola de volta (com ou sem quique no chão) com a mesma mão | Alterne as mãos e varie a altura | Aumente a distância ou a velocidade conforme a confiança
+E: Ficar com as pernas travadas | Jogar forte demais e perder o controle | Usar sempre a mesma mão
+PR: Voleio Rápido na Parede com Raquete
+RG: Jogar e pegar a bola para si mesmo, sem parede
+
+sr3_voleio_parede | Voleio Rápido na Parede com Raquete | cardio | Raquete + bola + parede | int | 🏸 | raquete | ca | b | CR | 4 | 30-60s
+P: Antebraços, Ombros
+S: Coordenação, Manguito Rotador, Panturrilha
+I: Fique a 2-3 metros de uma parede firme com a raquete em posição de prontidão | Bata a bola na parede sem deixar quicar, voleios curtos e controlados | Mantenha a raquete à frente do corpo e o punho firme | Alterne forehand e backhand a cada 10 voleios | Faça pequenos ajustes com os pés, sem ficar parado
+E: Raquete muito para trás (atrasa o golpe) | Punho mole | Pés plantados
+PR: Diminuir a distância e aumentar o ritmo
+RG: Reação com Bola na Parede (Pegar no Quique)
+
+sr3_split_step_afundo | Split Step com Afundo de Alcance (Voleio Baixo) | cardio | Cones | ava | 🥏 | cones | ca | m | CPR | 4 | 6 cada lado
+P: Quadríceps, Glúteos
+S: Adutores, Panturrilha, Coordenação
+I: Coloque cones a 1,5 m à frente, à direita e à esquerda | Faça o split step na posição de prontidão | Ao aterrissar, dê um afundo longo em direção a um cone e toque-o com a mão (ou a raquete) baixo | Empurre forte com a perna da frente e volte ao centro | Alterne os cones de forma aleatória
+E: Joelho da frente caindo para dentro | Voltar devagar sem empurrar | Tronco curvado para alcançar
+PR: Fazer ao sinal do parceiro
+RG: Afundo Lateral com Alcance Baixo (Dink)
+
+sr3_passo_arremesso_mb | Passo Lateral com Arremesso Rotacional | funcional | Medicine ball + parede | ava | 💥 | medicine_ball | ca | m | CPR | 4 | 5 cada lado
+P: Oblíquos, Glúteos
+S: Adutores, Ombros, Potência
+I: Fique de frente para a direção do deslocamento, parede ao lado a 3 metros | Dê dois shuffles laterais em direção à parede segurando a bola na altura do quadril | Plante o pé de trás e gire o quadril, lançando a bola contra a parede | Pegue o rebote, volte com shuffles e repita | Troque de lado ao final
+E: Lançar sem plantar o pé de trás | Arremessar com os braços | Perder a postura atlética no deslocamento
+PR: Bola mais pesada ou reação ao sinal
+RG: Arremesso Rotacional Meio-Ajoelhado
+
+sr3_landmine_rotacional | Landmine Press Rotacional Unilateral | funcional | Landmine | ava | 🌪️ | landmine | a | m | CHR | 4 | 5-6 cada lado
+P: Oblíquos, Deltóide Anterior
+S: Glúteos, Tríceps, Potência
+I: Segure a ponta da barra com uma mão junto ao ombro, de frente para o suporte em ângulo | Gire o tronco e o quadril para o lado do braço, carregando a perna de trás | Gire explosivamente para frente pivotando o pé de trás | Empurre a barra para cima e à frente até estender o braço | Volte controlado e repita
+E: Empurrar só com o braço | Arquear a lombar no final | Pé de trás sem pivotar
+PR: Landmine 180s com mais carga
+RG: Desenvolvimento Landmine Meio-Ajoelhado Unilateral
+
+sr3_step_up_lateral_halteres | Step-Up Lateral com Halteres no Banco Alto | pernas | Halteres + banco | ava | 🪜 | halteres | ca | b | HR | 3 | 8 cada perna
+P: Glúteo Médio, Quadríceps
+S: Glúteos, Adutores, Equilíbrio
+I: Fique de lado para um banco firme na altura do joelho, um halter em cada mão | Coloque o pé mais próximo inteiro sobre o banco | Suba empurrando só essa perna, sem impulso da perna de baixo | Fique em pé em cima do banco e desça devagar pelo mesmo lado | Complete as repetições e troque de lado
+E: Impulsionar com a perna de baixo | Joelho caindo para dentro | Banco instável
+PR: Step-up lateral com joelho ao peito no topo
+RG: Step-Up Lateral no Degrau
+
+# ===================== AQUECIMENTO PRÉ-JOGO / MOBILIDADE =====================
+
+sr3_joelho_peito_caminhando | Caminhada com Joelho ao Peito | mobilidade | Peso corporal | ini | 🤗 | peso_corporal | ca | b | C5R | 2 | 10 cada perna
+P: Glúteos, Flexores do Quadril
+S: Equilíbrio, Panturrilha
+I: Caminhe devagar num espaço livre | A cada passo, eleve um joelho e abrace-o com as duas mãos, puxando-o ao peito | Suba na ponta do pé de apoio por 1 segundo | Solte e dê o próximo passo com a outra perna | Fique perto de uma parede se precisar de apoio
+E: Curvar as costas para alcançar o joelho | Fazer rápido sem equilíbrio | Prender a respiração
+PR: Caminhada com puxada do tornozelo cruzado (abertura de glúteo)
+RG: Marcha com Joelho Alto com apoio
+
+sr3_frankenstein | Caminhada Frankenstein (Chute Reto Alternado) | mobilidade | Peso corporal | ini | 🧟 | peso_corporal | ca | b | C5R | 2 | 10 cada perna
+P: Isquiotibiais
+S: Flexores do Quadril, Equilíbrio, Core
+I: Estenda os braços à frente na altura dos ombros | Caminhe chutando uma perna reta para cima em direção à mão oposta | Leve a perna só até onde sentir alongar, sem dor | Dê um passo e repita com a outra perna | Mantenha o tronco ereto e o joelho de apoio estável
+E: Curvar o tronco para encontrar o pé | Chute balístico com força | Dobrar o joelho da perna que chuta
+PR: Aumentar a velocidade de caminhada
+RG: Balanço de Pernas com apoio
+
+sr3_portao_quadril | Abrir e Fechar o Portão (Mobilidade de Quadril em Pé) | mobilidade | Parede ou apoio | ini | 🚪 | parede | ca | b | C5R | 2 | 8 cada direção
+P: Rotadores do Quadril
+S: Adutores, Glúteo Médio, Equilíbrio
+I: Fique de lado para a parede, apoiando uma mão nela | Eleve o joelho de fora à frente até a altura do quadril | Abra o joelho para o lado como se abrisse um portão e desça o pé | Faça o caminho inverso: eleve pelo lado e feche à frente | Complete e troque de perna
+E: Inclinar o tronco para compensar | Movimento curto e rápido | Travar o joelho de apoio
+PR: Fazer caminhando, sem apoio
+RG: Mobilidade de Quadril (Círculos)
+
+sr3_agach_rotacao_toracica | Agachamento Profundo com Rotação Torácica | mobilidade | Peso corporal | int | 🌻 | peso_corporal | ca | b | CR | 2 | 6 cada lado
+P: Coluna Torácica
+S: Adutores, Tornozelo, Glúteos
+I: Agache profundamente com os pés na largura dos ombros, cotovelos por dentro dos joelhos | Apoie a mão esquerda no chão à frente | Gire o tronco e leve o braço direito para o teto, seguindo a mão com os olhos | Volte e repita do outro lado | Mantenha os calcanhares no chão
+E: Calcanhares subindo | Girar só o braço e não o tronco | Costas arredondadas
+PR: World's Greatest Stretch
+RG: Livro Aberto (Open Book Torácico)
+
+sr3_mobilidade_punho_raquete | Oito com a Raquete (Mobilidade de Punho e Antebraço) | mobilidade | Raquete | ini | 🎾 | raquete | ca | b | 5R | 2 | 30s cada mão
+P: Antebraços
+S: Flexores do Pulso, Extensores do Pulso
+I: Segure a raquete pelo cabo com o braço junto ao corpo e o cotovelo dobrado a 90° | Desenhe um "8" deitado no ar com a cabeça da raquete, movendo só o punho e o antebraço | Faça devagar nos primeiros 10 segundos e acelere aos poucos | Inverta o sentido do "8" | Troque de mão para equilibrar
+E: Mover o ombro em vez do punho | Apertar o cabo com força excessiva | Fazer rápido logo no início
+PR: Segurar a raquete mais perto da ponta do cabo (alavanca maior)
+RG: Série de Mobilidade de Pulsos

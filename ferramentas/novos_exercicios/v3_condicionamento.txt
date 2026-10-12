@@ -1,0 +1,750 @@
+# V3 — CONDICIONAMENTO / PERDA DE PESO / FUNCIONAL (corpo inteiro)
+# Ergômetros, corda naval, corda de pular, trenó, kettlebell, carregamentos, burpees e variações de baixo impacto.
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+# ---------------------------------------------------------------- ERGÔMETROS
+cf3_stairmaster_continuo | Escada Ergométrica Contínua (Stairmaster) | cardio | Escada ergométrica | ini | 🪜 | esteira | a | b | CP5 | 1 | 10-20min
+P: Cardio, Glúteos, Quadríceps
+S: Panturrilha, Isquiotibiais, Core
+F: Stairmaster
+I: Suba na máquina segurando levemente o corrimão e escolha uma velocidade baixa (nível 3-5) | Apoie o pé inteiro em cada degrau, sem pisar só com a ponta | Mantenha o tronco ereto, levemente inclinado à frente a partir do quadril | Use o corrimão só para equilíbrio, sem pendurar o peso do corpo nele | Ajuste a velocidade para conseguir falar frases curtas (zona moderada)
+E: Apoiar o peso nos braços e inclinar demais o tronco | Pisar só com a ponta dos pés sobrecarregando a panturrilha | Velocidade alta demais que obriga a se agarrar no corrimão
+PR: Escada Ergométrica Pulando Degrau
+RG: Caminhada Inclinada na Esteira
+
+cf3_stairmaster_lateral | Escada Ergométrica com Subida Lateral | cardio | Escada ergométrica | ini | ↗️ | esteira | a | b | CPR | 4 | 1min cada lado
+P: Glúteo Médio, Quadríceps, Cardio
+S: Adutores, Abdutores, Panturrilha
+I: Reduza a velocidade para o nível mais baixo antes de virar de lado | Segure o corrimão com as duas mãos e posicione o corpo de lado para os degraus | Suba cruzando a perna de trás à frente ou em passos laterais, empurrando o degrau com a perna de cima | Troque de lado a cada minuto, sempre reduzindo a velocidade antes de virar | Mantenha quadril e ombros alinhados, sem girar o tronco
+E: Virar de lado com a máquina em velocidade alta | Joelho da perna de cima caindo para dentro | Olhar para os pés e curvar a coluna
+PR: Aumente a velocidade ou solte uma das mãos do corrimão
+RG: Escada Ergométrica Contínua (Stairmaster)
+
+cf3_stairmaster_degrau_duplo | Escada Ergométrica Pulando Degrau | cardio | Escada ergométrica | int | 🍑 | esteira | a | b | CPH | 4 | 2-3min
+P: Glúteos, Quadríceps
+S: Isquiotibiais, Cardio, Core
+I: Comece em velocidade baixa a moderada | Suba pisando de dois em dois degraus, com passada longa | Empurre com o calcanhar da perna da frente até estender o quadril | Incline levemente o tronco à frente para recrutar mais glúteo | Use o corrimão apenas como apoio leve
+E: Passada curta que vira subida normal | Joelho passando muito da ponta do pé com o calcanhar no ar | Puxar o corpo pelo corrimão
+PR: Faça sem as mãos no corrimão
+RG: Escada Ergométrica Contínua (Stairmaster)
+
+cf3_stairmaster_tiros | Escada Ergométrica: Tiros sem Corrimão | cardio | Escada ergométrica | ava | 🔥 | esteira | a | m | CP | 8-10 | 30s forte / 30s leve
+P: Cardio, Quadríceps, Glúteos
+S: Panturrilha, Core, Equilíbrio
+I: Aqueça 5 minutos em ritmo leve | Nos 30s fortes, suba a velocidade para o nível que você só aguenta meio minuto | Solte o corrimão, braços balançando como na corrida, tronco firme | Nos 30s leves, volte ao nível baixo e segure o corrimão se precisar | Termine com 3-5 minutos de volta à calma
+E: Começar os tiros sem aquecer | Agarrar o corrimão no tiro e tirar a carga das pernas | Não reduzir o ritmo no intervalo
+PR: 40s forte / 20s leve
+RG: Escada Ergométrica Pulando Degrau
+
+cf3_esteira_zona2 | Trote Contínuo na Esteira (Zona 2) | cardio | Esteira | ini | 🏃 | esteira | a | m | CP | 1 | 20-40min
+P: Cardio, Quadríceps
+S: Panturrilha, Isquiotibiais, Glúteos
+F: Jogging_Treadmill
+I: Inicie caminhando 3-5 minutos para aquecer | Aumente para um trote leve em que você ainda consegue conversar (6-8 km/h para a maioria) | Use 1% de inclinação para simular a corrida na rua | Passadas curtas, aterrissando com o pé embaixo do quadril | Mantenha o mesmo ritmo do começo ao fim, sem acelerar
+E: Ritmo alto demais (sem conseguir falar) | Passada longa com o calcanhar muito à frente do corpo | Segurar nas laterais da esteira
+PR: Corrida Intervalada na Esteira
+RG: Caminhada Inclinada na Esteira
+
+cf3_esteira_de_costas | Caminhada de Costas na Esteira Inclinada | cardio | Esteira | int | 🔙 | esteira | a | b | CPR | 3-4 | 2-3min
+P: Quadríceps, Cardio
+S: Panturrilha, Glúteos, Tibial Anterior, Coordenação
+I: Com a esteira parada, vire de costas para o painel e segure as laterais | Ligue em velocidade bem baixa (2-3 km/h) e inclinação de 5-10% | Caminhe para trás apoiando primeiro a ponta do pé e depois o calcanhar | Mantenha o tronco ereto e o olhar à frente | Solte as mãos apenas quando se sentir estável
+E: Velocidade alta logo no início | Olhar para baixo e perder o equilíbrio | Passos longos demais
+PR: Aumente a inclinação ou caminhe sem segurar
+RG: Faça com inclinação zero e segurando sempre
+
+cf3_esteira_lateral_inclinada | Deslocamento Lateral na Esteira Inclinada | cardio | Esteira | int | ↔️ | esteira | a | b | CPR | 4 | 1min cada lado
+P: Glúteo Médio, Adutores, Cardio
+S: Quadríceps, Panturrilha, Tornozelo
+I: Com a esteira parada, posicione-se de lado segurando a barra frontal | Ligue em 2-3 km/h e inclinação de 5% | Desloque-se lateralmente sem cruzar os pés, joelhos semiflexionados | Mantenha o quadril baixo e o tronco de frente para a lateral | Pare ou reduza antes de trocar de lado
+E: Cruzar os pés e tropeçar | Ficar com as pernas esticadas | Trocar de lado com a esteira rápida
+PR: Aumente velocidade ou inclinação
+RG: Passadas Laterais no chão
+
+cf3_esteira_hill_sprint | Sprint em Subida na Esteira (Hill Sprint) | cardio | Esteira | ava | ⛰️ | esteira | a | a | CP | 6-10 | 20s sprint / 60-90s descanso
+P: Cardio, Glúteos, Quadríceps
+S: Isquiotibiais, Panturrilha, Flexores do Quadril
+I: Aqueça 8-10 minutos com trote progressivo | Ajuste a inclinação entre 6 e 10% | Para começar o tiro, apoie-se nas laterais e entre na esteira já rodando na velocidade alvo | Corra com joelhos altos e braços fortes por 20s | Desça para as laterais, recupere caminhando ou parado e repita
+E: Velocidade que não consegue manter os 20s | Aterrissar com a perna esticada à frente | Descanso curto que destrói a qualidade dos tiros
+PR: Aumente para 30s de sprint ou 12% de inclinação
+RG: Corrida Intervalada na Esteira
+
+cf3_bike_zona2 | Bicicleta Ergométrica Contínua (Zona 2) | cardio | Bicicleta ergométrica vertical | ini | 🚴 | bicicleta | a | b | CP5 | 1 | 20-45min
+P: Cardio, Quadríceps
+S: Glúteos, Isquiotibiais, Panturrilha
+F: Bicycling_Stationary
+I: Ajuste o banco na altura do quadril: com o pedal embaixo, o joelho fica levemente dobrado | Pedale 5 minutos com carga leve para aquecer | Aumente a carga até uma intensidade em que consiga conversar | Mantenha 70-90 rotações por minuto, estáveis | Tronco relaxado e ombros longe das orelhas
+E: Banco baixo demais com o joelho muito dobrado | Carga tão alta que a rotação cai abaixo de 60 | Balançar o quadril no banco
+PR: Bike Indoor: Subida em Pé com Carga Alta
+RG: Bicicleta Ergométrica Horizontal
+
+cf3_bike_subida_em_pe | Bike Indoor: Subida em Pé com Carga Alta | cardio | Bicicleta indoor (spinning) | int | ⛰️ | bicicleta | a | b | CPH | 5-6 | 1-2min em pé / 1min sentado
+P: Quadríceps, Glúteos, Cardio
+S: Panturrilha, Core, Isquiotibiais
+I: Aumente a carga até sentir que está pedalando numa subida (60-70 rpm) | Levante-se do banco com o quadril logo acima do selim | Mãos na posição mais longe do guidão, cotovelos levemente dobrados | Empurre cada pedal para baixo e puxe para cima, sem balançar o corpo | Sente-se para recuperar com carga moderada e repita
+E: Carga leve demais que faz o pedal girar solto | Jogar o peso do corpo nas mãos | Quadril muito à frente, sobre o guidão
+PR: Aumente o tempo em pé ou a carga
+RG: Bicicleta Ergométrica Contínua (Zona 2)
+
+cf3_bike_unilateral | Pedalada Unilateral na Bike (Técnica) | cardio | Bicicleta ergométrica | int | 🦵 | bicicleta | a | b | CP | 4 | 45s cada perna
+P: Quadríceps, Flexores do Quadril
+S: Isquiotibiais, Glúteos, Cardio
+I: Use carga moderada e tire um pé do pedal, apoiando-o no quadro ou num banquinho | Pedale com uma perna só, buscando um círculo completo e sem "trancos" | Puxe o pedal para cima na fase de subida, ativando o flexor do quadril | Faça 45s e troque de perna | Termine com 1 minuto pedalando com as duas pernas
+E: Carga alta demais que trava o pedal no ponto morto | Balançar o tronco para ajudar | Pedalar só empurrando, sem puxar
+PR: Aumente a carga ou o tempo por perna
+RG: Bicicleta Ergométrica Contínua (Zona 2)
+
+cf3_airbike_bracos | Air Bike Só com os Braços | cardio | Air bike (assault bike) | ini | 💪 | bicicleta | a | b | CPR | 6-8 | 20s forte / 40s leve
+P: Cardio, Ombros, Peitoral
+S: Latíssimo, Tríceps, Core
+I: Sente-se na air bike e apoie os pés nos descansos fixos (não nos pedais) | Segure as manoplas e empurre e puxe alternadamente | Gire o tronco levemente acompanhando os braços | Acelere nos 20s fortes e solte o ritmo nos 40s leves | Ótima opção quando há dor ou lesão em membros inferiores
+E: Deixar os pés nos pedais e misturar o movimento | Encolher os ombros | Usar só um braço com força
+PR: Air Bike: EMOM de Calorias
+RG: Reduza o tempo forte para 15s
+
+cf3_airbike_emom | Air Bike: EMOM de Calorias | cardio | Air bike (assault bike) | ava | ⏱️ | bicicleta | a | b | CP | 10-12 | 1 por minuto (8-15 cal)
+P: Cardio, Full Body
+S: Quadríceps, Glúteos, Ombros, Core
+I: Defina uma meta de calorias para cada minuto (ex.: 10 cal homens, 8 cal mulheres) | Ao iniciar o minuto, pedale e empurre as manoplas forte até atingir a meta | Descanse o tempo que sobrar até o próximo minuto | Se não bater a meta em 40s, reduza 1-2 calorias nos próximos | Use braços e pernas juntos o tempo todo
+E: Sair rápido demais e não completar os últimos minutos | Usar só as pernas | Não ajustar a meta quando o descanso some
+PR: Aumente 1-2 calorias por minuto ou faça 15 minutos
+RG: Air Bike (Intervals)
+
+cf3_eliptico_re | Elíptico de Ré (Pedalada Reversa) | cardio | Elíptico | ini | 🔄 | eliptico | a | b | CP5 | 3-4 | 3min
+P: Quadríceps, Cardio
+S: Glúteos, Panturrilha, Isquiotibiais
+I: Suba no elíptico segurando as alças móveis | Comece pedalando para frente 2 minutos para aquecer | Inverta o sentido, pedalando para trás em ritmo controlado | Mantenha o tronco ereto e o peso nos calcanhares | Alterne blocos de 3 minutos de ré com 2 minutos para frente
+E: Inclinar o tronco à frente apoiado nas alças | Joelhos se aproximando um do outro | Ritmo tão rápido que perde o controle da máquina
+PR: Elíptico sem Apoio das Mãos
+RG: Elíptico só para frente com resistência baixa
+
+cf3_eliptico_sem_maos | Elíptico sem Apoio das Mãos | cardio | Elíptico | int | 🙌 | eliptico | a | b | CPR | 4 | 3-4min
+P: Cardio, Core, Glúteos
+S: Quadríceps, Equilíbrio, Panturrilha
+I: Comece segurando as alças fixas em ritmo moderado | Solte as mãos e deixe os braços balançando como na corrida | Contraia o abdômen para não balançar o quadril | Mantenha olhar à frente e o peso distribuído no pé inteiro | Se perder o equilíbrio, volte às alças fixas
+E: Olhar para os pés | Rodar o quadril de um lado para o outro | Resistência baixa que faz o pedal "fugir"
+PR: Aumente a resistência ou a inclinação da rampa
+RG: Elíptico Intervalado
+
+cf3_remo_pick_drill | Remo Ergômetro: Drill de Técnica (Pick Drill) | cardio | Remo ergômetro | ini | 🚣 | remo_ergometro | a | b | CP5 | 3 | 1min cada fase
+P: Cardio, Latíssimo, Quadríceps
+S: Glúteos, Rombóides, Core, Bíceps
+F: Rowing_Stationary
+I: Prenda bem os pés e ajuste a resistência (damper) entre 3 e 5 | Fase 1: rema só com os braços, pernas esticadas e tronco parado | Fase 2: braços + inclinação do tronco para trás (de "11h" para "13h") | Fase 3: puxada completa — pernas, depois tronco, depois braços | Na volta, a ordem é inversa: braços, tronco, pernas
+E: Dobrar os joelhos antes de os braços passarem por eles na volta | Puxar com os braços antes de empurrar com as pernas | Damper no máximo achando que é "mais treino"
+PR: Remo Ergômetro com Pausa na Recuperação
+RG: Faça só as fases 1 e 2
+
+cf3_remo_pausa | Remo Ergômetro com Pausa na Recuperação | cardio | Remo ergômetro | ini | ⏸️ | remo_ergometro | a | b | CP | 4 | 2min
+P: Cardio, Latíssimo, Quadríceps
+S: Glúteos, Core, Rombóides
+I: Reme em ritmo leve (18-22 remadas por minuto) | Após cada puxada, pause 1-2s com os braços estendidos e o tronco inclinado à frente | Confira a posição: costas retas, ombros à frente do quadril | Só então dobre os joelhos e deslize para a próxima puxada | Mantenha a força constante em todas as remadas
+E: Curvar a lombar na pausa | Pausar na posição errada (com joelhos já dobrados) | Puxar com os ombros encolhidos
+PR: Remo Ergômetro em Pirâmide
+RG: Remo Ergômetro: Drill de Técnica (Pick Drill)
+
+cf3_polia_ski | Ski na Polia Alta (SkiErg Adaptado) | funcional | Crossover com dois puxadores | int | ⛷️ | crossover | a | b | CPR | 6-8 | 30s forte / 30s leve
+P: Latíssimo, Cardio, Core
+S: Tríceps, Glúteos, Isquiotibiais, Ombros
+I: Coloque as duas polias no alto com puxadores simples e carga leve | Fique de frente para a máquina, um passo atrás, braços estendidos acima da cabeça | Puxe os dois cabos para baixo até as mãos passarem ao lado do quadril, dobrando quadril e joelhos ao mesmo tempo | Volte estendendo o corpo e levando os braços de novo ao alto | Mantenha o movimento rápido e rítmico, como no esqui nórdico
+E: Carga pesada que tira o ritmo | Curvar a coluna em vez de dobrar o quadril | Puxar só com os braços, sem usar o corpo
+PR: Aumente a carga ou o tempo forte para 40s
+RG: Faça com elástico preso no alto, em ritmo leve
+
+# ---------------------------------------------------------------- CORDA NAVAL
+cf3_corda_naval_slam | Corda Naval: Batida Dupla (Slam) | funcional | Corda naval | int | 💥 | corda_naval | a | m | CPR | 6-8 | 20-30s
+P: Ombros, Latíssimo, Cardio
+S: Core, Glúteos, Antebraços
+I: Segure uma ponta da corda em cada mão em meio agachamento | Eleve as duas mãos juntas acima da cabeça, ficando quase na ponta dos pés | Bata as duas pontas no chão com força, agachando ao mesmo tempo | Emende a próxima batida sem pausa | Mantenha o abdômen firme para proteger a lombar
+E: Bater só com os braços, sem usar as pernas | Ficar muito perto da âncora (corda sem tensão) | Arredondar a coluna ao bater
+PR: Corda Naval com Polichinelo
+RG: Corda Naval Sentado no Banco
+
+cf3_corda_naval_circulos | Corda Naval: Círculos para Fora | funcional | Corda naval | ini | 🌀 | corda_naval | a | m | CPR | 4-6 | 20-30s
+P: Ombros, Cardio
+S: Manguito Rotador, Peitoral, Core, Antebraços
+I: Em meio agachamento, segure as pontas da corda com as palmas para baixo | Faça círculos simultâneos com os braços, de dentro para fora | Mantenha os círculos grandes, com o movimento vindo dos ombros | Respire de forma contínua | Na série seguinte, inverta para círculos de fora para dentro
+E: Círculos pequenos só com o punho | Ficar em pé com pernas esticadas | Encolher os ombros
+PR: Aumente o tempo ou a velocidade dos círculos
+RG: Corda Naval Sentado no Banco
+
+cf3_corda_naval_sentado | Corda Naval Sentado no Banco | funcional | Corda naval + banco | ini | 🪑 | corda_naval | a | b | CP5 | 4-6 | 20-30s
+P: Ombros, Cardio
+S: Core, Antebraços, Tríceps
+I: Sente-se num banco firme de frente para a âncora, pés apoiados no chão | Segure uma ponta da corda em cada mão com a corda levemente esticada | Faça ondas alternadas com os braços, ritmo moderado | Mantenha a coluna ereta sem encostar | Ótimo para quem tem limitação de joelho ou para iniciantes 50+
+E: Curvar o tronco à frente | Ondas só com o punho | Prender a respiração
+PR: Corda Naval: Círculos para Fora
+RG: Faça com uma corda mais fina ou menos tempo
+
+cf3_corda_naval_polichinelo | Corda Naval com Polichinelo | funcional | Corda naval | ava | 🤸 | corda_naval | a | a | CP | 5-6 | 20-30s
+P: Cardio, Ombros, Full Body
+S: Panturrilha, Adutores, Abdutores, Core
+I: Segure as pontas da corda com os braços ao lado do corpo | Salte abrindo pernas e levando os braços para os lados e para cima, fazendo a corda subir | Salte fechando as pernas e trazendo os braços para baixo | Mantenha a corda em movimento contínuo | Aterrisse sempre suave na ponta dos pés
+E: Aterrissar com joelhos travados | Perder a coordenação e parar a corda | Braços sem amplitude
+PR: Aumente o tempo para 40s
+RG: Corda Naval: Batida Dupla (Slam)
+
+cf3_corda_naval_afundo | Corda Naval com Afundo Alternado | funcional | Corda naval | ava | 🦵 | corda_naval | a | m | CPH | 5 | 30s
+P: Cardio, Quadríceps, Glúteos
+S: Ombros, Core, Equilíbrio
+I: Segure as pontas e comece fazendo ondas alternadas | Sem parar as ondas, dê um passo à frente em afundo | Volte e afunde com a outra perna, mantendo as ondas | O tronco fica ereto e o joelho de trás desce perto do chão | Se quiser mais intensidade, troque as pernas com um pequeno salto
+E: Parar as ondas durante o afundo | Joelho da frente caindo para dentro | Passada curta demais
+PR: Troque as pernas com salto (afundo saltado)
+RG: Ondas alternadas em meio agachamento fixo
+
+# ---------------------------------------------------------------- CORDA DE PULAR
+cf3_corda_corrida | Pular Corda com Pés Alternados (Corrida) | cardio | Corda de pular | int | 🏃 | corda_pular | ca | m | CPR | 6-8 | 30-45s
+P: Cardio, Panturrilha
+S: Quadríceps, Tornozelo, Coordenação
+I: Comece com saltos básicos para pegar o ritmo | Passe a pular alternando os pés, como se corresse no lugar | Saltos baixos, só o suficiente para a corda passar | Gire a corda com os punhos, cotovelos próximos ao corpo | Acelere progressivamente mantendo a leveza
+E: Saltar alto demais | Girar a corda com os braços inteiros | Aterrissar com o calcanhar
+PR: Pular Corda Cruzada (Criss-Cross)
+RG: Pular Corda
+
+cf3_corda_esqui | Pular Corda Lateral (Esqui) | cardio | Corda de pular | int | ⛷️ | corda_pular | ca | m | CPR | 6 | 30s
+P: Cardio, Panturrilha
+S: Adutores, Abdutores, Tornozelo, Coordenação
+I: Pés juntos, pule a corda normalmente | Em cada giro, salte para a direita e depois para a esquerda (cerca de 20 cm) | Mantenha joelhos levemente flexionados para amortecer | Olhar à frente e tronco parado | Variação: alterne saltos para frente e para trás (sino)
+E: Distância lateral grande demais | Pés separando no ar | Tronco balançando para os lados
+PR: Pular Corda num Pé Só
+RG: Pular Corda
+
+cf3_corda_cruzada | Pular Corda Cruzada (Criss-Cross) | cardio | Corda de pular | ava | ❌ | corda_pular | ca | m | CPR | 6 | 30-45s
+P: Cardio, Ombros, Coordenação
+S: Panturrilha, Antebraços, Peitoral
+I: Comece com saltos básicos | Num giro, cruze os braços à frente do corpo na altura da cintura enquanto a corda desce | Pule pelo laço formado e descruze no giro seguinte | Mantenha as mãos baixas e a corda longa o suficiente | Alterne um giro aberto e um cruzado
+E: Cruzar os braços alto demais (corda curta) | Cruzar só os punhos e não os antebraços | Saltar alto por medo da corda
+PR: Faça cruzadas consecutivas
+RG: Pular Corda com Pés Alternados (Corrida)
+
+cf3_corda_imaginaria | Pular Corda Imaginária (sem Corda) | cardio | Peso corporal | ini | 🫥 | peso_corporal | ca | m | CP | 6-8 | 30-45s
+P: Cardio, Panturrilha
+S: Tornozelo, Ombros, Coordenação
+I: Fique com os pés juntos, cotovelos junto ao corpo e mãos à frente do quadril | Gire os punhos como se segurasse uma corda | Faça saltinhos baixos na ponta dos pés no ritmo dos punhos | Alterne blocos de pés juntos e pés alternados | Ideal para apartamento com teto baixo ou sem corda
+E: Saltos altos e barulhentos | Aterrissar com os calcanhares | Parar de girar os punhos e perder o ritmo
+PR: Pular Corda
+RG: Marcha rápida no lugar girando os punhos
+
+cf3_corda_unipodal | Pular Corda num Pé Só | cardio | Corda de pular | ava | 🦶 | corda_pular | ca | a | CPR | 6 | 20s cada pé
+P: Panturrilha, Cardio
+S: Tornozelo, Equilíbrio, Quadríceps, Glúteo Médio
+I: Pule normalmente por alguns giros para pegar o ritmo | Levante um pé e continue pulando só com o outro | Joelho de apoio levemente dobrado, quadril nivelado | Faça 20s e troque de pé sem parar a corda | Aterrisse sempre na ponta do pé, macio
+E: Joelho de apoio caindo para dentro | Quadril caindo para o lado do pé livre | Fazer com fadiga excessiva na panturrilha
+PR: Alterne a cada 5 saltos ou desloque-se para frente
+RG: Pular Corda Lateral (Esqui)
+
+# ---------------------------------------------------------------- TRENÓ
+cf3_treno_lateral | Arrasto Lateral de Trenó | funcional | Trenó com corda ou cinto | int | ↔️ | treno | a | b | CPR | 6 | 15-20m cada lado
+P: Glúteo Médio, Quadríceps, Adutores
+S: Core, Panturrilha, Cardio
+I: Prenda a corda do trenó num cinto ou segure-a na altura do quadril, ficando de lado para ele | Afaste-se até a corda ficar esticada | Desloque-se lateralmente sem cruzar os pés, em meio agachamento | Empurre o chão com a perna que fica longe do trenó | Faça o percurso e volte virando para o outro lado
+E: Ficar com as pernas esticadas | Cruzar os pés | Inclinar o tronco para o lado
+PR: Aumente a carga ou faça mais rápido
+RG: Monster Walk com Elástico
+
+cf3_treno_costas | Arrasto de Trenó Andando de Costas | funcional | Trenó com corda ou alças | ini | 🔙 | treno | a | b | CP5 | 4-6 | 15-20m
+P: Quadríceps, Cardio
+S: Panturrilha, Glúteos, Core, Antebraços
+F: Backward_Drag
+I: Segure as alças ou a corda do trenó com os braços estendidos à frente | Incline levemente o tronco para trás e fique em meio agachamento | Ande de costas com passos curtos, empurrando o chão com a ponta do pé | Mantenha a tensão constante na corda | Ótimo para fortalecer quadríceps sem impacto no joelho
+E: Ficar ereto demais e puxar com as costas | Passos longos que fazem perder o equilíbrio | Braços dobrados puxando o trenó
+PR: Aumente a carga ou a distância
+RG: Reduza a carga e faça 10m
+
+cf3_treno_urso | Bear Crawl Puxando Trenó | funcional | Trenó + cinto | ava | 🐻 | treno | a | b | CP | 4-5 | 10-15m
+P: Full Body, Quadríceps, Ombros
+S: Core, Tríceps, Cardio
+F: Bear_Crawl_Sled_Drags
+I: Prenda o trenó a um cinto na cintura, com corda longa | Fique em posição de urso: mãos e pés no chão, joelhos a 5 cm do chão | Engatinhe para frente movendo mão e pé opostos juntos | Quadril baixo e costas retas durante todo o percurso | Use carga leve no começo — o desafio é a posição
+E: Quadril alto (posição de "V") | Joelhos tocando o chão | Carga pesada que trava o movimento
+PR: Aumente a carga ou a distância
+RG: Bear Crawl
+
+cf3_treno_press | Arrasto de Trenó com Press à Frente | funcional | Trenó com alças | ava | 🫸 | treno | a | b | CPH | 5 | 10-15m
+P: Peitoral, Ombros, Cardio
+S: Tríceps, Quadríceps, Core
+F: Forward_Drag_with_Press
+I: De costas para o trenó, segure as alças junto ao peito | Dê um passo para frente e empurre as mãos à frente, estendendo os cotovelos | Volte as mãos ao peito e dê o próximo passo | Mantenha o abdômen firme para não arquear a lombar | Complete o percurso em ritmo contínuo
+E: Arquear a coluna ao empurrar | Dar passos sem a corda esticada | Usar carga que não permite estender os braços
+PR: Aumente a carga ou faça em sprint
+RG: Arrasto de Trenó Andando de Costas
+
+# ---------------------------------------------------------------- KETTLEBELL
+cf3_kb_swing_duplo | Swing com 2 Kettlebells | funcional | 2 Kettlebells | ava | 🔔 | kettlebell | a | m | CPH | 5 | 8-12
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Core, Antebraços, Cardio
+I: Posicione dois kettlebells à frente, pés um pouco mais afastados que no swing comum | Incline o quadril para trás e segure um kettlebell em cada mão | Passe os dois entre as pernas, com os punhos próximos às coxas | Estenda o quadril com força levando os kettlebells até a altura do peito | Deixe-os descer guiando com o quadril, não com os braços
+E: Agachar em vez de dobrar o quadril | Pés juntos demais (kettlebells batem nas pernas) | Puxar com os braços
+PR: Aumente a carga ou faça em EMOM
+RG: Kettlebell Swing
+
+cf3_kb_swing_troca | Swing com Troca de Mãos | funcional | Kettlebell | int | 🤝 | kettlebell | ca | m | CPR | 4-5 | 10-16
+P: Glúteos, Isquiotibiais, Core
+S: Antebraços, Oblíquos, Coordenação, Cardio
+I: Comece com swing unilateral | No ponto mais alto (kettlebell flutuando na altura do peito), solte a alça | Pegue com a outra mão no mesmo instante | Desça o kettlebell entre as pernas com a nova mão | Mantenha o tronco de frente, resistindo à rotação
+E: Trocar de mão com o kettlebell ainda subindo | Girar o tronco para o lado | Fazer em local com pessoas próximas
+PR: Faça com kettlebell mais pesado
+RG: Kettlebell Swing Unilateral
+
+cf3_kb_dead_clean | Clean Morto com Kettlebell (do Chão) | funcional | Kettlebell | ini | 🔔 | kettlebell | ca | b | CP | 4 | 6-8 cada lado
+P: Glúteos, Isquiotibiais
+S: Bíceps, Ombros, Core, Antebraços
+F: Kettlebell_Dead_Clean
+I: Kettlebell no chão entre os pés, quadril para trás e costas retas | Segure a alça com uma mão | Estenda o quadril com força e puxe o kettlebell junto ao corpo | Gire a mão por dentro e receba o kettlebell apoiado no antebraço, na frente do ombro (rack) | Volte ao chão com controle e repita
+E: Deixar o kettlebell bater no punho | Puxar com o braço longe do corpo | Curvar a coluna para pegar no chão
+PR: Clean e Jerk Unilateral com Kettlebell
+RG: Levantamento Terra com Kettlebell
+
+cf3_kb_clean_jerk | Clean e Jerk Unilateral com Kettlebell | funcional | Kettlebell | ava | 🚀 | kettlebell | ca | m | CP | 5 | 5-8 cada lado
+P: Ombros, Glúteos, Full Body
+S: Tríceps, Quadríceps, Core, Cardio
+F: One-Arm_Kettlebell_Clean_and_Jerk
+I: Faça o clean levando o kettlebell à posição de rack | Faça um pequeno meio agachamento (dip) | Estenda pernas com força e, quando o kettlebell subir, dobre de novo os joelhos para entrar embaixo dele com o braço travado | Fique em pé com o braço estendido acima da cabeça | Volte ao rack e depois ao balanço entre as pernas
+E: Empurrar só com o ombro (vira push press) | Braço não travado no alto | Lombar arqueada na finalização
+PR: Aumente a carga ou faça long cycle com 2 kettlebells
+RG: Push Press com Kettlebell
+
+cf3_kb_thruster | Thruster com Kettlebell | funcional | Kettlebell | int | 🔝 | kettlebell | ca | b | CPH | 4 | 8-12
+P: Quadríceps, Glúteos, Ombros
+S: Tríceps, Core, Cardio
+F: Kettlebell_Thruster
+I: Segure um kettlebell pelos chifres (ou dois em rack) na frente do peito | Agache com peito aberto até as coxas ficarem paralelas | Suba com força e use o embalo para empurrar o kettlebell acima da cabeça | Desça o peso de volta ao peito enquanto inicia o próximo agachamento | Mantenha o movimento contínuo, sem pausa
+E: Agachamento raso | Empurrar o peso só no final, sem usar as pernas | Lombar arqueada no alto
+PR: Thruster com Barra
+RG: Agachamento Goblet
+
+cf3_kb_rack_carry | Caminhada em Rack com 2 Kettlebells | funcional | 2 Kettlebells | int | 🚶 | kettlebell | ca | b | CPH | 4 | 30-40m
+P: Core, Trapézio, Ombros
+S: Antebraços, Bíceps, Glúteos
+I: Leve dois kettlebells à posição de rack (apoiados nos antebraços, na frente dos ombros) | Cotovelos junto ao tronco, punhos retos | Caminhe com passos curtos e firmes, respirando curto | Não deixe o tronco inclinar para trás | Ao terminar, desça os kettlebells com controle
+E: Arquear a lombar para "segurar" o peso | Cotovelos abertos para os lados | Prender completamente a respiração
+PR: Carregamento Misto com Kettlebell
+RG: Waiter Carry
+
+cf3_kb_carry_misto | Carregamento Misto com Kettlebell (Rack + Mala) | funcional | 2 Kettlebells | ava | ⚖️ | kettlebell | ca | b | CPR | 4 | 20-30m cada lado
+P: Core, Oblíquos
+S: Trapézio, Antebraços, Glúteo Médio, Ombros
+I: Segure um kettlebell em rack num braço e outro ao lado do corpo na outra mão | Fique alto, com os ombros nivelados | Caminhe devagar resistindo à inclinação do tronco | No meio do percurso, troque as posições | Use cargas diferentes para aumentar o desafio de estabilização
+E: Inclinar para o lado do kettlebell baixo | Rack instável com o punho dobrado | Andar rápido e perder o controle
+PR: Troque o rack por kettlebell acima da cabeça
+RG: Farmers Walk Unilateral
+
+cf3_kb_pirate_ships | Pirate Ships com Kettlebell | funcional | Kettlebell | int | 🏴‍☠️ | kettlebell | ca | b | CPR | 3-4 | 10-12 cada lado
+P: Ombros, Oblíquos
+S: Core, Deltóide Anterior, Trapézio
+F: Kettlebell_Pirate_Ships
+I: Pés afastados, joelhos levemente dobrados, segure o kettlebell pelos chifres com braços estendidos | Gire o tronco e leve o kettlebell em arco de um lado do quadril até acima do ombro oposto | Gire o pé de trás junto, como num golpe de raquete | Volte pelo mesmo arco e vá para o outro lado | Controle a descida, sem deixar o peso puxar o corpo
+E: Fazer o arco só com os braços | Pés travados, torcendo o joelho | Carga pesada demais para controlar
+PR: Aumente a carga ou a velocidade
+RG: Faça com anilha leve
+
+cf3_kb_dead_stop_swing | Swing com Pausa no Chão (Dead-Stop Swing) | funcional | Kettlebell | ini | ⏹️ | kettlebell | ca | m | CP | 5 | 6-10
+P: Glúteos, Isquiotibiais
+S: Latíssimo, Core, Antebraços
+I: Kettlebell no chão cerca de 30 cm à frente dos pés | Incline o quadril para trás e pegue a alça com as duas mãos | "Arremesse" o kettlebell para trás entre as pernas e estenda o quadril com força | Deixe-o subir até a altura do peito e volte a pousá-lo no chão à frente | Recomece cada repetição parado, conferindo a postura
+E: Agachar em vez de dobrar o quadril | Erguer o kettlebell com os ombros | Pousar o kettlebell entre os pés, curvando a coluna
+PR: Kettlebell Swing
+RG: Hip Hinge
+
+cf3_kb_afundo_press | Afundo Reverso com Press de Kettlebell | funcional | Kettlebell | int | 🫸 | kettlebell | ca | b | CPH | 4 | 8 cada lado
+P: Quadríceps, Glúteos, Ombros
+S: Tríceps, Core, Equilíbrio
+I: Kettlebell em rack do lado direito | Dê um passo para trás com a perna direita e desça até o joelho quase tocar o chão | Ao subir, empurre o kettlebell acima da cabeça | Desça o kettlebell ao rack e repita | Complete as repetições e troque de lado
+E: Tronco inclinando para o lado do peso | Joelho da frente caindo para dentro | Arquear a lombar no press
+PR: Aumente a carga ou faça com 2 kettlebells
+RG: Afundo Reverso Goblet com Kettlebell
+
+# ---------------------------------------------------------------- HALTERES / CORPO INTEIRO
+cf3_halter_clean | Clean com Halteres (do Chão) | funcional | Halteres | int | 🏋️ | halteres | ca | m | CP | 4-5 | 6-10
+P: Glúteos, Isquiotibiais, Trapézio
+S: Quadríceps, Ombros, Core, Antebraços
+F: Dumbbell_Clean
+I: Halteres no chão ao lado dos pés, quadril para trás e costas retas | Puxe os halteres do chão estendendo o quadril com explosão | Encolha os ombros e puxe os cotovelos para cima, mantendo os halteres perto do corpo | Gire os punhos e receba os halteres sobre os ombros em meio agachamento | Fique em pé e volte os halteres ao chão com controle
+E: Puxar com os braços antes de estender o quadril | Halteres longe do corpo | Receber o peso com o tronco inclinado para trás
+PR: Burpee com Levantamento Terra de Halteres
+RG: RDL com Halteres
+
+cf3_halter_burpee_terra | Burpee com Levantamento Terra de Halteres | funcional | Halteres | ava | 🔥 | halteres | ca | a | CP | 4-5 | 6-10
+P: Full Body, Cardio
+S: Glúteos, Isquiotibiais, Peitoral, Core
+I: Halteres no chão, um de cada lado dos pés | Agache, apoie as mãos nos halteres e salte os pés para trás em prancha | Desça o peito ao chão (opcional) e volte os pés para perto das mãos | Segure os halteres e faça um levantamento terra até ficar em pé | Desça os halteres ao chão e repita
+E: Lombar curvada no terra | Quadril caindo na prancha | Halteres redondos que rolam (use sextavados)
+PR: Devil Press
+RG: Squat Thrust (Burpee sem Salto)
+
+cf3_halter_swing | Swing com Halter | funcional | Halter | ini | 🔔 | halteres | ca | m | CP | 4 | 12-15
+P: Glúteos, Isquiotibiais
+S: Core, Ombros, Antebraços, Cardio
+F: Vertical_Swing
+I: Segure um halter pela ponta (cabeça) com as duas mãos, braços estendidos | Pés um pouco mais abertos que o quadril | Leve o quadril para trás deixando o halter passar entre as pernas | Estenda o quadril com força até o halter chegar à altura do peito | Ótima opção em casa quando não há kettlebell
+E: Agachar em vez de dobrar o quadril | Levantar o halter com os braços | Segurar o halter de forma frouxa
+PR: Kettlebell Swing
+RG: Hip Hinge
+
+cf3_halter_thruster_unilateral | Thruster Unilateral com Halter | funcional | Halter | int | ☝️ | halteres | ca | b | CPH | 4 | 8-10 cada lado
+P: Quadríceps, Ombros, Glúteos
+S: Oblíquos, Tríceps, Core
+I: Segure um halter apoiado no ombro direito, cotovelo à frente | Agache até as coxas ficarem paralelas, tronco ereto | Suba com força e empurre o halter acima da cabeça | Volte o halter ao ombro já iniciando o próximo agachamento | Não deixe o tronco inclinar para o lado do peso
+E: Tronco se inclinando para o lado | Agachamento raso | Empurrar o halter à frente do rosto, não acima
+PR: Thruster
+RG: Agachamento Goblet
+
+cf3_halter_afundo_rosca_press | Afundo Estático com Rosca e Desenvolvimento | funcional | Halteres | ini | 💪 | halteres | ca | b | CPH5 | 3 | 8-10 cada lado
+P: Quadríceps, Glúteos, Ombros
+S: Bíceps, Tríceps, Core, Equilíbrio
+I: Fique em posição de passada (um pé à frente, outro atrás) com um halter em cada mão | Desça o joelho de trás em direção ao chão e suba | Em pé, faça uma rosca levando os halteres aos ombros | Empurre os halteres acima da cabeça e desça-os em ordem inversa | Complete as repetições e troque a perna da frente
+E: Joelho da frente passando muito da ponta do pé | Usar embalo do tronco na rosca | Arquear a lombar no desenvolvimento
+PR: Afundo Reverso com Press de Kettlebell
+RG: Faça a passada com apoio de uma mão na parede e só a rosca
+
+cf3_halter_step_press | Subida no Banco com Desenvolvimento | funcional | Halteres + banco/step | int | 📦 | halteres | ca | b | CPH | 4 | 8 cada perna
+P: Quadríceps, Glúteos, Ombros
+S: Tríceps, Core, Equilíbrio
+I: Segure os halteres na altura dos ombros e fique de frente para um banco ou degrau firme | Apoie o pé inteiro no banco e suba empurrando com o calcanhar | No topo, em pé, empurre os halteres acima da cabeça | Desça os halteres aos ombros e desça do banco com controle | Complete as repetições com uma perna e troque
+E: Impulsionar com o pé de baixo | Joelho caindo para dentro na subida | Banco alto demais para o nível
+PR: Aumente a carga ou a altura do banco
+RG: Step Up com Halteres
+
+cf3_socos_halteres | Socos com Halteres Leves | cardio | Halteres leves (0,5-2 kg) | ini | 🥊 | halteres | ca | b | CP5 | 4-6 | 30s
+P: Ombros, Cardio
+S: Peitoral, Tríceps, Core, Oblíquos
+I: Em pé, pés na largura do quadril, joelhos levemente dobrados | Segure um halter leve em cada mão em guarda, perto do queixo | Alterne socos retos à frente, girando levemente o tronco e o pé de trás | Volte sempre a mão para a guarda | Mantenha ritmo rápido e controlado, sem travar o cotovelo
+E: Halteres pesados demais | Travar o cotovelo no fim do soco | Deixar a mão de guarda cair
+PR: Boxe de Sombra (Shadow Boxing) com deslocamento
+RG: Faça sem halteres, sentado
+
+# ---------------------------------------------------------------- BARRA / LANDMINE
+cf3_landmine_thruster | Thruster no Landmine | funcional | Landmine | int | 🚀 | landmine | a | b | CPH | 4 | 8-12
+P: Quadríceps, Glúteos, Ombros
+S: Tríceps, Peitoral Superior, Core
+I: Segure a ponta da barra do landmine com as duas mãos junto ao peito | Pés na largura dos ombros, agache com o tronco ereto | Suba com força e empurre a barra para cima e à frente até estender os braços | Volte a barra ao peito descendo para o próximo agachamento | A trajetória em arco é mais amigável para ombros que o thruster tradicional
+E: Agachamento raso | Lombar arqueada ao empurrar | Pés muito perto da barra
+PR: Clean e Press Unilateral no Landmine
+RG: Agachamento Landmine
+
+cf3_landmine_clean_press | Clean e Press Unilateral no Landmine | funcional | Landmine | ava | 🔱 | landmine | a | m | CPHR | 4 | 6-8 cada lado
+P: Full Body, Ombros, Glúteos
+S: Oblíquos, Tríceps, Quadríceps, Core
+I: Fique de lado para a barra, ponta ao lado do pé | Agache e segure a ponta com a mão mais próxima | Estenda o quadril com força girando o corpo de frente para a barra e trazendo a ponta ao ombro | Sem pausa, empurre a barra para cima com o mesmo braço, usando as pernas | Volte com controle ao chão e repita
+E: Puxar com o braço sem estender o quadril | Rodar a coluna em vez de girar os pés | Lombar curvada para pegar a barra
+PR: Aumente a carga ou faça em circuito
+RG: Thruster no Landmine
+
+cf3_barra_thruster | Thruster com Barra | funcional | Barra | ava | 🏋️ | barra | a | b | CPH | 4-5 | 6-10
+P: Quadríceps, Glúteos, Ombros
+S: Tríceps, Core, Eretores da Espinha, Cardio
+I: Barra em rack frontal: apoiada nos ombros, cotovelos altos, pegada um pouco mais aberta que os ombros | Agache com o tronco ereto até abaixo da paralela | Suba com explosão e use o embalo para empurrar a barra acima da cabeça | Trave os braços com a barra alinhada sobre os pés | Volte a barra ao rack absorvendo com as pernas e emende o próximo agachamento
+E: Cotovelos caindo no agachamento | Empurrar a barra à frente do rosto | Arquear a lombar na finalização
+PR: Aumente a carga ou faça em AMRAP
+RG: Thruster com Kettlebell
+
+cf3_burpee_sobre_barra | Burpee Saltando sobre a Barra | funcional | Barra no chão | ava | 🦘 | barra | ca | a | CP | 5 | 8-12
+P: Full Body, Cardio
+S: Quadríceps, Peitoral, Panturrilha, Core
+I: Coloque uma barra (ou cabo de vassoura) no chão e fique ao lado dela | Faça um burpee: mãos no chão, pés para trás, peito ao chão, pés de volta | Salte lateralmente por cima da barra com os pés juntos | Emende o próximo burpee do outro lado | Aterrisse sempre com joelhos levemente dobrados
+E: Pisar na barra | Quadril caindo na prancha | Aterrissar com joelhos para dentro
+PR: Burpee com Salto sobre a Caixa
+RG: Burpee com Salto Lateral
+
+# ---------------------------------------------------------------- MEDICINE BALL
+cf3_mb_slam_lateral | Slam Lateral com Medicine Ball | funcional | Medicine ball (slam ball) | int | 💥 | medicine_ball | ca | m | CPR | 4 | 8 cada lado
+P: Oblíquos, Core, Latíssimo
+S: Ombros, Glúteos, Cardio
+I: Segure a bola acima da cabeça, braços estendidos, pés afastados | Gire o tronco e arremesse a bola com força no chão, ao lado do pé direito | Agache para pegar a bola no quique | Volte à posição inicial e arremesse do outro lado | Use bola sem quique (slam ball) para mais segurança
+E: Arremessar perto demais do pé | Girar só os braços, sem o tronco | Usar bola que quica alto e bate no rosto
+PR: Burpee com Slam
+RG: Medicine Ball Slam
+
+cf3_mb_burpee_slam | Burpee com Slam | funcional | Medicine ball (slam ball) | ava | 🔥 | medicine_ball | ca | a | CP | 4-5 | 8-10
+P: Full Body, Cardio
+S: Latíssimo, Ombros, Core, Quadríceps
+I: Segure a bola acima da cabeça e arremesse-a com força no chão | Agache e apoie as mãos sobre a bola | Salte os pés para trás em prancha sobre a bola e volte | Pegue a bola e fique em pé levando-a acima da cabeça | Emende o próximo slam
+E: Lombar curvada para pegar a bola | Quadril caindo na prancha | Bola que rola e tira o apoio
+PR: Aumente o peso da bola
+RG: Medicine Ball Slam
+
+cf3_mb_wall_ball_sentado | Wall Ball Sentado no Banco | funcional | Medicine ball leve + banco | ini | 🏐 | medicine_ball | ca | b | CP5 | 3-4 | 10-15
+P: Quadríceps, Ombros
+S: Glúteos, Tríceps, Core, Cardio
+I: Posicione um banco ou cadeira a meio metro de uma parede firme | Sente-se segurando uma bola leve (1-3 kg) junto ao peito | Levante-se e, ao ficar em pé, lance a bola na parede acima da cabeça | Pegue a bola e sente-se com controle | Mantenha ritmo constante e a respiração solta
+E: Despencar no banco | Lançar a bola com os braços sem usar as pernas | Bola pesada demais para pegar com segurança
+PR: Wall Ball
+RG: Sentar e Levantar da Cadeira segurando a bola
+
+# ---------------------------------------------------------------- SACO DE AREIA / CARREGAMENTOS
+cf3_sandbag_clean | Clean com Saco de Areia | funcional | Saco de areia (sandbag) | ava | 🎒 | saco_areia | ca | m | CPH | 4-5 | 6-10
+P: Glúteos, Isquiotibiais, Trapézio
+S: Bíceps, Core, Antebraços, Quadríceps
+I: Saco no chão entre os pés, pegue pelas alças ou pelo tecido | Coluna neutra, quadril para trás | Estenda o quadril com explosão e puxe o saco junto ao corpo | Encaixe-o à frente do peito em meio agachamento, abraçando-o | Fique em pé e volte o saco ao chão com controle
+E: Puxar com as costas curvadas | Saco longe do corpo | Areia solta demais (saco mal fechado)
+PR: Saco de Areia ao Ombro
+RG: Levantamento Terra com Kettlebell
+
+cf3_sandbag_ombro | Saco de Areia ao Ombro (Sandbag Shouldering) | funcional | Saco de areia (sandbag) | ava | 🏋️ | saco_areia | a | m | CP | 4-5 | 4-6 cada lado
+P: Full Body, Glúteos
+S: Trapézio, Eretores da Espinha, Bíceps, Core
+I: Saco no chão à frente, agache e abrace-o por baixo | Levante-o até o colo com o quadril | Estenda o quadril com explosão e jogue o saco sobre um dos ombros, girando levemente | Fique em pé com o saco estável no ombro | Volte-o ao chão com controle e alterne o ombro
+E: Puxar com a coluna curvada e sem o quadril | Girar o tronco com o peso já no ar | Carga acima do controle técnico
+PR: Levantamento de Atlas Stone
+RG: Clean com Saco de Areia
+
+cf3_bear_hug_carry | Caminhada Abraçando o Saco (Bear Hug Carry) | funcional | Saco de areia ou saco de pancadas | ini | 🤗 | saco_areia | ca | b | CPH | 4 | 20-30m
+P: Core, Glúteos
+S: Bíceps, Trapézio, Eretores da Espinha, Quadríceps
+I: Abrace o saco firmemente contra o peito, mãos entrelaçadas por baixo | Fique ereto, sem inclinar para trás | Caminhe com passos curtos e firmes | Respire curto, mantendo o abdômen contraído | Coloque o saco no chão agachando, sem curvar a coluna
+E: Inclinar o tronco para trás | Deixar o saco escorregar para a barriga | Andar com passos longos
+PR: Aumente a carga ou a distância
+RG: Waiter Carry
+
+cf3_rucking | Caminhada com Mochila Pesada (Rucking) | cardio | Mochila com peso | ini | 🎒 | mochila | c | b | CP5 | 1 | 20-45min
+P: Cardio, Glúteos, Core
+S: Quadríceps, Panturrilha, Trapézio, Eretores da Espinha
+I: Coloque 5-10% do seu peso na mochila (livros, garrafas ou pacotes de arroz) bem presos e junto às costas | Ajuste as alças para o peso ficar alto, perto das omoplatas | Caminhe em ritmo acelerado, postura ereta | Use calçado confortável e prefira terreno plano no começo | Aumente a carga ou o tempo aos poucos, uma variável por vez
+E: Peso solto que balança na mochila | Alças frouxas com o peso nas lombares | Inclinar o tronco muito à frente
+PR: Aumente a carga ou inclua subidas
+RG: Caminhada Rápida (Treino de Marcha)
+
+cf3_carry_galoes | Farmer Walk com Galões de Água | funcional | 2 galões ou sacolas pesadas | ini | 🧴 | saco_areia | c | b | CP5 | 4 | 30-40m
+P: Antebraços, Trapézio, Core
+S: Glúteos, Quadríceps, Ombros
+I: Encha dois galões (5 L ≈ 5 kg cada) ou sacolas com o mesmo peso | Agache com a coluna reta e pegue um em cada mão | Fique em pé, ombros para trás e para baixo | Caminhe pela casa ou quintal com passos curtos | Coloque-os no chão agachando, sem curvar a coluna
+E: Encolher os ombros até as orelhas | Pesos diferentes em cada mão | Curvar a coluna para pegar
+PR: Farmers Walk com halteres ou kettlebells pesados
+RG: Use galões de 2 L ou meio cheios
+
+cf3_carry_anilhas_pinca | Caminhada com Anilhas em Pinça | funcional | 2-4 anilhas lisas | ini | 🤏 | anilha | a | b | CP | 4 | 20-30m
+P: Antebraços, Core
+S: Trapézio, Ombros, Glúteos
+I: Junte duas anilhas lisas (lado liso para fora) em cada mão | Segure-as em pinça: dedos de um lado, polegar do outro | Fique em pé com os braços estendidos ao lado do corpo | Caminhe em passos curtos mantendo as anilhas firmes | Para começar, use anilhas leves (2 x 5 kg por mão)
+E: Segurar pela borda com a ponta dos dedos | Andar curvado | Anilhas escorregadias com suor (use magnésio)
+PR: Aumente o peso ou a distância
+RG: Farmers Walk
+
+# ---------------------------------------------------------------- BURPEES E PESO CORPORAL
+cf3_burpee_cadeira | Burpee Inclinado na Cadeira (sem Salto) | cardio | Cadeira ou sofá firme | ini | 🪑 | cadeira | ca | b | CP5 | 4 | 6-10
+P: Full Body, Cardio
+S: Peitoral, Quadríceps, Core, Ombros
+I: Apoie as mãos no assento de uma cadeira firme, encostada na parede | Dê um passo para trás com cada perna até a prancha inclinada | Faça uma flexão inclinada (opcional) | Volte com um pé de cada vez para perto da cadeira | Fique em pé estendendo os braços acima da cabeça
+E: Cadeira solta que desliza | Quadril caindo na prancha | Pressa que tira o controle
+PR: Squat Thrust (Burpee sem Salto)
+RG: Burpee na Parede
+
+cf3_burpee_parede | Burpee na Parede | cardio | Parede | ini | 🧱 | parede | ca | b | CP5 | 4 | 8-12
+P: Cardio, Peitoral, Quadríceps
+S: Ombros, Tríceps, Core, Panturrilha
+I: Fique de frente para a parede, um braço de distância | Faça um agachamento levando o quadril para trás | Suba e faça uma flexão de braço na parede | Volte e eleve os braços acima da cabeça, ficando na ponta dos pés | Repita em ritmo contínuo
+E: Pés perto demais da parede | Corpo dobrado na flexão | Agachamento muito raso
+PR: Burpee Inclinado na Cadeira (sem Salto)
+RG: Faça só agachamento + flexão na parede
+
+cf3_burpee_tuck | Burpee com Salto Grupado | funcional | Peso corporal | ava | 🦘 | peso_corporal | ca | a | CP | 4-5 | 6-10
+P: Full Body, Cardio
+S: Quadríceps, Glúteos, Peitoral, Core
+I: Faça um burpee completo: mãos no chão, pés para trás, peito ao chão, pés de volta | Em vez do salto comum, salte trazendo os joelhos em direção ao peito | Aterrisse suave, joelhos alinhados com os pés | Emende o próximo burpee | Mantenha a técnica: pare se a prancha começar a desabar
+E: Aterrissagem dura com joelhos travados | Quadril caindo na prancha | Joelhos que não sobem no salto
+PR: Burpee com Salto sobre a Caixa
+RG: Burpee
+
+cf3_burpee_unilateral | Burpee Unilateral (Uma Perna) | funcional | Peso corporal | ava | 🦩 | peso_corporal | ca | a | CP | 4 | 5 cada perna
+P: Full Body, Quadríceps
+S: Glúteos, Core, Equilíbrio, Peitoral
+I: Fique em pé sobre uma perna | Agache e apoie as mãos no chão | Salte o pé de apoio para trás em prancha, outra perna no ar | Volte o pé para perto das mãos e salte sobre a mesma perna | Faça as repetições e troque
+E: Encostar o pé livre no chão | Joelho de apoio caindo para dentro | Aterrissar sem amortecer
+PR: Acrescente uma flexão unilateral de perna
+RG: Burpee
+
+cf3_burpee_barra_fixa | Burpee com Barra Fixa | funcional | Barra fixa | ava | 🧗 | barra_fixa | ca | a | CPH | 4-5 | 5-8
+P: Full Body, Latíssimo
+S: Bíceps, Peitoral, Quadríceps, Core
+I: Fique embaixo de uma barra fixa que você alcança com um salto | Faça um burpee completo | No salto, segure a barra | Faça uma barra (puxada até o queixo passar a barra) | Solte com controle, aterrisse suave e repita
+E: Balançar demais na barra | Soltar a barra de uma altura alta sem amortecer | Pular a flexão ou o peito no chão
+PR: Faça a barra com pegada supinada ou com peso
+RG: Burpee com remada no TRX
+
+cf3_burpee_step | Burpee com Subida no Step | cardio | Step ou degrau | ini | 🪜 | degrau_step | ca | b | CP | 4 | 6-8
+P: Cardio, Quadríceps, Glúteos
+S: Peitoral, Core, Ombros
+I: Fique de frente para um step ou degrau firme | Agache, apoie as mãos no chão e leve os pés para trás, um de cada vez | Volte os pés um de cada vez e fique em pé | Suba no step com um pé, depois o outro, e desça | Alterne a perna que inicia a subida
+E: Step instável ou escorregadio | Lombar curvada ao apoiar as mãos | Pressa que faz tropeçar no degrau
+PR: Burpee com Salto sobre a Caixa
+RG: Burpee Inclinado na Cadeira (sem Salto)
+
+cf3_mountain_banco | Mountain Climber Inclinado no Banco | cardio | Banco ou sofá firme | ini | ⛰️ | banco | ca | b | CP5 | 4 | 20-30s
+P: Core, Cardio
+S: Flexores do Quadril, Ombros, Quadríceps
+I: Apoie as mãos na borda de um banco firme (ou braço do sofá), corpo em prancha inclinada | Leve um joelho em direção ao peito e volte | Alterne as pernas em ritmo controlado | Mantenha o quadril alinhado com os ombros | Aumente a velocidade só se a postura se mantiver
+E: Quadril muito alto | Banco que se move | Ombros fora da linha das mãos
+PR: Mountain Climber
+RG: Marcha com joelho alto apoiado na parede
+
+cf3_mountain_toalha | Mountain Climber Deslizante com Toalha | core | Toalha ou disco deslizante | int | 🧺 | toalha | c | b | CP | 4 | 20-30s
+P: Core, Flexores do Quadril
+S: Ombros, Quadríceps, Cardio
+I: Em piso liso, coloque um pano ou toalha dobrada sob cada pé | Fique em prancha alta, mãos sob os ombros | Deslize um joelho em direção ao peito e volte, sem tirar o pé do chão | Alterne as pernas de forma contínua | Mantenha o quadril baixo e o abdômen firme
+E: Usar em piso áspero ou tapete | Quadril subindo e descendo | Ombros passando à frente das mãos
+PR: Mountain Climber no TRX
+RG: Mountain Climber Inclinado no Banco
+
+cf3_mountain_trx | Mountain Climber no TRX | core | TRX | ava | 🎗️ | trx | a | b | CP | 4 | 20-30s
+P: Core, Flexores do Quadril
+S: Ombros, Serrátil, Cardio
+I: Prenda os pés nos estribos do TRX (alça na altura do meio da canela) | Fique em prancha alta, mãos sob os ombros | Leve um joelho ao peito e volte, alternando | Mantenha os estribos paralelos e o corpo estável | Comece devagar e acelere com controle
+E: Corpo balançando para os lados | Lombar afundando | Alça curta demais
+PR: Aumente a velocidade ou o tempo
+RG: Mountain Climber Deslizante com Toalha
+
+cf3_mountain_bola | Mountain Climber na Bola Suíça | core | Bola suíça | ava | ⚪ | bola_suica | ca | b | CP | 4 | 20-30s
+P: Core, Ombros
+S: Flexores do Quadril, Serrátil, Peitoral, Equilíbrio
+I: Apoie as mãos sobre a bola suíça, corpo em prancha com pés no chão | Mantenha a bola parada contraindo o abdômen | Leve um joelho em direção à bola e volte | Alterne as pernas em ritmo controlado | Bola encostada numa parede facilita no início
+E: Bola rolando para os lados | Quadril alto | Ritmo rápido sem controle
+PR: Aumente o tempo ou a velocidade
+RG: Mountain Climber Inclinado no Banco
+
+cf3_bear_crawl_lateral | Bear Crawl Lateral | funcional | Peso corporal | int | 🐻 | peso_corporal | ca | b | CPR | 4 | 5-8m cada lado
+P: Core, Ombros, Quadríceps
+S: Glúteo Médio, Tríceps, Coordenação
+I: Fique de quatro, joelhos a 5 cm do chão, costas retas | Desloque-se de lado movendo mão e pé do mesmo lado juntos | Depois traga a outra mão e o outro pé | Mantenha os joelhos baixos e o quadril estável | Volte para o outro lado
+E: Quadril alto | Joelhos tocando o chão | Passos grandes demais que tiram o equilíbrio
+PR: Bear Crawl Puxando Trenó
+RG: Prancha do Urso (Bear Hold)
+
+cf3_inchworm_flexao | Inchworm com Flexão | funcional | Peso corporal | int | 🐛 | peso_corporal | ca | b | CPH | 4 | 6-8
+P: Peitoral, Core, Isquiotibiais
+S: Ombros, Tríceps, Serrátil
+I: Em pé, dobre o quadril e apoie as mãos no chão o mais perto possível dos pés | Caminhe com as mãos à frente até a prancha alta | Faça uma flexão de braço | Volte caminhando com as mãos até os pés | Fique em pé e repita
+E: Quadril caindo na prancha | Dobrar muito os joelhos ao descer | Flexão parcial
+PR: Acrescente um salto no final
+RG: Inchworm (Lagarta)
+
+cf3_caranguejo_toque | Caranguejo com Toque no Pé (Crab Toe Touch) | funcional | Peso corporal | int | 🦀 | peso_corporal | ca | b | CP | 4 | 10-12 cada lado
+P: Tríceps, Core, Glúteos
+S: Ombros, Isquiotibiais, Oblíquos
+I: Sente-se, mãos atrás do corpo com dedos para frente, pés no chão | Eleve o quadril na posição de caranguejo | Leve o pé direito para cima e toque-o com a mão esquerda | Volte à posição e repita com o outro lado | Mantenha o quadril elevado durante a troca
+E: Quadril caindo a cada repetição | Dedos das mãos para trás (força o punho) | Movimento apressado
+PR: Faça mais rápido ou com pausa no topo
+RG: Caminhada do Caranguejo
+
+cf3_joelho_cotovelo_pe | Joelho ao Cotovelo em Pé | cardio | Peso corporal | ini | 🔀 | peso_corporal | ca | b | CP5 | 4 | 30-40s
+P: Oblíquos, Core, Cardio
+S: Flexores do Quadril, Equilíbrio
+I: Em pé, mãos atrás da cabeça e cotovelos abertos | Eleve o joelho direito girando o tronco para o cotovelo esquerdo | Volte e faça o outro lado | Mantenha ritmo constante, como uma marcha | Abdômen firme e coluna alta
+E: Puxar a cabeça com as mãos | Curvar o tronco para encontrar o joelho | Prender a respiração
+PR: Faça mais rápido ou com salto (skip)
+RG: Faça sentado na cadeira
+
+cf3_socos_sentado | Boxe Sentado na Cadeira | cardio | Cadeira | ini | 🥊 | cadeira | ca | b | CP5 | 4-6 | 30-45s
+P: Ombros, Cardio
+S: Core, Oblíquos, Tríceps, Peitoral
+I: Sente-se na borda de uma cadeira firme, pés no chão, coluna ereta | Mãos em guarda perto do queixo | Alterne socos retos, cruzados e ganchos | Gire levemente o tronco a cada soco, mantendo o quadril no assento | Combine com marcha dos pés para elevar a frequência cardíaca
+E: Encostar no encosto e perder a postura | Travar o cotovelo | Soltar a guarda entre os socos
+PR: Socos com Halteres Leves
+RG: Faça socos mais lentos com menor amplitude
+
+cf3_chute_frontal | Chute Frontal Alternado (Cardio Kickboxing) | cardio | Peso corporal | ini | 🦵 | peso_corporal | ca | m | CP | 4-6 | 30s
+P: Cardio, Flexores do Quadril, Quadríceps
+S: Core, Glúteos, Equilíbrio
+I: Em base de luta, pés afastados, mãos em guarda | Eleve o joelho à frente e estenda a perna empurrando com a sola do pé | Recolha a perna rápido e volte à base | Alterne as pernas em ritmo contínuo | Mantenha a guarda e o tronco ereto
+E: Travar o joelho no fim do chute | Inclinar o tronco para trás | Baixar a guarda
+PR: Joelhada e Soco Cruzado (Kickboxing Cardio)
+RG: Faça só a elevação do joelho
+
+cf3_seal_jack | Polichinelo Frontal (Seal Jack) | cardio | Peso corporal | ini | 🦭 | peso_corporal | ca | m | CP | 4 | 30-45s
+P: Cardio, Peitoral
+S: Deltóide Posterior, Rombóides, Adutores, Panturrilha
+I: Em pé, braços estendidos à frente na altura dos ombros | Salte abrindo pernas e abrindo os braços para os lados, abrindo o peito | Salte fechando as pernas e batendo as palmas à frente | Mantenha ritmo constante, aterrissando na ponta dos pés | Versão sem salto: abra uma perna de cada vez
+E: Braços caindo abaixo dos ombros | Aterrissar com calcanhar | Joelhos travados
+PR: Polichinelo Cruzado
+RG: Polichinelo sem Salto (Baixo Impacto)
+
+cf3_split_jump | Afundo com Salto Alternado (Split Jump) | funcional | Peso corporal | ava | ⚡ | peso_corporal | ca | a | CPR | 4 | 8-12 cada perna
+P: Quadríceps, Glúteos, Potência
+S: Isquiotibiais, Panturrilha, Equilíbrio, Cardio
+F: Split_Jump
+I: Comece em posição de afundo, uma perna à frente | Desça até o joelho de trás quase tocar o chão | Salte com explosão e troque as pernas no ar | Aterrisse suave já em afundo do outro lado | Mantenha tronco ereto e joelho da frente alinhado com o pé
+E: Aterrissar com o joelho da frente para dentro | Passada curta | Tronco inclinado à frente
+PR: Faça com halteres leves
+RG: Afundo Reverso alternado sem salto
+
+cf3_carioca | Carioca (Passada Cruzada Lateral) | funcional | Peso corporal | int | 💃 | peso_corporal | ca | m | CPR | 4-6 | 10-15m cada lado
+P: Cardio, Adutores, Abdutores
+S: Oblíquos, Panturrilha, Coordenação, Flexores do Quadril
+F: Carioca_Quick_Step
+I: Fique de lado para a direção do deslocamento | Cruze o pé de trás pela frente do outro | Dê um passo lateral com o pé da frente | Cruze o mesmo pé por trás e continue alternando | Quadril gira e ombros ficam de frente; acelere progressivamente
+E: Girar os ombros junto com o quadril | Cruzar os pés sem ritmo e tropeçar | Ficar na ponta dos pés rígido
+PR: Carioca com joelho alto no cruzamento
+RG: Passadas Laterais
+
+cf3_wall_drill | Sprint na Parede (Wall Drill) | funcional | Parede | int | 🧱 | parede | ca | m | CPR | 4-5 | 10-20s
+P: Flexores do Quadril, Glúteos, Cardio
+S: Quadríceps, Panturrilha, Core
+F: Linear_Acceleration_Wall_Drill
+I: Apoie as mãos na parede na altura dos ombros e incline o corpo a cerca de 45° | Corpo em linha reta da cabeça ao tornozelo, na ponta dos pés | Eleve um joelho até a altura do quadril, ponta do pé para cima | Troque rapidamente as pernas como numa corrida de arrancada | Comece com trocas isoladas e evolua para trocas contínuas
+E: Quadril dobrado (perder a linha reta) | Joelho baixo | Pisar com o pé chapado
+PR: Sprint de 30m
+RG: Marcha com joelho alto apoiado na parede
+
+cf3_shuttle_run | Shuttle Run (Vai-e-Volta com Toque no Chão) | funcional | Cones | ava | 🔁 | cones | ca | a | CPR | 6-8 | 4 x 10m
+P: Cardio, Quadríceps, Glúteos
+S: Isquiotibiais, Panturrilha, Core
+I: Marque duas linhas a 10 metros com cones | Sprint até a linha oposta | Abaixe o quadril e toque a linha com a mão | Gire e volte em sprint até a linha inicial; repita até 4 trechos | Descanse 45-60s entre as séries
+E: Frear com a perna estendida | Girar sem abaixar o quadril | Curvar só a coluna para tocar o chão
+PR: Aumente para 6 trechos
+RG: Faça trotando com toque no cone
+
+cf3_zigue_zague_cones | Corrida em Zigue-Zague entre Cones | funcional | Cones | int | 🐍 | cones | ca | m | CPR | 5-6 | 1 percurso
+P: Cardio, Quadríceps
+S: Adutores, Glúteo Médio, Tornozelo, Coordenação
+I: Coloque 6-8 cones em zigue-zague, 2-3 metros de distância | Corra até o primeiro cone e mude de direção empurrando com a perna de fora | Abaixe o centro de gravidade em cada mudança | Mantenha o olhar no próximo cone | Volte trotando e repita
+E: Mudança de direção com o tronco ereto | Pé de apoio virando para dentro | Desacelerar demais antes de cada cone
+PR: Shuttle Run (Vai-e-Volta com Toque no Chão)
+RG: Faça caminhando rápido
+
+# ---------------------------------------------------------------- ELÁSTICO / MINI BAND / TRX / BOSU / POLIA
+cf3_miniband_polichinelo | Polichinelo com Mini Band | cardio | Mini band | int | 🟠 | mini_band | ca | m | CP | 4 | 20-30s
+P: Glúteo Médio, Cardio
+S: Abdutores, Panturrilha, Ombros
+I: Coloque a mini band acima dos joelhos ou nos tornozelos | Faça polichinelos abrindo as pernas contra a resistência do elástico | Mantenha os joelhos levemente flexionados | Aterrisse suave na ponta dos pés | Sem salto: abra uma perna de cada vez em ritmo rápido
+E: Joelhos colapsando para dentro ao fechar | Mini band forte demais que encurta o movimento | Pisada pesada
+PR: Agachamento com Polichinelo (Squat Jack) com mini band
+RG: Polichinelo sem Salto (Baixo Impacto)
+
+cf3_elastico_thruster | Thruster com Elástico | funcional | Elástico tubular ou superband | ini | 🎽 | elastico | ca | b | CP5 | 3-4 | 12-15
+P: Quadríceps, Ombros
+S: Glúteos, Tríceps, Core
+I: Pise no meio do elástico com os pés na largura dos ombros | Segure as pontas na altura dos ombros, palmas para frente | Agache levando o quadril para trás | Ao subir, empurre as mãos acima da cabeça esticando o elástico | Volte as mãos aos ombros enquanto agacha
+E: Elástico pisado com pouca área (escapa) | Arquear a lombar no alto | Agachamento raso
+PR: Thruster Unilateral com Halter
+RG: Faça o agachamento até uma cadeira
+
+cf3_elastico_agach_remada | Agachamento com Remada no Elástico | funcional | Elástico preso na porta | ini | 🚪 | elastico | ca | b | CPH5 | 3-4 | 12-15
+P: Quadríceps, Latíssimo, Rombóides
+S: Glúteos, Bíceps, Core, Deltóide Posterior
+I: Prenda o elástico na altura do peito (porta ou espaldar) e segure as pontas, braços estendidos | Afaste-se até o elástico ficar tenso | Agache com braços estendidos à frente | Ao subir, puxe as mãos até as costelas, apertando as escápulas | Estenda os braços enquanto agacha de novo
+E: Puxar com os ombros encolhidos | Joelhos indo muito à frente | Elástico mal fixado na porta
+PR: Aumente a tensão do elástico ou faça mais rápido
+RG: Faça a remada sentado na cadeira
+
+cf3_trx_agach_salto | Agachamento com Salto no TRX | funcional | TRX | int | 🦘 | trx | a | m | CP | 4 | 10-12
+P: Quadríceps, Glúteos, Potência
+S: Panturrilha, Cardio, Core
+I: Segure as alças do TRX com os braços estendidos, de frente para a ancoragem | Agache usando as alças como apoio leve | Salte para cima estendendo quadril, joelhos e tornozelos | Aterrisse suave e já entre no próximo agachamento | Use as alças para diminuir o impacto da aterrissagem
+E: Puxar demais com os braços (salto "falso") | Aterrissar com joelhos para dentro | Alças frouxas
+PR: Agachamento com salto sem apoio
+RG: Agachamento no TRX sem salto
+
+cf3_bosu_burpee | Burpee no Bosu | funcional | Bosu | ava | 🌗 | bosu | a | a | CP | 4 | 6-10
+P: Full Body, Core
+S: Ombros, Peitoral, Quadríceps, Equilíbrio
+I: Segure o bosu com a parte plana para cima, pelas bordas | Agache e apoie o bosu no chão | Salte os pés para trás em prancha sobre o bosu instável | Volte os pés à frente e fique em pé | Levante o bosu acima da cabeça, ou salte com ele
+E: Mãos fora das bordas e bosu virando | Quadril caindo na prancha | Lombar curvada para levantar o bosu
+PR: Inclua uma flexão sobre o bosu
+RG: Burpee
+
+cf3_polia_sprint | Corrida Resistida na Polia (Cabo na Cintura) | funcional | Polia baixa + cinto | ava | 🏃 | polia | a | m | CPR | 6 | 8-10 passadas
+P: Glúteos, Quadríceps, Cardio
+S: Isquiotibiais, Panturrilha, Flexores do Quadril, Core
+I: Prenda um cinto ou alça na cintura ligado ao cabo da polia baixa | Fique de costas para a máquina, com o cabo esticado | Incline o corpo à frente a cerca de 45° | Corra no lugar ou avance 8-10 passadas explosivas, joelhos altos | Volte com controle e descanse 45s
+E: Carga pesada que trava o movimento | Tronco ereto demais | Voltar de forma descontrolada com o cabo puxando
+PR: Aumente a carga ou o número de passadas
+RG: Sprint na Parede (Wall Drill)

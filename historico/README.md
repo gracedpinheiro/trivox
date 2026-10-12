@@ -22,6 +22,7 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 14 | 17/08/2026 | [Treino tipo personal](14-treino-tipo-personal.md) | Ficha ligada ao dia da semana certo; variedade programada a cada 4 semanas pra não enjoar |
 | 15 | 17/08/2026 | [Nuvem (Supabase)](15-nuvem-supabase.md) | Login por link mágico, multiusuário real (família), backup automático — SDK oficial via CDN, única exceção de dependência do projeto |
 | 16 | 17/08/2026 | [Bug do login mágico](16-bug-do-login-magico.md) | Sessão existia mas a tela não via — callback repassando argumento errado; achado via DevTools |
+| 17 | 12/10/2026 | [Visual alegre e base ampliada](17-visual-alegre-e-base-ampliada.md) | 1535 exercícios, imagem em todos, gerador por objetivo/idade/sexo, aquecimento e alongamento do dia, cronômetro com alarme, chamada diária, visual claro |
 
 ## Como usar
 

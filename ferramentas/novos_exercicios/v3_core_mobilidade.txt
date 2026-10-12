@@ -1,0 +1,1004 @@
+# V3 — CORE, ABDÔMEN, OBLÍQUOS, LOMBAR, MOBILIDADE E ALONGAMENTO (origem trivox_v2)
+# id | nome | categoria | equipamento | nivel(ini/int/ava) | icon | aparelho | local(c/a/ca) | impacto(b/m/a) | objetivos(C P H 5 R) | séries | reps
+# P: primários | S: secundários | I: instruções (" | ") | E: erros (" | ") | PR: progressão | RG: regressão | F: fedb_id
+
+# ===================== RETO ABDOMINAL — ACADEMIA =====================
+
+cm3_crunch_polia_sentado | Crunch Sentado na Polia Alta | core | Polia alta + corda | int | 🪢 | polia | a | b | CH | 3 | 12-15
+P: Reto Abdominal
+S: Oblíquos, Core
+I: Prenda a corda na polia alta e sente num banco de costas para a máquina | Segure as pontas da corda junto às orelhas, cotovelos apontados para frente | Expire e enrole o tronco para frente, aproximando as costelas do quadril | Pause 1 segundo com o abdômen contraído | Volte devagar até o tronco ficar ereto, sem soltar a tensão do cabo
+E: Puxar com os braços em vez de enrolar o tronco | Inclinar o quadril junto (movimento vira flexão de quadril) | Voltar rápido deixando a carga bater
+PR: Crunch em pé na polia com corda
+RG: Crunch no solo
+F: Cable_Seated_Crunch
+
+cm3_crunch_polia_em_pe | Crunch em Pé na Polia com Corda | core | Polia alta + corda | int | 🧍 | polia | a | b | CH | 3 | 12-15
+P: Reto Abdominal
+S: Oblíquos, Serrátil
+I: Fique em pé de costas para a polia alta, segurando a corda atrás da cabeça | Pés na largura do quadril e joelhos levemente flexionados | Expire e flexione a coluna levando o peito em direção ao umbigo | Mantenha o quadril parado durante todo o movimento | Retorne controlando até a posição ereta
+E: Dobrar o quadril em vez da coluna | Puxar a corda com os braços | Amplitude curta por excesso de carga
+PR: Crunch na polia ajoelhado com torção alternada
+RG: Crunch sentado na polia alta
+F: Standing_Rope_Crunch
+
+cm3_crunch_polia_torcao | Crunch Ajoelhado na Polia com Torção Alternada | core | Polia alta + corda | int | 🔀 | polia | a | b | CHR | 3 | 10-12 cada lado
+P: Reto Abdominal, Oblíquos
+S: Serrátil, Core
+I: Ajoelhe de frente para a polia alta segurando a corda junto à testa | Afaste os joelhos na largura do quadril e mantenha o quadril alto, sem sentar nos calcanhares | Enrole o tronco para baixo levando o cotovelo direito em direção ao joelho esquerdo | Volte devagar à posição inicial | Repita levando o cotovelo esquerdo ao joelho direito
+E: Sentar nos calcanhares durante a descida | Girar só os braços sem rodar o tronco | Puxar o pescoço para baixo
+PR: Aumentar a carga mantendo 2 s de pausa embaixo
+RG: Crunch ajoelhado na polia sem torção
+F: Kneeling_Cable_Crunch_With_Alternating_Oblique_Twists
+
+cm3_abdominal_reverso_polia | Abdominal Reverso na Polia Baixa | core | Polia baixa + tornozeleira | ava | 🔄 | polia | a | b | CH | 3 | 10-12
+P: Reto Abdominal
+S: Flexores do Quadril, Core
+I: Prenda tornozeleiras na polia baixa e deite de costas com os pés voltados para a máquina | Segure num banco ou apoio atrás da cabeça e dobre joelhos e quadril a 90° | Expire e enrole o quadril tirando o bumbum do chão, aproximando os joelhos do peito | Pause 1 segundo em cima | Desça devagar até o quadril tocar o chão, sem deixar a carga puxar as pernas
+E: Balançar as pernas para ganhar impulso | Arquear a lombar na descida | Usar carga que impede tirar o quadril do chão
+PR: Abdominal reverso no banco declinado
+RG: Abdominal reverso no solo sem carga
+F: Cable_Reverse_Crunch
+
+cm3_crunch_anilha_peito | Crunch com Anilha no Peito | core | Anilha | int | 🥏 | anilha | a | b | CH | 3 | 12-15
+P: Reto Abdominal
+S: Oblíquos, Core
+I: Deite de costas com joelhos dobrados e pés apoiados no chão | Abrace uma anilha de 5 a 10 kg contra o peito | Expire e eleve a cabeça e as escápulas do chão, enrolando o tronco | Pause 1 segundo com o abdômen contraído | Desça devagar sem deixar a cabeça bater no chão
+E: Puxar o queixo contra o peito | Subir até sentar (perde tensão no abdômen) | Prender a respiração durante toda a série
+PR: Crunch com anilha estendida acima do peito
+RG: Crunch sem carga
+
+cm3_abdominal_reverso_declinado | Abdominal Reverso no Banco Declinado | core | Banco declinado | ava | 📐 | banco_inclinado | a | b | CH | 3 | 10-12
+P: Reto Abdominal
+S: Flexores do Quadril, Oblíquos
+I: Deite no banco declinado com a cabeça na parte alta, segurando o apoio atrás da cabeça | Dobre os joelhos a 90° e eleve as coxas até a vertical | Enrole o quadril para cima, tirando a lombar do banco e levando os joelhos ao peito | Segure 1 segundo no topo | Desça devagar até as coxas voltarem à vertical, sem deixar as pernas caírem
+E: Usar o balanço das pernas | Descer as pernas até o banco e perder a tensão | Puxar com os braços tirando o tronco do banco
+PR: Abdominal reverso com pernas estendidas no declinado
+RG: Abdominal reverso no banco plano
+F: Decline_Reverse_Crunch
+
+cm3_crunch_bosu | Crunch no Bosu | core | Bosu | ini | 🌓 | bosu | a | b | CH5 | 3 | 12-15
+P: Reto Abdominal
+S: Oblíquos, Transverso Abdominal
+I: Sente no centro do bosu (lado da cúpula para cima) e deite apoiando a lombar na cúpula | Pés no chão afastados na largura do quadril para dar estabilidade | Mãos cruzadas no peito ou atrás das orelhas | Deixe o tronco estender levemente sobre a cúpula e depois enrole até as escápulas saírem | Volte devagar controlando o equilíbrio
+E: Sentar muito na beira e escorregar | Puxar a cabeça com as mãos | Descer jogando o peso para trás
+PR: Crunch no bosu segurando anilha
+RG: Crunch no solo
+
+cm3_trx_abdominal_reverso | Abdominal Reverso Suspenso no TRX | core | TRX | int | 🎗️ | trx | a | b | CH | 3 | 10-12
+P: Reto Abdominal
+S: Transverso Abdominal, Serrátil, Ombros
+I: Coloque os pés nas alças do TRX com a fita a cerca de 30 cm do chão e fique em prancha alta | Mãos abaixo dos ombros e corpo alinhado da cabeça aos pés | Puxe os joelhos em direção ao peito arredondando levemente a lombar | Pause 1 segundo com os joelhos perto do peito | Estenda as pernas de volta à prancha sem deixar o quadril afundar
+E: Quadril caindo ao voltar | Ombros à frente das mãos | Puxar só com as pernas sem contrair o abdômen
+PR: Pike no TRX
+RG: Prancha alta com pés no TRX
+F: Suspended_Reverse_Crunch
+
+cm3_trx_pike | Pike no TRX | core | TRX | ava | 🔺 | trx | a | b | CH | 3 | 8-10
+P: Reto Abdominal
+S: Ombros, Serrátil, Flexores do Quadril
+I: Pés nas alças do TRX, fique em prancha alta com mãos sob os ombros | Mantenha as pernas estendidas e eleve o quadril em direção ao teto formando um V invertido | Leve os ombros para cima das mãos durante a subida | Pause no topo com o abdômen contraído | Desça devagar até a prancha alinhada
+E: Dobrar os joelhos | Afundar a lombar na volta | Deixar os ombros recuarem atrás das mãos
+PR: Pike no TRX com flexão no final
+RG: Abdominal reverso suspenso no TRX
+
+cm3_rollout_barra_banco | Rollout com Barra a Partir do Banco | core | Barra + anilhas + banco | ava | 🛞 | barra | a | b | CH | 3 | 6-10
+P: Reto Abdominal
+S: Latíssimo, Transverso Abdominal, Serrátil
+I: Coloque uma barra com anilhas redondas no chão em frente a um banco plano | Ajoelhe sobre o banco e segure a barra na largura dos ombros, com o quadril alto | Role a barra para frente estendendo o corpo até onde conseguir sem arquear a lombar | Contraia abdômen e dorsais e puxe a barra de volta | Retorne até o quadril ficar alto novamente
+E: Arquear a lombar no ponto mais longe | Ir longe demais sem controle | Quadril ficar para trás na volta
+PR: Rollout em pé com roda abdominal
+RG: Ab wheel de joelhos no chão
+F: Barbell_Rollout_from_Bench
+
+cm3_hollow_anilha | Hollow Hold com Anilha | core_cal | Anilha | ava | 🍌 | anilha | a | b | CH | 3 | 20-40 s
+P: Reto Abdominal
+S: Flexores do Quadril, Transverso Abdominal, Ombros
+I: Deite de costas segurando uma anilha leve com os braços estendidos acima da cabeça | Pressione a lombar contra o chão | Eleve ombros, braços e pernas estendidas a cerca de 20-30 cm do chão | Mantenha o corpo em formato de banana, respirando curto | Segure o tempo indicado e desça devagar
+E: Lombar descolando do chão | Anilha caindo para trás (sobrecarrega ombro) | Pernas altas demais tirando a dificuldade
+PR: Hollow rock com anilha
+RG: Hollow hold sem carga com joelhos dobrados
+
+cm3_dragon_flag_negativo | Dragon Flag Negativo no Banco | core_cal | Banco | ava | 🐉 | banco | a | b | CH | 3 | 4-6
+P: Reto Abdominal
+S: Latíssimo, Transverso Abdominal, Flexores do Quadril
+I: Deite no banco e segure firme a borda atrás da cabeça | Suba as pernas e o quadril até ficar apoiado só na parte alta das costas | Contraia glúteos e abdômen deixando o corpo reto como uma tábua | Desça o corpo devagar em 4 a 5 segundos sem dobrar o quadril | Ao chegar perto do banco, dobre os joelhos e suba de novo
+E: Dobrar no quadril durante a descida | Apoiar o peso no pescoço | Descer rápido demais
+PR: Dragon flag completo
+RG: Dragon flag grupado (joelhos dobrados)
+
+cm3_joelhos_obliquos_barra | Elevação de Joelhos Oblíqua Suspensa | core | Barra fixa | ava | 🪝 | barra_fixa | a | b | CHR | 3 | 8-10 cada lado
+P: Oblíquos, Reto Abdominal
+S: Flexores do Quadril, Latíssimo, Antebraços
+I: Pendure-se na barra com pegada pronada e ombros ativos (escápulas puxadas para baixo) | Estabilize o corpo para não balançar | Eleve os joelhos girando o quadril, levando-os em direção ao cotovelo direito | Desça devagar até as pernas ficarem na vertical | Alterne o lado a cada repetição
+E: Balançar o corpo para gerar impulso | Subir só os joelhos sem enrolar o quadril | Ombros soltos perto das orelhas
+PR: Limpador de para-brisa suspenso na barra
+RG: Elevação de joelhos oblíqua nas paralelas
+
+cm3_limpador_barra | Limpador de Para-brisa Suspenso na Barra | core | Barra fixa | ava | 🌬️ | barra_fixa | a | b | CHR | 3 | 6-8 cada lado
+P: Oblíquos, Reto Abdominal
+S: Latíssimo, Flexores do Quadril, Antebraços
+I: Pendure-se na barra com pegada firme e eleve os pés até a altura da barra (posição de toes-to-bar) | Com as pernas juntas, gire o quadril levando os pés para a direita | Volte ao centro passando pela posição mais alta | Gire para a esquerda com o mesmo controle | Mantenha os ombros ativos e o tronco estável o tempo todo
+E: Pernas descendo durante a rotação | Balanço do corpo inteiro | Amplitude curta por falta de controle
+PR: Limpador com pernas totalmente estendidas e pausa nos lados
+RG: Limpador de para-brisa deitado no chão
+
+cm3_elev_joelhos_obliqua_paralelas | Elevação de Joelhos Oblíqua nas Paralelas | core | Paralelas / cadeira do capitão | int | 🪑 | paralelas | a | b | CHR | 3 | 10 cada lado
+P: Oblíquos, Reto Abdominal
+S: Flexores do Quadril, Tríceps, Ombros
+I: Apoie os antebraços na cadeira do capitão e encoste as costas no encosto | Deixe as pernas soltas e os ombros longe das orelhas | Eleve os joelhos levando-os para o lado direito, enrolando o quadril | Desça devagar até as pernas ficarem retas | Alterne os lados
+E: Balançar as pernas | Afundar os ombros | Só elevar os joelhos sem rodar a pelve
+PR: Elevação de joelhos oblíqua suspensa
+RG: Elevação de joelhos nas paralelas sem rotação
+
+# ===================== RETO ABDOMINAL — CASA / AMBOS =====================
+
+cm3_crunch_bracos_acima | Crunch com Braços Estendidos Acima da Cabeça | core | Colchonete | int | 🙆 | colchonete | ca | b | CH | 3 | 12-15
+P: Reto Abdominal
+S: Ombros, Core
+I: Deite de costas com joelhos dobrados e pés no chão | Estenda os braços acima da cabeça, mãos sobrepostas e bíceps junto às orelhas | Expire e enrole o tronco tirando as escápulas do chão, mantendo os braços alinhados | Pause 1 segundo no topo | Desça devagar vértebra por vértebra
+E: Jogar os braços para frente para ganhar impulso | Arquear a lombar | Tirar os pés do chão
+PR: Crunch com anilha ou garrafa nas mãos estendidas
+RG: Crunch com mãos no peito
+F: Crunch_-_Hands_Overhead
+
+cm3_crunch_pernas_bola | Crunch com Pernas Apoiadas na Bola Suíça | core | Bola suíça | ini | ⚪ | bola_suica | ca | b | CH5 | 3 | 12-15
+P: Reto Abdominal
+S: Oblíquos, Core
+I: Deite de costas e apoie as panturrilhas em cima da bola suíça, joelhos a 90° | Mãos cruzadas no peito | Expire e eleve cabeça e escápulas do chão enrolando o tronco | Mantenha as pernas paradas sobre a bola | Desça devagar
+E: Puxar a bola com as pernas | Pescoço tenso projetado para frente | Subir rápido usando embalo
+PR: Crunch na bola suíça
+RG: Crunch com pés no chão
+F: Crunch_-_Legs_On_Exercise_Ball
+
+cm3_crunch_pernas_cadeira | Crunch 90/90 com Pernas na Cadeira | core | Cadeira ou sofá | ini | 🪑 | cadeira | c | b | CH5 | 3 | 12-15
+P: Reto Abdominal
+S: Core
+I: Deite de costas em frente a uma cadeira firme e apoie as panturrilhas no assento | Ajuste a distância para joelhos e quadril ficarem a 90° | Mãos atrás das orelhas, cotovelos abertos | Expire e eleve as escápulas do chão aproximando as costelas do quadril | Desça devagar sem apoiar totalmente a cabeça
+E: Puxar a cabeça com as mãos | Cadeira longe demais (lombar arqueia) | Descer jogando o tronco
+PR: Crunch grupado (tuck crunch)
+RG: Báscula pélvica deitado
+
+cm3_tuck_crunch | Crunch Grupado (Tuck Crunch) | core | Colchonete | int | 🤏 | colchonete | ca | b | CHP | 3 | 12-15
+P: Reto Abdominal
+S: Flexores do Quadril, Oblíquos
+I: Deite de costas com os joelhos dobrados e os pés fora do chão, coxas na vertical | Mãos atrás das orelhas, cotovelos abertos | Ao mesmo tempo eleve o tronco e traga os joelhos em direção ao peito | Encontre os cotovelos e os joelhos no meio do caminho e contraia | Volte devagar sem apoiar os pés no chão
+E: Puxar o pescoço | Balançar as pernas | Lombar arqueando ao estender
+PR: V-up
+RG: Crunch 90/90 com pernas na cadeira
+F: Tuck_Crunch
+
+cm3_sit_up_parcial | Abdominal 3/4 (Sit-Up Parcial) | core | Colchonete | ini | ⬆️ | colchonete | ca | b | CH5 | 3 | 10-15
+P: Reto Abdominal
+S: Flexores do Quadril, Oblíquos
+I: Deite de costas com joelhos dobrados e pés apoiados | Braços cruzados no peito | Enrole o tronco subindo até cerca de 3/4 do caminho, sem chegar a sentar | Pause 1 segundo sentindo o abdômen contraído | Desça devagar enrolando a coluna de volta ao chão
+E: Pés levantando do chão | Subir com o tronco reto (só flexor de quadril) | Cair de volta sem controle
+PR: Abdominal Janda
+RG: Crunch
+F: 3_4_Sit-Up
+
+cm3_janda_sit_up | Abdominal Janda | core | Colchonete | int | 🧘 | colchonete | ca | b | CH | 3 | 8-10
+P: Reto Abdominal
+S: Isquiotibiais, Glúteos, Core
+I: Deite de costas com joelhos dobrados e pés apoiados | Pressione ativamente os calcanhares contra o chão como se fosse puxá-los em direção ao glúteo (ativa o posterior e desliga o flexor do quadril) | Mantendo essa pressão, enrole o tronco devagar até sentar | Desça em 3 segundos vértebra por vértebra | Mantenha a pressão dos calcanhares a série toda
+E: Esquecer de pressionar os calcanhares | Subir com impulso dos braços | Descer rápido
+PR: Abdominal Janda com braços acima da cabeça
+RG: Abdominal 3/4
+F: Janda_Sit-Up
+
+cm3_sit_up_sapo | Abdominal Borboleta (Frog Sit-Up) | core | Colchonete | int | 🦋 | colchonete | ca | b | CPH | 3 | 15-20
+P: Reto Abdominal
+S: Flexores do Quadril, Adutores
+I: Sente no chão e junte as solas dos pés, deixando os joelhos caírem para os lados | Deite de costas mantendo os pés juntos e os braços estendidos acima da cabeça | Balance os braços para frente e suba até tocar os pés com as mãos | Desça devagar até as escápulas tocarem o chão | Mantenha a lombar controlada na descida
+E: Arquear a lombar ao deitar | Pés se afastando durante a série | Descer caindo no chão
+PR: Sit-up borboleta segurando anilha
+RG: Abdominal 3/4
+F: Frog_Sit-Ups
+
+cm3_crunch_mochila | Crunch Abraçando a Mochila com Peso | core | Mochila com peso | int | 🎒 | mochila | c | b | CH | 3 | 12-15
+P: Reto Abdominal
+S: Oblíquos, Core
+I: Coloque 3 a 8 kg na mochila (livros ou garrafas) e feche bem | Deite de costas com joelhos dobrados e abrace a mochila contra o peito | Expire e eleve as escápulas do chão enrolando o tronco | Pause 1 segundo em cima | Desça devagar sem soltar a contração
+E: Mochila subindo para o pescoço | Puxar o queixo para o peito | Subir até sentar e perder tensão
+PR: Crunch grupado segurando a mochila
+RG: Crunch sem carga
+
+cm3_crunch_medicine_ball | Crunch com Medicine Ball Estendida | core | Medicine ball | int | 🏐 | medicine_ball | ca | b | CH | 3 | 12-15
+P: Reto Abdominal
+S: Ombros, Core
+I: Deite de costas com joelhos dobrados e segure a medicine ball com os braços estendidos acima do peito | Mantenha os braços apontados para o teto | Expire e enrole o tronco empurrando a bola em direção ao teto | Pause 1 segundo no topo | Desça devagar mantendo a bola acima do peito
+E: Balançar a bola para frente | Dobrar os cotovelos | Arquear a lombar na descida
+PR: Arremesso deitado acima da cabeça com medicine ball
+RG: Crunch sem carga
+F: Weighted_Crunches
+
+cm3_recolhimento_sentado_chao | Recolhimento de Pernas Sentado no Chão | core | Colchonete | ini | 🪷 | colchonete | ca | b | CHP5 | 3 | 12-15
+P: Reto Abdominal
+S: Flexores do Quadril, Core
+I: Sente no chão com as mãos apoiadas um pouco atrás do quadril | Incline o tronco para trás cerca de 45° e tire os pés do chão com os joelhos dobrados | Estenda as pernas para frente enquanto inclina levemente o tronco para trás | Traga os joelhos de volta ao peito aproximando o tronco das coxas | Mantenha os pés fora do chão durante a série
+E: Arredondar os ombros e afundar o peito | Apoiar os pés a cada repetição | Movimento rápido sem controle
+PR: Recolhimento de pernas sentado no banco
+RG: Mesma posição apoiando os calcanhares no chão a cada repetição
+F: Seated_Leg_Tucks
+
+cm3_recolhimento_sentado_banco | Recolhimento de Pernas Sentado no Banco | core | Banco | int | 🛋️ | banco | a | b | CHP | 3 | 12-15
+P: Reto Abdominal
+S: Flexores do Quadril, Tríceps
+I: Sente na ponta de um banco plano e segure as bordas ao lado do quadril | Incline o tronco para trás e estenda as pernas à frente, pés fora do chão | Puxe os joelhos ao peito aproximando o tronco das coxas | Estenda de novo as pernas sem tocar o chão | Mantenha o peito aberto e a respiração ritmada
+E: Escorregar no banco | Pés tocando o chão | Encolher os ombros
+PR: Recolhimento com halter entre os pés
+RG: Recolhimento de pernas sentado no chão
+F: Seated_Flat_Bench_Leg_Pull-In
+
+cm3_rollout_bola | Rollout na Bola Suíça | core | Bola suíça | int | 🔵 | bola_suica | ca | b | CH | 3 | 8-12
+P: Reto Abdominal
+S: Latíssimo, Transverso Abdominal, Ombros
+I: Ajoelhe em frente à bola suíça e apoie os antebraços em cima dela | Contraia glúteos e abdômen e alinhe ombros, quadril e joelhos | Role a bola à frente estendendo os braços e afastando o quadril dos joelhos | Vá só até onde a lombar continuar neutra | Puxe a bola de volta com o abdômen até a posição inicial
+E: Lombar afundando | Quadril ficando para trás (sem estender o corpo) | Ir longe demais sem controle
+PR: Ab wheel de joelhos
+RG: Prancha com antebraços na bola suíça
+
+cm3_body_saw_toalha | Body Saw com Toalha | core | Toalha em piso liso | ava | 🪚 | toalha | ca | b | CH | 3 | 8-12
+P: Reto Abdominal
+S: Transverso Abdominal, Ombros, Serrátil
+I: Em piso liso, coloque os pés sobre uma toalha dobrada e fique em prancha com os antebraços | Alinhe cabeça, quadril e calcanhares | Empurre o chão com os antebraços deslizando o corpo para trás alguns centímetros | Puxe de volta até os ombros ficarem acima dos cotovelos | Mantenha o quadril parado na mesma altura o tempo todo
+E: Quadril subindo ou afundando | Ir para trás além do controle | Prender a respiração
+PR: Pike com slider
+RG: Prancha com antebraços
+
+cm3_prancha_rkc | Prancha RKC (Contração Máxima) | core | Colchonete | int | 💥 | colchonete | ca | b | CH | 4 | 10-20 s
+P: Reto Abdominal, Transverso Abdominal
+S: Glúteos, Quadríceps, Core
+I: Fique em prancha com os antebraços com os cotovelos um pouco à frente dos ombros | Junte as mãos fechadas e aperte os punhos | Contraia glúteos e coxas com força máxima | Puxe os cotovelos em direção aos pés (sem sair do lugar), como se quisesse encurtar o corpo | Respire curto e segure a tensão total pelo tempo indicado
+E: Fazer prancha relaxada (perde o objetivo) | Quadril alto | Segurar tempo demais sem tensão máxima
+PR: Body saw com toalha
+RG: Prancha comum
+
+cm3_prancha_pes_elevados | Prancha com Pés Elevados no Degrau | core | Degrau, banco ou sofá | int | 🪜 | degrau_step | ca | b | CH | 3 | 20-40 s
+P: Core, Reto Abdominal
+S: Ombros, Serrátil, Glúteos
+I: Apoie os pés sobre um degrau, banco ou sofá baixo | Fique em prancha com os antebraços no chão e cotovelos sob os ombros | Alinhe cabeça, quadril e calcanhares em linha reta | Contraia glúteos e abdômen | Respire de forma controlada pelo tempo indicado
+E: Quadril afundando | Cabeça caída | Cotovelos muito à frente
+PR: Prancha RKC com pés elevados
+RG: Prancha comum
+
+cm3_prancha_bosu | Prancha com Antebraços no Bosu | core | Bosu | int | 🌗 | bosu | a | b | CHR | 3 | 20-40 s
+P: Core, Transverso Abdominal
+S: Ombros, Serrátil, Reto Abdominal
+I: Vire o bosu com a cúpula para cima e apoie os antebraços sobre ela | Estenda as pernas e apoie as pontas dos pés no chão | Alinhe o corpo dos ombros aos calcanhares | Mantenha a cúpula parada contraindo o abdômen | Segure o tempo indicado sem prender a respiração
+E: Quadril alto | Deixar o bosu balançar sem controle | Ombros afundando
+PR: Prancha com pés no TRX
+RG: Prancha com antebraços no chão
+
+cm3_prancha_pes_trx | Prancha com Pés no TRX | core | TRX | int | 🎗️ | trx | a | b | CH | 3 | 20-40 s
+P: Core, Transverso Abdominal
+S: Ombros, Glúteos, Reto Abdominal
+I: Ajuste o TRX a cerca de 30 cm do chão e coloque os pés nas alças | Fique em prancha com os antebraços no chão | Alinhe o corpo e não deixe as fitas balançarem | Contraia glúteos e abdômen | Segure o tempo indicado
+E: Pernas balançando | Quadril afundando | Ombros à frente dos cotovelos
+PR: Abdominal reverso suspenso no TRX
+RG: Prancha com pés elevados no degrau
+
+cm3_dead_bug_elastico | Dead Bug com Elástico Ancorado | core | Elástico | int | 🐞 | elastico | ca | b | CH5 | 3 | 8-10 cada lado
+P: Transverso Abdominal, Reto Abdominal
+S: Latíssimo, Core
+I: Prenda um elástico num ponto baixo atrás da cabeça (pé de sofá ou porta) e deite de costas segurando-o com braços estendidos para o teto | Puxe levemente o elástico para baixo deixando-o tenso | Eleve as pernas com joelhos a 90° e cole a lombar no chão | Estenda uma perna para frente devagar sem perder a tensão nos braços | Volte e repita com a outra perna
+E: Lombar descolando do chão | Deixar o elástico afrouxar | Estender a perna rápido demais
+PR: Dead bug segurando kettlebell
+RG: Dead bug sem elástico
+
+cm3_dead_bug_kettlebell | Dead Bug Segurando Kettlebell | core | Kettlebell | int | 🔔 | kettlebell | ca | b | CH | 3 | 8-10 cada lado
+P: Transverso Abdominal, Reto Abdominal
+S: Ombros, Core
+I: Deite de costas segurando um kettlebell pelos lados (chifres) com braços estendidos acima do peito | Eleve as pernas com joelhos a 90° e pressione a lombar no chão | Estenda uma perna até quase tocar o chão mantendo o kettlebell parado | Volte devagar à posição inicial | Alterne as pernas
+E: Kettlebell balançando | Lombar arqueando | Prender a respiração
+PR: Hollow hold com anilha
+RG: Dead bug com elástico ancorado
+
+cm3_lsit_grupado_halteres | L-Sit Grupado Apoiado em Halteres | core_cal | Halteres | int | 🏋️ | halteres | ca | b | CH | 4 | 10-20 s
+P: Reto Abdominal
+S: Flexores do Quadril, Tríceps, Ombros
+I: Sente no chão entre dois halteres hexagonais colocados ao lado do quadril | Segure as pegadas com os braços estendidos | Empurre os halteres para baixo, afastando os ombros das orelhas | Tire o quadril e os pés do chão mantendo os joelhos dobrados junto ao peito | Segure o tempo indicado e desça com controle
+E: Ombros encolhidos | Cotovelos dobrados | Halteres redondos que rolam
+PR: L-sit nas paralelas
+RG: Elevação só do quadril com pés apoiados
+
+cm3_limpador_chao | Limpador de Para-brisa Deitado | core | Colchonete | int | 🌀 | colchonete | ca | b | CHR | 3 | 8 cada lado
+P: Oblíquos, Reto Abdominal
+S: Flexores do Quadril, Latíssimo
+I: Deite de costas com os braços abertos em T e as palmas no chão | Eleve as pernas até a vertical (joelhos dobrados no nível intermediário, estendidos no avançado) | Desça as pernas juntas para um lado até quase tocar o chão | Volte ao centro contraindo os oblíquos | Repita para o outro lado mantendo os ombros no chão
+E: Ombros saindo do chão | Deixar as pernas caírem sem controle | Separar as pernas
+PR: Limpador de para-brisa suspenso na barra
+RG: Fazer com os pés apoiados no chão (rotação de joelhos)
+
+# ===================== OBLÍQUOS / ROTAÇÃO / FLEXÃO LATERAL =====================
+
+cm3_russian_twist_polia | Russian Twist na Polia | core | Polia média | int | 🌪️ | polia | a | b | CHR | 3 | 10-12 cada lado
+P: Oblíquos
+S: Reto Abdominal, Core
+I: Sente numa bola suíça ou banco ao lado da polia ajustada na altura do peito | Segure o puxador com as duas mãos e braços estendidos à frente | Gire o tronco para longe da polia mantendo o quadril parado | Pause 1 segundo no final da rotação | Volte devagar resistindo ao cabo
+E: Girar só os braços | Mover o quadril junto | Voltar rápido deixando a carga puxar
+PR: Judo flip na polia
+RG: Rotação de tronco sentado com barra nas costas
+F: Cable_Russian_Twists
+
+cm3_russian_twist_anilha | Russian Twist com Anilha | core | Anilha | int | 🥏 | anilha | a | b | CHPR | 3 | 12-16 total
+P: Oblíquos
+S: Reto Abdominal, Flexores do Quadril
+I: Sente no chão com joelhos dobrados e incline o tronco para trás cerca de 45° | Segure uma anilha com as duas mãos na frente do peito | Tire os pés do chão (ou mantenha apoiados no nível mais fácil) | Gire o tronco levando a anilha para o lado do quadril | Gire para o outro lado sem perder a inclinação do tronco
+E: Arredondar as costas | Mexer só os braços | Pés balançando de um lado para o outro
+PR: Arremesso rotacional com medicine ball
+RG: Russian twist sem carga
+F: Plate_Twist
+
+cm3_rotacao_barra_sentado | Rotação de Tronco Sentado com Barra nas Costas | mobilidade | Barra leve ou bastão | ini | 🔃 | barra | a | b | C5R | 2 | 15 cada lado
+P: Oblíquos, Coluna Torácica
+S: Eretores da Espinha, Core
+I: Sente na ponta de um banco com os pés firmes no chão | Apoie uma barra leve ou bastão sobre os trapézios, segurando nas pontas | Mantenha o quadril fixo e gire o tronco devagar para um lado até o limite confortável | Volte ao centro e gire para o outro lado | Movimento lento e controlado, sem tranco no final
+E: Girar com impulso | Deixar o quadril girar junto | Usar barra pesada
+PR: Russian twist na polia
+RG: Rotação de tronco sentado na cadeira com braços cruzados
+F: Seated_Barbell_Twist
+
+cm3_judo_flip_polia | Judo Flip na Polia | core | Polia baixa | int | 🥋 | polia | a | b | CHR | 3 | 8-10 cada lado
+P: Oblíquos
+S: Latíssimo, Ombros, Reto Abdominal
+I: Fique de lado para a polia ajustada na altura do quadril e segure o puxador com as duas mãos | Joelhos levemente dobrados e base afastada | Puxe o cabo em diagonal para cima e por cima do ombro oposto, girando o tronco | Mantenha os braços quase estendidos durante o arco | Volte devagar à posição inicial
+E: Puxar só com os braços | Arquear a lombar no final | Pés girando sem controle
+PR: Arremesso rotacional com medicine ball
+RG: Lift diagonal com elástico
+F: Cable_Judo_Flip
+
+cm3_woodchop_halter | Wood Chop com Halter (Alto para Baixo) | core | Halter | int | 🪓 | halteres | ca | m | CPR | 3 | 10-12 cada lado
+P: Oblíquos
+S: Ombros, Glúteos, Core
+I: Fique em pé com os pés afastados além do quadril, segurando um halter pelas pontas com as duas mãos | Eleve o halter acima do ombro direito girando o tronco | Desça o halter em diagonal até o lado de fora do joelho esquerdo, dobrando os joelhos | Gire o pé de trás junto para proteger o joelho | Volte controlando até o ponto alto e complete o lado
+E: Arredondar as costas embaixo | Joelhos travados | Rotação só dos braços
+PR: Arremesso rotacional com medicine ball
+RG: Wood chop com elástico
+
+cm3_woodchop_elastico | Wood Chop com Elástico | core | Elástico | ini | 🪓 | elastico | ca | b | C5R | 3 | 12 cada lado
+P: Oblíquos
+S: Ombros, Core, Glúteos
+I: Prenda o elástico num ponto alto (topo de porta com âncora) e fique de lado para ele | Segure a ponta com as duas mãos acima do ombro mais próximo | Puxe o elástico em diagonal até o quadril oposto, girando o tronco | Gire o pé de trás acompanhando o movimento | Volte devagar resistindo à tração
+E: Elástico frouxo no início | Curvar a coluna | Joelhos travados
+PR: Wood chop com halter
+RG: Mesmo movimento sentado na cadeira
+
+cm3_lift_elastico | Lift Diagonal com Elástico (Baixo para Alto) | core | Elástico | ini | ↗️ | elastico | ca | b | C5R | 3 | 12 cada lado
+P: Oblíquos
+S: Ombros, Glúteos, Core
+I: Prenda o elástico num ponto baixo (pé de móvel firme) e fique de lado para ele | Segure a ponta com as duas mãos ao lado do joelho mais próximo, joelhos levemente dobrados | Puxe em diagonal até acima do ombro oposto, estendendo os joelhos | Gire o tronco e o pé de trás acompanhando | Volte devagar à posição inicial
+E: Puxar só com os braços | Curvar as costas embaixo | Elástico batendo na volta
+PR: Lift diagonal no cabo
+RG: Lift diagonal sentado na cadeira
+
+cm3_medball_full_twist | Rotação Completa com Medicine Ball | core | Medicine ball | int | 🔁 | medicine_ball | ca | m | CPR | 3 | 10 cada lado
+P: Oblíquos
+S: Ombros, Glúteos, Core
+I: Fique em pé, pés afastados na largura dos ombros, segurando a medicine ball com braços estendidos à frente | Gire o tronco levando a bola para trás de um lado, girando o pé de trás | Inverta o movimento com velocidade, levando a bola ao outro lado em arco amplo | Desacelere a bola no final de cada lado contraindo o abdômen | Mantenha os braços estendidos e o peito aberto
+E: Girar travando os pés (sobrecarrega joelhos) | Curvar as costas | Perder o controle no fim da rotação
+PR: Arremesso rotacional na parede com medicine ball
+RG: Wood chop com elástico
+F: Medicine_Ball_Full_Twist
+
+cm3_inclinacao_polia_alta | Inclinação Lateral Unilateral na Polia Alta | core | Polia alta | int | ↘️ | polia | a | b | CH | 3 | 12 cada lado
+P: Oblíquos, Quadrado Lombar
+S: Latíssimo, Core
+I: Fique de lado para a polia alta e segure o puxador com a mão mais próxima, braço estendido acima da cabeça | Pés afastados na largura do quadril | Incline o tronco lateralmente para longe da polia, puxando o cabo para baixo | Contraia o oblíquo do lado oposto ao cabo e pause | Volte devagar
+E: Inclinar o tronco para frente | Dobrar o cotovelo | Mexer o quadril lateralmente
+PR: Inclinação lateral com barra nas costas
+RG: Inclinação lateral com elástico
+F: One-Arm_High-Pulley_Cable_Side_Bends
+
+cm3_inclinacao_barra | Inclinação Lateral com Barra nas Costas | core | Barra | int | 🏋️ | barra | a | b | CH | 3 | 12 cada lado
+P: Oblíquos, Quadrado Lombar
+S: Eretores da Espinha, Core
+I: Apoie uma barra leve sobre os trapézios como no agachamento | Pés afastados na largura do quadril e joelhos levemente dobrados | Incline o tronco devagar para um lado sem girar | Volte ao centro contraindo o oblíquo do lado oposto | Repita para o outro lado
+E: Usar carga pesada demais | Girar o tronco durante a inclinação | Inclinar para frente
+PR: Inclinação lateral no banco romano
+RG: Inclinação lateral com halter
+F: Barbell_Side_Bend
+
+cm3_inclinacao_bola | Inclinação Lateral na Bola Suíça | core | Bola suíça | int | 🔵 | bola_suica | ca | b | CH | 3 | 10-12 cada lado
+P: Oblíquos, Quadrado Lombar
+S: Glúteo Médio, Core
+I: Deite de lado sobre a bola suíça com o quadril apoiado nela | Prenda os pés contra a parede ou rodapé, pé de cima atrás e pé de baixo à frente | Mãos atrás das orelhas e deixe o tronco descer sobre a bola | Eleve o tronco lateralmente contraindo o oblíquo de cima | Desça devagar
+E: Rolar a bola para frente ou para trás | Puxar a cabeça com as mãos | Girar o tronco
+PR: Segurar uma anilha ou garrafa no peito
+RG: Prancha lateral com joelhos apoiados
+F: Weighted_Ball_Side_Bend
+
+cm3_inclinacao_banco_romano | Flexão Lateral no Banco Romano | core | Banco romano 45° | ava | 📐 | banco_romano | a | b | CH | 3 | 10-12 cada lado
+P: Oblíquos, Quadrado Lombar
+S: Glúteo Médio, Core
+I: Posicione-se de lado no banco romano, com o quadril apoiado na almofada e os pés presos | Mãos cruzadas no peito ou atrás das orelhas | Deixe o tronco descer lateralmente em direção ao chão | Eleve o tronco contraindo o oblíquo até alinhar com as pernas | Desça devagar e complete o lado
+E: Girar o tronco para frente | Subir além da linha do corpo | Apoiar a cintura na almofada (limita o movimento)
+PR: Segurar anilha no peito
+RG: Inclinação lateral na bola suíça
+
+cm3_inclinacao_elastico | Inclinação Lateral com Elástico | core | Elástico | ini | 🟢 | elastico | ca | b | C5 | 3 | 12-15 cada lado
+P: Oblíquos, Quadrado Lombar
+S: Core
+I: Pise no meio do elástico com o pé direito e segure a ponta com a mão direita, braço ao lado do corpo | Mão esquerda na cintura | Incline o tronco para a esquerda esticando o elástico | Pause 1 segundo contraindo o lado esquerdo | Volte devagar e complete as repetições antes de trocar
+E: Inclinar o tronco para frente | Girar o ombro | Elástico frouxo
+PR: Inclinação lateral com halter
+RG: Alongamento lateral sentado na cadeira
+
+cm3_crunch_obliquo_declinado | Crunch Oblíquo no Banco Declinado | core | Banco declinado | int | 📐 | banco_inclinado | a | b | CH | 3 | 10-12 cada lado
+P: Oblíquos
+S: Reto Abdominal, Flexores do Quadril
+I: Prenda os pés no banco declinado e deite com as mãos atrás das orelhas | Suba o tronco até cerca de 45° | A partir daí, gire o tronco levando o cotovelo direito em direção ao joelho esquerdo | Volte ao centro e desça devagar | Alterne o lado a cada repetição
+E: Puxar o pescoço | Descer deitando por completo e perdendo a tensão | Girar só o cotovelo
+PR: Crunch oblíquo declinado segurando anilha
+RG: Crunch oblíquo no solo
+F: Decline_Oblique_Crunch
+
+cm3_canivete_lateral | Canivete Lateral | core | Colchonete | int | 🔪 | colchonete | ca | b | CH | 3 | 10-12 cada lado
+P: Oblíquos
+S: Quadrado Lombar, Glúteo Médio
+I: Deite de lado com as pernas estendidas e empilhadas | Mão de cima atrás da orelha e braço de baixo apoiado à frente | Eleve as pernas juntas e ao mesmo tempo aproxime o cotovelo de cima do quadril | Pause 1 segundo contraindo a lateral do tronco | Desça devagar sem apoiar as pernas
+E: Rolar para trás | Pernas se separando | Puxar a cabeça
+PR: Prancha lateral com elevação de quadril
+RG: Prancha lateral com joelhos apoiados
+F: Side_Jackknife
+
+cm3_windmill_halter | Windmill com Halter | core | Halter | int | 🌬️ | halteres | ca | b | CR | 3 | 6-8 cada lado
+P: Oblíquos, Quadrado Lombar
+S: Ombros, Isquiotibiais, Glúteos
+I: Segure um halter leve acima da cabeça com o braço direito estendido | Pés afastados, com as pontas giradas cerca de 45° para a esquerda | Olhando para o halter, empurre o quadril para a direita e desça a mão esquerda pela perna esquerda até o chão | Mantenha o braço de cima vertical e travado | Suba devagar contraindo glúteo e oblíquo
+E: Braço de cima saindo da vertical | Arredondar as costas | Olhar para baixo e perder o halter
+PR: Bent press com kettlebell
+RG: Windmill sem carga com mão na cintura
+
+cm3_bent_press | Bent Press com Kettlebell | core | Kettlebell | ava | 🔔 | kettlebell | ca | b | CHR | 3 | 3-5 cada lado
+P: Oblíquos, Ombros
+S: Quadrado Lombar, Latíssimo, Glúteos
+I: Leve o kettlebell à posição de rack no ombro direito com o cotovelo apoiado no quadril | Pés afastados, pontas giradas para a esquerda | Incline o tronco para a esquerda e para baixo, deixando o braço estender por baixo do peso (o peso fica parado, o corpo desce) | Continue até o braço ficar totalmente estendido | Suba de volta mantendo o braço travado e o olhar no kettlebell
+E: Empurrar o peso para cima com o ombro (vira desenvolvimento) | Perder o alinhamento do punho | Carga alta antes de dominar o windmill
+PR: Aumentar carga gradualmente
+RG: Windmill com halter
+F: Bent_Press
+
+cm3_prancha_lateral_trx | Prancha Lateral no TRX | core | TRX | ava | 🎗️ | trx | a | b | CHR | 3 | 20-30 s cada lado
+P: Oblíquos, Quadrado Lombar
+S: Glúteo Médio, Adutores, Ombros
+I: Ajuste o TRX a cerca de 30 cm do chão e coloque os dois pés nas alças, um à frente do outro | Deite de lado e apoie o antebraço no chão com o cotovelo sob o ombro | Eleve o quadril até alinhar o corpo | Controle o balanço das fitas contraindo a lateral do tronco | Segure e troque o lado
+E: Quadril caindo | Pés escapando das alças | Ombro afundando
+PR: Prancha lateral no TRX com elevação de quadril
+RG: Prancha lateral com pernas estendidas no chão
+
+cm3_pallof_acima_cabeca | Pallof Press Acima da Cabeça | core | Polia na altura do peito | int | 🙌 | polia | a | b | CR | 3 | 10 cada lado
+P: Oblíquos, Transverso Abdominal
+S: Ombros, Core
+I: Fique de lado para a polia ajustada na altura do peito, pés na largura do quadril | Segure o puxador com as duas mãos junto ao esterno | Empurre o cabo em direção ao teto até os braços estenderem acima da cabeça | Resista à tração lateral sem deixar o tronco inclinar ou girar | Desça devagar de volta ao peito
+E: Inclinar o tronco para o lado do cabo | Arquear a lombar ao subir os braços | Carga pesada demais
+PR: Pallof com passo lateral
+RG: Pallof press tradicional
+
+cm3_pallof_passo_lateral | Pallof com Passo Lateral | core | Elástico ou polia | int | 👣 | elastico | ca | b | CR | 3 | 6 passos cada lado
+P: Oblíquos, Transverso Abdominal
+S: Glúteo Médio, Ombros
+I: Prenda o elástico na altura do peito e fique de lado para ele, segurando junto ao peito | Estenda os braços à frente do peito | Mantendo os braços estendidos, dê passos laterais curtos afastando-se da âncora | Dê passos de volta sem deixar o tronco girar | Faça o mesmo virado para o outro lado
+E: Braços desviando para o lado da âncora | Passos largos que desequilibram | Tronco girando
+PR: Pallof press acima da cabeça
+RG: Pallof press com elástico
+
+cm3_prancha_urso_toque | Prancha do Urso com Toque no Ombro | core | Colchonete | int | 🐻 | colchonete | ca | b | CPR | 3 | 8-10 cada lado
+P: Transverso Abdominal, Oblíquos
+S: Ombros, Quadríceps, Serrátil
+I: Fique em quatro apoios com mãos sob os ombros e joelhos sob o quadril | Eleve os joelhos 3 a 5 cm do chão mantendo as costas retas | Tire uma mão do chão e toque o ombro oposto | Volte a mão sem deixar o quadril balançar | Alterne os lados
+E: Quadril balançando de um lado para o outro | Joelhos subindo demais | Prender a respiração
+PR: Prancha alta com toque no ombro e pés juntos
+RG: Prancha do urso (bear hold)
+
+cm3_marretada_pneu | Marretada no Pneu | funcional | Marreta + pneu | int | 🔨 | pneu | a | m | CPR | 4 | 10-12 golpes cada lado
+P: Oblíquos, Core
+S: Latíssimo, Ombros, Glúteos
+I: Fique em frente ao pneu com os pés na largura dos ombros, marreta segura com a mão dominante perto da cabeça e a outra na ponta do cabo | Eleve a marreta por cima do ombro deslizando a mão da frente até a outra | Golpeie o pneu puxando com o tronco e dobrando levemente os joelhos | Deixe a marreta quicar e controle o retorno | Troque a posição das mãos e repita do outro lado
+E: Golpear só com os braços | Costas arredondadas no impacto | Ficar perto demais do pneu
+PR: Aumentar a duração dos blocos (30-45 s)
+RG: Wood chop com halter
+F: Sledgehammer_Swings
+
+cm3_slam_unilateral | Slam Unilateral com Medicine Ball | funcional | Medicine ball (sem quique) | int | 💣 | medicine_ball | ca | m | CPR | 3 | 8 cada lado
+P: Oblíquos, Latíssimo
+S: Reto Abdominal, Ombros, Glúteos
+I: Segure a medicine ball com uma mão, braço estendido acima da cabeça | Fique na ponta dos pés e alongue o corpo | Arremesse a bola no chão ao lado do pé oposto, girando e flexionando o tronco | Dobre os joelhos para pegar a bola | Complete as repetições e troque o lado
+E: Usar bola que quica (volta no rosto) | Arredondar as costas para pegar a bola | Arremessar sem rotação
+PR: Aumentar o peso da bola
+RG: Wood chop com elástico
+F: One-Arm_Medicine_Ball_Slam
+
+cm3_arremesso_deitado | Arremesso Deitado Acima da Cabeça com Medicine Ball | core | Medicine ball + parede | int | 🎯 | medicine_ball | ca | b | CPR | 3 | 10-12
+P: Reto Abdominal
+S: Latíssimo, Ombros, Tríceps
+I: Deite de costas com os joelhos dobrados e a cabeça a cerca de 1 m de uma parede (ou de frente para um parceiro) | Segure a medicine ball acima da cabeça com os braços estendidos | Enrole o tronco e arremesse a bola para frente, para o parceiro ou contra a parede | Receba a bola e desça devagar levando-a acima da cabeça | Repita mantendo o ritmo
+E: Arquear a lombar ao receber | Arremessar só com os braços | Bola pesada demais
+PR: Sit-up com arremesso explosivo
+RG: Crunch com medicine ball estendida
+F: Supine_Two-Arm_Overhead_Throw
+
+# ===================== LOMBAR / CADEIA POSTERIOR =====================
+
+cm3_hiper_reversa_banco | Hiperextensão Reversa no Banco | costas | Banco plano | int | 🔙 | banco | a | b | CH5 | 3 | 12-15
+P: Eretores da Espinha, Glúteos
+S: Isquiotibiais, Core
+I: Deite de bruços num banco alto com o quadril na borda e as pernas para fora | Segure firme as laterais do banco | Com as pernas estendidas e juntas, eleve-as até alinhar com o tronco | Contraia glúteos 1 segundo no topo sem hiperestender a lombar | Desça devagar até os pés quase tocarem o chão
+E: Balançar as pernas com impulso | Subir acima da linha do tronco | Dobrar os joelhos
+PR: Hiperextensão reversa com tornozeleira
+RG: Superman alternado
+
+cm3_ext_lombar_anilha | Extensão Lombar no Banco Romano com Anilha | costas | Banco romano + anilha | int | 🥏 | banco_romano | a | b | CH | 3 | 10-12
+P: Eretores da Espinha
+S: Glúteos, Isquiotibiais
+I: Ajuste a almofada logo abaixo do quadril e prenda os pés | Abrace uma anilha contra o peito | Desça o tronco com a coluna neutra até cerca de 90° | Suba contraindo glúteos e lombar até alinhar o corpo | Não passe da linha reta no topo
+E: Arredondar e estender a coluna com tranco | Hiperestender no topo | Almofada alta demais (trava o quadril)
+PR: Extensão lombar com barra nas costas
+RG: Extensão lombar sem carga
+
+cm3_ext_lombar_isometrica | Extensão Lombar Isométrica no Banco Romano | costas | Banco romano | ini | ⏸️ | banco_romano | a | b | CH5 | 3 | 20-40 s
+P: Eretores da Espinha
+S: Glúteos, Isquiotibiais
+I: Ajuste a almofada logo abaixo do quadril e prenda os pés | Cruze os braços no peito | Suba até o corpo ficar em linha reta dos calcanhares à cabeça | Segure a posição contraindo glúteos e lombar | Respire normalmente e desça devagar no fim
+E: Hiperestender a lombar | Cabeça olhando para cima | Relaxar o glúteo
+PR: Extensão lombar no banco romano com anilha
+RG: Superman alternado
+
+cm3_ext_lombar_chao_sofa | Extensão Lombar com Pés Presos no Sofá | costas | Sofá ou cama | int | 🛋️ | peso_corporal | c | b | CH | 3 | 10-12
+P: Eretores da Espinha
+S: Glúteos, Isquiotibiais
+I: Deite de bruços no chão e prenda os calcanhares sob o pé do sofá ou da cama | Mãos atrás das orelhas ou cruzadas no peito | Eleve o peito do chão contraindo lombar e glúteos | Segure 2 segundos no topo olhando para o chão | Desça devagar
+E: Tranco para subir | Olhar para cima (estende o pescoço) | Subir alto demais forçando a lombar
+PR: Segurar uma mochila leve no peito
+RG: Superman alternado
+F: Hyperextensions_With_No_Hyperextension_Bench
+
+cm3_superman_alternado | Superman Alternado | costas | Colchonete | ini | 🦸 | colchonete | ca | b | C5 | 3 | 10 cada lado
+P: Eretores da Espinha
+S: Glúteos, Deltóide Posterior
+I: Deite de bruços com braços estendidos à frente e pernas estendidas | Testa apoiada ou olhar para o chão | Eleve ao mesmo tempo o braço direito e a perna esquerda alguns centímetros | Segure 2 segundos e desça devagar | Repita com braço esquerdo e perna direita
+E: Subir alto demais arqueando a lombar | Levantar a cabeça | Dobrar o joelho
+PR: Superman
+RG: Bird dog
+
+cm3_bird_dog_banco | Bird Dog no Banco | costas | Banco plano | int | 🐕 | banco | a | b | C5R | 3 | 8 cada lado
+P: Eretores da Espinha, Core
+S: Glúteos, Ombros, Oblíquos
+I: Fique em quatro apoios sobre um banco plano, mãos na parte da frente e um joelho atrás, alinhados com o centro do banco | Estenda o braço oposto e a perna oposta ao mesmo tempo até ficarem paralelos ao chão | Segure 2 segundos sem deixar o quadril girar | Volte a mão e o joelho até se tocarem embaixo do corpo | Complete as repetições e troque o lado
+E: Quadril girando para o lado | Arquear a lombar ao estender a perna | Pressa (o banco exige controle)
+PR: Bird dog no banco com caneleira
+RG: Bird dog no chão
+
+cm3_bom_dia_sentado | Bom Dia Sentado com Barra | costas | Barra + banco | ava | 🌅 | barra | a | b | H | 3 | 8-10
+P: Eretores da Espinha
+S: Glúteos, Adutores
+I: Sente num banco com as pernas bem afastadas e os pés firmes no chão | Apoie a barra sobre os trapézios como no agachamento | Com a coluna neutra e o peito aberto, incline o tronco à frente levando o quadril para trás | Desça até onde mantiver a lombar neutra (cerca de 45°) | Suba contraindo lombar e glúteos
+E: Arredondar a lombar | Carga excessiva | Descer rápido
+PR: Bom dia em pé com barra
+RG: Extensão lombar no banco romano
+F: Seated_Good_Mornings
+
+# ===================== MOBILIDADE — QUADRIL =====================
+
+cm3_groiner | Groiner (Avanço com Mãos no Chão) | mobilidade | Peso corporal | ini | 🦎 | peso_corporal | ca | b | CPR | 2 | 6-8 cada lado
+P: Adutores, Flexores do Quadril
+S: Isquiotibiais, Glúteos, Core
+I: Comece em prancha alta com as mãos sob os ombros | Leve o pé direito para fora da mão direita, num avanço baixo | Afunde o quadril em direção ao chão sentindo a virilha alongar | Volte o pé à prancha | Repita com a esquerda em ritmo moderado
+E: Pé não chegando à mão (avanço curto) | Quadril alto demais | Costas arredondadas
+PR: World's greatest stretch
+RG: Avanço baixo com mãos num banco
+F: Groiners
+
+cm3_circulos_quadril_quatro_apoios | Círculos de Quadril em Quatro Apoios | mobilidade | Colchonete | ini | ⭕ | colchonete | ca | b | C5R | 2 | 8 cada direção
+P: Rotadores do Quadril, Glúteo Médio
+S: Flexores do Quadril, Core
+I: Fique em quatro apoios com mãos sob os ombros e joelhos sob o quadril | Eleve um joelho do chão mantendo-o dobrado a 90° | Faça círculos amplos com o joelho: para frente, para o lado, para trás | Mantenha o tronco parado durante o círculo | Inverta a direção e troque a perna
+E: Girar o tronco junto | Círculo pequeno e rápido | Lombar afundando
+PR: CARs de quadril em pé
+RG: Círculos menores com o joelho quase no chão
+F: Hip_Circles_prone
+
+cm3_cars_quadril | CARs de Quadril em Pé (Rotação Articular Controlada) | mobilidade | Parede ou apoio | int | 🔄 | parede | ca | b | C5R | 2 | 3-5 cada direção
+P: Rotadores do Quadril, Flexores do Quadril
+S: Glúteo Médio, Glúteos, Core
+I: Fique em pé de lado para a parede, com uma mão apoiada nela | Eleve o joelho à frente até a altura do quadril | Abra o joelho para o lado o máximo possível sem girar o tronco | Gire a coxa para trás levando o calcanhar para cima e o joelho para baixo | Volte o joelho ao lado da outra perna e inverta o círculo
+E: Inclinar o tronco para compensar | Fazer rápido (perde o controle articular) | Perna de apoio dobrada demais
+PR: Fazer sem apoio da mão
+RG: Círculos de quadril em quatro apoios
+
+cm3_frog_rock | Balanço do Sapo (Frog Rock) | mobilidade | Colchonete | ini | 🐸 | colchonete | ca | b | C5R | 2 | 10-12
+P: Adutores
+S: Rotadores do Quadril, Flexores do Quadril
+I: Fique em quatro apoios sobre os antebraços e afaste os joelhos o máximo confortável, com tornozelos alinhados aos joelhos | Mantenha a coluna neutra | Leve o quadril para trás em direção aos calcanhares sentindo a virilha alongar | Volte para frente até o quadril ficar alinhado aos joelhos | Repita em ritmo lento respirando fundo
+E: Arredondar as costas ao ir para trás | Joelhos muito abertos com dor | Pés juntos (perde o alongamento)
+PR: Alongamento do sapo estático com 60 s
+RG: Joelhos menos afastados
+
+cm3_mob_flexor_elastico | Alongamento de Flexor do Quadril com Elástico | alongamento | Elástico forte | int | 🧷 | elastico | ca | b | C5R | 2 | 30-45 s cada lado
+P: Psoas, Flexores do Quadril
+S: Reto Femoral, Quadríceps
+I: Prenda um elástico forte num ponto baixo atrás de você e passe-o pela parte alta da coxa de trás, junto à virilha | Ajoelhe com essa perna atrás, joelho no chão sobre uma toalha | Avance um pouco até o elástico ficar tenso puxando o quadril para frente | Contraia o glúteo da perna de trás e encaixe a pelve | Respire fundo e segure
+E: Arquear a lombar em vez de encaixar o quadril | Elástico na região do joelho | Joelho apoiado em piso duro
+PR: Couch stretch
+RG: Alongamento do flexor do quadril sem elástico
+
+cm3_agachamento_kettlebell_mob | Mobilidade de Agachamento Profundo com Kettlebell | mobilidade | Kettlebell leve | int | 🔔 | kettlebell | ca | b | C5R | 2 | 45-60 s
+P: Adutores, Tornozelo
+S: Rotadores do Quadril, Quadríceps, Coluna Torácica
+I: Segure um kettlebell leve junto ao peito pelos lados (posição goblet) | Desça até o agachamento mais profundo possível com os calcanhares no chão | Use os cotovelos por dentro dos joelhos para empurrá-los suavemente para fora | Desloque o peso de um pé para o outro abrindo um quadril de cada vez | Mantenha o peito aberto e respire fundo
+E: Calcanhares saindo do chão | Coluna arredondada | Forçar com dor no joelho
+PR: Segurar mais tempo ou alternar com rotação torácica
+RG: Deep squat hold segurando num batente
+
+cm3_pancake | Alongamento Pancake (Afastamento Sentado) | alongamento | Colchonete | int | 🥞 | colchonete | ca | b | CR | 2 | 30-60 s
+P: Adutores, Isquiotibiais
+S: Eretores da Espinha, Rotadores do Quadril
+I: Sente no chão com as pernas estendidas e afastadas o máximo confortável, joelhos e pés apontados para o teto | Sente sobre os ísquios (se necessário, sente numa almofada) | Incline o tronco à frente a partir do quadril, mantendo as costas o mais retas possível | Apoie as mãos no chão à frente e respire fundo em cada posição | Volte devagar
+E: Arredondar as costas para ir mais longe | Joelhos girando para dentro | Balançar para forçar a amplitude
+PR: Pancake segurando um halter leve à frente
+RG: Fazer sentado numa almofada com joelhos levemente dobrados
+
+# ===================== MOBILIDADE — TORÁCICA / COLUNA =====================
+
+cm3_toracica_banco | Extensão Torácica com Cotovelos no Banco | mobilidade | Banco + bastão | ini | 🙏 | banco | ca | b | C5R | 2 | 8-10 (2 s pausa)
+P: Coluna Torácica, Latíssimo
+S: Tríceps, Ombros
+I: Ajoelhe de frente para um banco (ou sofá) e apoie os cotovelos na borda, palmas juntas | Leve o quadril para trás até ficar acima dos joelhos | Deixe o peito afundar em direção ao chão, sentindo a parte alta das costas e as axilas alongarem | Pause 2 segundos expirando | Volte um pouco e repita
+E: Arquear a lombar em vez da torácica | Quadril à frente dos joelhos | Prender a respiração
+PR: Segurar um bastão entre as mãos e dobrar os cotovelos
+RG: Alongamento de latíssimo com uma mão na parede
+
+cm3_toracica_cadeira | Extensão Torácica na Cadeira | mobilidade | Cadeira com encosto | ini | 🪑 | cadeira | c | b | C5R | 2 | 8-10
+P: Coluna Torácica
+S: Peitoral, Eretores da Espinha
+I: Sente numa cadeira com encosto firme e que termine na altura das escápulas | Entrelace as mãos atrás da cabeça, cotovelos para frente | Incline a parte alta das costas para trás sobre o encosto, abrindo o peito | Pause 2 segundos olhando para o teto | Volte devagar e repita
+E: Escorregar o quadril para frente | Arquear a lombar | Puxar a cabeça com as mãos
+PR: Extensão torácica no foam roller
+RG: Fazer só com os braços cruzados no peito
+
+cm3_rotacao_bastao_pe | Rotação de Tronco em Pé com Bastão | mobilidade | Cabo de vassoura ou bastão | ini | 🧹 | peso_corporal | ca | b | C5R | 2 | 10 cada lado
+P: Coluna Torácica, Oblíquos
+S: Ombros, Core
+I: Fique em pé com os pés afastados na largura dos ombros e os joelhos levemente flexionados | Apoie um cabo de vassoura atrás dos ombros, segurando nas pontas | Mantenha o quadril de frente e gire o tronco devagar para um lado | Volte ao centro e gire para o outro lado | Aumente a amplitude a cada repetição sem forçar
+E: Girar o quadril junto | Fazer com tranco no final | Ombros encolhidos
+PR: Rotação de tronco sentado com barra nas costas
+RG: Rotação de tronco sentado na cadeira
+
+cm3_ponte_rotacao | Ponte Torácica com Rotação | mobilidade | Colchonete | int | 🌉 | colchonete | ca | b | CR | 2 | 5 cada lado
+P: Coluna Torácica, Flexores do Quadril
+S: Glúteos, Ombros, Oblíquos
+I: Comece em posição de urso (quatro apoios com joelhos fora do chão) | Tire a mão direita do chão e gire o corpo para a esquerda, passando o pé direito por baixo | Apoie o pé direito no chão e empurre o quadril para cima, levando o braço direito acima da cabeça | Segure 2 segundos abrindo o peito para o teto | Volte ao urso e repita do outro lado
+E: Quadril baixo na ponte | Ombro de apoio desalinhado da mão | Fazer rápido sem controle
+PR: Ponte completa
+RG: Livro aberto deitado
+
+cm3_ponte_completa | Ponte Completa (Wheel Pose) | mobilidade | Colchonete | ava | 🌈 | colchonete | ca | b | C | 3 | 3-5 x 10-20 s
+P: Coluna Torácica, Ombros
+S: Flexores do Quadril, Tríceps, Glúteos
+I: Deite de costas com joelhos dobrados e pés perto do quadril | Apoie as mãos ao lado das orelhas com os dedos apontados para os ombros | Empurre o quadril para cima e apoie o topo da cabeça no chão como passo intermediário | Estenda os braços empurrando o chão e abrindo os ombros | Segure respirando e desça devagar apoiando a cabeça antes das costas
+E: Cotovelos abrindo para os lados | Joelhos abertos | Descer caindo sobre a cabeça
+PR: Ponte com pernas estendidas
+RG: Ponte torácica com rotação
+
+# ===================== MOBILIDADE — OMBRO =====================
+
+cm3_cars_ombro | CARs de Ombro (Rotação Articular Controlada) | mobilidade | Peso corporal | ini | 🔄 | peso_corporal | ca | b | C5R | 2 | 3-5 cada direção
+P: Manguito Rotador, Ombros
+S: Trapézio, Serrátil, Core
+I: Fique em pé com o abdômen firme e um braço estendido ao lado do corpo, palma para dentro | Eleve o braço à frente até acima da cabeça, devagar | No topo, gire a palma para fora e leve o braço para trás em direção ao quadril | Faça o maior círculo possível sem deixar o tronco girar ou arquear | Inverta o sentido e troque o braço
+E: Fazer rápido como balanço de braço | Arquear a lombar no topo | Inclinar o tronco
+PR: CARs de ombro segurando uma garrafa de 500 ml
+RG: Círculos de braços
+
+cm3_wall_slide_mini_band | Deslizamento na Parede com Mini Band | mobilidade | Mini band + parede | int | 🧱 | mini_band | ca | b | C5R | 3 | 10-12
+P: Serrátil, Trapézio Inferior
+S: Manguito Rotador, Deltóide Posterior
+I: Coloque a mini band em volta dos punhos e fique de frente para a parede | Apoie os antebraços na parede na altura dos ombros, afastando-os para tensionar a faixa | Deslize os antebraços para cima em V, mantendo a tensão para fora | Afaste levemente o peito da parede no topo | Desça devagar à posição inicial
+E: Encolher os ombros | Deixar a faixa afrouxar | Arquear a lombar
+PR: Wall slide com elevação dos antebraços da parede no topo
+RG: Anjo na parede
+
+cm3_alongamento_toalha_costas | Alongamento de Ombro com Toalha nas Costas | alongamento | Toalha | ini | 🧺 | toalha | ca | b | C5R | 2 | 30 s cada lado
+P: Manguito Rotador, Tríceps
+S: Peitoral, Ombros
+I: Segure a ponta de uma toalha com a mão direita e jogue-a por cima do ombro, deixando-a pender nas costas | Leve a mão esquerda por trás das costas e segure a outra ponta | Puxe a toalha para baixo com a mão esquerda até alongar o tríceps direito | Depois puxe para cima com a direita para alongar o ombro esquerdo | Segure respirando e troque os braços
+E: Arquear a lombar | Puxar com tranco | Encolher o pescoço
+PR: Aproximar as mãos na toalha
+RG: Alongamento de tríceps acima da cabeça
+
+cm3_skin_cat_parcial | Rotação de Ombros Pendurado nas Argolas (Skin the Cat Parcial) | mobilidade | Argolas | ava | ⭕ | argolas | a | b | C | 3 | 3-5
+P: Ombros, Peitoral
+S: Bíceps, Reto Abdominal, Latíssimo
+I: Pendure-se nas argolas com os pés ainda tocando o chão ou num caixote baixo | Encolha os joelhos e role o quadril para trás passando as pernas entre os braços | Desça devagar até sentir o alongamento anterior dos ombros | Pause 2 segundos sem forçar a dor | Volte enrolando o quadril até a posição inicial
+E: Descer rápido além da amplitude | Soltar os ombros sem controle | Fazer sem domínio da barra fixa
+PR: Skin the cat completo
+RG: Dislocate com elástico
+
+# ===================== MOBILIDADE — TORNOZELO / PERNA =====================
+
+cm3_tornozelo_elastico | Mobilidade de Tornozelo com Elástico | mobilidade | Elástico | int | 🦶 | elastico | ca | b | C5R | 2 | 10-12 cada lado
+P: Tornozelo
+S: Sóleo, Gastrocnêmio
+I: Prenda o elástico num ponto baixo atrás de você e passe-o pela frente do tornozelo, logo acima do pé | Fique em posição de afundo com esse pé à frente | Leve o joelho à frente sobre o segundo dedo do pé, sem tirar o calcanhar do chão | Pause 2 segundos no final | Volte e repita
+E: Calcanhar saindo do chão | Joelho caindo para dentro | Elástico frouxo
+PR: Mobilidade de tornozelo com kettlebell no joelho
+RG: Mobilidade de tornozelo na parede
+
+cm3_tornozelo_kettlebell | Mobilidade de Tornozelo com Kettlebell no Joelho | mobilidade | Kettlebell | int | 🔔 | kettlebell | ca | b | CR | 2 | 8-10 cada lado
+P: Tornozelo, Sóleo
+S: Gastrocnêmio
+I: Ajoelhe com um pé à frente, como num afundo baixo | Apoie um kettlebell sobre a coxa, perto do joelho da frente | Empurre o joelho à frente sobre o pé, deixando o peso aumentar a flexão do tornozelo | Mantenha o calcanhar colado no chão | Pause 2 segundos e volte
+E: Calcanhar levantando | Peso apoiado sobre a patela | Desviar o joelho para fora
+PR: Agachamento profundo com kettlebell
+RG: Mobilidade de tornozelo com elástico
+
+cm3_tibial_ajoelhado | Alongamento do Tibial Anterior Ajoelhado | alongamento | Colchonete | ini | 🦵 | colchonete | ca | b | C5R | 2 | 30 s
+P: Tibial Anterior, Tornozelo
+S: Quadríceps
+I: Ajoelhe sobre um colchonete com o peito do pé apoiado no chão | Sente devagar sobre os calcanhares | Apoie as mãos no chão ao lado das pernas | Eleve levemente os joelhos do chão para aumentar o alongamento da canela | Respire e segure
+E: Sentar rápido com dor no joelho | Pés tortos para dentro | Forçar mesmo sentindo cãibra
+PR: Fazer elevando um joelho de cada vez
+RG: Sentar num travesseiro sobre os calcanhares
+
+cm3_panturrilha_degrau | Alongamento de Panturrilha no Degrau | alongamento | Degrau | ini | 🪜 | degrau_step | ca | b | C5R | 2 | 30 s cada lado
+P: Gastrocnêmio, Sóleo
+S: Tornozelo
+I: Fique em pé num degrau segurando no corrimão ou parede | Deixe a metade de trás de um pé para fora do degrau | Abaixe o calcanhar devagar até sentir a panturrilha alongar com o joelho estendido | Depois dobre levemente o joelho para alongar o sóleo | Segure e troque a perna
+E: Soltar o apoio | Quicar o calcanhar | Joelho travado com dor atrás
+PR: Fazer com as duas pernas ao mesmo tempo
+RG: Alongamento de panturrilha na parede
+
+cm3_soleo_aquiles | Alongamento de Sóleo e Tendão de Aquiles | alongamento | Parede | ini | 🦶 | parede | ca | b | C5R | 2 | 30 s cada lado
+P: Sóleo
+S: Tornozelo, Gastrocnêmio
+I: Fique de frente para a parede com as mãos apoiadas na altura do peito | Coloque um pé à frente e outro atrás, ambos com o calcanhar no chão | Dobre os dois joelhos e desça o quadril | Sinta o alongamento na parte baixa da panturrilha de trás | Segure e troque
+E: Calcanhar de trás saindo do chão | Ponta do pé de trás virada para fora | Esticar o joelho de trás
+PR: Alongamento de panturrilha no degrau
+RG: Círculos de tornozelo
+F: Standing_Soleus_And_Achilles_Stretch
+
+# ===================== ALONGAMENTOS — PARTE SUPERIOR =====================
+
+cm3_peitoral_bola | Alongamento de Peitoral na Bola Suíça | alongamento | Bola suíça | ini | ⚪ | bola_suica | ca | b | C5R | 2 | 30 s cada lado
+P: Peitoral
+S: Deltóide Anterior, Bíceps
+I: Ajoelhe ao lado da bola suíça | Apoie o braço estendido sobre a bola, palma para baixo | Afaste o tronco da bola e deixe o peito descer em direção ao chão | Gire levemente o tronco para o lado oposto para aumentar o alongamento | Segure respirando e troque
+E: Levantar o ombro até a orelha | Forçar com dor na frente do ombro | Arquear a lombar
+PR: Alongamento de peitoral atrás da cabeça
+RG: Alongamento de peitoral na parede
+F: Chest_Stretch_on_Stability_Ball
+
+cm3_peitoral_atras_cabeca | Alongamento de Peitoral com Mãos Atrás da Cabeça | alongamento | Peso corporal | ini | 🙆 | peso_corporal | ca | b | C5R | 2 | 30 s
+P: Peitoral
+S: Deltóide Anterior, Coluna Torácica
+I: Sente ou fique em pé com o tronco ereto | Entrelace as mãos atrás da cabeça | Leve os cotovelos para trás o máximo confortável, abrindo o peito | Mantenha o queixo neutro e não empurre a cabeça para frente | Segure respirando fundo
+E: Empurrar a cabeça com as mãos | Arquear a lombar | Prender a respiração
+PR: Alongamento de peitoral na bola suíça
+RG: Alongamento de peitoral na parede
+F: Behind_Head_Chest_Stretch
+
+cm3_deltoide_anterior_sentado | Alongamento de Deltóide Anterior Sentado | alongamento | Colchonete | ini | 💪 | colchonete | ca | b | C5R | 2 | 30 s
+P: Deltóide Anterior
+S: Peitoral, Bíceps
+I: Sente no chão com joelhos dobrados e pés apoiados | Apoie as mãos atrás do quadril com os dedos apontando para trás | Deslize o quadril para frente afastando-o das mãos | Mantenha o peito aberto e os ombros longe das orelhas | Segure respirando
+E: Ombros encolhidos | Cotovelos dobrados | Forçar com dor
+PR: Afastar mais o quadril das mãos
+RG: Fazer em pé com as mãos entrelaçadas atrás das costas
+F: Seated_Front_Deltoid
+
+cm3_triceps_acima | Alongamento de Tríceps Acima da Cabeça | alongamento | Peso corporal | ini | 🤚 | peso_corporal | ca | b | C5R | 2 | 30 s cada lado
+P: Tríceps
+S: Latíssimo, Ombros
+I: Em pé ou sentado, eleve um braço e dobre o cotovelo levando a mão para as costas | Com a outra mão, segure o cotovelo | Puxe suavemente o cotovelo para trás da cabeça | Mantenha o tronco reto e o pescoço relaxado | Segure e troque
+E: Inclinar o tronco | Empurrar a cabeça para frente | Puxar com força
+PR: Alongamento de ombro com toalha nas costas
+RG: Fazer sentado na cadeira
+F: Triceps_Stretch
+
+cm3_biceps_parede | Alongamento de Bíceps na Parede | alongamento | Parede | ini | 💪 | parede | ca | b | C5R | 2 | 30 s cada lado
+P: Bíceps
+S: Peitoral, Deltóide Anterior
+I: Fique de lado para a parede com o braço estendido para trás na altura do ombro | Apoie a palma da mão na parede, polegar para cima | Gire devagar o corpo para longe da parede até sentir o bíceps alongar | Mantenha o cotovelo estendido sem travar | Segure e troque
+E: Cotovelo dobrado | Mão alta demais forçando o ombro | Girar rápido
+PR: Girar a palma para baixo para alongar mais
+RG: Mão mais baixa na parede
+F: Standing_Biceps_Stretch
+
+cm3_antebraco_ajoelhado | Alongamento de Antebraço Ajoelhado | alongamento | Colchonete | ini | 🖐️ | colchonete | ca | b | CR | 2 | 30 s
+P: Antebraços, Flexores do Pulso
+S: Extensores do Pulso
+I: Fique em quatro apoios sobre um colchonete | Gire as mãos para que os dedos apontem para os joelhos, palmas no chão | Leve o quadril devagar para trás em direção aos calcanhares | Mantenha as palmas coladas no chão | Segure e depois repita com o dorso das mãos no chão
+E: Palmas descolando | Jogar o peso de uma vez | Cotovelos dobrados
+PR: Segurar mais tempo
+RG: Fazer em pé com as mãos sobre uma mesa
+F: Kneeling_Forearm_Stretch
+
+cm3_pescoco_lateral | Alongamento Lateral do Pescoço | alongamento | Peso corporal | ini | 🦒 | peso_corporal | ca | b | C5R | 2 | 20-30 s cada lado
+P: Trapézio Superior
+S: Escalenos, Elevador da Escápula
+I: Sente com o tronco ereto e segure a lateral do assento com a mão direita | Incline a cabeça devagar levando a orelha esquerda em direção ao ombro esquerdo | Apoie a mão esquerda sobre a cabeça apenas para acrescentar um leve peso | Mantenha o ombro direito baixo | Segure respirando e troque
+E: Puxar a cabeça com força | Girar o rosto | Elevar o ombro do lado alongado
+PR: Girar o queixo levemente para baixo para alongar o elevador da escápula
+RG: Só inclinar a cabeça sem ajuda da mão
+F: Side_Neck_Stretch
+
+cm3_latissimo_parede | Alongamento de Latíssimo com Uma Mão na Parede | alongamento | Parede | ini | 🧱 | parede | ca | b | C5R | 2 | 30 s cada lado
+P: Latíssimo
+S: Tríceps, Coluna Torácica
+I: Fique de frente para a parede a cerca de um passo | Apoie uma mão na parede um pouco acima da cabeça | Leve o quadril para trás e afunde o peito, inclinando levemente o tronco para o lado da mão apoiada | Sinta o alongamento na lateral das costas e axila | Segure e troque
+E: Arquear a lombar | Encolher o ombro | Dobrar o cotovelo
+PR: Extensão torácica com cotovelos no banco
+RG: Alongamento de latíssimo com as duas mãos na parede
+F: One_Arm_Against_Wall
+
+cm3_costas_abraco | Alongamento de Costas Médias (Abraço) | alongamento | Peso corporal | ini | 🤗 | peso_corporal | ca | b | C5R | 2 | 30 s
+P: Romboides, Trapézio Médio
+S: Deltóide Posterior, Latíssimo
+I: Fique em pé ou sentado com os joelhos levemente dobrados | Cruze os braços à frente como se estivesse se abraçando, segurando as escápulas | Arredonde a parte alta das costas empurrando o meio das costas para trás | Abaixe o queixo levemente | Respire fundo direcionando o ar para as costas
+E: Encolher os ombros | Prender a respiração | Arredondar a lombar em vez da parte alta
+PR: Segurar em um poste ou batente e puxar o corpo para trás
+RG: Alongamento ombros cruzado
+F: Upper_Back_Stretch
+
+# ===================== ALONGAMENTOS — TRONCO =====================
+
+cm3_joelhos_peito | Joelhos ao Peito Deitado | alongamento | Colchonete | ini | 🫶 | colchonete | ca | b | C5 | 2 | 30-45 s
+P: Eretores da Espinha
+S: Glúteos, Quadrado Lombar
+I: Deite de costas com os joelhos dobrados | Abrace os dois joelhos com as mãos atrás das coxas | Puxe suavemente os joelhos em direção ao peito | Deixe a lombar relaxar no chão e respire fundo | Balance devagar de um lado para o outro se for confortável
+E: Puxar pela frente dos joelhos (pressiona a patela) | Levantar a cabeça | Prender a respiração
+PR: Postura da criança
+RG: Um joelho ao peito de cada vez
+F: Hug_Knees_To_Chest
+
+cm3_lombar_cadeira | Alongamento Lombar Sentado na Cadeira | alongamento | Cadeira | ini | 🪑 | cadeira | c | b | C5 | 2 | 30 s
+P: Eretores da Espinha
+S: Latíssimo, Glúteos
+I: Sente na ponta de uma cadeira firme com os pés afastados | Incline o tronco à frente devagar deixando os braços caírem entre as pernas | Deixe a cabeça e as costas relaxarem em direção ao chão | Respire fundo sentindo a lombar abrir | Suba devagar enrolando a coluna
+E: Levantar rápido (tontura) | Pés juntos (desequilíbrio) | Forçar até sentir dor
+PR: Joelhos ao peito deitado
+RG: Inclinar só até as mãos nos joelhos
+F: Chair_Lower_Back_Stretch
+
+cm3_abdomen_cobra_parcial | Alongamento de Abdômen em Esfinge | alongamento | Colchonete | ini | 🐍 | colchonete | ca | b | C5 | 2 | 30 s
+P: Reto Abdominal
+S: Flexores do Quadril, Eretores da Espinha
+I: Deite de bruços com as pernas estendidas | Apoie os antebraços no chão com os cotovelos sob os ombros | Eleve o peito deixando o quadril colado no chão | Afaste os ombros das orelhas e olhe à frente | Respire fundo sentindo o abdômen alongar
+E: Cotovelos à frente dos ombros com lombar comprimida | Encolher os ombros | Jogar a cabeça para trás
+PR: Cobra com braços estendidos
+RG: Fazer com uma almofada sob o peito
+
+cm3_lateral_cadeira | Alongamento Lateral Sentado na Cadeira | alongamento | Cadeira | ini | 🪑 | cadeira | c | b | C5R | 2 | 30 s cada lado
+P: Oblíquos, Latíssimo
+S: Quadrado Lombar, Intercostais
+I: Sente na cadeira com os pés firmes e afastados | Segure o assento com a mão esquerda | Eleve o braço direito acima da cabeça | Incline o tronco para a esquerda formando um arco | Segure respirando e troque o lado
+E: Girar o tronco para frente | Levantar o quadril do assento | Inclinar com tranco
+PR: Alongamento lateral em pé
+RG: Inclinação com as mãos na cintura
+
+# ===================== ALONGAMENTOS — PARTE INFERIOR =====================
+
+cm3_posterior_elastico | Alongamento de Posterior com Elástico Deitado | alongamento | Elástico ou toalha | ini | 🧵 | elastico | ca | b | C5R | 2 | 30-45 s cada lado
+P: Isquiotibiais
+S: Gastrocnêmio, Glúteos
+I: Deite de costas e passe o elástico (ou toalha) pela sola de um pé | Estenda a perna para o teto segurando as pontas do elástico | Mantenha a outra perna estendida no chão ou dobrada se a lombar incomodar | Puxe a perna suavemente até sentir o posterior da coxa alongar | Segure respirando e troque
+E: Dobrar o joelho da perna alongada | Tirar o quadril do chão | Puxar com força
+PR: Levar a perna levemente para dentro para alongar também a lateral
+RG: Joelho da perna de baixo dobrado
+F: Lying_Hamstring
+
+cm3_posterior_degrau | Alongamento de Posterior com Calcanhar no Degrau | alongamento | Degrau ou banco baixo | ini | 🪜 | degrau_step | ca | b | C5R | 2 | 30 s cada lado
+P: Isquiotibiais
+S: Gastrocnêmio, Eretores da Espinha
+I: Fique em pé de frente para um degrau ou banco baixo | Apoie o calcanhar de uma perna no degrau com o joelho estendido e a ponta do pé para cima | Com as mãos no quadril e as costas retas, incline o tronco à frente a partir do quadril | Pare quando sentir o alongamento atrás da coxa | Segure e troque
+E: Arredondar as costas | Degrau alto demais | Joelho de apoio travado
+PR: Alongamento pancake
+RG: Alongamento de posterior sentado na cadeira
+
+cm3_quadriceps_lado | Alongamento de Quadríceps Deitado de Lado | alongamento | Colchonete | ini | 🦵 | colchonete | ca | b | C5R | 2 | 30 s cada lado
+P: Quadríceps
+S: Flexores do Quadril, Reto Femoral
+I: Deite de lado com a cabeça apoiada no braço de baixo | Dobre o joelho de cima e segure o tornozelo com a mão de cima | Leve o calcanhar em direção ao glúteo | Empurre levemente o quadril para frente mantendo os joelhos alinhados | Segure e troque o lado
+E: Arquear a lombar | Joelho de cima subindo | Puxar com força
+PR: Couch stretch
+RG: Usar uma toalha no tornozelo se não alcançar
+F: On_Your_Side_Quad_Stretch
+
+cm3_gluteo_sentado | Alongamento de Glúteo Sentado com Perna Cruzada | alongamento | Colchonete | ini | 🍑 | colchonete | ca | b | C5R | 2 | 30 s cada lado
+P: Glúteos, Piriforme
+S: Rotadores do Quadril, Eretores da Espinha
+I: Sente no chão com as pernas estendidas | Cruze a perna direita sobre a esquerda apoiando o pé ao lado do joelho esquerdo | Abrace o joelho direito com o braço esquerdo e puxe-o em direção ao peito | Mantenha a coluna alta e gire levemente o tronco para a direita | Segure e troque
+E: Arredondar as costas | Quadril saindo do chão | Girar com tranco
+PR: Posição do pombo
+RG: Alongamento de glúteo na cadeira
+F: Seated_Glute
+
+cm3_gluteo_cadeira | Alongamento de Glúteo na Cadeira (Figura 4) | alongamento | Cadeira | ini | 4️⃣ | cadeira | c | b | C5R | 2 | 30 s cada lado
+P: Glúteos, Piriforme
+S: Rotadores do Quadril
+I: Sente na ponta de uma cadeira firme com os pés no chão | Cruze o tornozelo direito sobre o joelho esquerdo formando um 4 | Com as costas retas, incline o tronco à frente a partir do quadril | Pressione suavemente o joelho direito para baixo se quiser mais alongamento | Segure e troque
+E: Arredondar as costas | Forçar o joelho com dor | Tornozelo apoiado em cima da patela
+PR: Alongamento de glúteo sentado com perna cruzada
+RG: Só cruzar a perna sem inclinar o tronco
+
+cm3_adutor_borboleta_deitada | Alongamento de Adutores Deitado (Borboleta Deitada) | alongamento | Colchonete | ini | 🦋 | colchonete | ca | b | C5R | 2 | 45-60 s
+P: Adutores
+S: Rotadores do Quadril, Flexores do Quadril
+I: Deite de costas com os joelhos dobrados | Junte as solas dos pés e deixe os joelhos caírem para os lados | Coloque almofadas embaixo dos joelhos se sentir tensão forte | Relaxe os braços ao lado do corpo e respire fundo | Mantenha a lombar apoiada no chão
+E: Empurrar os joelhos para baixo com as mãos | Lombar arqueada | Pés longe demais do quadril
+PR: Alongamento do sapo
+RG: Usar mais almofadas sob os joelhos
+F: Lying_Bent_Leg_Groin
+
+cm3_banda_it_pe | Alongamento Lateral de Quadril em Pé | alongamento | Peso corporal ou parede | ini | ↔️ | parede | ca | b | C5R | 2 | 30 s cada lado
+P: Abdutores, Glúteo Médio
+S: Oblíquos, Quadrado Lombar
+I: Fique em pé de lado para a parede com a mão apoiada nela | Cruze a perna mais próxima da parede por trás da outra | Empurre o quadril em direção à parede | Incline o tronco levemente para o lado oposto | Segure sentindo a lateral da coxa e do quadril alongar e troque
+E: Girar o quadril | Inclinar o tronco para frente | Joelho de trás dobrado
+PR: Liberação do trato iliotibial no foam roller
+RG: Fazer sem cruzar as pernas
+
+# ===================== LIBERAÇÃO MIOFASCIAL (FOAM ROLLER) =====================
+
+cm3_rolo_quadriceps | Liberação de Quadríceps no Foam Roller | mobilidade | Foam roller | ini | 🧻 | foam_roller | ca | b | CR | 1 | 60 s cada lado
+P: Quadríceps
+S: Reto Femoral, Flexores do Quadril
+I: Deite de bruços apoiado nos antebraços com o rolo sob as coxas | Role devagar do quadril até acima do joelho | Pare 20 segundos nos pontos mais sensíveis respirando fundo | Gire levemente a perna para dentro e para fora para pegar as laterais | Faça uma perna de cada vez para aumentar a pressão
+E: Rolar sobre o joelho | Rolar rápido demais | Afundar a lombar
+PR: Rolar uma perna por vez com a outra cruzada por cima
+RG: Duas pernas ao mesmo tempo
+F: Quadriceps-SMR
+
+cm3_rolo_panturrilha | Liberação de Panturrilha no Foam Roller | mobilidade | Foam roller | ini | 🧻 | foam_roller | ca | b | C5R | 1 | 60 s cada lado
+P: Gastrocnêmio, Sóleo
+S: Tornozelo
+I: Sente no chão com o rolo sob as panturrilhas e as mãos apoiadas atrás | Eleve o quadril do chão | Role do tornozelo até abaixo do joelho | Gire a perna para dentro e para fora para trabalhar as laterais | Cruze uma perna sobre a outra para aumentar a pressão
+E: Rolar sobre o tendão de Aquiles com força | Movimento rápido | Ombros encolhidos
+PR: Pernas cruzadas
+RG: Quadril apoiado no chão
+F: Calves-SMR
+
+cm3_rolo_latissimo | Liberação de Latíssimo no Foam Roller | mobilidade | Foam roller | ini | 🧻 | foam_roller | ca | b | CR | 1 | 60 s cada lado
+P: Latíssimo
+S: Redondo Maior, Serrátil
+I: Deite de lado com o rolo sob a axila e o braço de baixo estendido acima da cabeça | Polegar apontando para o teto | Role devagar da axila até o meio das costas | Gire levemente o tronco para frente e para trás para pegar diferentes fibras | Respire fundo nos pontos sensíveis
+E: Rolar sobre a lombar | Braço dobrado | Prender a respiração
+PR: Alongamento de latíssimo com uma mão na parede logo em seguida
+RG: Reduzir o peso apoiando mais o pé de cima
+F: Latissimus_Dorsi-SMR
+
+cm3_rolo_banda_it | Liberação de Trato Iliotibial no Foam Roller | mobilidade | Foam roller | int | 🧻 | foam_roller | ca | b | CR | 1 | 60 s cada lado
+P: Abdutores
+S: Glúteo Médio, Quadríceps
+I: Deite de lado com o rolo sob a lateral da coxa | Apoie o antebraço no chão e o pé de cima à frente da outra perna | Role devagar do quadril até acima do joelho | Pare nos pontos sensíveis por 15-20 segundos | Use o pé de cima para dosar a pressão
+E: Rolar sobre o joelho ou osso do quadril | Pressão excessiva | Rolar rápido
+PR: Pernas sobrepostas
+RG: Mais peso no pé de cima
+F: Iliotibial_Tract-SMR
+
+cm3_rolo_isquiotibiais | Liberação de Isquiotibiais no Foam Roller | mobilidade | Foam roller | ini | 🧻 | foam_roller | ca | b | C5R | 1 | 60 s cada lado
+P: Isquiotibiais
+S: Glúteos
+I: Sente com o rolo sob a parte de trás das coxas e as mãos apoiadas atrás | Eleve o quadril do chão | Role do glúteo até acima do joelho | Gire as pernas para dentro e para fora | Cruze uma perna sobre a outra para aumentar a pressão
+E: Rolar atrás do joelho | Ombros encolhidos | Movimento rápido
+PR: Uma perna de cada vez
+RG: Quadril apoiado no chão
+F: Hamstring-SMR
+
+cm3_rolo_gluteo | Liberação de Glúteo e Piriforme no Foam Roller | mobilidade | Foam roller | ini | 🧻 | foam_roller | ca | b | C5R | 1 | 60 s cada lado
+P: Glúteos, Piriforme
+S: Rotadores do Quadril
+I: Sente sobre o rolo e cruze o tornozelo direito sobre o joelho esquerdo | Incline o corpo para o lado direito, apoiando a mão no chão | Role devagar sobre o glúteo direito | Pare 20 segundos nos pontos sensíveis | Troque o lado
+E: Rolar sobre a lombar | Rolar rápido | Prender a respiração
+PR: Usar bola de tênis ou lacrosse no lugar do rolo
+RG: Sem cruzar a perna
+F: Piriformis-SMR
+
+cm3_rolo_adutor | Liberação de Adutores no Foam Roller | mobilidade | Foam roller | ini | 🧻 | foam_roller | ca | b | CR | 1 | 60 s cada lado
+P: Adutores
+S: Isquiotibiais
+I: Deite de bruços apoiado nos antebraços | Abra uma perna para o lado com o joelho dobrado e coloque o rolo sob a parte interna da coxa | Role devagar da virilha até perto do joelho | Pare nos pontos sensíveis respirando fundo | Troque o lado
+E: Rolar sobre o joelho | Lombar afundando | Pressão excessiva
+PR: Mobilidade com balanço do sapo em seguida
+RG: Rolar só a metade de baixo da coxa
+F: Adductor

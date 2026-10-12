@@ -1,0 +1,751 @@
+# V3 — QUADRÍCEPS, PANTURRILHA (GASTROCNÊMIO / SÓLEO) E TIBIAL ANTERIOR — origem trivox_v2
+# Objetivo: sempre haver substituto quando um aparelho estiver ocupado + variação em casa
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+# P: primários | S: secundários | I: instruções (" | ") | E: erros (" | ") | PR: progressão | RG: regressão | F: fedb_id
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA: HACK / MÁQUINAS DE AGACHAMENTO
+# =====================================================================
+
+qp3_hack_base_fechada | Hack Squat com Base Fechada | pernas | Máquina hack | int | 🦵 | hack | a | b | CH | 4 | 8-12
+P: Quadríceps
+S: Glúteos, Adutores
+I: Encoste costas e ombros nas almofadas e posicione os pés juntos (a um palmo) no meio-baixo da plataforma | Destrave a máquina mantendo os joelhos levemente flexionados | Desça em 2-3 segundos deixando os joelhos avançarem na direção dos dedos, até as coxas passarem da paralela | Empurre a plataforma com o pé inteiro, sem tirar os calcanhares | Pare antes de travar os joelhos e mantenha a lombar colada no encosto
+E: Calcanhares saindo da plataforma no fundo | Joelhos fechando para dentro na subida | Lombar descolando do encosto ao descer demais
+PR: Hack squat unilateral
+RG: Hack squat tradicional com carga leve
+F: Narrow_Stance_Hack_Squats
+
+qp3_hack_unilateral | Hack Squat Unilateral | pernas | Máquina hack | ava | 🦿 | hack | a | b | H | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Glúteo Médio, Core
+I: Posicione-se na máquina hack com carga de no máximo 40% do que usa com as duas pernas | Apoie um pé no centro da plataforma e deixe o outro solto à frente, sem tocar | Destrave e desça controlando até o joelho chegar a cerca de 90° | Empurre com o pé inteiro mantendo o joelho alinhado com o segundo dedo | Complete as repetições e troque de perna sem soltar as travas de segurança
+E: Carga alta demais (quadril gira para o lado livre) | Joelho caindo para dentro | Apoiar o pé livre para ajudar
+PR: Hack unilateral com pausa no fundo
+RG: Hack squat com base fechada
+
+qp3_hack_pausa | Hack Squat com Pausa no Fundo | pernas | Máquina hack | ava | ⏸️ | hack | a | b | H | 4 | 6-8
+P: Quadríceps
+S: Glúteos, Adutores
+I: Ajuste-se na hack com os pés na largura dos ombros, no meio da plataforma | Desça em 3 segundos até o ponto mais profundo que mantém a lombar apoiada | Segure 2 segundos parado no fundo, sem relaxar a musculatura | Suba com força, expirando, sem quicar | Use 15-20% menos carga que no hack normal
+E: Relaxar no fundo e "sentar" nas articulações | Quicar para sair da pausa | Encurtar a pausa com o cansaço
+PR: Hack squat unilateral
+RG: Hack squat sem pausa
+
+qp3_pendulo | Agachamento Pêndulo (Pendulum Squat) | pernas | Máquina pêndulo / hack pendular | int | 🕰️ | hack | a | b | CH | 4 | 10-12
+P: Quadríceps
+S: Glúteos, Adutores
+I: Apoie os ombros nas almofadas e as costas no encosto, pés na largura do quadril no centro da plataforma | Solte a trava e deixe o encosto descer em arco, joelhos avançando à frente | Desça até o fundo confortável, com coxas bem abaixo da paralela | Empurre a plataforma com o pé inteiro até quase estender os joelhos | Mantenha a cabeça apoiada e o abdômen contraído durante toda a série
+E: Pés altos demais (tira o foco do quadríceps) | Amplitude curta | Travar os joelhos no topo
+PR: Pêndulo com pausa de 2 segundos no fundo
+RG: Hack squat com amplitude menor
+
+qp3_agach_maquina_deitado | Agachamento na Máquina Deitado (Agachamento Reclinado) | pernas | Máquina de agachamento deitado | ini | 🛌 | hack | a | b | CPH | 3 | 10-15
+P: Quadríceps
+S: Glúteos, Isquiotibiais
+I: Deite de costas na máquina com os ombros sob as almofadas e os pés na plataforma na largura do quadril | Destrave e deixe os joelhos descerem até as coxas ficarem um pouco abaixo da paralela | Empurre a plataforma com o pé inteiro até quase estender os joelhos | Volte devagar, mantendo a lombar colada no encosto | Expire ao empurrar e inspire ao descer
+E: Esticar totalmente e travar os joelhos | Lombar desencostando no fundo | Descer de forma descontrolada
+PR: Hack squat
+RG: Leg press horizontal
+F: Lying_Machine_Squat
+
+qp3_hack_barra | Hack Squat com Barra (Barra Atrás das Pernas) | pernas | Barra livre | ava | 🏋️ | barra | a | b | H | 4 | 6-10
+P: Quadríceps
+S: Glúteos, Trapézio, Antebraços, Core
+I: Coloque a barra no chão atrás dos calcanhares e fique de pé, pés na largura dos ombros | Agache e segure a barra por trás com as palmas para trás, braços estendidos | Suba empurrando o chão, peito aberto e a barra deslizando colada às pernas | Desça controlando até a barra passar logo abaixo dos joelhos, sem arredondar as costas | Mantenha o olhar à frente durante toda a série
+E: Arredondar a lombar ao pegar a barra | Barra se afastando das pernas | Usar os braços para puxar
+PR: Hack com barra com calcanhares elevados
+RG: Agachamento com halteres ao lado do corpo
+F: Barbell_Hack_Squat
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA: LEG PRESS
+# =====================================================================
+
+qp3_leg_press_excentrico | Leg Press 45° Excêntrico Lento | pernas | Máquina leg press 45° | int | 🐢 | leg_press | a | b | H5 | 3 | 8-10 (4 s na descida)
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores
+I: Sente com as costas e o quadril bem apoiados, pés na largura do quadril no meio da plataforma | Use cerca de 70% da carga habitual e destrave a plataforma | Desça contando 4 segundos até os joelhos chegarem a cerca de 90° | Empurre em 1 segundo até quase estender, sem travar | Respire de forma contínua: inspire na descida e expire ao empurrar
+E: Acelerar a descida no fim da série | Quadril saindo do banco no fundo | Prender a respiração
+PR: Leg press 45° unilateral com descida lenta
+RG: Leg press horizontal
+
+qp3_leg_press_vertical | Leg Press Vertical | pernas | Máquina leg press vertical | int | ⬆️ | leg_press | a | b | H | 4 | 10-12
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Panturrilha
+I: Deite com a lombar e o quadril apoiados no banco, pés na plataforma acima do corpo na largura do quadril | Destrave e desça a plataforma dobrando os joelhos em direção ao peito, até cerca de 90° | Empurre verticalmente sem tirar o quadril do banco | Pare antes de estender totalmente os joelhos e repita | Trave a plataforma sempre que for parar
+E: Descer demais e enrolar o quadril | Travar os joelhos com carga sobre a cabeça | Esquecer a trava ao terminar
+PR: Leg press vertical unilateral
+RG: Leg press 45°
+
+qp3_leg_press_smith | Leg Press no Smith (Deitado no Chão) | pernas | Máquina Smith + colchonete | int | 🔩 | smith | a | b | H | 3 | 10-12
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores
+I: Deixe a barra do Smith na trava mais baixa e deite de costas sob ela, sobre um colchonete | Apoie o meio dos pés na barra e destrave girando a barra | Desça a barra trazendo os joelhos em direção ao peito, até cerca de 90° | Empurre até quase estender as pernas e trave a barra ao final | Ajuste as travas de segurança uma altura abaixo do ponto mais baixo
+E: Apoiar só a ponta dos pés (a barra escorrega) | Esquecer de ajustar as travas de segurança | Descer até o quadril rolar do chão
+PR: Leg press no Smith unilateral
+RG: Leg press horizontal
+F: Smith_Machine_Leg_Press
+
+qp3_leg_press_horiz_uni | Leg Press Horizontal Unilateral | pernas | Máquina leg press horizontal | ini | 1️⃣ | leg_press | a | b | CH5R | 3 | 10-12 cada perna
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Isquiotibiais
+I: Sente no leg press horizontal com as costas apoiadas e coloque um pé no centro da plataforma | Deixe o outro pé apoiado no chão ou no suporte | Empurre a plataforma até quase estender o joelho, mantendo-o alinhado com o segundo dedo | Volte devagar até cerca de 90° de joelho | Comece pelo lado mais fraco e repita o mesmo número de repetições no outro
+E: Joelho fugindo para dentro | Girar o quadril para ajudar | Carga alta que tira a amplitude
+PR: Leg press 45° unilateral
+RG: Leg press horizontal com as duas pernas
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA: EXTENSORA E POLIA
+# =====================================================================
+
+qp3_extensora_isometria | Cadeira Extensora com Isometria no Topo | pernas | Cadeira extensora | ini | ⏱️ | cadeira_extensora | a | b | CH5 | 3 | 10-12 (2 s no topo)
+P: Quadríceps
+S: Reto Femoral
+I: Ajuste o encosto para o joelho ficar alinhado ao eixo da máquina e o rolo logo acima do tornozelo | Segure as alças laterais e mantenha o quadril colado no banco | Estenda os joelhos até ficarem retos e segure 2 segundos contraindo a coxa | Desça em 3 segundos até cerca de 90° | Use carga que permita segurar o topo sem tremer o quadril
+E: Eixo do joelho desalinhado com o da máquina | Chutar o peso sem segurar o topo | Levantar o quadril do banco
+PR: Extensora excêntrica unilateral
+RG: Extensão de joelho sentado na cadeira
+
+qp3_extensora_excentrica | Cadeira Extensora Excêntrica (Sobe com 2, Desce com 1) | pernas | Cadeira extensora | ava | 🔻 | cadeira_extensora | a | b | H | 3 | 6-8 cada perna
+P: Quadríceps
+S: Reto Femoral
+I: Ajuste a extensora normalmente e escolha uma carga que você estende com as duas pernas com folga | Estenda os joelhos com as duas pernas até o topo | Tire uma perna e desça o peso só com a outra, contando 4-5 segundos | Volte a subir com as duas e desça agora com a outra perna | Alterne até completar as repetições de cada lado
+E: Carga alta que faz o peso cair na descida | Descer rápido demais | Tirar o quadril do banco
+PR: Sissy squat com anilha
+RG: Cadeira extensora com isometria no topo
+
+qp3_extensao_polia | Extensão de Joelho na Polia Baixa | pernas | Polia baixa + tornozeleira | ini | 🔗 | polia | a | b | H5 | 3 | 12-15 cada perna
+P: Quadríceps
+S: Reto Femoral, Core
+I: Prenda a tornozeleira na polia baixa e sente num banco alto de costas para a polia | Segure nas laterais do banco e deixe o joelho dobrado a cerca de 90° | Estenda o joelho até ficar reto e segure 1 segundo | Volte devagar sem deixar a anilha encostar na pilha | Complete o lado e troque a tornozeleira de perna
+E: Banco baixo demais (pé toca o chão) | Balançar o tronco para ajudar | Soltar a descida
+PR: Cadeira extensora excêntrica
+RG: Extensão de joelho com elástico
+
+qp3_tke_polia | Extensão Terminal de Joelho na Polia (TKE) | pernas | Polia baixa + corda ou alça | ini | 🦵 | polia | a | b | C5R | 3 | 15-20 cada perna
+P: Quadríceps
+S: Panturrilha, Glúteos
+I: Passe a alça ou cinto da polia baixa atrás do joelho, de frente para a máquina | Dê alguns passos para trás até sentir o cabo puxar o joelho para frente | Comece com o joelho levemente dobrado e o calcanhar no chão | Estenda o joelho completamente apertando a coxa e segure 1 segundo | Volte devagar e complete o lado
+E: Tirar o calcanhar do chão | Inclinar o tronco em vez de estender o joelho | Carga que impede a extensão completa
+PR: Step down no degrau
+RG: Extensão terminal com elástico leve
+
+qp3_extensao_halter_banco | Extensão de Joelho com Halter entre os Pés | pernas | Halter + banco alto | int | 🏺 | halteres | a | b | H | 3 | 10-12
+P: Quadríceps
+S: Reto Femoral, Core
+I: Sente na ponta de um banco alto, com as coxas apoiadas e os joelhos para fora da borda | Peça ajuda ou use as mãos para prender um halter leve na vertical entre os pés | Segure nas laterais do banco e estenda os joelhos até ficarem retos | Desça devagar até cerca de 90°, mantendo os pés apertando o halter | Pare a série se o halter começar a escorregar
+E: Halter pesado demais e mal preso | Descer rápido (risco de soltar o peso) | Afastar os pés durante a série
+PR: Cadeira extensora excêntrica
+RG: Extensão de joelho na polia baixa
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA: SISSY
+# =====================================================================
+
+qp3_sissy_banco | Sissy Squat no Aparelho (Banco Sissy) | pernas | Banco/aparelho sissy | int | 🪝 | banco | a | b | H | 3 | 8-12
+P: Quadríceps
+S: Reto Femoral, Core
+I: Prenda os tornozelos sob os rolos e apoie a panturrilha alta no suporte acolchoado | Cruze os braços no peito ou segure uma anilha leve | Incline o corpo para trás dobrando os joelhos, formando uma linha reta dos joelhos aos ombros | Desça até o ponto em que ainda consegue voltar sem dor, sentindo a coxa alongar | Suba empurrando os joelhos para frente e contraindo a coxa
+E: Quebrar o quadril (vira agachamento comum) | Descer além do controle | Arquear a lombar
+PR: Sissy squat com anilha livre
+RG: Sissy squat assistido
+
+qp3_sissy_anilha | Sissy Squat com Anilha | pernas | Anilha + suporte para apoio | ava | 🎯 | anilha | a | b | H | 3 | 8-10
+P: Quadríceps
+S: Reto Femoral, Core, Tornozelo
+I: Fique de pé ao lado do rack ou de uma barra fixa, segurando-a com uma mão e uma anilha no peito com a outra | Suba na ponta dos pés, pés na largura do quadril | Leve os joelhos para frente e o tronco para trás ao mesmo tempo, mantendo quadril e tronco alinhados | Desça até os joelhos ficarem perto do chão ou até onde controlar | Volte empurrando os joelhos para trás e contraindo a coxa
+E: Dobrar o quadril | Apoiar todo o peso no braço | Joelhos abrindo demais
+PR: Nórdico reverso com carga
+RG: Sissy squat no aparelho
+F: Weighted_Sissy_Squat
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA: SMITH
+# =====================================================================
+
+qp3_agach_smith_frontal | Agachamento Frontal no Smith | pernas | Máquina Smith | int | 🔩 | smith | a | b | CH | 4 | 8-10
+P: Quadríceps
+S: Glúteos, Core, Eretores da Espinha
+I: Apoie a barra do Smith na frente dos ombros, cotovelos altos à frente (ou braços cruzados) | Pés na largura dos ombros, um pouco à frente da linha da barra | Destrave e desça com o tronco ereto até as coxas ficarem paralelas ou abaixo | Suba empurrando o chão e mantendo os cotovelos altos | Ajuste as travas de segurança logo abaixo do ponto mais baixo
+E: Cotovelos caindo (a barra rola) | Pés atrás da barra (sobrecarrega o joelho) | Tronco inclinando à frente
+PR: Agachamento frontal com barra livre
+RG: Agachamento no Smith
+
+qp3_bulgaro_smith | Agachamento Búlgaro no Smith | pernas | Máquina Smith + banco | int | 🔩 | smith | a | b | CH | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Isquiotibiais, Core
+I: Coloque um banco a cerca de 70 cm atrás da barra do Smith | Posicione a barra nas costas e apoie o peito do pé de trás no banco | Ajuste o pé da frente para que o joelho fique alinhado sobre o pé no fundo | Destrave e desça até o joelho de trás quase tocar o chão | Suba empurrando com o pé da frente e trave a barra ao trocar de lado
+E: Pé da frente muito perto do banco | Empurrar com a perna de trás | Esquecer de travar antes de trocar
+PR: Búlgaro com barra livre
+RG: Afundo no Smith
+F: Smith_Single-Leg_Split_Squat
+
+qp3_pistol_smith | Agachamento Unilateral no Smith (Pistol no Smith) | pernas | Máquina Smith | ava | 🎯 | smith | a | b | H | 3 | 6-8 cada perna
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Core, Equilíbrio
+I: Posicione a barra do Smith nas costas com carga leve e pés cerca de 30 cm à frente da barra | Tire um pé do chão e mantenha-o estendido à frente | Destrave e desça em uma perna só até o joelho passar de 90° | Empurre com o pé inteiro até subir, mantendo o joelho alinhado | Trave a barra antes de trocar de perna
+E: Calcanhar saindo do chão | Joelho caindo para dentro | Carga alta antes de dominar a amplitude
+PR: Pistol squat com kettlebell
+RG: Agachamento búlgaro no Smith
+F: Smith_Machine_Pistol_Squat
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA: BARRA LIVRE
+# =====================================================================
+
+qp3_frankenstein | Agachamento Frontal sem as Mãos (Frankenstein) | pernas | Barra livre | ava | 🧟 | barra | a | b | H | 4 | 5-8
+P: Quadríceps
+S: Core, Eretores da Espinha, Glúteos
+I: Retire a barra do rack apoiando-a sobre os deltoides da frente, perto do pescoço | Estenda os braços à frente na altura dos ombros, sem tocar a barra | Desça com tronco bem ereto até as coxas ficarem paralelas | Suba mantendo o peito alto para a barra não rolar | Use carga leve: o objetivo é postura e quadríceps
+E: Inclinar o tronco (a barra cai) | Carga alta | Braços baixando durante a série
+PR: Agachamento frontal com barra
+RG: Agachamento goblet
+F: Frankenstein_Squat
+
+qp3_agach_base_fechada | Agachamento com Barra Base Fechada | pernas | Barra livre | int | 🦵 | barra | a | b | H | 4 | 8-10
+P: Quadríceps
+S: Glúteos, Core, Eretores da Espinha
+I: Apoie a barra no trapézio e posicione os pés a um palmo de distância, pontas para frente | Contraia o abdômen e mantenha o peito aberto | Desça deixando os joelhos avançarem até as coxas ficarem paralelas | Suba empurrando o chão com o pé inteiro | Se o calcanhar sair do chão, use uma anilha fina sob ele
+E: Calcanhares subindo | Tronco caindo à frente | Joelhos colando um no outro
+PR: Agachamento com pausa
+RG: Agachamento no Smith
+F: Narrow_Stance_Squats
+
+qp3_agach_base_aberta | Agachamento com Barra Base Aberta | pernas | Barra livre | int | ↔️ | barra | a | b | CH | 4 | 8-10
+P: Quadríceps, Adutores, Glúteos
+S: Isquiotibiais, Core
+I: Apoie a barra no trapézio e abra os pés cerca de 1,5 vez a largura dos ombros, pontas a 30-45° | Contraia o abdômen e mantenha o peito aberto | Desça empurrando os joelhos para fora na direção dos pés | Vá até as coxas ficarem paralelas, tronco mais vertical | Suba empurrando o chão e apertando os glúteos no topo
+E: Joelhos para dentro | Pontas dos pés retas com base aberta | Descer só até a metade
+PR: Agachamento com barra e elásticos
+RG: Agachamento sumô com kettlebell
+F: Wide_Stance_Barbell_Squat
+
+qp3_agach_barra_elasticos | Agachamento com Barra e Elásticos (Resistência Variável) | pernas | Barra + elásticos de força | ava | 💥 | barra | a | b | H | 5 | 3-5
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Core, Eretores da Espinha
+I: Prenda um elástico em cada ponta da barra e na base do rack, com tensão igual dos dois lados | Retire a barra e dê dois passos para trás com cuidado | Desça controlando até as coxas ficarem paralelas | Suba o mais rápido possível, vencendo a tensão crescente do elástico | Use cerca de 60-70% da carga máxima na barra
+E: Elásticos com tensões diferentes | Deixar o elástico puxar na descida | Subida lenta (perde o objetivo)
+PR: Agachamento com correntes
+RG: Agachamento com barra base fechada
+F: Squat_with_Bands
+
+qp3_afundo_barra | Afundo à Frente com Barra | pernas | Barra livre | int | 🏋️ | barra | a | b | CPH | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Core
+I: Apoie a barra no trapézio, pés na largura do quadril | Dê um passo longo à frente e desça até os dois joelhos ficarem perto de 90° | Mantenha o tronco ereto e o joelho da frente alinhado com o pé | Empurre o chão com o pé da frente e volte à posição inicial | Alterne as pernas ou complete um lado de cada vez
+E: Passo curto | Tronco caindo à frente | Joelho de trás batendo no chão
+PR: Passada com barra
+RG: Afundo no Smith
+F: Barbell_Lunge
+
+qp3_passada_barra | Passada com Barra (Afundo Caminhando) | pernas | Barra livre | ava | 🚶 | barra | a | b | CPH | 3 | 10-12 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Core, Equilíbrio
+I: Apoie a barra no trapézio e garanta um corredor livre de 10-15 metros | Dê um passo longo à frente e desça até o joelho de trás quase tocar o chão | Empurre com o pé da frente e traga a perna de trás direto para o próximo passo | Mantenha o tronco ereto e o olhar à frente durante o percurso | Pare e estabilize antes de virar
+E: Passos curtos e apressados | Perder o equilíbrio por base estreita (pés em linha) | Tronco inclinando com o cansaço
+PR: Passada com barra em déficit
+RG: Passada caminhando com halteres
+F: Barbell_Walking_Lunge
+
+qp3_step_up_barra | Step-Up com Barra | pernas | Barra livre + banco/caixa | ava | 📦 | barra | a | b | H | 3 | 8 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Core, Equilíbrio
+I: Coloque um banco firme ou caixa na altura do joelho e apoie a barra no trapézio | Coloque o pé inteiro sobre o banco | Suba empurrando só com a perna de cima até estender quadril e joelho | Desça devagar com a mesma perna, encostando a ponta do outro pé no chão | Complete as repetições e troque de perna
+E: Dar impulso com a perna de baixo | Caixa alta demais (quadril abaixo do joelho) | Inclinar a barra ao subir
+PR: Step-up com barra e caixa mais alta
+RG: Step-up com halteres
+F: Barbell_Step_Ups
+
+qp3_afundo_reverso_deficit | Afundo Reverso em Déficit com Barra | pernas | Barra livre + step | ava | 🔙 | barra | a | b | H | 3 | 8 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Core
+I: Fique em pé sobre um step de 10-15 cm com a barra no trapézio | Dê um passo para trás, descendo o pé de trás até o chão | Desça até o joelho de trás quase tocar o chão, ganhando amplitude no pé da frente | Empurre com o pé de cima e volte para o step | Complete o lado e troque
+E: Pé da frente com o calcanhar para fora do step | Tronco caindo à frente | Descer sem controle
+PR: Búlgaro com barra
+RG: Afundo reverso com halteres
+F: Elevated_Back_Lunge
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA: POLIA, LANDMINE, TRX, TRENÓ, BOSU
+# =====================================================================
+
+qp3_afundo_polia | Afundo Reverso na Polia Baixa | pernas | Polia baixa + alça | int | 🔗 | polia | a | b | CHR | 3 | 10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Core, Equilíbrio
+I: Segure a alça da polia baixa com as duas mãos junto ao peito, de frente para a máquina | Dê um passo para trás para tirar o peso da pilha | Faça o afundo reverso: passo para trás e joelho de trás quase no chão | Volte empurrando com o pé da frente, resistindo ao cabo que puxa para frente | Complete o lado e troque
+E: Deixar o cabo puxar o tronco à frente | Passo curto | Joelho da frente para dentro
+PR: Búlgaro na polia baixa
+RG: Afundo reverso com TRX
+
+qp3_bulgaro_polia | Agachamento Búlgaro na Polia Baixa | pernas | Polia baixa + banco | int | 🔗 | polia | a | b | H | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Core
+I: Coloque um banco a cerca de 80 cm da polia baixa e segure a alça junto ao peito | Fique de costas para o banco e apoie o peito do pé de trás nele | Desça até o joelho de trás quase tocar o chão, tronco levemente inclinado | Suba empurrando com o pé da frente, mantendo a alça junto ao corpo | Use quando os halteres estiverem ocupados — a tensão do cabo é constante
+E: Banco perto demais da polia (cabo puxa demais) | Pé da frente muito perto do banco | Inclinar o tronco para o lado
+PR: Búlgaro no Smith
+RG: Afundo reverso na polia baixa
+
+qp3_landmine_hack | Hack Squat no Landmine | pernas | Barra no landmine | ini | 🚀 | landmine | a | b | CH | 3 | 10-12
+P: Quadríceps
+S: Glúteos, Core
+I: Encaixe a barra no landmine e apoie a ponta carregada sobre um ombro, de costas para o suporte (ou use alça em V) | Afaste os pés na largura dos ombros, levemente à frente do corpo, inclinando-se contra a barra | Desça deixando os joelhos avançarem até as coxas ficarem paralelas | Suba empurrando o chão com o pé inteiro | Mantenha o tronco firme e encostado na barra
+E: Pés atrás demais (perde o efeito hack) | Barra escorregando do ombro | Joelhos para dentro
+PR: Hack squat unilateral
+RG: Agachamento landmine
+
+qp3_bosu_afundo | Afundo com Pé da Frente no Bosu | pernas_cal | Bosu | int | 🌗 | bosu | a | b | CR | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Tornozelo, Equilíbrio, Glúteo Médio
+I: Coloque o bosu com a cúpula para cima a um passo longo à frente | Pise no centro da cúpula com um pé, mantendo o outro atrás | Desça até os joelhos ficarem perto de 90°, controlando o joelho da frente sobre o pé | Empurre e volte à posição inicial, estabilizando antes de repetir | Complete o lado e troque
+E: Pisar na borda do bosu | Joelho da frente balançando para dentro | Descer rápido demais
+PR: Afundo no bosu com halteres
+RG: Afundo estático no chão
+
+# =====================================================================
+# QUADRÍCEPS — ACADEMIA E CASA: HALTERES / KETTLEBELL
+# =====================================================================
+
+qp3_agach_halteres_lado | Agachamento com Halteres ao Lado do Corpo | pernas | Halteres | ini | 🏋️ | halteres | ca | b | CPH5 | 3 | 10-12
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Antebraços, Core
+I: Segure um halter em cada mão ao lado do corpo, palmas voltadas para as coxas | Pés na largura dos ombros, pontas levemente para fora | Desça levando o quadril para trás e os joelhos na direção dos pés | Vá até onde mantiver a coluna neutra (coxas paralelas, se possível) | Suba empurrando o chão com o pé inteiro
+E: Arredondar as costas para os halteres chegarem ao chão | Calcanhares subindo | Joelhos para dentro
+PR: Agachamento frontal com halteres
+RG: Sentar e levantar da cadeira
+F: Dumbbell_Squat
+
+qp3_agach_frontal_halteres | Agachamento Frontal com Halteres nos Ombros | pernas | Halteres | int | 💪 | halteres | ca | b | CPH | 4 | 8-12
+P: Quadríceps
+S: Glúteos, Core, Eretores da Espinha
+I: Apoie uma extremidade de cada halter sobre os ombros, cotovelos apontando à frente | Pés na largura dos ombros | Desça com o tronco ereto até as coxas ficarem paralelas | Suba empurrando o chão e mantendo os cotovelos altos | Expire ao subir
+E: Cotovelos caindo e tronco inclinando | Halteres escorregando dos ombros | Descer só até a metade
+PR: Agachamento frontal com barra
+RG: Agachamento com halteres ao lado do corpo
+
+qp3_agach_cyclist | Agachamento Cyclist (Calcanhares Elevados) com Halteres | pernas | Halteres + anilha ou cunha | ava | 🚴 | halteres | ca | b | H | 4 | 10-15
+P: Quadríceps
+S: Glúteos, Adutores
+I: Apoie os calcanhares sobre uma anilha, cunha ou livro grosso, pés juntos ou a um palmo | Segure um halter na vertical junto ao peito (ou dois ao lado do corpo) | Desça com o tronco ereto deixando os joelhos avançarem bem à frente | Vá o mais fundo possível mantendo o calcanhar apoiado | Suba de forma contínua, sem travar no topo, para manter a tensão
+E: Tronco inclinando à frente | Travar os joelhos no topo | Calcanhar escorregando do apoio
+PR: Cyclist squat com pausa no fundo
+RG: Agachamento goblet
+
+qp3_afundo_reverso_halteres | Afundo Reverso com Halteres | pernas | Halteres | ini | 🔙 | halteres | ca | b | CPH5R | 3 | 10 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Core
+I: Fique em pé com um halter leve em cada mão ao lado do corpo | Dê um passo para trás com uma perna, apoiando a ponta do pé | Desça até os joelhos ficarem perto de 90° com o tronco ereto | Empurre com o pé da frente e traga a perna de trás de volta | Alterne as pernas ou complete um lado
+E: Passo curto | Tronco caindo à frente | Joelho da frente fechando
+PR: Afundo reverso em déficit com barra
+RG: Afundo reverso sem peso
+F: Dumbbell_Rear_Lunge
+
+qp3_passada_halteres | Passada Caminhando com Halteres | pernas | Halteres | int | 🚶 | halteres | ca | b | CPHR | 3 | 10-12 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Antebraços, Equilíbrio
+I: Segure um halter em cada mão ao lado do corpo e escolha um corredor livre de 10 metros | Dê um passo longo à frente e desça até o joelho de trás quase tocar o chão | Empurre com o pé da frente e leve a perna de trás direto ao próximo passo | Mantenha o tronco ereto e os pés afastados na largura do quadril | Respire de forma ritmada: inspire ao descer, expire ao subir
+E: Passos curtos | Halteres balançando | Bater o joelho de trás no chão
+PR: Passada com barra
+RG: Passada alternada sem peso
+
+qp3_step_up_lateral_halteres | Step-Up Lateral com Halteres | pernas | Halteres + step/banco | int | ➡️ | halteres | ca | b | CHR | 3 | 10 cada perna
+P: Quadríceps, Glúteo Médio
+S: Glúteos, Adutores, Equilíbrio
+I: Fique de lado para um step ou banco baixo (20-40 cm), um halter em cada mão | Apoie o pé de dentro inteiro sobre o step | Suba lateralmente empurrando só com a perna de cima até estendê-la | Desça devagar tocando levemente o chão com o pé de fora | Complete as repetições e troque de lado
+E: Impulso com a perna de baixo | Joelho de cima caindo para dentro | Step alto demais para o nível
+PR: Step-up lateral com step mais alto
+RG: Step-up lateral sem peso
+
+qp3_kb_pistol | Pistol Squat com Kettlebell (Contrapeso) | pernas | Kettlebell | ava | 🔫 | kettlebell | ca | b | H | 3 | 5-8 cada perna
+P: Quadríceps, Glúteos
+S: Core, Equilíbrio, Tornozelo
+I: Segure um kettlebell leve pelas alças com os braços estendidos à frente — ele funciona como contrapeso | Equilibre-se numa perna, com a outra estendida à frente | Desça devagar até o fundo, mantendo o calcanhar no chão | Suba empurrando com o pé inteiro sem deixar o joelho cair para dentro | Complete as repetições e troque de perna
+E: Calcanhar subindo no fundo | Perder a tensão e "cair" no fundo | Joelho para dentro na subida
+PR: Pistol squat com kettlebell em rack
+RG: Pistol assistido na caixa
+F: Kettlebell_Pistol_Squat
+
+qp3_kb_rack_unilateral | Agachamento com Kettlebell em Rack Unilateral | pernas | Kettlebell | int | 🔔 | kettlebell | ca | b | CPH | 3 | 8-10 cada lado
+P: Quadríceps, Glúteos
+S: Oblíquos, Core, Eretores da Espinha
+I: Leve um kettlebell à posição de rack em um ombro (alça na mão, sino apoiado no antebraço) | Pés na largura dos ombros e o outro braço livre ao lado | Desça até as coxas ficarem paralelas sem inclinar o tronco para o lado do peso | Suba empurrando o chão e mantendo o punho reto | Complete a série e troque o kettlebell de lado
+E: Inclinar o tronco para o lado da carga | Punho dobrado para trás | Cotovelo afastado do corpo
+PR: Agachamento frontal com 2 kettlebells
+RG: Agachamento goblet
+
+# =====================================================================
+# QUADRÍCEPS — CASA
+# =====================================================================
+
+qp3_agach_elastico | Agachamento com Elástico | pernas_cal | Elástico de resistência com alças | ini | 🎗️ | elastico | ca | b | CPH5 | 3 | 12-15
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Ombros, Core
+I: Pise no meio do elástico com os pés na largura dos ombros | Leve as alças até a altura dos ombros, palmas para frente | Desça levando o quadril para trás até as coxas ficarem perto da paralela | Suba empurrando o chão contra a tensão do elástico, que aumenta no topo | Mantenha as mãos nos ombros durante toda a série
+E: Elástico pisado de forma desigual | Deixar as mãos caírem | Joelhos para dentro
+PR: Agachamento com mochila
+RG: Agachamento corporal até a cadeira
+F: Squats_-_With_Bands
+
+qp3_agach_toalha_porta | Agachamento Profundo Segurando Toalha na Porta | pernas_cal | Toalha + porta firme | ini | 🚪 | toalha | c | b | C5 | 3 | 10-12
+P: Quadríceps, Glúteos
+S: Adutores, Tornozelo, Latíssimo
+I: Dê um nó na ponta de uma toalha grossa e prenda-a do outro lado de uma porta fechada e trancada | Segure a toalha com as duas mãos, braços estendidos, pés na largura dos ombros | Desça levando o quadril para trás e para baixo, usando a toalha como apoio | Vá até o fundo confortável mantendo os calcanhares no chão | Suba empurrando o chão, puxando a toalha só o necessário
+E: Porta destrancada (pode abrir) | Pendurar o corpo na toalha | Calcanhares subindo
+PR: Agachamento corporal sem apoio
+RG: Sentar e levantar da cadeira
+
+qp3_extensao_joelho_elastico | Extensão de Joelho Sentado com Elástico | pernas_cal | Elástico + cadeira | ini | 🪑 | elastico | ca | b | CH5 | 3 | 15 cada perna
+P: Quadríceps
+S: Reto Femoral
+I: Sente numa cadeira firme e prenda uma ponta do elástico no pé de trás da cadeira | Passe a outra ponta em volta do tornozelo, joelho dobrado a 90° | Estenda o joelho até a perna ficar reta, contraindo a coxa por 2 segundos | Volte devagar resistindo ao elástico | Complete o lado e troque
+E: Elástico frouxo (sem tensão no início) | Encostar as costas e escorregar na cadeira | Soltar a perna de uma vez
+PR: Extensão de joelho na polia baixa
+RG: Extensão de joelho sentado sem elástico
+
+qp3_step_up_cruzado | Step-Up Cruzado no Degrau | pernas_cal | Degrau ou step | ini | ✖️ | degrau_step | ca | b | CPR | 3 | 10 cada perna
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Adutores, Coordenação
+I: Fique de lado para um degrau de 20-30 cm | Cruze a perna de fora à frente da outra e apoie o pé inteiro no degrau | Suba empurrando com essa perna até ficar em pé sobre ela | Desça devagar pelo mesmo caminho | Complete o lado e troque — imita o passo cruzado da quadra
+E: Apoiar só a ponta do pé no degrau | Impulso com a perna de baixo | Tronco girando demais
+PR: Step-up cruzado com halteres
+RG: Step-up lateral no degrau
+
+qp3_step_up_alto_mochila | Step-Up Alto com Mochila | pernas_cal | Mochila com peso + cadeira firme ou degrau alto | ava | 🎒 | mochila | c | b | CPH | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Core, Equilíbrio
+I: Coloque 5-12 kg na mochila e use uma cadeira firme encostada na parede ou um degrau na altura do joelho | Apoie o pé inteiro no assento | Incline levemente o tronco à frente e suba empurrando só com a perna de cima | Fique em pé no topo e desça devagar com a mesma perna | Complete as repetições e troque
+E: Cadeira com rodinhas ou instável | Dar impulso com o pé de baixo | Joelho caindo para dentro na subida
+PR: Step-up com barra
+RG: Step-up sem peso em degrau baixo
+
+qp3_petersen_step_up | Petersen Step-Up (Calcanhar Elevado) | pernas_cal | Degrau baixo | ini | 🦶 | degrau_step | ca | b | CH5R | 3 | 12-15 cada perna
+P: Quadríceps
+S: Glúteo Médio, Tornozelo
+I: Fique de pé sobre um degrau baixo (10-15 cm) com uma perna, o outro pé solto para fora da borda | Suba o calcanhar da perna de apoio, ficando na ponta do pé | Dobre o joelho levando-o à frente até a ponta do pé solto quase tocar o chão | Volte estendendo o joelho e baixando o calcanhar ao mesmo tempo | Segure numa parede se precisar de equilíbrio
+E: Deixar o quadril cair para o lado | Movimento rápido sem controle | Joelho indo para dentro
+PR: Step down no degrau
+RG: Mini agachamento com apoio na cadeira
+
+qp3_agach_unilat_bola | Agachamento Unilateral com Bola Suíça na Parede | pernas_cal | Bola suíça | int | ⚽ | bola_suica | ca | b | CH | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Core, Equilíbrio
+I: Coloque a bola suíça entre a parede e a lombar, pés um pouco à frente do corpo | Tire um pé do chão e estenda-o levemente à frente | Desça rolando a bola nas costas até o joelho de apoio chegar a cerca de 90° | Suba empurrando com o pé inteiro, joelho alinhado | Complete o lado e troque
+E: Pé de apoio muito perto da parede | Joelho caindo para dentro | Apoiar o pé livre no chão
+PR: Pistol assistido na caixa
+RG: Agachamento com bola suíça na parede
+
+qp3_bulgaro_bola | Agachamento Búlgaro com Pé na Bola Suíça | pernas_cal | Bola suíça | ava | 🎱 | bola_suica | ca | b | HR | 3 | 8 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Core, Equilíbrio
+I: Coloque a bola suíça atrás de você e apoie o peito do pé de trás sobre ela | Mantenha o pé da frente firme a um passo longo da bola | Desça deixando a bola rolar levemente para trás até o joelho de trás quase tocar o chão | Suba empurrando com o pé da frente e trazendo a bola de volta | Faça perto de uma parede para segurar se perder o equilíbrio
+E: Deixar a bola fugir lateralmente | Pé da frente perto demais | Tronco inclinado para o lado
+PR: Búlgaro na bola com halteres
+RG: Búlgaro no banco
+
+qp3_afundo_deslizante | Afundo Reverso Deslizante com Toalha | pernas_cal | Toalha em piso liso | int | 🧽 | toalha | c | b | CPH5 | 3 | 10 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Core
+I: Em piso liso (madeira, porcelanato), coloque uma toalha dobrada sob a ponta de um pé | Mantenha o peso na perna de apoio, com o pé inteiro no chão | Deslize o pé da toalha para trás enquanto desce até o joelho da frente chegar a 90° | Volte puxando a toalha para frente e empurrando com o pé da frente | Complete o lado e troque
+E: Colocar peso no pé que desliza | Usar em tapete (não desliza) | Tronco caindo à frente
+PR: Afundo deslizante com mochila
+RG: Afundo reverso segurando na cadeira
+
+qp3_wall_sit_unilateral | Cadeirinha Unilateral na Parede | pernas_cal | Parede | ava | 🧱 | parede | ca | b | CH | 3 | 15-30s cada perna
+P: Quadríceps
+S: Glúteos, Core
+I: Encoste as costas na parede e desça até a posição de cadeirinha (joelhos a 90°) | Estabilize com os dois pés no chão | Tire um pé do chão e mantenha a posição só com a outra perna | Segure o tempo combinado respirando normalmente | Volte a apoiar o pé, suba e troque de perna
+E: Quadril acima dos joelhos (fica fácil) | Prender a respiração | Joelho de apoio para dentro
+PR: Cadeirinha unilateral com mochila no colo
+RG: Cadeirinha bilateral
+
+qp3_afundo_pulsos | Afundo com Pulsos (Lunge Pulse) | pernas_cal | Peso corporal | ini | 🔂 | peso_corporal | ca | b | CP | 3 | 15 pulsos cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Core
+I: Fique na posição de afundo: um pé à frente, outro atrás na ponta, joelhos dobrados | Desça até perto de 90° nos dois joelhos | Faça pequenos movimentos de sobe e desce (5-10 cm) sem subir totalmente | Mantenha o tronco ereto e o peso no pé da frente | Complete os pulsos e troque de perna
+E: Subir demais e perder a tensão | Joelho da frente passando muito dos dedos | Tronco inclinado
+PR: Afundo com pulsos e mochila
+RG: Afundo estático isométrico
+
+qp3_afundo_isometrico | Afundo Isométrico (Split Squat Hold) | pernas_cal | Peso corporal | ini | 🧘 | peso_corporal | ca | b | CH5R | 3 | 20-40s cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Equilíbrio, Core
+I: Dê um passo largo à frente, pé de trás na ponta | Desça até os dois joelhos ficarem a cerca de 90°, joelho de trás a um palmo do chão | Mantenha a posição com o tronco ereto e o peso no pé da frente | Respire normalmente durante a isometria | Suba devagar e troque de perna (use uma cadeira ao lado para apoio, se precisar)
+E: Prender a respiração | Joelho de trás apoiado no chão | Peso jogado na perna de trás
+PR: Afundo com pulsos
+RG: Afundo estático com apoio
+
+qp3_agach_ponta_pes | Agachamento na Ponta dos Pés | pernas_cal | Peso corporal | int | 🩰 | peso_corporal | ca | b | CHR | 3 | 12-15
+P: Quadríceps, Panturrilha
+S: Glúteos, Tornozelo, Equilíbrio
+I: Fique em pé com os pés na largura do quadril e suba na ponta dos pés | Braços à frente para equilíbrio | Desça até as coxas ficarem perto da paralela sem baixar os calcanhares | Suba mantendo-se na ponta dos pés o tempo todo | Faça perto de uma parede se precisar de apoio
+E: Calcanhares tocando o chão no fundo | Joelhos abrindo para fora | Tronco caindo à frente
+PR: Agachamento na ponta dos pés com mochila
+RG: Agachamento corporal
+
+qp3_mini_agach_cadeira | Mini Agachamento com Apoio na Cadeira | pernas_cal | Cadeira firme | ini | 🪑 | cadeira | ca | b | C5 | 2 | 10-15
+P: Quadríceps
+S: Glúteos, Equilíbrio
+I: Fique atrás de uma cadeira firme, segurando o encosto com as duas mãos | Pés na largura do quadril e peso distribuído no pé inteiro | Dobre os joelhos levando o quadril para trás, descendo só um terço do agachamento (até 45°) | Suba apertando os glúteos e estendendo os joelhos | Aumente a profundidade aos poucos, conforme o conforto do joelho
+E: Pendurar o peso nas mãos | Joelhos indo muito à frente | Descer além do que é confortável
+PR: Sentar e levantar da cadeira
+RG: Extensão de joelho sentado
+
+# =====================================================================
+# PANTURRILHA (GASTROCNÊMIO / SÓLEO) — ACADEMIA
+# =====================================================================
+
+qp3_pant_barra_pe | Panturrilha em Pé com Barra | pernas | Barra livre + anilha/step | int | 🏋️ | barra | a | b | H | 4 | 10-15
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Core
+I: Retire a barra do rack apoiando-a no trapézio, como no agachamento | Apoie a parte da frente dos pés sobre uma anilha ou step baixo, calcanhares para fora | Desça os calcanhares até sentir alongar a panturrilha | Suba o máximo possível na ponta dos pés, joelhos estendidos, e segure 1 segundo | Faça dentro do rack com as travas de segurança ajustadas
+E: Dobrar os joelhos para dar impulso | Amplitude curta | Balançar a barra
+PR: Panturrilha balanço com barra
+RG: Panturrilha em pé com halteres
+F: Standing_Barbell_Calf_Raise
+
+qp3_pant_rocking | Panturrilha Balanço com Barra (Rocking Calf Raise) | pernas | Barra livre | ava | 🎢 | barra | a | b | HR | 3 | 12-15
+P: Gastrocnêmio, Tibial Anterior
+S: Sóleo, Tornozelo, Equilíbrio
+I: Apoie a barra no trapézio dentro do rack, pés na largura do quadril no chão | Suba na ponta dos pés o máximo possível | Desça e continue o movimento elevando as pontas dos pés, ficando sobre os calcanhares | Alterne ponta-calcanhar num balanço contínuo e controlado | Use carga leve — o objetivo é amplitude e controle
+E: Carga alta que tira o equilíbrio | Dobrar os joelhos | Balanço rápido sem controle
+PR: Panturrilha em pé com barra
+RG: Caminhada na ponta dos pés e nos calcanhares
+F: Rocking_Standing_Calf_Raise
+
+qp3_pant_barra_sentado | Panturrilha Sentado com Barra (Sóleo) | pernas | Barra + banco + step | int | 🪑 | barra | a | b | H5 | 4 | 12-20
+P: Sóleo
+S: Gastrocnêmio
+I: Coloque um step baixo a cerca de 30 cm de um banco e sente-se | Apoie a parte da frente dos pés no step e coloque a barra (com espuma) sobre as coxas, perto dos joelhos | Desça os calcanhares até alongar bem | Suba o máximo possível na ponta dos pés e segure 1 segundo | Joelhos sempre a 90° para focar no sóleo
+E: Barra sobre os joelhos (dor) | Usar as mãos para levantar a barra | Amplitude curta
+PR: Panturrilha sentado na máquina com pausa
+RG: Panturrilha sentado com halter unilateral
+F: Barbell_Seated_Calf_Raise
+
+qp3_pant_calf_press | Panturrilha na Máquina Calf Press | pernas | Máquina calf press (sentada) | ini | 🦶 | panturrilha_maquina | a | b | CH5 | 3 | 12-15
+P: Gastrocnêmio
+S: Sóleo, Tibial Anterior
+I: Ajuste o banco para os joelhos ficarem quase estendidos, sem travar | Apoie a parte da frente dos pés na plataforma e segure as alças | Empurre a plataforma com a ponta dos pés o máximo possível | Volte devagar deixando os calcanhares irem para trás e alongarem a panturrilha | Mantenha a mesma posição de joelho em toda a série
+E: Dobrar e estender o joelho (vira leg press) | Pés escorregando | Amplitude curta
+PR: Panturrilha em pé unilateral na máquina
+RG: Panturrilha no leg press
+F: Calf_Press
+
+qp3_pant_maquina_unilateral | Panturrilha em Pé Unilateral na Máquina | pernas | Máquina de panturrilha em pé | int | 1️⃣ | panturrilha_maquina | a | b | H | 3 | 10-12 cada perna
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Equilíbrio
+I: Posicione-se na máquina de panturrilha em pé com as almofadas sobre os ombros | Apoie só um pé na borda da plataforma e dobre a outra perna para trás | Desça o calcanhar até o máximo alongamento | Suba o mais alto possível na ponta do pé e segure 1 segundo | Complete o lado e troque, com o mesmo número de repetições
+E: Joelho dobrando para ajudar | Corpo inclinando para o lado | Repetições rápidas sem amplitude
+PR: Panturrilha em pé unilateral com pausa de 3 segundos embaixo
+RG: Panturrilha em pé bilateral
+
+qp3_pant_sentado_pausa | Panturrilha Sentado na Máquina com Pausa no Alongamento | pernas | Máquina de panturrilha sentado | int | ⏸️ | panturrilha_maquina | a | b | H | 4 | 10-12 (3 s embaixo)
+P: Sóleo
+S: Gastrocnêmio, Tibial Anterior
+I: Sente na máquina com as almofadas sobre as coxas, perto dos joelhos, e a frente dos pés na plataforma | Destrave e desça o calcanhar até o máximo alongamento | Segure 3 segundos parado no ponto mais baixo | Suba sem quicar até o máximo e segure 1 segundo | Use 20% menos carga que o habitual
+E: Quicar no fundo (usa o tendão, não o músculo) | Encurtar a pausa | Carga alta com amplitude curta
+PR: Panturrilha sentado com barra
+RG: Panturrilha sentado sem pausa
+
+qp3_pant_soleo_smith | Panturrilha Sentado no Smith | pernas | Máquina Smith + banco + step | ini | 🔩 | smith | a | b | H5 | 4 | 12-15
+P: Sóleo
+S: Gastrocnêmio
+I: Coloque um banco sob a barra do Smith e um step à frente | Sente e apoie a frente dos pés no step, joelhos a 90° | Ajuste a barra (com espuma) sobre as coxas, perto dos joelhos, e destrave | Desça os calcanhares até alongar e suba o máximo possível | Trave a barra ao final da série
+E: Barra apoiada nos joelhos | Esquecer de travar | Amplitude pequena
+PR: Panturrilha sentado com pausa no alongamento
+RG: Panturrilha sentado com halter unilateral
+
+qp3_pant_hack | Panturrilha na Máquina Hack | pernas | Máquina hack | ini | 🦵 | hack | a | b | H | 4 | 12-15
+P: Gastrocnêmio
+S: Sóleo, Tornozelo
+I: Posicione-se na hack de frente (peito no encosto) ou de costas, como preferir, joelhos estendidos | Apoie só a parte da frente dos pés na borda inferior da plataforma | Destrave e desça os calcanhares até o máximo alongamento | Suba na ponta dos pés o mais alto possível e segure 1 segundo | Trave a máquina ao terminar
+E: Dobrar os joelhos | Pés escorregando da borda | Esquecer as travas
+PR: Panturrilha em pé unilateral na máquina
+RG: Panturrilha no leg press
+
+qp3_pant_leg_press_uni | Panturrilha Unilateral no Leg Press | pernas | Máquina leg press 45° | int | 🦶 | leg_press | a | b | H | 3 | 12-15 cada perna
+P: Gastrocnêmio, Sóleo
+S: Tornozelo
+I: Sente no leg press e apoie só a parte da frente de um pé na borda inferior da plataforma | Estenda o joelho sem travar e mantenha a trava de segurança ao alcance | Empurre a plataforma com a ponta do pé o máximo possível | Volte devagar alongando a panturrilha | Complete o lado e troque, com carga bem menor que a bilateral
+E: Dobrar o joelho para ajudar | Pé escorregando | Carga alta e amplitude curta
+PR: Panturrilha em pé unilateral na máquina
+RG: Panturrilha no leg press bilateral
+
+qp3_pant_polia | Panturrilha em Pé na Polia Baixa | pernas | Polia baixa + alça ou cinto | ini | 🔗 | polia | a | b | H | 3 | 12-15
+P: Gastrocnêmio
+S: Sóleo, Tornozelo
+I: Coloque um step em frente à polia baixa e segure a alça com as duas mãos junto ao corpo (ou use cinto de carga) | Suba no step com a frente dos pés, calcanhares para fora | Desça os calcanhares até alongar | Suba na ponta dos pés o máximo possível mantendo os joelhos estendidos | Útil quando as máquinas de panturrilha estiverem ocupadas
+E: Puxar com os braços | Inclinar para trás | Joelhos dobrando
+PR: Panturrilha unilateral na polia
+RG: Panturrilha em pé com elástico
+
+qp3_pant_trx | Panturrilha Unilateral com Apoio no TRX | pernas_cal | TRX / fita de suspensão | ini | 🎗️ | trx | ca | b | C5R | 3 | 12-15 cada perna
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Equilíbrio
+I: Segure as alças do TRX de frente para a âncora, braços estendidos | Apoie-se em um pé, com o outro levemente dobrado atrás | Suba na ponta do pé de apoio o máximo possível | Desça devagar até o calcanhar tocar o chão | Use o TRX só para equilíbrio e complete o lado
+E: Puxar as alças para subir | Joelho de apoio dobrando | Descer rápido
+PR: Panturrilha unilateral sem apoio no degrau
+RG: Elevação de calcanhares bilateral com apoio
+
+qp3_pant_halteres_degrau | Panturrilha em Pé com Halteres no Degrau | pernas | Halteres + degrau | ini | 🏋️ | halteres | ca | b | CH | 3 | 12-15
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Antebraços
+I: Segure um halter em cada mão ao lado do corpo | Apoie a parte da frente dos pés num degrau, calcanhares para fora | Desça os calcanhares até alongar | Suba o máximo possível na ponta dos pés e segure 1 segundo | Se precisar de equilíbrio, use um halter só e apoie a outra mão na parede
+E: Dobrar os joelhos | Amplitude curta | Perder o equilíbrio por pressa
+PR: Panturrilha unilateral com kettlebell no degrau
+RG: Elevação de calcanhares com apoio
+F: Standing_Dumbbell_Calf_Raise
+
+qp3_pant_sobre_halter | Panturrilha em Pé sobre o Halter (Equilíbrio) | pernas | Halter com anilhas redondas | ava | 🎳 | halteres | ca | b | HR | 3 | 10-12 cada perna
+P: Gastrocnêmio
+S: Sóleo, Tornozelo, Perôneos, Equilíbrio
+I: Coloque um halter no chão e segure-se numa parede ou suporte firme | Apoie a parte da frente de um pé sobre a pegada do halter, calcanhar no ar | Desça o calcanhar até alongar, controlando o halter para não rolar | Suba o máximo possível na ponta do pé | Complete o lado e troque
+E: Soltar o apoio da mão | Pegada do halter rolando para fora | Movimento rápido
+PR: Panturrilha unilateral com kettlebell no degrau
+RG: Panturrilha unilateral no degrau
+F: Calf_Raise_On_A_Dumbbell
+
+qp3_pant_elastico | Panturrilha em Pé com Elástico | pernas_cal | Elástico de resistência com alças | ini | 🎗️ | elastico | ca | b | C5R | 3 | 15-20
+P: Gastrocnêmio
+S: Sóleo, Tornozelo
+I: Pise no meio do elástico com a parte da frente dos pés, na largura do quadril | Leve as alças até a altura dos ombros, cotovelos dobrados | Suba na ponta dos pés o máximo possível contra a tensão | Segure 1 segundo e desça devagar | Encurte o elástico (mais voltas) para aumentar a resistência
+E: Elástico só sob o calcanhar (não tensiona) | Dobrar os joelhos | Descer de uma vez
+PR: Panturrilha em pé com halteres no degrau
+RG: Elevação de calcanhares com apoio
+F: Calf_Raises_-_With_Bands
+
+qp3_pant_caminhada_ponta | Caminhada na Ponta dos Pés com Halteres | pernas | Halteres | int | 🚶 | halteres | ca | b | CR | 3 | 20-30 m
+P: Gastrocnêmio, Sóleo
+S: Antebraços, Core, Tornozelo
+I: Segure um halter em cada mão ao lado do corpo | Suba na ponta dos pés o mais alto possível | Caminhe em passos curtos sem deixar os calcanhares tocarem o chão | Mantenha o tronco ereto e o abdômen firme | Pare quando não conseguir manter a altura do calcanhar
+E: Calcanhares baixando com o cansaço | Joelhos dobrados | Passos longos que tiram o equilíbrio
+PR: Caminhada na ponta dos pés com mais carga
+RG: Caminhada na ponta dos pés sem peso
+
+# =====================================================================
+# PANTURRILHA — CASA
+# =====================================================================
+
+qp3_pant_kb_unilateral | Panturrilha Unilateral com Kettlebell no Degrau | pernas_cal | Kettlebell + degrau | int | 🔔 | kettlebell | ca | b | HR | 3 | 10-12 cada perna
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Equilíbrio
+I: Segure um kettlebell na mão do mesmo lado da perna que vai trabalhar | Apoie a frente desse pé no degrau e segure o corrimão ou a parede com a outra mão | Desça o calcanhar até o máximo alongamento | Suba o mais alto possível e segure 1 segundo | Complete o lado e troque
+E: Usar a mão da parede para puxar | Joelho dobrando | Amplitude curta
+PR: Panturrilha unilateral com pausa de 3 segundos embaixo
+RG: Panturrilha unilateral sem peso
+
+qp3_pant_mochila | Panturrilha em Pé com Mochila no Degrau | pernas_cal | Mochila com peso + degrau | ini | 🎒 | mochila | c | b | CH | 3 | 15-20
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Core
+I: Coloque 5-15 kg na mochila e ajuste bem as alças | Apoie a parte da frente dos pés num degrau da escada, segurando o corrimão | Desça os calcanhares até alongar | Suba o máximo possível na ponta dos pés e segure 1 segundo | Desça contando 3 segundos
+E: Mochila frouxa balançando | Amplitude curta | Puxar o corpo pelo corrimão
+PR: Panturrilha unilateral com mochila
+RG: Panturrilha no degrau sem peso
+
+qp3_pant_sentado_mochila | Panturrilha Sentado com Mochila sobre os Joelhos | pernas_cal | Cadeira + mochila com peso | ini | 🪑 | mochila | c | b | CH5 | 3 | 15-20
+P: Sóleo
+S: Gastrocnêmio
+I: Sente numa cadeira firme com os joelhos a 90° e um livro grosso sob a frente dos pés | Coloque a mochila com peso sobre as coxas, perto dos joelhos, e segure-a | Suba os calcanhares o máximo possível | Segure 1 segundo e desça devagar até alongar | Para mais carga, apoie os antebraços sobre a mochila e empurre para baixo
+E: Mochila sobre a ponta dos joelhos (dor) | Movimento rápido | Pés escorregando do livro
+PR: Panturrilha sentado unilateral com halter
+RG: Panturrilha sentado sem peso
+
+qp3_pant_cadeirinha | Panturrilha na Cadeirinha (Sóleo Isométrico-Dinâmico) | pernas_cal | Parede | int | 🧱 | parede | ca | b | CHR | 3 | 12-15
+P: Sóleo, Quadríceps
+S: Gastrocnêmio, Glúteos
+I: Encoste as costas na parede e desça até a posição de cadeirinha, joelhos a cerca de 90° | Mantenha a posição de cadeirinha estável | Suba os dois calcanhares do chão o máximo possível | Desça devagar sem sair da cadeirinha | Repita mantendo o quadril sempre na mesma altura
+E: Quadril subindo a cada elevação | Joelhos fechando | Prender a respiração
+PR: Panturrilha na cadeirinha unilateral
+RG: Elevação de calcanhares com apoio
+
+qp3_pant_isometrica_unipodal | Isometria de Panturrilha na Ponta do Pé | pernas_cal | Peso corporal | ini | 🩰 | peso_corporal | ca | b | C5R | 3 | 20-30s cada perna
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Equilíbrio
+I: Fique de frente para a parede, com as pontas dos dedos das mãos apoiadas nela | Apoie-se em um pé e suba na ponta até a altura máxima | Segure a posição sem deixar o calcanhar baixar e sem o tornozelo virar para fora | Respire normalmente e conte o tempo | Desça devagar e troque de perna
+E: Tornozelo virando para fora | Calcanhar baixando aos poucos | Apoiar todo o peso nas mãos
+PR: Isometria de panturrilha com mochila
+RG: Isometria com os dois pés
+
+qp3_pant_donkey_casa | Panturrilha Inclinada Apoiado na Mesa (Donkey em Casa) | pernas_cal | Mesa firme + degrau | int | 🫏 | peso_corporal | c | b | H | 4 | 15-20
+P: Gastrocnêmio
+S: Sóleo, Tornozelo
+I: Apoie os antebraços numa mesa firme, tronco inclinado à frente a cerca de 90° do quadril | Coloque a frente dos pés sobre um livro grosso ou degrau, joelhos estendidos | Desça os calcanhares até alongar bem | Suba o máximo possível e segure 1 segundo | Para mais carga, use uma mochila nas costas
+E: Dobrar os joelhos | Mesa leve ou com rodinhas | Arquear a lombar
+PR: Panturrilha donkey com mochila
+RG: Panturrilha no degrau com apoio
+
+qp3_pogo_unilateral | Saltos Pogo Unilaterais | pernas_cal | Peso corporal | ava | 🦘 | peso_corporal | ca | a | CPR | 4 | 10-15 cada perna
+P: Panturrilha, Tornozelo
+S: Quadríceps, Equilíbrio, Coordenação
+I: Fique em um pé, joelho quase estendido e peso na parte da frente do pé | Dê saltos curtos e rápidos usando principalmente o tornozelo | Toque o chão o mínimo de tempo possível, como uma mola | Mantenha o tronco firme e o olhar à frente | Complete o lado e troque — só faça se o pogo bilateral estiver dominado
+E: Aterrissar com o calcanhar | Dobrar muito o joelho | Fazer com dor no tendão de Aquiles
+PR: Pogo unilateral com deslocamento lateral
+RG: Saltos pogo bilaterais
+
+# =====================================================================
+# TIBIAL ANTERIOR — ACADEMIA E CASA
+# =====================================================================
+
+qp3_tibial_elastico | Dorsiflexão com Elástico (Tibial) | pernas_cal | Elástico de resistência | ini | 🎗️ | elastico | ca | b | C5R | 3 | 15-20 cada perna
+P: Tibial Anterior
+S: Tornozelo
+I: Sente no chão com as pernas estendidas e prenda o elástico num ponto fixo baixo à sua frente (pé do sofá ou da mesa) | Passe a outra ponta pelo peito do pé | Afaste-se até o elástico ficar tenso com o pé apontado para frente | Puxe a ponta do pé em sua direção o máximo possível e segure 1 segundo | Volte devagar e troque de perna
+E: Mexer a perna inteira em vez do tornozelo | Elástico sem tensão no início | Voltar rápido
+PR: Elevação de tibial com kettlebell
+RG: Elevação de ponta de pé na parede
+
+qp3_tibial_kb | Elevação de Tibial com Kettlebell no Pé | pernas | Kettlebell + banco alto | int | 🔔 | kettlebell | ca | b | CR | 3 | 12-15 cada perna
+P: Tibial Anterior
+S: Tornozelo
+I: Sente na ponta de um banco alto ou mesa, com os pés sem tocar o chão | Encaixe a alça de um kettlebell leve no peito do pé | Puxe a ponta do pé para cima, em direção à canela, o máximo possível | Segure 1 segundo e desça devagar alongando | Complete o lado e troque
+E: Kettlebell pesado que escorrega | Mexer o joelho junto | Amplitude curta
+PR: Elevação de tibial com anilha mais pesada
+RG: Dorsiflexão com elástico
+
+qp3_tibial_polia | Dorsiflexão na Polia Baixa | pernas | Polia baixa + tornozeleira | ini | 🔗 | polia | a | b | CR | 3 | 15 cada perna
+P: Tibial Anterior
+S: Tornozelo
+I: Prenda a tornozeleira no peito do pé (sobre o tênis) e sente no chão de frente para a polia baixa | Afaste-se até o cabo ficar tenso com o pé apontado para frente | Puxe a ponta do pé em direção à canela | Segure 1 segundo e volte devagar | Complete o lado e troque
+E: Tornozeleira presa no tornozelo (não no peito do pé) | Mexer a perna inteira | Carga alta com amplitude curta
+PR: Elevação de ponta de pé no Smith
+RG: Dorsiflexão com elástico
+
+qp3_tibial_smith | Elevação de Ponta de Pé no Smith (Tibial) | pernas | Máquina Smith + step | int | 🔩 | smith | a | b | CR | 3 | 12-15
+P: Tibial Anterior
+S: Tornozelo, Core
+I: Coloque um step sob a barra do Smith | Apoie a barra nos ombros e fique com os calcanhares sobre a borda do step, pontas dos pés para fora | Deixe as pontas dos pés descerem até alongar a canela | Eleve as pontas dos pés o máximo possível, segurando 1 segundo | Use carga leve e trave a barra ao final
+E: Carga alta que faz o corpo balançar | Dobrar os joelhos | Amplitude curta
+PR: Panturrilha balanço com barra
+RG: Elevação de ponta de pé na parede
+F: Smith_Machine_Reverse_Calf_Raises
+
+qp3_tibial_anilha | Dorsiflexão com Anilha no Pé | pernas | Anilha + banco alto | int | 💿 | anilha | a | b | CR | 3 | 12-15 cada perna
+P: Tibial Anterior
+S: Tornozelo
+I: Sente na ponta de um banco alto com o pé solto no ar | Coloque uma anilha leve sobre o peito do pé, segurando-a com a alça de um elástico ou com um tênis por cima | Eleve a ponta do pé em direção à canela o máximo possível | Desça devagar até alongar | Complete o lado e troque
+E: Anilha mal presa e escorregando | Mexer o joelho | Descer de uma vez
+PR: Elevação de ponta de pé no Smith
+RG: Dorsiflexão com elástico
+
+qp3_tibial_calcanhar_halteres | Caminhada nos Calcanhares com Halteres | pernas | Halteres | ini | 👣 | halteres | ca | b | CR | 3 | 20 m
+P: Tibial Anterior
+S: Tornozelo, Core, Equilíbrio
+I: Segure um halter leve em cada mão ao lado do corpo | Eleve as pontas dos pés e apoie-se só nos calcanhares | Caminhe em passos curtos mantendo as pontas dos pés sempre no ar | Mantenha o tronco ereto e o olhar à frente | Pare quando as pontas começarem a cair
+E: Pontas dos pés tocando o chão | Inclinar o tronco para trás | Passos longos
+PR: Caminhada nos calcanhares com mais carga
+RG: Caminhada nos calcanhares sem peso
+
+qp3_tibial_sentado_mochila | Elevação de Ponta de Pé Sentado com Mochila | pernas_cal | Cadeira + mochila com peso | ini | 🎒 | mochila | c | b | C5R | 3 | 15-20
+P: Tibial Anterior
+S: Tornozelo
+I: Sente numa cadeira firme com os pés apoiados no chão | Passe a alça de uma mochila leve (2-5 kg) sobre o peito dos dois pés | Mantendo os calcanhares no chão, eleve as pontas dos pés o máximo possível | Segure 1 segundo e desça devagar | Aumente o peso da mochila aos poucos
+E: Levantar os calcanhares junto | Mochila pesada demais escorregando | Movimento rápido
+PR: Elevação de tibial com kettlebell
+RG: Elevação de ponta de pé sentado sem peso
+
+qp3_tibial_degrau | Elevação de Tibial com Calcanhares no Degrau | pernas_cal | Degrau ou step | ini | 🪜 | degrau_step | ca | b | CR | 3 | 15-20
+P: Tibial Anterior
+S: Tornozelo, Equilíbrio
+I: Fique de pé com os calcanhares na borda de um degrau e as pontas dos pés no ar | Segure o corrimão ou a parede | Deixe as pontas dos pés descerem abaixo do nível do degrau, alongando a canela | Eleve as pontas o máximo possível e segure 1 segundo | Desça em 2-3 segundos
+E: Calcanhares escorregando da borda | Dobrar os joelhos | Amplitude curta
+PR: Elevação de ponta de pé no Smith
+RG: Elevação de ponta de pé na parede

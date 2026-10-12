@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa Muscular — demo</title>
+<style>
+  :root { --fundo: #FFF8EF; --card: #FFFFFF; --texto: #2B2F4A; --suave: #6B7390; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px 16px 32px; background: var(--fundo); color: var(--texto);
+         font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  p.sub { margin: 0 0 20px; color: var(--suave); font-size: 14px; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border-radius: 20px; padding: 16px 14px 14px;
+          box-shadow: 0 4px 14px rgba(255, 120, 90, .12); text-align: center; }
+  .card h2 { margin: 0 0 2px; font-size: 16px; }
+  .card .musc { margin: 0 0 12px; font-size: 12px; color: var(--suave); min-height: 30px; }
+  .lista { margin-top: 24px; background: var(--card); border-radius: 20px; padding: 8px 14px; }
+  .linha { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #F2EEE8; font-size: 14px; }
+  .linha:last-child { border-bottom: 0; }
+</style>
+</head>
+<body>
+<h1>Mapa muscular</h1>
+<p class="sub">Frente e costas · principal e auxiliar · poligonos de react-body-highlighter (MIT)</p>
+<div class="grade" id="grade"></div>
+<div class="lista" id="lista"></div>
+
+<script src="../js/mapa-muscular.js"></script>
+<script>
+  const EXS = [
+    ['Agachamento Livre', ['Quadríceps', 'Glúteos'], ['Isquiotibiais', 'Panturrilha', 'Core']],
+    ['Supino Reto', ['Peitoral Maior'], ['Deltóide Anterior', 'Tríceps']],
+    ['Remada Curvada', ['Latíssimo', 'Rombóides', 'Trapézio Médio'], ['Bíceps', 'Deltóide Posterior', 'Antebraços']],
+    ['Rosca Direta', ['Bíceps Braquial'], ['Braquiorradial', 'Braquial']],
+    ['Prancha', ['Core', 'Transverso Abdominal'], ['Deltóides', 'Glúteos']],
+    ['Elevação Lateral', ['Deltóide Medial'], ['Deltóide Anterior', 'Trapézio']],
+    ['Panturrilha em Pé', ['Gastrocnêmio', 'Sóleo'], []],
+    ['Rotação Externa', ['Infraespinhal', 'Redondo Menor'], []],
+  ];
+  const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  document.getElementById('grade').innerHTML = EXS.map(([nome, p, s]) => `
+    <div class="card">
+      <h2>${esc(nome)}</h2>
+      <p class="musc"><b>${esc(p.join(', '))}</b>${s.length ? ' · ' + esc(s.join(', ')) : ''}</p>
+      ${MapaMuscular.svg(p, s, { largura: 230, legenda: true })}
+    </div>`).join('');
+  document.getElementById('lista').innerHTML = EXS.map(([nome, p]) => `
+    <div class="linha">${MapaMuscular.miniatura(p)}<span>${esc(nome)}</span></div>`).join('');
+</script>
+</body>
+</html>

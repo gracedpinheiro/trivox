@@ -1,0 +1,329 @@
+# TREINO ESPECIAL 50+ — força funcional, equilíbrio, prevenção de quedas, mobilidade, marcha, pegada, postura
+# Regras: baixo impacto, sem saltos, sem inversões, sem carga axial pesada, sempre com ponto de apoio por perto
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+s50_sentar_levantar | Sentar e Levantar da Cadeira | pernas_cal | Cadeira firme sem rodinhas | ini | 🪑 | cadeira | ca | b | CPH5 | 3 | 8-12
+P: Quadríceps, Glúteos
+S: Core, Isquiotibiais, Equilíbrio
+I: Use uma cadeira firme encostada na parede, sem rodinhas | Sente na metade da frente do assento, pés apoiados na largura do quadril e um pouco para trás | Incline o tronco à frente ("nariz sobre os dedos") e levante empurrando o chão, sem usar as mãos se conseguir | Fique totalmente em pé e depois sente devagar, controlando a descida até tocar o assento | Expire ao levantar; se sentir tontura, pare e sente
+E: Cair sentado na cadeira | Joelhos se juntando ao levantar | Pés muito à frente (obriga a dar impulso)
+PR: Sentar e levantar segurando um halter junto ao peito
+RG: Levantar usando as mãos nos braços da cadeira
+
+s50_sentar_levantar_halter | Sentar e Levantar com Halter (Goblet na Cadeira) | pernas | Cadeira + halter ou kettlebell | int | 🏆 | halteres | ca | b | CPH5 | 3 | 8-12
+P: Quadríceps, Glúteos
+S: Core, Adutores, Eretores da Espinha
+I: Cadeira firme encostada na parede; segure um halter em pé junto ao peito | Pés na largura dos ombros, um pouco atrás dos joelhos | Desça devagar (3 segundos) até tocar levemente o assento, sem relaxar | Levante empurrando o chão e mantendo o peito aberto | Mantenha a respiração fluindo e o halter colado ao corpo
+E: Sentar e relaxar no assento | Arredondar as costas | Prender a respiração
+PR: Sentar e levantar unilateral assistido
+RG: Sentar e levantar sem carga
+
+s50_flexao_parede | Flexão na Parede | peito | Parede | ini | 🧱 | parede | ca | b | CH5 | 3 | 10-15
+P: Peitoral, Tríceps
+S: Deltóide Anterior, Core, Serrátil
+I: Fique de frente para a parede, a cerca de um braço de distância | Apoie as mãos na parede na altura e largura dos ombros | Dobre os cotovelos e aproxime o peito da parede mantendo o corpo reto | Empurre a parede até estender os braços, expirando
+E: Quadril indo para frente ou para trás | Cotovelos abertos a 90° | Pés perto demais da parede (fica fácil demais)
+PR: Flexão inclinada na bancada
+RG: Ficar mais perto da parede
+
+s50_remada_elastico_sentado | Remada Sentada com Elástico | costas | Elástico + cadeira | ini | 🚣 | elastico | ca | b | CH5 | 3 | 12-15
+P: Rombóides, Latíssimo
+S: Bíceps, Trapézio Médio, Deltóide Posterior
+I: Sente com a coluna ereta na borda da cadeira ou no chão com as pernas estendidas | Passe o elástico pela sola dos pés (ou prenda à frente na porta) e segure as pontas | Puxe os cotovelos para trás junto ao corpo, aproximando as escápulas | Segure 1 segundo e volte devagar
+E: Inclinar o tronco para trás | Encolher os ombros | Soltar o elástico rápido
+PR: Remada com elástico em pé com passo à frente
+RG: Elástico mais leve
+
+s50_marcha_sentado | Marcha Sentada na Cadeira | cardio | Cadeira | ini | 🚶 | cadeira | ca | b | CP5 | 3 | 30-60s
+P: Flexores do Quadril, Cardio
+S: Core, Quadríceps
+I: Sente na borda da cadeira com a coluna ereta e as mãos nas laterais do assento | Eleve um joelho de cada vez, como se marchasse | Balance os braços acompanhando o ritmo | Aumente a velocidade aos poucos, mantendo a respiração confortável (conseguir falar frases curtas)
+E: Inclinar o tronco para trás | Prender a respiração | Ritmo forte demais no início
+PR: Marcha em pé com apoio
+RG: Marcha sentado mais lenta, sem braços
+
+s50_extensao_joelho_sentado | Extensão de Joelho Sentado | pernas | Cadeira (opcional: caneleira ou elástico) | ini | 🦵 | cadeira | ca | b | H5 | 3 | 12-15 cada perna
+P: Quadríceps
+S: Flexores do Quadril
+I: Sente com as costas apoiadas e os pés no chão | Estenda um joelho até a perna ficar reta, puxando a ponta do pé para você | Segure 2 segundos contraindo a coxa | Desça devagar e alterne
+E: Chutar a perna com impulso | Afastar as costas do encosto | Hiperestender o joelho com tranco
+PR: Extensão com caneleira de 1-3 kg ou cadeira extensora
+RG: Extensão parcial, sem estender totalmente
+
+s50_panturrilha_apoio | Elevação de Calcanhares com Apoio | pernas | Cadeira ou bancada para apoio | ini | 🦶 | cadeira | ca | b | CH5R | 3 | 12-15
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Equilíbrio
+I: Fique em pé atrás de uma cadeira firme, mãos apoiadas no encosto | Pés na largura do quadril | Suba nas pontas dos pés o mais alto que conseguir | Desça devagar até apoiar os calcanhares
+E: Jogar o peso para frente | Descer de uma vez | Joelhos dobrando
+PR: Elevação de calcanhar em uma perna com apoio
+RG: Elevação de calcanhar sentado
+
+s50_extensao_quadril_apoio | Extensão de Quadril em Pé com Apoio | gluteos | Cadeira para apoio | ini | 🍑 | cadeira | ca | b | H5 | 3 | 10-12 cada perna
+P: Glúteos
+S: Isquiotibiais, Core
+I: Fique em pé atrás de uma cadeira com as mãos no encosto | Tronco levemente inclinado à frente e abdômen contraído | Leve uma perna estendida para trás, apertando o glúteo, sem arquear a lombar | Volte devagar e alterne
+E: Arquear a lombar para subir mais a perna | Girar o quadril | Movimento rápido
+PR: Extensão de quadril com caneleira ou elástico
+RG: Amplitude menor
+
+s50_tandem | Equilíbrio em Tandem (Pé à Frente do Pé) | equilibrio | Peso corporal + apoio | ini | 👣 | peso_corporal | ca | b | C5R | 3 | 20-30s cada lado
+P: Equilíbrio, Tornozelo
+S: Core, Glúteo Médio
+I: Fique ao lado de uma bancada ou parede para segurar se precisar | Coloque um pé diretamente à frente do outro, calcanhar encostado nos dedos | Solte as mãos do apoio, olhe para um ponto fixo à frente | Segure respirando normalmente e troque o pé da frente
+E: Prender a respiração | Olhar para os pés | Ficar longe do apoio
+PR: Tandem com olhos fechados (com alguém por perto)
+RG: Pés semi-alinhados (um pouco de lado)
+
+s50_caminhada_tandem | Caminhada Calcanhar-Ponta | equilibrio | Peso corporal | ini | 🚶‍♀️ | peso_corporal | ca | b | C5 | 3 | 10-15 passos
+P: Equilíbrio, Coordenação
+S: Tornozelo, Core
+I: Caminhe ao lado de uma parede ou bancada | A cada passo, encoste o calcanhar do pé da frente nos dedos do pé de trás | Olhe para frente, não para os pés | Faça o percurso devagar e volte
+E: Passos apressados | Afastar-se do apoio | Braços rígidos
+PR: Caminhada calcanhar-ponta para trás
+RG: Passos com pés ligeiramente afastados
+
+s50_relogio_equilibrio | Relógio de Equilíbrio (Alcance Unipodal) | equilibrio | Peso corporal + apoio | int | 🕐 | peso_corporal | ca | b | C5R | 3 | 3 voltas cada perna
+P: Equilíbrio, Glúteo Médio
+S: Quadríceps, Tornozelo, Core
+I: Fique em pé sobre uma perna, ao lado de um apoio, joelho levemente dobrado | Imagine um relógio no chão em volta de você | Com a perna livre, toque levemente o 12 (frente), o 3 (lado) e o 6 (trás), voltando ao centro a cada toque | Mantenha o quadril nivelado e troque de perna
+E: Apoiar o peso no pé que toca | Joelho de apoio caindo para dentro | Ficar sem apoio por perto
+PR: Toques mais distantes
+RG: Toques próximos com a mão no apoio
+
+s50_passo_lateral | Caminhada Lateral com Apoio | equilibrio | Peso corporal | ini | 🦀 | peso_corporal | ca | b | CP5R | 3 | 10 passos cada lado
+P: Glúteo Médio, Abdutores
+S: Equilíbrio, Quadríceps
+I: Fique de frente para uma bancada ou parede, mãos levemente apoiadas | Dê passos laterais afastando um pé e trazendo o outro, sem cruzar | Mantenha os joelhos levemente dobrados e o tronco ereto | Vá para um lado e volte
+E: Arrastar os pés | Cruzar as pernas | Inclinar o tronco para o lado
+PR: Caminhada lateral com mini band
+RG: Passos menores
+
+s50_subida_escada | Treino de Escada com Corrimão | pernas | Escada com corrimão ou degrau | ini | 🪜 | degrau_step | ca | b | CPH5 | 3 | 6-10 cada perna
+P: Quadríceps, Glúteos
+S: Panturrilha, Equilíbrio
+I: Segure o corrimão com uma mão | Suba o degrau colocando o pé inteiro, empurrando com a perna de cima | Desça devagar, apoiando primeiro o pé da perna mais forte (ou a mais fraca na subida: "sobe o bom, desce o ruim") | Repita alternando ou completando uma perna
+E: Puxar o corpo pelo corrimão | Apoiar só a ponta do pé | Descer rápido
+PR: Subida sem corrimão ou com mochila leve
+RG: Degrau mais baixo (step de 10 cm)
+
+s50_levantar_do_chao | Levantar do Chão com Segurança | funcional | Colchonete + cadeira firme | int | 🧎 | colchonete | ca | b | C5 | 2 | 3-5
+P: Quadríceps, Glúteos
+S: Core, Ombros, Equilíbrio
+I: Comece sentado no colchonete ao lado de uma cadeira firme encostada na parede | Vire de lado e passe para a posição de quatro apoios | Leve as mãos ao assento da cadeira e coloque um pé à frente (meio ajoelhado) | Empurre com a perna da frente e com as mãos até ficar em pé | Para descer, faça o caminho inverso, devagar
+E: Tentar levantar direto sem a sequência | Cadeira solta ou com rodinhas | Pressa (risco de tontura)
+PR: Levantar do chão sem apoio da cadeira
+RG: Treinar só a passagem de sentado para quatro apoios
+
+s50_rotacao_tronco_sentado | Rotação de Tronco Sentado | mobilidade | Cadeira | ini | 🔄 | cadeira | ca | b | C5R | 2 | 8 cada lado
+P: Coluna Torácica, Oblíquos
+S: Core
+I: Sente ereto na borda da cadeira, pés firmes no chão | Cruze os braços no peito | Gire o tronco para um lado olhando por cima do ombro, sem mover o quadril | Volte ao centro e gire para o outro lado
+E: Girar o quadril junto | Arredondar as costas | Forçar além do confortável
+PR: Rotação em pé com bastão nos ombros
+RG: Amplitude menor
+
+s50_anjo_parede | Anjo na Parede (Wall Angel) | mobilidade | Parede | ini | 👼 | parede | ca | b | C5R | 2 | 8-10
+P: Trapézio Inferior, Coluna Torácica
+S: Rombóides, Manguito Rotador, Peitoral
+I: Encoste costas, glúteos e cabeça (se possível) na parede, pés um pouco à frente | Braços em "W" com cotovelos e costas das mãos tocando a parede | Deslize os braços para cima formando um "Y", mantendo o contato | Desça de volta ao "W" devagar
+E: Arquear a lombar para manter os braços na parede | Forçar a cabeça para trás | Pressa
+PR: Anjo no chão deitado
+RG: Afastar-se um pouco da parede e reduzir a amplitude
+
+s50_chin_tuck | Retração Cervical (Queixo para Trás) | mobilidade | Peso corporal | ini | 🙂 | peso_corporal | ca | b | C5 | 2 | 10 (segurar 3s)
+P: Flexores do Pescoço
+S: Trapézio Superior, Coluna Torácica
+I: Sente ou fique em pé com a coluna ereta, olhando para frente | Leve o queixo para trás, como fazendo um "queixo duplo", sem inclinar a cabeça | Segure 3 segundos sentindo alongar a base do crânio | Relaxe e repita
+E: Inclinar a cabeça para baixo | Elevar os ombros | Fazer com força excessiva
+PR: Retração cervical deitado contra o travesseiro
+
+s50_torcao_toalha | Torção de Toalha (Força de Pegada) | funcional | Toalha | ini | 🧺 | toalha | ca | b | C5R | 3 | 5 torções cada sentido
+P: Flexores dos Dedos, Antebraços
+S: Flexores do Pulso, Extensores do Pulso
+I: Enrole uma toalha e segure com as duas mãos à frente do corpo | Torça como se estivesse espremendo água, uma mão para cada lado | Segure 3 segundos na torção máxima | Inverta o sentido da torção
+E: Elevar os ombros | Prender a respiração | Toalha fina demais (pouca resistência)
+PR: Toalha molhada ou mais grossa
+
+s50_aperto_bolinha | Aperto de Bolinha (Hand Grip Leve) | funcional | Bolinha de borracha ou hand grip leve | ini | 🟡 | hand_grip | ca | b | C5R | 3 | 10-15 cada mão
+P: Flexores dos Dedos, Antebraços
+S: Flexores do Pulso
+I: Segure a bolinha na palma da mão | Aperte com todos os dedos o máximo que conseguir sem dor | Segure 3 segundos | Solte devagar e abra bem os dedos antes da próxima
+E: Apertar com dor nas articulações | Soltar rápido | Treinar só a mão dominante
+PR: Hand grip com mola mais forte
+
+s50_prancha_parede | Prancha Inclinada na Parede | core | Parede | ini | 🧱 | parede | ca | b | C5 | 3 | 15-30s
+P: Core, Transverso Abdominal
+S: Ombros, Glúteos
+I: Fique de frente para a parede e apoie os antebraços nela na altura dos ombros | Afaste os pés para trás até o corpo ficar em linha reta inclinada | Contraia abdômen e glúteos, sem deixar a lombar afundar | Segure respirando normalmente
+E: Quadril para trás | Prender a respiração | Ombros encolhidos
+PR: Prancha inclinada na bancada
+RG: Pés mais perto da parede
+
+s50_bascula_pelvica | Báscula Pélvica Deitado | mobilidade | Colchonete | ini | 🌊 | colchonete | ca | b | C5 | 2 | 10-12
+P: Transverso Abdominal, Reto Abdominal
+S: Glúteos, Eretores da Espinha
+I: Deite de costas com joelhos dobrados e pés apoiados | Expire e encoste a lombar no chão, inclinando a pelve para trás | Inspire e relaxe, deixando uma pequena curva na lombar | Repita de forma lenta e ritmada
+E: Usar os glúteos para levantar o quadril | Prender a respiração | Movimento brusco
+PR: Ponte de glúteo
+
+s50_alongamento_posterior_cadeira | Alongamento de Posterior Sentado na Cadeira | alongamento | Cadeira | ini | 🪑 | cadeira | ca | b | C5 | 2 | 20-30s cada perna
+P: Isquiotibiais
+S: Panturrilha
+I: Sente na borda da cadeira e estenda uma perna à frente, calcanhar no chão e ponta do pé para cima | A outra perna dobrada com o pé no chão | Incline o tronco à frente a partir do quadril, mantendo as costas retas | Segure sentindo alongar atrás da coxa e troque
+E: Arredondar as costas | Forçar até sentir dor | Prender a respiração
+PR: Alongamento em pé com pé no degrau
+
+s50_circulos_bracos | Círculos de Braços | mobilidade | Peso corporal | ini | ⭕ | peso_corporal | ca | b | C5 | 2 | 10 cada sentido
+P: Ombros
+S: Manguito Rotador, Trapézio
+I: Em pé ou sentado, braços abertos para os lados na altura dos ombros | Faça círculos pequenos para frente | Aumente o tamanho aos poucos | Repita para trás
+E: Encolher os ombros | Círculos amplos demais logo no início | Prender a respiração
+F: Arm_Circles
+
+s50_bicicleta_horizontal | Bicicleta Ergométrica Horizontal | cardio | Bicicleta horizontal (reclinada) | ini | 🚲 | bicicleta | a | b | CP5 | 1 | 15-30 min
+P: Cardio, Quadríceps
+S: Glúteos, Isquiotibiais
+I: Ajuste o banco para o joelho ficar levemente dobrado com o pedal no ponto mais distante | Costas apoiadas no encosto | Pedale em ritmo confortável por 5 minutos para aquecer | Mantenha intensidade moderada (consegue falar, mas não cantar) e desacelere nos últimos 3 minutos
+E: Banco perto demais (joelho dobrado demais) | Começar forte | Segurar com força no guidão
+PR: Intervalos de 1 min mais forte / 2 min leve
+F: Recumbent_Bike
+
+s50_caminhada_ritmada | Caminhada Rápida (Treino de Marcha) | cardio | Peso corporal (rua, esteira ou corredor) | ini | 🚶‍♂️ | peso_corporal | ca | b | CP5 | 1 | 20-40 min
+P: Cardio, Glúteos
+S: Panturrilha, Quadríceps, Core
+I: Use tênis com bom amortecimento e escolha um percurso plano | Caminhe com passadas um pouco mais longas que o normal, apoiando o calcanhar e rolando até a ponta do pé | Balance os braços dobrados a 90° | Mantenha um ritmo em que respira mais rápido mas ainda consegue conversar
+E: Olhar para o chão o tempo todo | Passos arrastados | Calçado inadequado
+PR: Caminhada com intervalos rápidos ou leve subida
+RG: Caminhadas de 10 min, 2-3 vezes ao dia
+
+s50_passo_cruzado | Passo Cruzado (Grapevine) com Apoio | equilibrio | Peso corporal | int | 🍇 | peso_corporal | ca | b | C5R | 3 | 8 passos cada lado
+P: Coordenação, Glúteo Médio
+S: Adutores, Equilíbrio, Tornozelo
+I: Fique de frente para uma bancada longa, mãos levemente apoiadas | Dê um passo para o lado, cruze o outro pé por trás, outro passo para o lado e cruze pela frente | Continue o padrão por alguns passos | Volte para o outro lado
+E: Olhar para os pés | Passos largos demais | Soltar o apoio cedo demais
+PR: Grapevine sem apoio e mais rápido
+RG: Passo lateral simples
+
+s50_obstaculos | Marcha com Ultrapassagem de Obstáculos | equilibrio | Objetos baixos (garrafas, livros, cones) | int | 🚧 | cones | ca | b | C5R | 3 | 3-4 percursos
+P: Equilíbrio, Flexores do Quadril
+S: Coordenação, Glúteos, Tornozelo
+I: Coloque 4-6 obstáculos baixos (10-20 cm) em linha, a um passo de distância, perto de uma parede | Caminhe passando por cima de cada um levantando bem o joelho | Olhe à frente, usando a visão periférica | Volte de lado ou pelo outro sentido
+E: Arrastar o pé | Obstáculos altos demais no início | Pressa
+PR: Obstáculos mais altos ou passos laterais por cima
+RG: Marcar linhas no chão em vez de obstáculos
+
+s50_olhos_fechados | Equilíbrio com Olhos Fechados (Pés Juntos) | equilibrio | Peso corporal + canto da parede | int | 🙈 | parede | ca | b | C5 | 3 | 15-30s
+P: Equilíbrio, Tornozelo
+S: Core
+I: Fique no canto de uma parede, com uma cadeira à frente (para segurar se precisar) | Pés juntos e braços cruzados no peito | Feche os olhos e mantenha a postura | Abra os olhos se perder o equilíbrio e recomece
+E: Fazer longe de apoio | Travar os joelhos | Prender a respiração
+PR: Tandem com olhos fechados
+RG: Olhos abertos com pés juntos
+
+s50_alcance_funcional | Alcance Funcional à Frente | equilibrio | Peso corporal + parede | ini | 👉 | parede | ca | b | C5 | 2 | 8-10
+P: Equilíbrio, Core
+S: Panturrilha, Tornozelo
+I: Fique de lado para uma parede, braço próximo à parede estendido à frente na altura do ombro | Pés na largura do quadril | Incline o corpo para frente alcançando o mais longe possível sem dar passo | Volte à postura ereta devagar
+E: Tirar os calcanhares do chão | Girar o tronco | Ir além do controle
+PR: Alcances em diagonal
+
+s50_rosca_sentado | Rosca com Halteres Sentado | biceps | Halteres + cadeira | ini | 💪 | halteres | ca | b | H5 | 3 | 10-12
+P: Bíceps
+S: Braquial, Antebraços
+I: Sente com as costas apoiadas e os halteres ao lado do corpo, palmas para frente | Cotovelos junto ao corpo | Suba os halteres até perto dos ombros expirando | Desça devagar até estender os braços
+E: Balançar o tronco | Cotovelos indo à frente | Descer o peso rápido
+PR: Rosca alternada em pé
+F: Seated_Dumbbell_Curl
+
+s50_ponta_calcanhar | Caminhada na Ponta dos Pés e nos Calcanhares | equilibrio | Peso corporal | ini | 🩰 | peso_corporal | ca | b | C5R | 2 | 10 passos cada
+P: Panturrilha, Tibial Anterior
+S: Equilíbrio, Tornozelo
+I: Caminhe ao lado de uma parede ou corrimão | Dê 10 passos apoiado só nas pontas dos pés | Depois 10 passos apoiado só nos calcanhares, pontas para cima | Mantenha a postura ereta e olhar à frente
+E: Inclinar o tronco à frente | Passos apressados | Ficar longe do apoio
+PR: Caminhada na ponta com halteres leves
+
+s50_respiracao | Respiração Diafragmática | mobilidade | Colchonete ou cadeira | ini | 🌬️ | colchonete | ca | b | C5 | 2 | 6-8 respirações
+P: Transverso Abdominal
+S: Intercostais, Core
+I: Deite de costas com joelhos dobrados (ou sente ereto) e coloque uma mão no peito e outra na barriga | Inspire pelo nariz em 4 segundos enchendo a barriga, o peito quase não se move | Expire pela boca em 6 segundos, com os lábios semicerrados, encolhendo a barriga | Repita de forma calma
+E: Elevar os ombros ao inspirar | Forçar demais o ar | Fazer rápido (pode causar tontura)
+PR: Respiração com contração do abdômen na expiração (base para a prancha)
+
+s50_transferencia_peso | Transferência de Peso (Frente-Trás e Lateral) | equilibrio | Peso corporal | ini | ⚖️ | peso_corporal | ca | b | C5R | 2 | 10 cada direção
+P: Equilíbrio, Tornozelo
+S: Glúteo Médio, Core
+I: Em pé com os pés afastados na largura do quadril, perto de um apoio | Desloque o peso do corpo devagar para a ponta dos pés e depois para os calcanhares, sem tirar os pés do chão | Depois desloque o peso de um pé para o outro (lateral) | Mantenha o corpo reto, movendo a partir dos tornozelos
+E: Dobrar o quadril em vez de mover o corpo inteiro | Tirar o pé do chão | Movimento rápido
+PR: Transferência de peso em posição de passo (um pé à frente)
+
+s50_sentar_levantar_unipodal | Sentar e Levantar Unipodal Assistido | pernas_cal | Cadeira + apoio | ava | 🦿 | cadeira | ca | b | CH5R | 3 | 5-8 cada perna
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Equilíbrio, Core
+I: Sente na cadeira firme com uma bancada ou parede ao lado para apoio da mão | Coloque um pé à frente, apoiado só levemente no calcanhar | Levante usando principalmente a perna de trás | Sente devagar pela mesma perna e alterne
+E: Empurrar com a perna da frente | Joelho de apoio caindo para dentro | Cair sentado
+PR: Sem apoio da mão
+RG: Sentar e levantar com halter
+
+s50_step_up_halteres_pausa | Step-Up com Halteres e Pausa no Topo | pernas | Degrau ou step + halteres | ava | 🪜 | degrau_step | ca | b | CPH5R | 3 | 6-8 cada perna
+P: Quadríceps, Glúteos
+S: Equilíbrio, Glúteo Médio, Panturrilha
+I: Segure halteres leves a moderados ao lado do corpo, de frente para um degrau de 20-30 cm | Suba com uma perna e eleve o joelho da outra até a altura do quadril | Segure 2 segundos equilibrado no topo | Desça devagar e alterne
+E: Impulsionar com a perna de baixo | Inclinar o tronco | Degrau alto demais
+PR: Step-up lateral com halteres
+RG: Step-up sem carga com apoio
+
+s50_farmer_tandem | Caminhada com Carga em Linha (Farmer em Tandem) | funcional | Halteres ou kettlebells | ava | 🧺 | halteres | ca | b | CH5R | 3 | 10-15 passos
+P: Equilíbrio, Core
+S: Antebraços, Trapézio, Glúteo Médio
+I: Segure um halter em cada mão ao lado do corpo, ombros para trás | Caminhe colocando um pé à frente do outro, como numa linha | Olhe para frente e mantenha o tronco firme | Faça o percurso perto de uma parede e volte
+E: Ombros caídos | Passos apressados | Carga que faz o tronco inclinar
+PR: Carga unilateral (um halter só)
+RG: Caminhada em linha sem carga
+
+s50_equilibrio_almofada | Equilíbrio Unipodal na Almofada com Movimento de Braços | equilibrio | Almofada firme, bosu ou colchonete dobrado | ava | 🛟 | colchonete | ca | b | C5R | 3 | 20-30s cada perna
+P: Equilíbrio, Tornozelo
+S: Glúteo Médio, Core
+I: Coloque uma almofada firme perto de uma parede ou bancada | Suba com um pé e encontre o equilíbrio com joelho levemente dobrado | Mova os braços devagar (frente, lados, acima) mantendo o equilíbrio | Troque de perna
+E: Ficar sem apoio por perto | Travar o joelho | Prender a respiração
+PR: Passar uma bola de uma mão para a outra durante o equilíbrio
+RG: Equilíbrio unipodal no chão
+
+s50_avanco_apoio | Afundo Estático com Apoio | pernas | Cadeira ou bancada para apoio | int | 🧍 | cadeira | ca | b | CPH5R | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Equilíbrio
+I: Fique ao lado de uma cadeira firme, uma mão no encosto | Dê um passo largo à frente e mantenha os pés nessa posição | Desça o joelho de trás em direção ao chão até onde for confortável | Suba empurrando com a perna da frente; complete o lado e troque
+E: Passo curto | Joelho da frente caindo para dentro | Tronco inclinado
+PR: Afundo reverso sem apoio
+RG: Amplitude menor
+
+s50_abducao_sentado_elastico | Abdução de Quadril Sentado com Elástico | gluteos | Cadeira + mini band | ini | 🦋 | mini_band | ca | b | H5R | 3 | 15-20
+P: Glúteo Médio, Abdutores
+S: Glúteos
+I: Sente na borda da cadeira com a mini band logo acima dos joelhos | Pés apoiados na largura do quadril e coluna ereta | Abra os joelhos para fora contra o elástico, sem tirar os pés do chão | Segure 1 segundo e volte devagar
+E: Deixar o elástico fechar os joelhos de uma vez | Inclinar o tronco para trás | Elástico abaixo do joelho
+PR: Caminhada lateral com mini band
+RG: Abdução sem elástico, só com contração
+
+s50_marcha_mala | Marcha Unilateral com Carga (Suitcase March) | funcional | Kettlebell ou halter | ava | 🧳 | kettlebell | ca | b | CH5R | 3 | 10-12 passos cada lado
+P: Oblíquos, Glúteo Médio
+S: Quadrado Lombar, Antebraços, Equilíbrio, Flexores do Quadril
+I: Segure um kettlebell ou halter em uma só mão, ao lado do corpo, ombros nivelados | Marche no lugar (ou devagar à frente) elevando o joelho até a altura do quadril | Segure 1-2 segundos em uma perna a cada passo, sem deixar o tronco inclinar para o lado da carga | Troque a carga de mão e repita
+E: Tronco inclinando para o lado do peso | Ombro da carga caído | Passos apressados sem pausa
+PR: Marcha com carga acima da cabeça (braço estendido)
+RG: Farmer walk unilateral
+
+s50_dupla_tarefa | Marcha com Dupla Tarefa (Cognitivo-Motora) | equilibrio | Cones ou objetos baixos | ava | 🧠 | cones | ca | b | C5R | 3 | 2-3 min
+P: Equilíbrio, Coordenação
+S: Glúteo Médio, Tornozelo, Cardio
+I: Monte um percurso com 4-6 cones ou objetos baixos em zigue-zague, perto de uma parede | Caminhe contornando os cones em ritmo moderado | Ao mesmo tempo, faça uma tarefa mental: contar de 3 em 3 para trás, dizer nomes de frutas, ou responder a comandos de um parceiro ("esquerda", "pare") | Mantenha a postura e o olhar à frente; aumente a velocidade aos poucos
+E: Parar de caminhar para pensar (reduza a dificuldade mental) | Olhar para os pés | Fazer longe de apoio no início
+PR: Dupla tarefa carregando um copo de água ou sobre obstáculos
+RG: Caminhada em linha reta com contagem simples
+
+s50_levantar_chao_sem_maos | Sentar e Levantar do Chão sem as Mãos | funcional | Colchonete | ava | 🧘 | colchonete | ca | b | CH5 | 3 | 3-5
+P: Quadríceps, Glúteos
+S: Adutores, Core, Equilíbrio
+I: Fique em pé sobre um colchonete, com uma cadeira firme por perto para segurança | Cruze as pernas e desça devagar até sentar no chão, usando o mínimo possível de apoio | Para levantar, incline o tronco à frente, apoie o peso nos pés e suba sem usar mãos ou joelhos | Se precisar, use um apoio (mão ou joelho) e tente reduzir com o tempo
+E: Cair sentado sem controle | Fazer sem ninguém ou nada por perto no início | Prender a respiração
+PR: Levantar com um pé só à frente (meio ajoelhado sem mãos)
+RG: Levantar do chão com apoio da cadeira

@@ -8,8 +8,7 @@
 > depois quando entrei novamente, tudo tinha sumido como se fosse a primeira vez, tendo que
 > preencher os dados novamente"
 
-Perda de dados real, não hipotética — no dia seguinte ao [relatório do Conselho de IA](../conselho_relatorio.html)
-ter apontado esse exato risco como o maior do projeto.
+Perda de dados real, não hipotética — esse risco já tinha sido apontado como o maior do projeto.
 
 ## Diagnóstico
 

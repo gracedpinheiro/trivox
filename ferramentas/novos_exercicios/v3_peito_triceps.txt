@@ -1,0 +1,767 @@
+# V3 — PEITO E TRÍCEPS (peitoral maior/menor, porção superior/inferior, tríceps 3 cabeças) — origem trivox_v2
+# Objetivo: sempre existir substituto com OUTRO equipamento para o mesmo músculo (academia e casa)
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+# ===================== PEITORAL (MÉDIO / GERAL) — ACADEMIA =====================
+
+pt3_supino_pegada_aberta | Supino Reto Pegada Aberta | peito | Barra + anilhas + banco reto | ava | 🏋️ | barra | a | b | H | 4 | 6-10
+P: Peitoral Maior
+S: Deltóide Anterior, Tríceps
+I: Deite no banco com os olhos sob a barra e segure com as mãos cerca de um palmo além da largura dos ombros | Junte as escápulas, crie um leve arco torácico e firme os pés no chão | Desça a barra controlando até tocar a linha média do peito, cotovelos a cerca de 60-70° do tronco | Empurre a barra para cima e levemente para trás até estender os braços sem perder as escápulas encaixadas
+E: Abrir os cotovelos a 90° (estressa o ombro) | Pegada larga demais, com antebraços inclinados para fora | Quicar a barra no peito
+PR: Supino reto pegada aberta com pausa de 2 s no peito
+RG: Supino reto com pegada média
+F: Wide-Grip_Barbell_Bench_Press
+
+pt3_supino_guilhotina | Supino Guilhotina (Barra na Linha do Pescoço) | peito | Barra + anilhas + banco reto | ava | 🔪 | barra | a | b | H | 3 | 8-10
+P: Peitoral Maior, Peitoral Superior
+S: Deltóide Anterior, Tríceps
+I: Use carga leve e, de preferência, um parceiro de segurança ou o Smith | Deite e segure a barra com pegada mais aberta que a do supino comum | Com os cotovelos bem abertos, desça a barra devagar em direção à base do pescoço/clavícula | Pare 2-3 cm antes de tocar e empurre de volta até estender os braços
+E: Usar carga alta (risco no ombro e no pescoço) | Treinar sem segurança/parceiro | Deixar a barra descer rápido e sem controle
+PR: Aumentar o tempo de descida para 4 s
+RG: Supino inclinado com halteres
+F: Barbell_Guillotine_Bench_Press
+
+pt3_spoto_press | Spoto Press (Pausa Acima do Peito) | peito | Barra + anilhas + banco reto | ava | ⏸️ | barra | a | b | H | 4 | 4-6
+P: Peitoral Maior
+S: Tríceps, Deltóide Anterior
+I: Monte o supino normalmente: escápulas juntas, pés firmes e pegada média | Desça a barra controlando como num supino comum | Pare a barra parada 2-3 cm acima do peito, sem encostar, por 1-2 s | Mantenha a tensão e empurre de forma explosiva até estender os braços
+E: Encostar a barra no peito durante a pausa | Perder o encaixe das escápulas na parada | Pausa curta demais (vira supino comum)
+PR: Spoto press com 3 s de pausa
+RG: Supino reto com pausa no peito
+
+pt3_supino_maq_descida_lenta | Supino na Máquina com Descida Lenta | peito | Máquina de supino sentado | ini | 🐢 | supino_maquina | a | b | CPH5 | 3 | 10-12
+P: Peitoral Maior
+S: Tríceps, Deltóide Anterior
+I: Ajuste o banco para que as pegadas fiquem na altura do meio do peito | Encoste costas e cabeça no encosto e junte levemente as escápulas | Empurre as pegadas à frente em 1 s, sem travar os cotovelos | Volte contando 4 s até sentir o peito alongar e repita sem bater o peso
+E: Banco alto ou baixo demais (pegada na altura do pescoço ou da barriga) | Descer em 1 s, sem controle | Tirar as costas do encosto para empurrar
+PR: Supino na máquina articulada unilateral
+RG: Flexão inclinada na bancada
+F: Machine_Bench_Press
+
+pt3_supino_maq_unilateral | Supino na Máquina Articulada Unilateral | peito | Máquina articulada de supino (braços independentes) | int | ☝️ | supino_maquina | a | b | HR | 3 | 10-12 cada lado
+P: Peitoral Maior
+S: Tríceps, Deltóide Anterior, Core
+I: Sente na máquina articulada com as costas apoiadas e segure apenas uma das pegadas | Apoie a mão livre na coxa ou no banco | Empurre a pegada à frente sem deixar o tronco girar para o lado que trabalha | Volte devagar até alongar o peito e complete as repetições antes de trocar de lado
+E: Girar o tronco para ajudar o braço | Usar mais carga do que no bilateral | Encolher o ombro no início do movimento
+PR: Supino unilateral com halter
+RG: Supino na máquina com os dois braços
+
+pt3_supino_cabo_sentado | Supino Sentado no Cabo | peito | Crossover/polias + banco no meio | ini | 🪑 | crossover | a | b | CPH5 | 3 | 12-15
+P: Peitoral Maior
+S: Tríceps, Deltóide Anterior
+I: Coloque as polias na altura do peito e um banco com encosto no meio do crossover | Sente segurando um pegador em cada mão, cotovelos a 90° e cerca de 45° do tronco | Empurre os pegadores à frente, aproximando as mãos no final | Volte devagar até os cotovelos ficarem levemente atrás da linha do corpo
+E: Afastar as costas do encosto | Deixar o cabo puxar os braços rápido demais para trás | Encolher os ombros em direção às orelhas
+PR: Supino em pé no cabo
+RG: Supino na máquina
+F: Cable_Chest_Press
+
+pt3_crucifixo_cabo_banco_reto | Crucifixo no Cabo em Banco Reto | peito | Crossover (polias baixas) + banco reto | ini | 🦋 | crossover | a | b | H5 | 3 | 12-15
+P: Peitoral Maior
+S: Deltóide Anterior, Bíceps
+I: Coloque um banco reto no meio do crossover com as polias na posição mais baixa | Deite segurando um pegador em cada mão, braços abertos e cotovelos levemente dobrados | Feche os braços num arco amplo até as mãos se encontrarem acima do peito | Abra devagar até sentir o peito alongar, mantendo o mesmo ângulo de cotovelo
+E: Dobrar e estender os cotovelos (vira supino) | Abrir além da linha dos ombros | Bater os pegadores no topo e perder a tensão
+PR: Crucifixo no cabo em banco inclinado
+RG: Peck deck
+F: Flat_Bench_Cable_Flyes
+
+pt3_crossover_polia_media | Crossover na Polia Média | peito | Crossover (polias na altura do peito) | ini | ➡️ | crossover | a | b | CPH5 | 3 | 12-15
+P: Peitoral Maior
+S: Deltóide Anterior, Core
+I: Ajuste as duas polias na altura do peito e segure um pegador em cada mão | Dê um passo à frente em base afundada, tronco levemente inclinado | Com os cotovelos levemente dobrados, traga as mãos à frente na altura do peito até se tocarem | Volte devagar abrindo os braços até a linha do corpo
+E: Inclinar demais o tronco para frente | Puxar com os braços dobrando os cotovelos | Deixar os ombros rodarem para frente no final
+PR: Crossover unilateral
+RG: Peck deck com pausa no fechamento
+
+pt3_cruz_ferro_cabo | Cruz de Ferro no Cabo (Iron Cross) | peito | Crossover (polias altas) | ini | ✝️ | crossover | a | b | H | 3 | 12-15
+P: Peitoral Maior, Peitoral Inferior
+S: Latíssimo, Deltóide Anterior
+I: Coloque as polias na posição alta e fique de pé exatamente entre elas | Segure os pegadores com os braços abertos formando um T, cotovelos quase retos | Traga os braços para baixo e à frente do quadril num arco, sem dobrar os cotovelos | Retorne devagar ao T, controlando o cabo
+E: Dobrar os cotovelos e transformar em pulldown | Inclinar o tronco à frente | Subir os braços acima da linha dos ombros na volta
+PR: Crossover ajoelhado na polia alta
+RG: Crossover na polia média
+F: Cable_Iron_Cross
+
+pt3_crossover_ajoelhado | Crossover Ajoelhado na Polia Alta | peito | Crossover (polias altas) | int | 🧎 | crossover | a | b | H | 3 | 12-15
+P: Peitoral Inferior
+S: Peitoral Maior, Deltóide Anterior, Core
+I: Coloque as polias no alto, segure um pegador em cada mão e ajoelhe no meio do crossover | Mantenha o tronco ereto e o abdômen firme | Traga as mãos para baixo e à frente até se cruzarem na altura do umbigo | Volte devagar até os braços ficarem abertos na altura dos ombros
+E: Sentar sobre os calcanhares e perder a postura | Usar o peso do corpo para puxar | Abrir demais e sentir o ombro em vez do peito
+PR: Crossover ajoelhado unilateral
+RG: Crucifixo de cima para baixo com elástico
+
+pt3_crucifixo_unilateral_halter | Crucifixo Unilateral com Halter | peito | Halter + banco reto | int | 🪽 | halteres | a | b | H | 3 | 10-12 cada lado
+P: Peitoral Maior
+S: Deltóide Anterior, Core, Oblíquos
+I: Deite no banco com um halter numa das mãos e segure a lateral do banco com a outra | Estenda o braço sobre o peito com o cotovelo levemente dobrado | Desça o halter num arco lateral até a linha do ombro, sem deixar o corpo girar | Volte pelo mesmo arco apertando o peito
+E: Deixar o tronco girar para o lado do peso | Descer além da linha do ombro | Usar halter pesado demais para controlar
+PR: Crucifixo com halteres na bola suíça
+RG: Crucifixo com halteres leves
+F: One-Arm_Flat_Bench_Dumbbell_Flye
+
+pt3_peck_deck_unilateral | Peck Deck Unilateral | peito | Máquina voador (peck deck) | int | 👐 | voador_peck_deck | a | b | HR | 3 | 12 cada lado
+P: Peitoral Maior
+S: Deltóide Anterior, Core
+I: Ajuste o banco para os braços ficarem na altura dos ombros | Segure apenas uma das alavancas e apoie a outra mão no assento | Feche o braço até a frente do peito sem girar o tronco | Volte devagar até sentir o alongamento e complete o lado antes de trocar
+E: Girar o tronco para ajudar | Bater a alavanca no ponto final | Banco baixo demais (ombro acima da pegada)
+PR: Crossover unilateral
+RG: Peck deck com pausa no fechamento
+
+pt3_peck_deck_pausa | Peck Deck com Pausa no Fechamento | peito | Máquina voador (peck deck) | ini | 🦋 | voador_peck_deck | a | b | CPH5 | 3 | 12-15
+P: Peitoral Maior
+S: Deltóide Anterior, Peitoral Interno
+I: Sente com as costas apoiadas e ajuste o banco para os cotovelos ficarem na altura dos ombros | Feche os braços à frente do peito em 2 s | Segure 2 s com o peito contraído, sem bater as alavancas | Abra em 3 s até a linha do corpo e repita
+E: Abrir além da linha dos ombros | Tirar as costas do encosto | Encurtar a pausa conforme cansa
+PR: Peck deck unilateral
+RG: Crucifixo em pé com elástico
+F: Butterfly
+
+pt3_hex_press | Supino Hex (Halteres Pressionados) | peito | Halteres + banco reto | int | 🔗 | halteres | ca | b | H | 3 | 10-12
+P: Peitoral Maior, Peitoral Interno
+S: Tríceps, Deltóide Anterior
+I: Deite no banco segurando dois halteres com pegada neutra, encostados um no outro sobre o peito | Pressione um halter contra o outro com força durante toda a série | Empurre os halteres juntos para cima até estender os braços | Desça devagar até tocar levemente o peito, sem deixar os halteres se separarem
+E: Parar de pressionar os halteres no meio da série | Halteres se afastando na descida | Cotovelos abertos demais
+PR: Supino hex com pausa de 2 s no peito
+RG: Svend press
+
+pt3_bola_crucifixo | Crucifixo com Halteres na Bola Suíça | peito | Halteres + bola suíça | int | 🫧 | bola_suica | ca | b | H | 3 | 12
+P: Peitoral Maior
+S: Deltóide Anterior, Glúteos, Core
+I: Apoie as escápulas na bola com o quadril elevado em posição de ponte | Estenda os braços sobre o peito, palmas voltadas uma para a outra e cotovelos levemente dobrados | Abra os braços num arco até a linha do ombro, mantendo o quadril alto | Feche apertando o peito, como se abraçasse uma árvore
+E: Quadril caindo ao abrir os braços | Abrir demais e perder o equilíbrio | Usar halteres pesados demais
+PR: Crucifixo unilateral com halter
+RG: Crucifixo no chão com garrafas
+
+pt3_around_the_world | Around the World com Halteres | peito | Halteres leves + banco reto | int | 🌍 | halteres | ca | b | H | 3 | 10-12
+P: Peitoral Maior
+S: Deltóide Anterior, Latíssimo, Serrátil
+I: Deite no banco com um halter leve em cada mão, braços estendidos ao lado das coxas e palmas para cima | Mantendo os cotovelos levemente dobrados, leve os halteres num arco lateral até acima da cabeça | Volte pelo mesmo arco até as coxas | Mantenha a lombar apoiada e o movimento lento durante todo o arco
+E: Usar carga pesada (sobrecarrega o ombro) | Arquear a lombar quando os braços passam da cabeça | Fazer o arco rápido demais
+PR: Around the world com pausa acima da cabeça
+RG: Crucifixo com halteres leves
+F: Around_The_Worlds
+
+pt3_supino_chao_kb_unilateral | Supino no Chão Unilateral com Kettlebell | peito | Kettlebell | int | 🔔 | kettlebell | ca | b | CHR | 3 | 8-10 cada lado
+P: Peitoral Maior
+S: Tríceps, Core, Oblíquos
+I: Deite de lado, segure a alça do kettlebell e role de costas trazendo-o ao peito | Dobre a perna do lado do peso, pé no chão, e estenda a outra | Empurre o kettlebell para cima até estender o braço, punho reto | Desça devagar até o tríceps tocar o chão e repita
+E: Punho dobrado para trás com o peso | Pegar o kettlebell do chão com o braço esticado (risco no ombro) | Deixar o corpo rolar para o lado
+PR: Supino no chão alternado com kettlebells
+RG: Supino no chão com galões de água
+F: One-Arm_Kettlebell_Floor_Press
+
+pt3_supino_chao_kb_alternado | Supino no Chão Alternado com Kettlebells | peito | 2 kettlebells | int | 🔁 | kettlebell | ca | b | CPH | 3 | 8-10 cada lado
+P: Peitoral Maior
+S: Tríceps, Deltóide Anterior, Core
+I: Deite no chão com joelhos dobrados e um kettlebell em cada mão, braços estendidos acima do peito | Desça um kettlebell até o cotovelo tocar o chão, mantendo o outro em cima | Empurre de volta e só então desça o outro lado | Mantenha os punhos retos e o abdômen firme o tempo todo
+E: Deixar o braço de cima balançar | Cotovelo batendo forte no chão | Punho dobrado
+PR: Supino com kettlebell fundo para cima
+RG: Supino no chão unilateral com kettlebell
+F: Alternating_Floor_Press
+
+pt3_supino_kb_fundo_cima | Supino com Kettlebell Fundo para Cima | peito | Kettlebells leves + banco | ava | 🛎️ | kettlebell | ca | b | HR | 3 | 6-8
+P: Peitoral Maior
+S: Antebraços, Manguito Rotador, Tríceps
+I: Deite no banco segurando cada kettlebell pela alça com o fundo virado para o teto | Aperte forte a alça e mantenha o punho reto para o sino não tombar | Desça devagar até a lateral do peito, antebraço vertical | Empurre para cima mantendo o kettlebell equilibrado
+E: Usar kettlebell pesado demais | Afrouxar a pegada e deixar o sino cair para o lado | Descer rápido demais
+PR: Supino unilateral com kettlebell fundo para cima
+RG: Supino com halteres
+
+pt3_supino_landmine_duas_maos | Supino Landmine com Duas Mãos | peito | Barra no landmine + anilhas | int | 🚀 | landmine | a | b | CPHR | 3 | 10-12
+P: Peitoral Superior, Peitoral Interno
+S: Deltóide Anterior, Tríceps, Core
+I: Fique de pé de frente para a ponta da barra do landmine, pés na largura do quadril | Segure a ponta com as duas mãos entrelaçadas na altura do peito | Empurre a barra para cima e à frente até estender os braços, apertando as mãos | Desça controlando até a altura do peito
+E: Inclinar o tronco para trás | Empurrar com as pernas | Cotovelos muito abertos
+PR: Supino landmine unilateral em base afundada
+RG: Supino inclinado em pé com elástico
+
+pt3_trx_crucifixo | Crucifixo no TRX | peito | Fita de suspensão (TRX) | ava | 🎗️ | trx | a | b | CH | 3 | 8-12
+P: Peitoral Maior
+S: Deltóide Anterior, Core, Bíceps
+I: Fique de frente para a ancoragem segurando as alças com os braços à frente do peito | Incline o corpo à frente, apoiado na ponta dos pés, corpo em linha reta | Abra os braços para os lados, cotovelos levemente dobrados, deixando o corpo descer | Feche os braços apertando o peito até voltar à posição inicial
+E: Quadril caindo (perde a prancha) | Abrir além da linha dos ombros | Começar inclinado demais
+PR: Dar um passo para trás para aumentar a inclinação
+RG: Flexão no TRX
+
+pt3_mergulho_graviton | Paralela Assistida no Graviton | peito | Máquina graviton (barra/paralela assistida) | ini | 🛗 | maquina_bracos | a | b | CPH | 3 | 8-12
+P: Peitoral Inferior, Tríceps
+S: Deltóide Anterior, Core
+I: Escolha a carga de assistência (quanto mais peso, mais ajuda) e ajoelhe na plataforma | Segure as barras paralelas com os braços estendidos | Incline levemente o tronco à frente e desça dobrando os cotovelos até cerca de 90° | Empurre de volta até estender os braços sem travar
+E: Descer além de 90° e forçar o ombro | Encolher os ombros perto das orelhas | Usar pouca assistência e perder a técnica
+PR: Paralela (dips) livre
+RG: Mergulho na máquina
+
+pt3_supino_dec_smith | Supino Declinado no Smith | peito | Máquina Smith + banco declinado | int | ⬇️ | smith | a | b | H | 3 | 8-12
+P: Peitoral Inferior
+S: Tríceps, Deltóide Anterior
+I: Posicione o banco declinado sob o Smith para a barra descer na parte baixa do peito | Prenda bem as pernas no apoio e segure a barra pouco além da largura dos ombros | Destrave e desça controlando até a parte inferior do peito | Empurre até estender os braços e trave a barra ao terminar
+E: Barra descendo no pescoço (banco mal posicionado) | Não prender as pernas | Esquecer de travar a barra
+PR: Supino declinado com barra livre
+RG: Supino declinado na máquina
+F: Smith_Machine_Decline_Press
+
+pt3_crucifixo_declinado | Crucifixo Declinado com Halteres | peito | Halteres + banco declinado | int | 🔻 | halteres | a | b | H | 3 | 10-12
+P: Peitoral Inferior
+S: Deltóide Anterior, Peitoral Maior
+I: Deite no banco declinado com as pernas presas e um halter em cada mão sobre o peito | Palmas voltadas uma para a outra e cotovelos levemente dobrados | Abra os braços num arco até a linha do peito | Feche pelo mesmo arco apertando a parte baixa do peito
+E: Abrir demais e sentir o ombro | Dobrar e estender os cotovelos | Subir rápido demais do banco declinado (tontura)
+PR: Crossover ajoelhado na polia alta
+RG: Crucifixo de cima para baixo com elástico
+F: Decline_Dumbbell_Flyes
+
+pt3_mergulho_cadeiras | Mergulho entre Duas Cadeiras | peito | 2 cadeiras firmes encostadas na parede | ava | 🪑 | cadeira | c | b | CPH | 3 | 6-12
+P: Peitoral Inferior, Tríceps
+S: Deltóide Anterior, Core
+I: Coloque duas cadeiras firmes e sem rodinhas encostadas na parede, com o espaço do seu tronco entre elas | Apoie uma mão em cada assento, braços estendidos e pés no chão à frente | Incline o tronco levemente à frente e desça dobrando os cotovelos até cerca de 90° | Empurre de volta até estender os braços, usando as pernas só o necessário
+E: Usar cadeiras instáveis ou com rodinha | Descer além de 90° | Ombros subindo até as orelhas
+PR: Paralela (dips) livre na academia
+RG: Tríceps no banco com joelhos dobrados
+
+# ===================== PEITORAL SUPERIOR — ACADEMIA =====================
+
+pt3_supino_inc_unilateral | Supino Inclinado Unilateral com Halter | peito | Halter + banco inclinado | int | 1️⃣ | halteres | a | b | HR | 3 | 8-12 cada lado
+P: Peitoral Superior
+S: Tríceps, Core, Oblíquos
+I: Sente no banco a 30-45° com um halter numa das mãos e segure o banco com a outra | Deite e posicione o halter ao lado do peito | Empurre para cima sem deixar o tronco girar para o lado do peso | Desça controlando e complete o lado antes de trocar
+E: Tronco girando junto com o halter | Pés soltos (perde a base) | Descer rápido demais
+PR: Supino inclinado com kettlebell fundo para cima
+RG: Supino com halteres inclinado
+
+pt3_crucifixo_inc_rotacao | Crucifixo Inclinado com Rotação | peito | Halteres + banco inclinado | ava | 🌀 | halteres | a | b | H | 3 | 10-12
+P: Peitoral Superior
+S: Deltóide Anterior, Bíceps
+I: Deite no banco a 30° com os halteres acima do peito, palmas voltadas para os pés (pegada pronada) | Abra os braços num arco girando os punhos até as palmas ficarem voltadas para cima | Desça até a linha do peito com os cotovelos levemente dobrados | Volte pelo mesmo arco desfazendo a rotação e aproxime os halteres no topo
+E: Girar os punhos depressa e sem controle | Abrir demais e sobrecarregar o ombro | Usar carga alta
+PR: Crucifixo no cabo inclinado
+RG: Crucifixo inclinado sem rotação
+F: Incline_Dumbbell_Flyes_-_With_A_Twist
+
+pt3_supino_inc_cabo | Supino Inclinado no Banco entre Polias | peito | Crossover (polias baixas) + banco inclinado | int | 📐 | crossover | a | b | H | 3 | 10-12
+P: Peitoral Superior
+S: Tríceps, Deltóide Anterior
+I: Coloque o banco inclinado a 30-45° no meio do crossover, polias na posição baixa | Deite segurando um pegador em cada mão ao lado do peito | Empurre para cima e levemente para dentro até as mãos quase se tocarem | Volte devagar resistindo à puxada do cabo
+E: Polias altas demais (cabo puxando no ângulo errado) | Deixar os cabos levarem os braços rápido para baixo | Tirar a cabeça do banco
+PR: Supino inclinado unilateral com halter
+RG: Supino inclinado na máquina
+F: Incline_Cable_Chest_Press
+
+pt3_supino_supinado_halter | Supino com Halteres Pegada Supinada | peito | Halteres + banco reto | int | 🙌 | halteres | a | b | H | 3 | 10-12
+P: Peitoral Superior
+S: Tríceps, Bíceps, Deltóide Anterior
+I: Deite no banco reto com os halteres sobre o peito e as palmas voltadas para o seu rosto | Mantenha os cotovelos próximos ao tronco | Desça os halteres até a parte baixa do peito | Empurre para cima e levemente para trás, até acima dos ombros
+E: Abrir os cotovelos (perde o efeito da pegada) | Punhos dobrando para trás | Usar carga alta logo de início
+PR: Supino pegada invertida com barra
+RG: Supino com halteres pegada neutra
+
+pt3_supino_invertido_barra | Supino Pegada Invertida com Barra | peito | Barra + anilhas + banco reto | ava | 🔄 | barra | a | b | H | 3 | 6-10
+P: Peitoral Superior, Tríceps
+S: Deltóide Anterior, Bíceps
+I: Deite no banco e segure a barra com as palmas voltadas para você, mãos na largura dos ombros | Peça ajuda para tirar a barra do suporte (a pegada é instável) | Desça a barra até a parte baixa do peito com os cotovelos colados ao tronco | Empurre para cima e para trás até a linha dos ombros
+E: Treinar sem parceiro ou proteção | Pegada com o polegar solto | Cotovelos abrindo
+PR: Aumentar a carga gradualmente com parceiro
+RG: Supino com halteres pegada supinada
+F: Reverse_Triceps_Bench_Press
+
+pt3_crossover_baixo_unilateral | Crossover Baixo Unilateral | peito | Polia/crossover (polia baixa) | int | ⤴️ | crossover | a | b | HR | 3 | 12 cada lado
+P: Peitoral Superior
+S: Deltóide Anterior, Core
+I: Coloque uma polia na posição mais baixa e fique de lado para ela, segurando o pegador com a mão de dentro | Dê um passo para longe da polia, braço estendido ao lado e levemente para baixo | Leve a mão para cima e para a frente até a altura do queixo, cruzando a linha do corpo | Volte devagar e complete o lado antes de trocar
+E: Girar o tronco junto com o braço | Subir a mão acima da cabeça | Dobrar o cotovelo e virar uma rosca
+PR: Crossover baixo com pausa de 2 s no topo
+RG: Crucifixo de baixo para cima com elástico
+
+pt3_supino_inc_maq_unilateral | Supino Inclinado na Máquina Unilateral | peito | Máquina articulada de supino inclinado | int | ✋ | supino_maquina | a | b | H | 3 | 10-12 cada lado
+P: Peitoral Superior
+S: Tríceps, Deltóide Anterior
+I: Ajuste o banco para a pegada ficar na altura da parte alta do peito | Segure uma alavanca e apoie a outra mão no banco | Empurre para cima e à frente sem tirar as costas do encosto | Volte devagar até alongar e troque de lado
+E: Tronco girando para ajudar | Encolher o ombro | Descer rápido e bater a carga
+PR: Supino inclinado unilateral com halter
+RG: Supino inclinado na máquina com os dois braços
+
+# ===================== TRÍCEPS — ACADEMIA =====================
+
+pt3_triceps_pulley_supinado_uni | Tríceps Pulley Unilateral Pegada Supinada | triceps | Polia alta + pegador simples | ini | 🫴 | polia | a | b | CPH5 | 3 | 12-15 cada lado
+P: Tríceps Medial, Tríceps
+S: Antebraços, Core
+I: Fique de frente para a polia alta e segure o pegador com a palma para cima | Cole o cotovelo ao lado do corpo, cotovelo dobrado a 90° | Estenda o braço para baixo até ficar reto, sem mexer o cotovelo | Volte devagar até os 90° e troque de lado ao final
+E: Cotovelo indo para frente ou para trás | Inclinar o tronco sobre o pegador | Usar carga alta e perder a pegada supinada
+PR: Pushdown inverso com barra
+RG: Tríceps com elástico (pushdown)
+F: Cable_One_Arm_Tricep_Extension
+
+pt3_triceps_cabo_ajoelhado | Tríceps Francês Ajoelhado no Banco (Polia Alta) | triceps | Polia alta + barra reta + banco | int | 🙇 | polia | a | b | H | 3 | 10-12
+P: Tríceps Longo
+S: Tríceps Lateral, Core
+I: Coloque um banco de lado em frente à polia alta e segure a barra reta com as mãos a um palmo de distância | De costas para a máquina, ajoelhe e apoie a parte de trás dos braços no banco | Com os cotovelos dobrados e apontando para a frente, estenda os braços até ficarem retos | Volte devagar até sentir alongar o tríceps
+E: Tirar os braços do banco | Abrir os cotovelos | Arquear a lombar
+PR: Tríceps testa até atrás da cabeça
+RG: Tríceps no cabo acima da cabeça
+F: Kneeling_Cable_Triceps_Extension
+
+pt3_triceps_cabo_inclinado | Tríceps no Cabo Deitado em Banco Inclinado | triceps | Polia alta + barra reta + banco inclinado | ini | 📏 | polia | a | b | H | 3 | 10-12
+P: Tríceps Longo
+S: Tríceps Lateral, Tríceps Medial
+I: Coloque o banco inclinado de costas para a polia alta e deite nele | Segure a barra acima da cabeça com pegada pronada fechada | Mantenha os cotovelos apontando para cima e estenda os braços à frente | Volte devagar até os cotovelos dobrarem bem, sentindo o alongamento
+E: Mexer os ombros durante a extensão | Cotovelos abrindo para os lados | Volta rápida, sem controle
+PR: Tríceps francês ajoelhado no banco
+RG: Tríceps no cabo acima da cabeça em pé
+F: Cable_Incline_Triceps_Extension
+
+pt3_triceps_cruzado_polia | Tríceps Cruzado na Polia Alta | triceps | Crossover (2 polias altas, sem pegador) | int | ❎ | crossover | a | b | H | 3 | 12-15
+P: Tríceps Lateral
+S: Tríceps Medial, Core
+I: Coloque as duas polias no alto e segure o cabo da esquerda com a mão direita e o da direita com a esquerda | Dê um passo para trás com os braços cruzados em X na altura do rosto | Estenda os braços para baixo e para os lados, abrindo o X até os braços ficarem retos | Volte devagar à posição cruzada
+E: Mexer os ombros em vez dos cotovelos | Pegar carga alta e balançar o corpo | Não estender completamente
+PR: Tríceps cruzado com pausa de 2 s embaixo
+RG: Tríceps pulley
+
+pt3_triceps_overhead_uni_polia_baixa | Tríceps Unilateral Acima da Cabeça na Polia Baixa | triceps | Polia baixa + pegador simples | ini | ⬆️ | polia | a | b | CH5 | 3 | 12 cada lado
+P: Tríceps Longo
+S: Tríceps Lateral, Core
+I: Fique de costas para a polia baixa e segure o pegador com uma mão | Leve o braço acima da cabeça, cotovelo apontando para cima e mão atrás da nuca | Estenda o braço para cima até ficar reto | Volte devagar até a mão chegar atrás da cabeça e troque de lado
+E: Cotovelo abrindo para fora | Arquear a lombar | Mexer o braço em vez de só o cotovelo
+PR: Tríceps francês unilateral com halter
+RG: Tríceps overhead com elástico
+F: Standing_Low-Pulley_One-Arm_Triceps_Extension
+
+pt3_triceps_corda_pausa | Tríceps Corda com Pausa Isométrica | triceps | Polia alta + corda | ini | ⏱️ | polia | a | b | CPH5 | 3 | 10-12
+P: Tríceps, Tríceps Lateral
+S: Antebraços, Core
+I: Segure a corda na polia alta com os cotovelos colados ao corpo | Estenda os braços para baixo abrindo as pontas da corda no final | Segure 2 s com os braços estendidos e o tríceps contraído | Volte devagar até os cotovelos a 90°
+E: Cotovelos saindo do lado do corpo | Encurtar a pausa | Inclinar o tronco para jogar o peso
+PR: Tríceps cruzado na polia alta
+RG: Tríceps com elástico (pushdown)
+F: Triceps_Pushdown_-_Rope_Attachment
+
+pt3_triceps_testa_atras_cabeca | Tríceps Testa até Atrás da Cabeça | triceps | Barra reta ou W + banco reto | ava | 🎯 | barra | a | b | H | 3 | 8-10
+P: Tríceps Longo
+S: Tríceps Lateral, Latíssimo
+I: Deite no banco segurando a barra com pegada fechada, braços estendidos sobre o peito | Incline levemente os braços para trás da linha dos ombros | Dobre os cotovelos levando a barra para trás da cabeça, perto do banco | Estenda os braços de volta mantendo os cotovelos apontados para o teto
+E: Abrir os cotovelos | Usar carga que não consegue controlar atrás da cabeça | Transformar em pullover mexendo os ombros
+PR: Tríceps testa no banco declinado
+RG: Tríceps testa
+F: Lying_Close-Grip_Barbell_Triceps_Extension_Behind_The_Head
+
+pt3_triceps_testa_declinado | Tríceps Testa no Banco Declinado | triceps | Barra W + banco declinado | ava | 📉 | barra_ez | a | b | H | 3 | 10-12
+P: Tríceps Lateral, Tríceps Medial
+S: Tríceps Longo, Antebraços
+I: Deite no banco declinado com as pernas presas e a barra W estendida acima do peito | Segure nas curvas internas da barra | Dobre os cotovelos levando a barra até perto da testa | Estenda os braços de volta sem mexer os ombros
+E: Cotovelos abrindo | Barra descendo sobre o rosto sem controle | Levantar do banco declinado de uma vez
+PR: Tríceps testa até atrás da cabeça
+RG: Tríceps testa no banco reto
+F: Decline_EZ_Bar_Triceps_Extension
+
+pt3_triceps_testa_inclinado | Tríceps Testa no Banco Inclinado | triceps | Barra + banco inclinado | int | 📈 | barra | a | b | H | 3 | 10-12
+P: Tríceps Longo
+S: Tríceps Lateral, Tríceps Medial
+I: Ajuste o banco a cerca de 30-45° e deite segurando a barra com pegada fechada | Estenda os braços acima da cabeça alinhados com o banco | Dobre os cotovelos levando a barra para trás da cabeça | Estenda os braços de volta mantendo os cotovelos fixos e apontados para cima
+E: Cotovelos abrindo para os lados | Mexer os ombros junto | Descer rápido demais
+PR: Tríceps testa até atrás da cabeça
+RG: Tríceps no cabo deitado em banco inclinado
+F: Incline_Barbell_Triceps_Extension
+
+pt3_triceps_testa_pronado | Tríceps Testa com Halteres Pegada Pronada | triceps | Halteres + banco reto | int | 🫳 | halteres | ca | b | H | 3 | 10-12
+P: Tríceps Lateral
+S: Tríceps Medial, Tríceps Longo
+I: Deite no banco com um halter em cada mão, braços estendidos sobre o peito e palmas voltadas para os pés | Mantenha os braços parados | Dobre os cotovelos levando os halteres até a lateral da testa | Estenda os braços de volta até ficarem retos
+E: Halteres batendo na cabeça | Braços indo para frente e para trás | Punhos dobrados
+PR: Tríceps testa no banco declinado
+RG: Extensão deitado com halteres
+F: Dumbbell_Tricep_Extension_-Pronated_Grip
+
+pt3_triceps_testa_uni_supinado | Tríceps Testa Unilateral Pegada Supinada | triceps | Halter + banco reto | int | 🤚 | halteres | ca | b | H | 3 | 10-12 cada lado
+P: Tríceps Medial
+S: Tríceps Lateral, Tríceps Longo
+I: Deite no banco segurando um halter com o braço estendido e a palma voltada para o rosto | Segure o braço que trabalha com a outra mão, na altura do bíceps | Dobre o cotovelo levando o halter até perto do ombro oposto | Estenda o braço de volta e complete o lado antes de trocar
+E: Deixar o braço cair para o lado | Usar carga pesada demais | Girar o punho durante o movimento
+PR: Tríceps testa com halteres pegada pronada
+RG: Tríceps coice sentado bilateral
+F: One_Arm_Supinated_Dumbbell_Triceps_Extension
+
+pt3_triceps_coice_sentado | Tríceps Coice Sentado Bilateral | triceps | Halteres + banco | ini | 🦵 | halteres | ca | b | CPH5 | 3 | 12-15
+P: Tríceps Lateral, Tríceps Medial
+S: Deltóide Posterior, Core
+I: Sente na ponta do banco com um halter em cada mão e incline o tronco à frente, coluna reta | Cole os braços ao lado do corpo, paralelos ao chão, cotovelos dobrados | Estenda os braços para trás até ficarem retos | Volte devagar até os cotovelos a 90°, sem mexer os braços
+E: Balançar os halteres | Braços descendo durante a série | Arredondar as costas
+PR: Tríceps coice inclinado
+RG: Tríceps coice com elástico
+F: Seated_Bent-Over_Two-Arm_Dumbbell_Triceps_Extension
+
+pt3_supino_fechado_ez | Supino Fechado com Barra W | triceps | Barra W + banco reto | int | 〰️ | barra_ez | a | b | H | 4 | 8-10
+P: Tríceps
+S: Peitoral, Deltóide Anterior
+I: Deite no banco e segure a barra W nas curvas internas | Tire a barra do suporte e posicione sobre a parte baixa do peito | Desça a barra com os cotovelos próximos ao tronco até tocar o peito | Empurre até estender os braços
+E: Cotovelos abrindo para fora | Pegada estreita demais (dor no punho) | Quicar a barra no peito
+PR: Supino fechado com barra
+RG: Supino fechado no Smith
+F: Close-Grip_EZ-Bar_Press
+
+pt3_supino_fechado_smith | Supino Fechado no Smith | triceps | Máquina Smith + banco reto | ini | 🧱 | smith | a | b | CH | 3 | 10-12
+P: Tríceps
+S: Peitoral, Deltóide Anterior
+I: Posicione o banco para a barra do Smith descer na parte baixa do peito | Segure a barra com as mãos na largura dos ombros | Destrave e desça com os cotovelos colados ao tronco | Empurre até estender os braços e trave a barra no final
+E: Cotovelos abrindo | Banco fora da posição (barra no pescoço) | Esquecer de travar a barra
+PR: Supino fechado com barra W
+RG: Supino fechado na máquina
+F: Smith_Machine_Close-Grip_Bench_Press
+
+pt3_floor_press_barra | Supino no Chão com Barra | triceps | Barra + anilhas + rack/suporte baixo | ava | 🟫 | barra | a | b | H | 4 | 5-8
+P: Tríceps, Peitoral Maior
+S: Deltóide Anterior
+I: Deite no chão dentro do rack com a barra apoiada nos ganchos baixos | Segure a barra na largura média e tire do suporte com os braços estendidos | Desça até os tríceps tocarem o chão e pause 1 s | Empurre de forma explosiva até estender os braços
+E: Bater os cotovelos com força no chão | Barra fora do rack (difícil devolver) | Perder a tensão durante a pausa
+PR: Pin press
+RG: Supino no chão com halteres
+F: Floor_Press
+
+pt3_triceps_smith_peso_corporal | Extensão de Tríceps no Smith com Peso Corporal | triceps | Máquina Smith (barra na altura do peito) | int | 🧍 | smith | a | b | CH | 3 | 8-12
+P: Tríceps
+S: Core, Peitoral
+I: Trave a barra do Smith na altura do peito e segure com as mãos na largura dos ombros | Dê dois passos para trás e incline o corpo, braços estendidos, corpo em linha | Dobre os cotovelos levando a testa em direção à barra | Estenda os braços empurrando o corpo de volta
+E: Quadril caindo | Cotovelos abrindo | Inclinação grande demais para o seu nível
+PR: Baixar a barra um furo para aumentar a carga
+RG: Subir a barra para ficar mais em pé
+F: Body_Tricep_Press
+
+pt3_triceps_trx | Extensão de Tríceps no TRX | triceps | Fita de suspensão (TRX) | int | 🪢 | trx | a | b | CHR | 3 | 10-12
+P: Tríceps
+S: Core, Deltóide Anterior
+I: Fique de costas para a ancoragem e segure as alças com as palmas para baixo | Incline o corpo à frente com os braços estendidos à frente da cabeça | Dobre os cotovelos levando as mãos para perto da testa, cotovelos apontando para frente | Estenda os braços empurrando o corpo de volta
+E: Cotovelos abrindo | Quadril dobrando (perde a prancha) | Inclinar demais logo de início
+PR: Dar um passo à frente para aumentar a inclinação
+RG: Extensão de tríceps no Smith com peso corporal
+
+pt3_triceps_landmine | Extensão de Tríceps no Landmine | triceps | Barra no landmine | ava | 🗼 | landmine | a | b | H | 3 | 10-12
+P: Tríceps Longo
+S: Core, Tríceps Lateral
+I: Fique de pé de costas para a base do landmine segurando a ponta da barra com as duas mãos | Leve a ponta para trás da cabeça, cotovelos apontando para cima | Estenda os braços para cima e à frente até ficarem retos | Volte devagar até a ponta voltar para trás da cabeça
+E: Arquear a lombar | Cotovelos abrindo | Usar o impulso das pernas
+PR: Aumentar a carga na barra
+RG: Tríceps francês com kettlebell
+
+pt3_mergulho_banco_carga | Tríceps no Banco com Pés Elevados e Anilha | triceps | 2 bancos + anilha | ava | 🏗️ | banco | a | b | H | 3 | 8-12
+P: Tríceps
+S: Peitoral Inferior, Deltóide Anterior
+I: Coloque dois bancos paralelos e apoie as mãos num e os calcanhares no outro | Peça a um parceiro para colocar a anilha sobre suas coxas | Desça dobrando os cotovelos até cerca de 90°, costas perto do banco | Empurre até estender os braços
+E: Descer além de 90° (estressa o ombro) | Cotovelos abrindo para os lados | Afastar demais o corpo do banco
+PR: Paralela ênfase tríceps
+RG: Tríceps no banco
+F: Weighted_Bench_Dip
+
+pt3_paralela_triceps | Paralela Ênfase Tríceps (Tronco Vertical) | triceps | Paralelas | ava | 🅷 | paralelas | a | b | CH | 3 | 6-10
+P: Tríceps
+S: Peitoral, Deltóide Anterior
+I: Suba nas paralelas com os braços estendidos e o tronco totalmente vertical | Mantenha os cotovelos apontando para trás, perto do corpo | Desça até os cotovelos chegarem a 90° | Empurre para cima até estender os braços sem inclinar o tronco
+E: Inclinar o tronco à frente (vira paralela de peito) | Descer além de 90° | Balançar as pernas
+PR: Dips com peso
+RG: Paralela assistida no graviton
+F: Dips_-_Triceps_Version
+
+# ===================== TRÍCEPS — KETTLEBELL / ELÁSTICO (ACADEMIA E CASA) =====================
+
+pt3_triceps_frances_kb | Tríceps Francês com Kettlebell | triceps | Kettlebell | ini | 🔔 | kettlebell | ca | b | CH5 | 3 | 10-12
+P: Tríceps Longo
+S: Tríceps Lateral, Core
+I: Sente ou fique de pé segurando o kettlebell pelos chifres da alça, com o sino para baixo | Leve o kettlebell acima da cabeça com os braços estendidos | Dobre os cotovelos descendo o kettlebell atrás da cabeça, cotovelos para cima | Estenda os braços de volta
+E: Cotovelos abrindo para os lados | Arquear a lombar | Descer rápido demais e bater na nuca
+PR: Halo com kettlebell e extensão de tríceps
+RG: Tríceps francês com mochila
+F: Kettlebell_Overhead_Triceps_Extension
+
+pt3_halo_kb_triceps | Halo com Kettlebell e Extensão de Tríceps | triceps | Kettlebell | int | 😇 | kettlebell | ca | b | CHR | 3 | 6-8 cada sentido
+P: Tríceps Longo, Ombros
+S: Core, Manguito Rotador
+I: Segure o kettlebell pelos chifres na frente do peito, de pé, abdômen firme | Gire o kettlebell em volta da cabeça, passando perto da nuca | Ao passar atrás da cabeça, pare e estenda os braços acima da cabeça uma vez | Termine a volta e alterne o sentido do giro
+E: Afastar demais o kettlebell da cabeça | Arquear a lombar | Girar o tronco junto
+PR: Aumentar a carga
+RG: Tríceps francês com kettlebell
+F: Kettlebell_Halo_With_Overhead_Extension
+
+pt3_triceps_testa_elastico | Tríceps Testa com Elástico | triceps | Elástico + banco ou chão | ini | 🎀 | elastico | ca | b | CH5 | 3 | 12-15
+P: Tríceps
+S: Tríceps Longo, Antebraços
+I: Deite no chão ou no banco com o elástico passando por baixo das costas na altura dos ombros | Segure as pontas com os braços estendidos acima do peito | Dobre os cotovelos levando as mãos até perto da testa | Estenda os braços de volta sem mexer os ombros
+E: Cotovelos abrindo | Elástico escorregando das costas | Voltar sem controle
+PR: Tríceps testa com halteres pegada pronada
+RG: Elástico mais leve
+F: Band_Skull_Crusher
+
+pt3_triceps_coice_elastico | Tríceps Coice com Elástico | triceps | Elástico | ini | 🐴 | elastico | ca | b | CP5 | 3 | 15 cada lado
+P: Tríceps Lateral, Tríceps Medial
+S: Deltóide Posterior, Core
+I: Pise na ponta do elástico com um pé à frente e segure a outra ponta com a mão do lado oposto | Incline o tronco à frente com a coluna reta e cole o braço ao lado do corpo | Estenda o cotovelo para trás até o braço ficar reto | Volte devagar até 90° e troque de lado
+E: Braço descendo durante a série | Balançar o tronco | Arredondar as costas
+PR: Tríceps coice sentado bilateral
+RG: Elástico mais leve
+
+pt3_triceps_testa_kb_chao | Tríceps Testa no Chão com Kettlebell | triceps | Kettlebell | int | 🛎️ | kettlebell | ca | b | H | 3 | 10-12
+P: Tríceps Longo
+S: Tríceps Lateral, Core
+I: Deite no chão com joelhos dobrados e segure o kettlebell pelos chifres, braços estendidos acima do peito | Mantenha os cotovelos apontados para o teto | Dobre os cotovelos levando o kettlebell para trás da cabeça até perto do chão | Estenda os braços de volta
+E: Cotovelos abrindo | Lombar descolando do chão | Deixar o kettlebell bater no chão
+PR: Tríceps testa até atrás da cabeça
+RG: Tríceps testa com elástico
+
+# ===================== PEITO — CASA / PESO CORPORAL =====================
+
+pt3_flexao_inclinada_fechada | Flexão Inclinada Pegada Fechada | triceps | Mesa firme, bancada ou pia | ini | 🍽️ | cadeira | c | b | CPH5 | 3 | 10-15
+P: Tríceps
+S: Peitoral, Deltóide Anterior, Core
+I: Apoie as mãos na borda de uma mesa firme ou bancada, na largura dos ombros ou um pouco menos | Dê passos para trás até o corpo ficar em linha reta | Desça o peito até a borda com os cotovelos colados ao corpo | Empurre de volta até estender os braços
+E: Cotovelos abrindo | Quadril dobrado | Usar uma mesa leve que pode deslizar
+PR: Flexão pegada fechada no chão
+RG: Flexão na parede pegada fechada
+F: Incline_Push-Up_Close-Grip
+
+pt3_flexao_inclinada_supinada | Flexão Inclinada Pegada Invertida | peito | Barra do Smith na altura do quadril | int | 🔃 | smith | a | b | CH | 3 | 8-12
+P: Peitoral Superior
+S: Bíceps, Tríceps, Core
+I: Trave a barra do Smith na altura do quadril e segure com as palmas para cima, mãos na largura dos ombros | Dê passos para trás até o corpo ficar em linha reta | Desça o peito até a barra com os cotovelos próximos ao corpo | Empurre de volta até estender os braços
+E: Punhos dobrando demais | Quadril caindo | Abrir os cotovelos
+PR: Baixar a barra um furo
+RG: Flexão inclinada na bancada
+F: Incline_Push-Up_Reverse_Grip
+
+pt3_flexao_relogio | Flexão Relógio | empurrar | Peso corporal | ava | 🕐 | peso_corporal | ca | b | CPR | 3 | 1 volta completa (12 flexões)
+P: Peitoral
+S: Tríceps, Deltóide Anterior, Core
+I: Comece em prancha alta com as mãos sob os ombros | Faça uma flexão | Ande com as mãos um passo para o lado, girando o corpo em volta dos pés como o ponteiro de um relógio | Faça uma nova flexão a cada passo até completar a volta e repita para o outro sentido
+E: Quadril caindo ao andar com as mãos | Passos muito grandes | Fazer flexões curtas
+PR: Flexão relógio com palmas
+RG: Flexão relógio com joelhos apoiados
+F: Clock_Push-Up
+
+pt3_flexao_prancha_lateral | Flexão com Prancha Lateral | empurrar | Peso corporal | int | 📐 | peso_corporal | ca | b | CPR | 3 | 8-10
+P: Peitoral
+S: Oblíquos, Core, Tríceps
+I: Comece em posição de flexão com as mãos pouco além da largura dos ombros | Faça uma flexão completa | Ao subir, gire o corpo para um lado levando o braço para o teto em prancha lateral | Volte à posição de flexão e alterne o lado na repetição seguinte
+E: Girar só os ombros e deixar o quadril para trás | Quadril caindo na prancha lateral | Fazer o giro rápido sem controle
+PR: Flexão com prancha lateral segurando halteres
+RG: Flexão inclinada com rotação
+F: Push_Up_to_Side_Plank
+
+pt3_flexao_negativa | Flexão Negativa (Descida Lenta) | empurrar | Peso corporal | ini | 🐌 | peso_corporal | ca | b | CPH | 3 | 5-8
+P: Peitoral
+S: Tríceps, Core
+I: Comece em prancha alta com as mãos pouco além dos ombros e o corpo em linha | Desça contando 5 s até o peito quase tocar o chão | Apoie os joelhos no chão | Suba de joelhos e volte à prancha alta para a próxima repetição
+E: Descer rápido no final | Quadril caindo | Cotovelos abrindo a 90°
+PR: Flexão de braços completa
+RG: Flexão no joelho
+
+pt3_aperto_isometrico_palmas | Aperto Isométrico de Palmas | peito | Peso corporal | ini | 🙏 | peso_corporal | ca | b | CH5 | 3 | 5 x 10 s de aperto
+P: Peitoral Maior, Peitoral Interno
+S: Deltóide Anterior, Antebraços
+I: Sente ou fique de pé com a coluna reta | Dobre os cotovelos a 90° e junte as palmas na frente do peito, dedos apontando para a frente | Empurre uma palma contra a outra com força por 10 s, respirando normalmente | Relaxe 5 s e repita
+E: Prender a respiração | Encolher os ombros | Deixar os cotovelos caírem
+PR: Aperto segurando uma bola ou anilha entre as palmas
+RG: Aperto mais leve, 5 s
+F: Isometric_Chest_Squeezes
+
+pt3_limpador_isometrico | Flexão Limpador (Transferência Lateral) | empurrar | Peso corporal | ava | 🧽 | peso_corporal | ca | b | CH | 3 | 6-8 cada lado
+P: Peitoral
+S: Tríceps, Core, Oblíquos
+I: Fique em posição de flexão com as mãos um pouco mais abertas que os ombros | Desça o corpo levando o peso para um dos braços, que dobra, enquanto o outro fica quase estendido | Sem subir, deslize o corpo até o outro lado, perto do chão | Volte ao centro e suba
+E: Quadril subindo ou caindo | Subir entre os lados | Ficar alto demais e encurtar o movimento
+PR: Flexão archer
+RG: Flexão larga
+F: Isometric_Wipers
+
+pt3_flexao_toalha_deslizante | Flexão com Deslize Lateral na Toalha | empurrar | Toalha (piso liso) ou disco deslizante | ava | 🧻 | toalha | ca | b | CHR | 3 | 6-8 cada lado
+P: Peitoral
+S: Tríceps, Core, Deltóide Anterior
+I: Fique em posição de flexão com uma mão sobre uma toalha no piso liso | Ao descer, deslize a mão da toalha para o lado, estendendo o braço | Desça até o peito perto do chão, com o peso no braço que fica parado | Ao subir, puxe a toalha de volta para baixo do ombro e complete as repetições antes de trocar
+E: Deslizar longe demais e perder o controle | Quadril girando | Usar a toalha em piso áspero (não desliza)
+PR: Flexão archer
+RG: Flexão com mãos em altura diferente no degrau
+
+pt3_flexao_elastico | Flexão com Elástico nas Costas | empurrar | Elástico de resistência | int | 🎯 | elastico | ca | b | CH | 3 | 8-12
+P: Peitoral
+S: Tríceps, Core
+I: Passe o elástico pelas costas, na altura das escápulas, e segure cada ponta sob a palma das mãos | Fique em posição de flexão com as mãos pouco além dos ombros | Desça até o peito quase tocar o chão | Empurre o chão vencendo a resistência do elástico até estender os braços
+E: Elástico escorregando para o pescoço | Quadril caindo | Encurtar a amplitude
+PR: Flexão com mochila nas costas
+RG: Flexão de braços
+
+pt3_supino_chao_galoes | Supino no Chão com Galões de Água | peito | Galões ou garrafas PET cheias | ini | 💧 | halteres | c | b | CPH5 | 3 | 12-15
+P: Peitoral
+S: Tríceps, Deltóide Anterior
+I: Deite no chão com os joelhos dobrados e um galão em cada mão sobre o peito | Mantenha os cotovelos a cerca de 45° do tronco | Empurre os galões para cima até estender os braços | Desça devagar até os cotovelos encostarem levemente no chão
+E: Galões mal fechados ou com alça frágil | Bater os cotovelos no chão | Arquear a lombar
+PR: Supino no chão alternado com kettlebells
+RG: Aperto isométrico de palmas
+
+pt3_crucifixo_chao_garrafas | Crucifixo no Chão com Garrafas | peito | Garrafas PET cheias (1-2 L) | ini | 🍾 | halteres | c | b | H5 | 3 | 12-15
+P: Peitoral
+S: Deltóide Anterior
+I: Deite no chão com os joelhos dobrados e uma garrafa em cada mão, braços estendidos sobre o peito | Dobre levemente os cotovelos e mantenha esse ângulo | Abra os braços para os lados até os cotovelos tocarem o chão | Feche apertando o peito até as garrafas se encontrarem
+E: Dobrar e estender os cotovelos (vira supino) | Soltar os braços no chão | Garrafa escorregando da mão
+PR: Crucifixo com halteres na bola suíça
+RG: Crucifixo em pé com elástico
+
+pt3_crucifixo_elastico_baixo_cima | Crucifixo de Baixo para Cima com Elástico | peito | Elástico preso embaixo da porta | ini | ⤴️ | elastico | ca | b | H5 | 3 | 12-15
+P: Peitoral Superior
+S: Deltóide Anterior, Core
+I: Prenda o meio do elástico embaixo da porta fechada ou pise nele | Segure uma ponta em cada mão, braços estendidos ao lado do quadril | Levante os braços para frente e para cima até as mãos se encontrarem na altura do queixo | Volte devagar até o quadril
+E: Subir as mãos acima da cabeça | Dobrar os cotovelos | Inclinar o tronco para trás
+PR: Crossover baixo unilateral
+RG: Elástico mais leve
+
+pt3_crucifixo_elastico_cima_baixo | Crucifixo de Cima para Baixo com Elástico | peito | Elástico preso no alto da porta | ini | ⤵️ | elastico | ca | b | H5 | 3 | 12-15
+P: Peitoral Inferior
+S: Peitoral Maior, Core
+I: Prenda o elástico no alto da porta (com ancoragem de porta) e fique de costas para ela | Segure uma ponta em cada mão com os braços abertos e altos | Traga os braços para baixo e à frente até as mãos se cruzarem na altura do umbigo | Volte devagar
+E: Inclinar o tronco demais à frente | Elástico mal preso na porta | Encolher os ombros
+PR: Crossover ajoelhado na polia alta
+RG: Elástico mais leve
+
+pt3_supino_inc_elastico | Supino Inclinado em Pé com Elástico | peito | Elástico preso embaixo da porta | ini | 🚪 | elastico | ca | b | CPH5 | 3 | 12-15
+P: Peitoral Superior
+S: Tríceps, Deltóide Anterior
+I: Prenda o elástico na parte baixa da porta e fique de costas para ela em base afundada | Segure uma ponta em cada mão na altura do peito, cotovelos dobrados | Empurre as mãos para cima e para a frente, na diagonal, até estender os braços | Volte devagar à altura do peito
+E: Inclinar a lombar | Empurrar só para frente (perde a ênfase no superior) | Elástico frouxo no início
+PR: Supino landmine com duas mãos
+RG: Supino em pé com elástico
+
+pt3_supino_elastico_uni_afundo | Supino Unilateral com Elástico em Base Afundada | peito | Elástico preso na porta | int | 🥊 | elastico | ca | b | CPR | 3 | 10-12 cada lado
+P: Peitoral
+S: Core, Oblíquos, Tríceps
+I: Prenda o elástico na porta na altura do peito e fique de costas para ela | Fique em base afundada com o pé oposto ao braço que trabalha à frente | Empurre a mão à frente, levando o ombro para frente no final como num soco | Volte devagar sem deixar o tronco girar para trás
+E: Girar o quadril em vez de controlar o tronco | Base estreita | Cotovelo abrindo
+PR: Supino unilateral no cabo com rotação
+RG: Supino em pé com elástico
+
+pt3_flexao_maos_bola | Flexão com Mãos na Bola Suíça | empurrar | Bola suíça | ava | 🔵 | bola_suica | ca | b | CH | 3 | 6-10
+P: Peitoral
+S: Tríceps, Core, Serrátil
+I: Apoie as mãos nas laterais de uma bola suíça cheia e firme | Estenda as pernas para trás, corpo em linha reta | Desça o peito até perto da bola, cotovelos próximos ao corpo | Empurre de volta mantendo a bola parada
+E: Bola murcha ou em piso escorregadio | Quadril caindo | Cotovelos abrindo
+PR: Flexão com pés na bola suíça
+RG: Flexão com mãos na bola e joelhos no chão
+
+pt3_flexao_plio_kb | Flexão Pliométrica entre Kettlebells | empurrar | 2 kettlebells | ava | 💥 | kettlebell | ca | m | CP | 3 | 6-8
+P: Peitoral
+S: Tríceps, Core, Deltóide Anterior
+I: Coloque um kettlebell pesado de cada lado, na linha dos ombros, e fique em flexão entre eles | Faça uma flexão explosiva tirando as mãos do chão | No ar, leve as mãos às alças dos kettlebells e desça a flexão apoiado nelas | Empurre de forma explosiva de volta ao chão e repita
+E: Kettlebells leves que tombam | Aterrissar com os cotovelos travados | Quadril caindo na aterrissagem
+PR: Flexão com palmas
+RG: Flexão com mãos nos kettlebells sem salto
+F: Plyo_Kettlebell_Pushups
+
+pt3_flexao_desnivelada | Flexão Desnivelada (Uma Mão no Degrau) | empurrar | Degrau, step ou livros firmes | int | 📚 | degrau_step | ca | b | CHR | 3 | 6-10 cada lado
+P: Peitoral
+S: Tríceps, Core, Oblíquos
+I: Apoie uma mão no degrau e a outra no chão, ambas na largura dos ombros | Corpo em linha reta, apoiado na ponta dos pés | Desça até o peito ficar perto do chão, sem deixar o corpo girar | Empurre de volta e complete as repetições antes de trocar o lado
+E: Quadril girando | Degrau escorregando | Descer só até a metade
+PR: Flexão archer
+RG: Flexão desnivelada com joelhos apoiados
+
+pt3_flexao_explosiva_parede | Flexão Explosiva na Parede | empurrar | Parede | ini | 🧱 | parede | c | b | CPR5 | 3 | 8-10
+P: Peitoral
+S: Tríceps, Deltóide Anterior, Core
+I: Fique de frente para a parede, a cerca de um braço de distância, pés na largura do quadril | Apoie as mãos na parede na altura do peito e incline o corpo à frente | Dobre os cotovelos aproximando o peito da parede | Empurre rápido para as mãos saírem da parede e apare-se de volta com os cotovelos levemente dobrados
+E: Ficar longe demais da parede | Aterrissar com os braços travados | Arquear a lombar
+PR: Flexão explosiva inclinada na bancada
+RG: Flexão na parede
+
+# ===================== TRÍCEPS — CASA =====================
+
+pt3_flexao_parede_fechada | Flexão na Parede Pegada Fechada | triceps | Parede | ini | 🤲 | parede | c | b | CH5 | 3 | 12-15
+P: Tríceps
+S: Peitoral, Deltóide Anterior
+I: Fique de frente para a parede, a cerca de um braço de distância | Apoie as mãos juntas, polegares quase se tocando, na altura do peito | Dobre os cotovelos mantendo-os junto ao corpo, aproximando o peito da parede | Empurre de volta até estender os braços
+E: Cotovelos abrindo | Quadril para trás | Ficar perto demais da parede (pouco esforço)
+PR: Flexão inclinada pegada fechada
+RG: Distância menor da parede
+
+pt3_extensao_triceps_mesa | Extensão de Tríceps no Corpo Apoiado na Mesa | triceps | Mesa firme ou bancada | int | 🧑‍💻 | cadeira | c | b | CH | 3 | 8-12
+P: Tríceps
+S: Core, Tríceps Longo
+I: Apoie as mãos na borda de uma mesa firme, na largura dos ombros | Dê passos para trás até o corpo ficar inclinado e reto, braços estendidos | Dobre só os cotovelos, levando a testa até perto da borda da mesa | Empurre a mesa estendendo os braços até voltar à posição inicial
+E: Mesa leve que desliza | Quadril dobrando | Descer com o corpo em vez de só dobrar os cotovelos
+PR: Flexão esfinge
+RG: Ficar mais em pé, perto da mesa
+
+pt3_flexao_esfinge | Flexão Esfinge | triceps | Peso corporal | ava | 🦁 | peso_corporal | ca | b | CH | 3 | 6-10
+P: Tríceps
+S: Core, Deltóide Anterior
+I: Comece em prancha nos antebraços, cotovelos sob os ombros | Pressione as palmas no chão e estenda os cotovelos até ficar em prancha alta | Volte devagar apoiando os antebraços inteiros no chão | Mantenha o corpo em linha reta o tempo todo
+E: Quadril subindo para ajudar | Mãos à frente demais | Abrir os cotovelos
+PR: Flexão esfinge com pés elevados
+RG: Flexão esfinge com joelhos apoiados
+
+pt3_triceps_frances_mochila | Tríceps Francês com Mochila | triceps | Mochila com livros ou garrafas | ini | 🎒 | mochila | c | b | CH5 | 3 | 12-15
+P: Tríceps Longo
+S: Tríceps Lateral, Core
+I: Encha a mochila com livros ou garrafas e feche bem | Sente com a coluna reta segurando a mochila pela alça de cima com as duas mãos acima da cabeça | Dobre os cotovelos descendo a mochila atrás da cabeça, cotovelos para cima | Estenda os braços de volta
+E: Mochila pesada demais ou com objetos soltos | Cotovelos abrindo | Arquear a lombar
+PR: Tríceps francês com kettlebell
+RG: Tríceps francês com toalha
+
+pt3_triceps_coice_garrafa | Tríceps Coice com Garrafas | triceps | Garrafas PET cheias | ini | 🥤 | halteres | c | b | CP5 | 3 | 15 cada lado
+P: Tríceps Lateral, Tríceps Medial
+S: Deltóide Posterior, Core
+I: Apoie uma mão e um joelho numa cadeira ou sofá, coluna reta | Segure a garrafa com a outra mão e cole o braço ao lado do corpo, cotovelo dobrado | Estenda o cotovelo para trás até o braço ficar reto | Volte devagar e troque de lado
+E: Braço descendo durante a série | Balançar a garrafa | Arredondar as costas
+PR: Tríceps coice sentado bilateral
+RG: Tríceps coice com elástico
+
+pt3_triceps_isometrico_mesa | Tríceps Isométrico Empurrando a Mesa | triceps | Mesa firme | ini | 🛑 | cadeira | c | b | CH5 | 3 | 5 x 10 s
+P: Tríceps
+S: Latíssimo, Core
+I: Sente ou fique de pé ao lado de uma mesa firme | Apoie as palmas sobre a mesa com os cotovelos dobrados a cerca de 90° e colados ao corpo | Empurre a mesa para baixo com força por 10 s, como se fosse estender os braços | Relaxe 5 s e repita
+E: Prender a respiração | Encolher os ombros | Afastar os cotovelos do corpo
+PR: Flexão na parede pegada fechada
+RG: Empurrar com menos força
+
+pt3_flexao_diamante_joelhos | Flexão Diamante nos Joelhos | triceps | Colchonete | ini | 💎 | colchonete | ca | b | CH | 3 | 8-12
+P: Tríceps
+S: Peitoral Interno, Deltóide Anterior
+I: Ajoelhe no colchonete e apoie as mãos juntas sob o peito, formando um diamante com polegares e indicadores | Incline o corpo até ficar em linha reta dos joelhos à cabeça | Desça o peito até as mãos com os cotovelos junto ao corpo | Empurre de volta até estender os braços
+E: Quadril para trás | Cotovelos abrindo | Mãos longe do peito
+PR: Flexão diamante
+RG: Flexão na parede pegada fechada
+
+pt3_flexao_fechada | Flexão Pegada Fechada (Cotovelos Colados) | triceps | Peso corporal | int | 🤜 | peso_corporal | ca | b | CH | 3 | 8-12
+P: Tríceps
+S: Peitoral, Deltóide Anterior, Core
+I: Fique em posição de flexão com as mãos sob os ombros, um pouco mais fechadas | Mantenha o corpo em linha reta | Desça com os cotovelos raspando o corpo até o peito quase tocar o chão | Empurre de volta até estender os braços
+E: Cotovelos abrindo | Quadril caindo | Amplitude curta
+PR: Flexão diamante
+RG: Flexão inclinada pegada fechada
+F: Push-Ups_-_Close_Triceps_Position
+
+# ===================== POTÊNCIA E RAQUETE (PICKLEBALL / BEACH TENNIS) =====================
+
+pt3_mb_peito_3_apoios | Arremesso de Peito com Medicine Ball em 3 Apoios | funcional | Medicine ball + parede | ava | 🏃 | medicine_ball | a | m | CPR | 4 | 5-6
+P: Peitoral, Tríceps
+S: Quadríceps, Glúteos, Core
+I: Fique em posição de largada de 3 apoios (como velocista), bola no chão sob o peito, a 3-4 m da parede | Segure a bola com as duas mãos | Exploda para frente com as pernas e, ao levantar o tronco, arremesse a bola na parede com um passe de peito | Deixe o corpo seguir à frente com alguns passos e recupere a bola
+E: Arremessar só com os braços | Perder o equilíbrio na saída | Bola pesada demais (perde velocidade)
+PR: Arremesso de peito com corrida
+RG: Arremesso de peito com medicine ball
+F: Chest_Push_from_3_point_stance
+
+pt3_mb_arremesso_deitado | Arremesso de Medicine Ball Deitado | funcional | Medicine ball leve | ini | ⬆️ | medicine_ball | a | m | CPR | 3 | 8-10
+P: Peitoral, Tríceps
+S: Deltóide Anterior, Core
+I: Deite de costas com os joelhos dobrados e a bola leve sobre o peito | Segure a bola por baixo com as duas mãos | Estenda os braços de forma explosiva arremessando a bola reto para cima | Pegue a bola com os braços estendidos e amorteça trazendo-a de volta ao peito
+E: Arremessar na diagonal (bola cai no rosto) | Usar bola pesada | Pegar com os braços travados
+PR: Arremesso de peito com medicine ball em 3 apoios
+RG: Supino no chão com galões de água
+F: Supine_Chest_Throw
+
+pt3_mb_unilateral_passada | Arremesso Unilateral de Medicine Ball com Passada | funcional | Medicine ball + parede | int | 🎾 | medicine_ball | a | m | CPR | 3 | 6 cada lado
+P: Peitoral, Tríceps
+S: Oblíquos, Core, Glúteos
+I: Fique de lado para a parede segurando a bola com uma mão atrás e a outra à frente, na altura do peito | Leve a bola para trás girando o tronco, peso na perna de trás | Dê um passo à frente e empurre a bola com a mão de trás, como um soco, contra a parede | Recupere a bola e complete o lado antes de trocar
+E: Empurrar só com o braço, sem a passada | Girar o tronco atrasado | Bola pesada demais
+PR: Aumentar a distância da parede
+RG: Supino unilateral com elástico em base afundada
+
+pt3_supino_cabo_rotacao | Supino Unilateral no Cabo com Rotação | peito | Polia/crossover (altura do peito) | int | 🥊 | crossover | a | b | CPR | 3 | 10 cada lado
+P: Peitoral
+S: Oblíquos, Core, Tríceps
+I: Ajuste a polia na altura do peito e fique de costas para ela, segurando o pegador com uma mão | Base afundada com o pé oposto ao braço à frente | Empurre o pegador à frente girando o tronco e o quadril, como num soco | Volte devagar desfazendo a rotação até a posição inicial
+E: Usar só o braço, sem girar o quadril | Inclinar o tronco à frente | Voltar rápido e perder o controle
+PR: Arremesso unilateral de medicine ball com passada
+RG: Supino unilateral com elástico em base afundada

@@ -1,16 +1,20 @@
 {
-  "name": "TRIVOX — Força e Aeróbico",
+  "name": "TRIVOX — Treino em casa e na academia",
   "short_name": "TRIVOX",
-  "description": "TRIVOX — Montagem de fichas de musculação e prescrição de treino aeróbico por zonas de frequência cardíaca.",
+  "description": "TRIVOX — Treino em casa e na academia: fichas por objetivo, imagens de cada exercício, cronômetro e evolução.",
   "lang": "pt-BR",
   "dir": "ltr",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0B0F14",
-  "theme_color": "#4C5FBE",
-  "categories": ["health", "fitness", "sports"],
+  "background_color": "#F2F7FF",
+  "theme_color": "#F2F7FF",
+  "categories": [
+    "health",
+    "fitness",
+    "sports"
+  ],
   "icons": [
     {
       "src": "icons/icone-192.png",

@@ -1,0 +1,677 @@
+# v3 — OMBROS E TRAPÉZIO SUPERIOR (deltoide anterior/lateral/posterior, manguito rotador, serrátil,
+# trapézio superior, saúde escapular) — origem trivox_v2
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+# ===================== DELTOIDE LATERAL (MEDIAL) =====================
+
+om3_lateral_maquina | Elevação Lateral na Máquina | ombros | Máquina de elevação lateral (sentado) | ini | 🪽 | desenvolvimento_maquina | a | b | CH5 | 3 | 12-15
+P: Deltóide Medial
+S: Trapézio Superior, Supraespinal
+I: Ajuste o banco para o eixo da máquina ficar alinhado com a articulação do ombro | Sente com o peito encostado no apoio e os antebraços (ou cotovelos) nas almofadas laterais | Afaste os braços para os lados conduzindo pelos cotovelos até a linha dos ombros | Segure 1 segundo no topo e volte devagar sem deixar as placas baterem
+E: Banco desregulado (eixo da máquina acima ou abaixo do ombro) | Encolher os ombros para subir a carga | Descer rápido e bater as placas
+PR: Elevação lateral sentado no cabo
+RG: Elevação lateral na máquina com amplitude até 60°
+
+om3_lateral_cabo_sentado | Elevação Lateral Sentado no Cabo | ombros | Polia baixa + banco | int | 🪽 | polia | a | b | H | 3 | 12-15 cada lado
+P: Deltóide Medial
+S: Supraespinal, Trapézio Superior
+I: Coloque um banco ao lado da polia baixa e sente de lado para ela, tronco ereto | Segure a manopla com a mão mais distante da polia, cabo passando à frente do corpo | Com o cotovelo levemente dobrado, eleve o braço para o lado até a linha do ombro | Pare 1 segundo, desça em 3 segundos mantendo o cabo tensionado e complete o lado
+E: Inclinar o tronco para longe da polia | Girar o polegar para baixo no topo | Deixar a placa encostar entre as repetições
+PR: Elevação lateral no cabo por trás do corpo
+RG: Elevação lateral sentado com halteres
+F: Cable_Seated_Lateral_Raise
+
+om3_lateral_cabo_atras | Elevação Lateral no Cabo por Trás do Corpo | ombros | Polia baixa | int | 🪽 | polia | a | b | H | 3 | 12-15 cada lado
+P: Deltóide Medial
+S: Deltóide Posterior, Supraespinal
+I: Fique de lado para a polia baixa e segure a manopla com a mão mais distante | Passe o cabo por trás das costas, na altura do quadril, e dê um passo para fora para criar tensão | Com o cotovelo levemente dobrado, eleve o braço para o lado até a linha do ombro | Desça devagar até a mão chegar ao lado da coxa, sem perder a tensão do cabo
+E: Cabo raspando nas costas por estar perto demais | Subir acima da linha do ombro | Compensar com inclinação do tronco
+PR: Elevação lateral cruzada no crossover
+RG: Elevação lateral unilateral no cabo pela frente
+
+om3_lateral_crossover_cruzada | Elevação Lateral Cruzada no Crossover (Bilateral) | ombros | Crossover (duas polias baixas) | ava | 🪽 | crossover | a | b | H | 4 | 10-15
+P: Deltóide Medial
+S: Deltóide Posterior, Trapézio Superior
+I: Ajuste as duas polias na posição mais baixa e fique no centro do crossover | Cruze os cabos: mão direita segura o cabo da esquerda e vice-versa, mãos à frente do quadril | Com o peito aberto e cotovelos levemente flexionados, abra os braços até a linha dos ombros formando um T | Segure 1 segundo e volte cruzando os braços devagar à frente do corpo
+E: Cotovelos dobrando demais (vira remada) | Puxar com o trapézio e encolher os ombros | Tronco balançando para gerar impulso
+PR: Faça a última série em drop set (reduza a carga 30% e continue)
+RG: Elevação lateral no cabo por trás do corpo (unilateral)
+
+om3_lateral_inclinado_lado | Elevação Lateral Unilateral Deitado de Lado no Banco Inclinado | ombros | Halter + banco inclinado | int | 🪽 | banco_inclinado | a | b | H | 3 | 12-15 cada lado
+P: Deltóide Medial
+S: Supraespinal, Deltóide Posterior
+I: Ajuste o banco a cerca de 45° e deite de lado sobre ele, ombro de baixo apoiado no encosto | Segure o halter com a mão de cima, braço estendido à frente do umbigo | Eleve o braço em arco até ficar quase vertical, cotovelo levemente dobrado | Desça devagar até a frente do corpo — a tensão maior é no início do movimento
+E: Girar o tronco para ajudar | Carga pesada demais para essa alavanca longa | Dobrar o cotovelo a 90°
+PR: Elevação lateral 1½
+RG: Elevação lateral sentado com halteres
+F: One-Arm_Incline_Lateral_Raise
+
+om3_lateral_peito_apoiado | Elevação Lateral com Peito Apoiado no Banco Inclinado | ombros | Halteres + banco inclinado | ini | 🪽 | banco_inclinado | a | b | H5 | 3 | 12-15
+P: Deltóide Medial
+S: Deltóide Posterior, Trapézio Médio
+I: Ajuste o banco a 30-45° e deite de bruços, peito apoiado e pés firmes no chão | Deixe os halteres pendurados abaixo dos ombros, palmas voltadas uma para a outra | Afaste os braços para os lados com cotovelos levemente dobrados até a linha dos ombros | Desça devagar mantendo o peito colado no banco o tempo todo
+E: Tirar o peito do banco para dar impulso | Puxar os halteres para trás (vira posterior) | Elevar o queixo e tensionar o pescoço
+PR: Elevação lateral com pausa de 2 segundos no topo
+RG: Elevação lateral na máquina
+
+om3_lateral_pausa | Elevação Lateral com Pausa de 2 Segundos no Topo | ombros | Halteres | int | ⏸️ | halteres | ca | b | H5 | 3 | 10-12
+P: Deltóide Medial
+S: Supraespinal, Trapézio Superior
+I: Em pé, pés na largura do quadril, halteres ao lado do corpo e joelhos destravados | Eleve os braços para os lados em 2 segundos até a linha dos ombros, cotovelos levemente dobrados | Segure parado 2 segundos no topo, ombros longe das orelhas | Desça em 3 segundos e só recomece quando os braços estiverem parados embaixo
+E: Encurtar a pausa conforme cansa | Usar carga que obriga a balançar o tronco | Elevar os ombros durante a pausa
+PR: Elevação lateral 1½
+RG: Elevação lateral sentado com halteres
+
+om3_lateral_um_e_meio | Elevação Lateral 1½ (Uma e Meia) | ombros | Halteres | ava | ➕ | halteres | ca | b | H | 4 | 8-10
+P: Deltóide Medial
+S: Supraespinal, Trapézio Superior
+I: Em pé, halteres ao lado do corpo, abdômen firme e joelhos destravados | Eleve os braços para os lados até a linha dos ombros | Desça só até a metade do caminho e suba de novo até a linha dos ombros | Agora desça até embaixo: isso é 1 repetição | Mantenha o ritmo controlado em todas as fases
+E: Perder a amplitude da meia repetição | Balançar o tronco para completar | Carga alta demais (use 60-70% da elevação comum)
+PR: Elevação lateral até acima da cabeça (Lu Raise)
+RG: Elevação lateral com pausa no topo
+
+om3_lu_raise | Elevação Lateral até Acima da Cabeça (Lu Raise) | ombros | Halteres leves ou anilhas | ava | 🙌 | halteres | ca | b | HR | 3 | 10-12
+P: Deltóide Medial, Trapézio Superior
+S: Serrátil, Deltóide Anterior
+I: Em pé, halteres leves ao lado do corpo, polegares apontando para frente | Eleve os braços estendidos pelos lados até a linha dos ombros | Continue subindo em arco até os halteres ficarem acima da cabeça, girando os polegares para trás | Desça pelo mesmo caminho em 3 segundos
+E: Usar carga pesada (o movimento exige peso leve) | Arquear a lombar no topo | Subir com os polegares para baixo (pinçamento)
+PR: Aumente a carga em 1 kg ou faça pausa no topo
+RG: Elevação lateral com pausa no topo
+
+om3_lateral_landmine | Elevação Lateral no Landmine | ombros | Barra no landmine | int | 🪽 | landmine | a | b | HR | 3 | 10-12 cada lado
+P: Deltóide Medial
+S: Trapézio Superior, Core
+I: Fique de lado para o landmine, com a ponta da barra na mão mais distante, à frente do quadril oposto | Pés afastados, joelhos levemente dobrados e abdômen firme | Leve a barra em arco para cima e para fora até a mão passar a linha do ombro | Desça controlando até a frente do quadril e complete o lado
+E: Girar o tronco para levantar a barra | Dobrar o cotovelo e transformar em remada | Ficar perto demais do landmine
+PR: Aumente a carga com anilha pequena na ponta
+RG: Elevação lateral unilateral no cabo
+
+om3_lateral_trx | Elevação Lateral no TRX | ombros | TRX / fita de suspensão | int | 🪽 | trx | ca | b | CH | 3 | 10-12 cada lado
+P: Deltóide Medial
+S: Core, Oblíquos, Trapézio Superior
+I: Fique de lado para a ancoragem, segure a alça com a mão mais distante e o braço cruzando o corpo | Incline o corpo para o lado, pés juntos, formando uma linha reta da cabeça aos pés | Puxe o corpo de volta à vertical abrindo o braço pelo lado, cotovelo quase estendido | Desça devagar controlando a inclinação
+E: Quadril cedendo para fora da linha | Dobrar o cotovelo e puxar com bíceps | Inclinar demais logo na primeira série
+PR: Afaste os pés da ancoragem para aumentar a inclinação
+RG: Elevação lateral com elástico
+
+om3_lateral_garrafas | Elevação Lateral com Garrafas de Água | ombros | Garrafas de água/areia (1-2 L) ou halteres leves | ini | 💧 | halteres | c | b | CP5 | 3 | 15-20
+P: Deltóide Medial
+S: Trapézio Superior, Supraespinal
+I: Encha duas garrafas (água ou areia) e segure uma em cada mão ao lado do corpo | Em pé, joelhos destravados e abdômen contraído | Eleve os braços para os lados até a linha dos ombros, cotovelos levemente dobrados | Desça devagar contando 3 segundos
+E: Subir acima da linha dos ombros | Encolher os ombros | Balançar o corpo para completar as repetições
+PR: Elevação lateral com pausa no topo
+RG: Faça sentado na cadeira ou com garrafa de 500 ml
+
+om3_abducao_iso_parede | Abdução Isométrica de Ombro na Parede | ombros | Parede | ini | 🧱 | parede | ca | b | C5R | 3 | 3-5 x 10 s cada lado
+P: Deltóide Medial
+S: Supraespinal, Estabilizadores do Ombro
+I: Fique de lado para a parede, cotovelo dobrado a 90° e colado ao corpo | Encoste a parte de fora do cotovelo na parede (pode usar uma toalha dobrada) | Empurre o cotovelo contra a parede com força moderada, como se fosse abrir o braço | Segure 10 segundos respirando normalmente e relaxe
+E: Prender a respiração | Inclinar o tronco para a parede | Empurrar com força máxima logo no início
+PR: Elevação lateral com mini band
+RG: Faça com metade da força
+
+om3_lateral_mini_band | Elevação Lateral com Mini Band nos Punhos | ombros | Mini band | ini | 🎀 | mini_band | ca | b | C5R | 3 | 12-15
+P: Deltóide Medial
+S: Supraespinal, Manguito Rotador
+I: Coloque a mini band ao redor dos dois punhos, em pé com braços ao lado do corpo | Mantenha os cotovelos estendidos e o abdômen firme | Afaste os dois braços para os lados contra a resistência da banda até uns 45° | Segure 1 segundo e volte devagar sem deixar a banda afrouxar totalmente
+E: Dobrar os cotovelos | Encolher os ombros | Inclinar o corpo para os lados
+PR: Elevação lateral com garrafas ou halteres
+RG: Mini band mais leve ou amplitude menor
+
+om3_remada_alta_smith_uni | Remada Alta Unilateral no Smith | ombros | Máquina Smith | int | 🏗️ | smith | a | b | H | 3 | 10-12 cada lado
+P: Deltóide Medial, Trapézio Superior
+S: Bíceps, Antebraços
+I: Ajuste a barra do Smith na altura das coxas e fique de lado para ela | Segure a barra com uma mão, pegada pronada no centro do corpo | Destrave e puxe a barra para cima com o cotovelo apontando para fora | Pare quando o cotovelo chegar à altura do ombro e desça devagar
+E: Subir o cotovelo acima da linha do ombro | Inclinar o tronco para o lado | Puxar com o punho dobrado
+PR: Remada alta com halteres
+RG: Elevação lateral na máquina
+F: Smith_Machine_One-Arm_Upright_Row
+
+om3_remada_alta_halteres | Remada Alta com Halteres | ombros | Halteres | int | ⬆️ | halteres | ca | b | CPH | 3 | 10-12
+P: Deltóide Medial, Trapézio Superior
+S: Bíceps, Antebraços
+I: Em pé, halteres à frente das coxas com palmas para trás | Puxe os halteres para cima perto do corpo levando os cotovelos para os lados | Pare quando os cotovelos chegarem à linha dos ombros (halteres na altura do peito) | Desça devagar até estender os braços
+E: Subir os cotovelos acima dos ombros | Dar tranco com as pernas | Afastar os halteres do corpo
+PR: Remada alta unilateral no Smith
+RG: Elevação lateral com halteres
+F: Standing_Dumbbell_Upright_Row
+
+om3_lateral_frontal_alternada | Elevação Alternada Frente e Lado | ombros | Halteres | int | 🔀 | halteres | ca | b | CPH | 3 | 10 de cada
+P: Deltóide Medial, Deltóide Anterior
+S: Trapézio Superior, Core
+I: Em pé, halteres ao lado do corpo e cotovelos levemente dobrados | Na 1ª repetição, eleve os dois braços à frente até a linha dos ombros e desça | Na 2ª repetição, eleve os dois braços para os lados até a linha dos ombros e desça | Continue alternando frente e lado sem pausa entre elas, sempre controlando a descida
+E: Balançar o corpo para trocar a direção | Subir acima dos ombros | Perder o controle na descida
+PR: Elevação lateral 1½
+RG: Faça só uma das direções por série
+F: Alternating_Deltoid_Raise
+
+# ===================== DELTOIDE ANTERIOR / DESENVOLVIMENTOS =====================
+
+om3_frontal_cabo | Elevação Frontal no Cabo | ombros | Polia baixa (barra reta ou corda) | ini | 🎯 | polia | a | b | CH5 | 3 | 12-15
+P: Deltóide Anterior
+S: Peitoral Superior, Serrátil
+I: Fique de costas para a polia baixa, cabo passando entre as pernas, segurando a barra com pegada pronada | Afaste-se um passo para criar tensão, joelhos destravados | Eleve a barra à frente com os cotovelos quase estendidos até a altura dos olhos | Desça devagar até as coxas sem deixar o peso encostar
+E: Inclinar o tronco para trás | Subir acima da cabeça | Usar impulso do quadril
+PR: Elevação frontal deitado no banco inclinado
+RG: Elevação frontal com elástico
+F: Front_Cable_Raise
+
+om3_frontal_anilha | Elevação Frontal com Anilha | ombros | Anilha (5-20 kg) | ini | 🛞 | anilha | a | b | CPH5 | 3 | 12-15
+P: Deltóide Anterior
+S: Peitoral Superior, Antebraços
+I: Segure a anilha pelas laterais (posição 3 e 9 horas), braços estendidos à frente das coxas | Pés na largura do quadril e abdômen firme | Eleve a anilha à frente até a altura dos olhos, cotovelos levemente dobrados | Desça em 3 segundos até as coxas
+E: Jogar o quadril para frente para ajudar | Dobrar demais os cotovelos | Subir a anilha acima da cabeça com a lombar arqueada
+PR: Elevação frontal no cabo
+RG: Use anilha mais leve ou segure no peito e só estenda os braços à frente
+F: Front_Plate_Raise
+
+om3_frontal_inclinado | Elevação Frontal Deitado no Banco Inclinado | ombros | Halteres + banco inclinado | int | 📐 | banco_inclinado | a | b | H | 3 | 10-12
+P: Deltóide Anterior
+S: Peitoral Superior, Serrátil
+I: Ajuste o banco entre 30 e 45° e deite de costas, halteres pendurados ao lado do quadril | Palmas voltadas para baixo e cotovelos levemente dobrados | Eleve os halteres à frente até ficarem acima do peito (braços perpendiculares ao chão) | Desça devagar até a posição inicial sentindo o alongamento na frente do ombro
+E: Tirar as costas do banco | Descer rápido e forçar a frente do ombro | Usar carga que não permite controlar o fundo
+PR: Aumente a carga ou faça com pausa embaixo
+RG: Elevação frontal no cabo
+F: Front_Incline_Dumbbell_Raise
+
+om3_frontal_elastico | Elevação Frontal com Elástico | ombros | Elástico com alças ou tubo | ini | 🎗️ | elastico | ca | b | CP5 | 3 | 15
+P: Deltóide Anterior
+S: Peitoral Superior, Serrátil
+I: Pise no meio do elástico com os pés na largura do quadril | Segure as pontas com palmas para baixo, braços à frente das coxas | Eleve os braços estendidos à frente até a altura dos ombros | Desça devagar controlando a volta do elástico
+E: Inclinar o tronco para trás | Deixar o elástico puxar os braços na descida | Elevar acima da linha dos ombros
+PR: Elevação frontal com anilha ou halteres
+RG: Pise com um pé só para deixar o elástico mais folgado
+
+om3_desenv_polia_sentado | Desenvolvimento Sentado na Polia | ombros | Duas polias baixas + banco com encosto | int | 🏋️ | polia | a | b | H5 | 3 | 10-12
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Trapézio Superior
+I: Posicione um banco com encosto vertical entre duas polias baixas | Sente e segure uma manopla em cada mão na altura dos ombros, palmas para frente | Empurre as manoplas para cima até quase estender os cotovelos, aproximando as mãos no topo | Desça devagar até os cotovelos ficarem um pouco abaixo da linha dos ombros
+E: Arquear a lombar para fora do encosto | Travar os cotovelos com força | Deixar os cabos puxarem os braços na descida
+PR: Desenvolvimento unilateral em pé com halter
+RG: Desenvolvimento na máquina
+F: Seated_Cable_Shoulder_Press
+
+om3_desenv_militar_pe | Desenvolvimento Militar em Pé com Barra | ombros | Barra + suporte | int | 🏋️ | barra | a | b | CH | 4 | 6-10
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Trapézio Superior, Core
+I: Retire a barra do suporte na altura da clavícula, pegada um pouco mais larga que os ombros | Pés na largura do quadril, glúteos e abdômen contraídos | Afaste o queixo e empurre a barra em linha reta para cima | Ao passar a testa, leve a cabeça à frente para ficar 'dentro' da barra com os braços estendidos | Desça controlando até a clavícula
+E: Arquear a lombar (vira supino inclinado) | Barra fazendo um arco à frente do rosto | Joelhos dobrando para dar impulso
+PR: Bradford press
+RG: Desenvolvimento com barra sentado
+F: Standing_Military_Press
+
+om3_desenv_uni_halter_pe | Desenvolvimento Unilateral em Pé com Halter | ombros | Halter | int | 💪 | halteres | ca | b | CHR | 3 | 8-10 cada lado
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Oblíquos, Core
+I: Em pé, halter em uma mão na altura do ombro, a outra mão livre na cintura | Contraia abdômen e glúteos para o tronco não inclinar | Empurre o halter para cima até estender o braço, bíceps perto da orelha | Desça devagar até a altura do ombro e complete o lado
+E: Inclinar o tronco para o lado oposto | Arquear a lombar | Abrir demais o cotovelo para os lados
+PR: Desenvolvimento gangorra com kettlebells
+RG: Desenvolvimento meio ajoelhado com kettlebell
+F: Dumbbell_One-Arm_Shoulder_Press
+
+om3_desenv_neutro | Desenvolvimento com Pegada Neutra | ombros | Halteres | ini | 🤲 | halteres | ca | b | CH5 | 3 | 10-12
+P: Deltóide Anterior
+S: Tríceps, Deltóide Medial
+I: Em pé ou sentado, halteres na altura dos ombros com as palmas voltadas uma para a outra | Cotovelos à frente do corpo, não abertos para os lados | Empurre os halteres para cima até quase estender os braços | Desça devagar até a altura do queixo
+E: Bater os halteres no topo | Arquear a lombar | Descer só até a testa (amplitude curta)
+PR: Desenvolvimento unilateral em pé com halter
+RG: Faça sentado com encosto e halteres mais leves
+F: Standing_Palms-In_Dumbbell_Press
+
+om3_desenv_meio_ajoelhado_kb | Desenvolvimento Meio Ajoelhado com Kettlebell | ombros | Kettlebell + colchonete | int | 🧎 | kettlebell | ca | b | CH5R | 3 | 8-10 cada lado
+P: Deltóide Anterior, Deltóide Medial
+S: Core, Glúteos, Tríceps
+I: Ajoelhe com um joelho no colchonete e o outro pé à frente (90° nos dois joelhos) | Segure o kettlebell na altura do ombro do lado do joelho apoiado, alça na palma e bola apoiada no antebraço | Contraia o glúteo da perna de trás e o abdômen | Empurre o kettlebell para cima até estender o braço, punho reto | Desça devagar até o ombro
+E: Arquear a lombar | Punho dobrado para trás | Inclinar o tronco para o lado
+PR: Desenvolvimento unilateral em pé com halter
+RG: Landmine press meio ajoelhado
+
+om3_landmine_meio_ajoelhado | Landmine Press Unilateral Meio Ajoelhado | ombros | Barra no landmine | ini | 🧎 | landmine | a | b | CH5R | 3 | 10 cada lado
+P: Deltóide Anterior
+S: Peitoral Superior, Serrátil, Core
+I: Ajoelhe de frente para o landmine com o joelho do lado que vai empurrar no chão | Segure a ponta da barra na altura do ombro, cotovelo apontando para baixo e para frente | Empurre a barra para cima e para frente até estender o braço, deixando a escápula acompanhar | Desça devagar até o ombro
+E: Arquear a lombar | Abrir o cotovelo para o lado | Girar o tronco para empurrar
+PR: Linear jammer unilateral
+RG: Desenvolvimento com pegada neutra sentado
+
+om3_jammer_unilateral | Jammer Unilateral no Landmine | funcional | Barra no landmine | ava | ⚡ | landmine | a | m | CPR | 4 | 6-8 cada lado
+P: Deltóide Anterior, Tríceps
+S: Quadríceps, Glúteos, Serrátil
+I: Fique de frente para o landmine em base de pernas afastadas, ponta da barra no ombro | Faça um meio agachamento rápido mantendo o tronco firme | Estenda pernas e quadril com explosão e use o impulso para empurrar a barra até estender o braço | Desça a barra ao ombro amortecendo com as pernas | Mantenha o ritmo explosivo em todas as repetições
+E: Empurrar só com o braço sem usar as pernas | Arquear a lombar no final | Deixar a barra descer sem controle
+PR: Aumente a carga ou faça alternando os braços sem pausa
+RG: Landmine press meio ajoelhado
+F: Single-Arm_Linear_Jammer
+
+om3_bradford_press | Bradford Press | ombros | Barra | ava | 🔄 | barra | a | b | H | 3 | 8-10
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Trapézio Superior
+I: Em pé, barra na frente, apoiada na clavícula, pegada um pouco mais larga que os ombros | Empurre a barra só até passar a altura da cabeça | Leve a barra por cima da cabeça e desça atrás até a altura das orelhas | Empurre de novo até passar a cabeça e desça pela frente: isso é 1 repetição | Use carga bem menor que no desenvolvimento militar
+E: Estender os braços totalmente (perde a tensão) | Descer a barra atrás até a nuca | Usar carga que obriga a arquear a lombar
+PR: Desenvolvimento militar em pé com carga maior
+RG: Desenvolvimento militar em pé
+F: Standing_Bradford_Press
+
+om3_z_press | Z Press com Halteres (Sentado no Chão) | ombros | Halteres + chão | ava | 🇿 | halteres | ca | b | CH | 4 | 6-8
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Core, Trapézio Superior
+I: Sente no chão com as pernas estendidas à frente e afastadas na largura dos ombros | Segure os halteres na altura dos ombros, tronco ereto e abdômen firme | Empurre os halteres para cima até estender os braços sem inclinar o tronco para trás | Desça devagar até os ombros mantendo a coluna reta
+E: Inclinar para trás (perde o objetivo do exercício) | Joelhos dobrando para compensar | Carga pesada demais para manter a postura
+PR: Z Press com barra
+RG: Desenvolvimento com pegada neutra sentado com encosto
+
+om3_desenv_gangorra_kb | Desenvolvimento Gangorra com Kettlebells | ombros | Dois kettlebells | ava | ⚖️ | kettlebell | ca | b | CHR | 3 | 8 cada lado
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Oblíquos, Core
+I: Leve os dois kettlebells à posição de rack (na altura dos ombros) | Empurre um kettlebell para cima até estender o braço | Enquanto desce esse kettlebell, empurre o outro para cima, cruzando no meio do caminho | Continue alternando como uma gangorra, sem inclinar o tronco
+E: Inclinar o tronco para o lado do braço que sobe | Descer o kettlebell sem controle | Punho dobrado para trás
+PR: Desenvolvimento com dois kettlebells
+RG: Desenvolvimento meio ajoelhado com kettlebell
+F: Kettlebell_Seesaw_Press
+
+om3_desenv_2kb | Desenvolvimento com Dois Kettlebells | ombros | Dois kettlebells | ava | 🔔 | kettlebell | ca | b | CH | 4 | 6-8
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Core, Trapézio Superior
+I: Leve os dois kettlebells à posição de rack, cotovelos junto ao corpo | Contraia glúteos e abdômen, pés na largura do quadril | Empurre os dois kettlebells ao mesmo tempo até estender os braços, bíceps perto das orelhas | Desça devagar até o rack, sem deixar os sinos baterem nos antebraços
+E: Arquear a lombar | Dar impulso com as pernas | Cotovelos abrindo para os lados
+PR: Aumente a carga ou faça com pausa no meio da subida
+RG: Desenvolvimento gangorra com kettlebells
+F: Two-Arm_Kettlebell_Military_Press
+
+om3_desenv_mochila | Desenvolvimento com Mochila | ombros | Mochila com livros, garrafas ou areia | int | 🎒 | mochila | c | b | CPH | 3 | 10-15
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Core
+I: Encha uma mochila com livros ou garrafas e feche bem | Segure a mochila pelas laterais na altura do peito, cotovelos à frente | Empurre a mochila para cima até estender os braços acima da cabeça | Desça devagar até o peito mantendo o abdômen firme
+E: Arquear a lombar | Mochila com peso solto que balança | Esticar o pescoço para frente
+PR: Aumente o peso da mochila ou faça unilateral segurando pela alça
+RG: Desenvolvimento com elástico
+
+om3_pike_deficit | Pike Push-up com Déficit | ombros | Peso corporal + 2 apoios (livros, blocos ou paralelas baixas) | ava | 🔺 | peso_corporal | c | b | CH | 4 | 5-8
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Trapézio Superior, Serrátil
+I: Coloque dois apoios firmes no chão na largura dos ombros e apoie as mãos sobre eles | Suba o quadril formando um V invertido, pés perto das mãos (ou elevados numa cadeira para mais dificuldade) | Dobre os cotovelos levando a cabeça para baixo do nível das mãos, à frente delas | Empurre de volta até estender os braços
+E: Cotovelos abrindo totalmente para os lados | Quadril descendo (vira flexão comum) | Apoios instáveis
+PR: Pike push-up com déficit e pés elevados / HSPU negativo
+RG: Pike push-up no chão
+
+# ===================== DELTOIDE POSTERIOR =====================
+
+om3_posterior_polia_curvado | Crucifixo Inverso Curvado na Polia Baixa | ombros | Duas polias baixas (crossover) | int | 🦅 | polia | a | b | H | 3 | 12-15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio
+I: Fique entre duas polias baixas e segure o cabo da esquerda com a mão direita e o da direita com a esquerda | Incline o tronco à frente até quase paralelo ao chão, coluna neutra e joelhos dobrados | Abra os braços para os lados com os cotovelos levemente dobrados até a linha do tronco | Volte devagar cruzando as mãos abaixo do peito
+E: Levantar o tronco durante o movimento | Apertar as escápulas demais (vira trapézio) | Arredondar a lombar
+PR: Remada alta para posterior na corda
+RG: Crucifixo inverso no peck deck
+F: Bent_Over_Low-Pulley_Side_Lateral
+
+om3_remada_corda_posterior | Remada Posterior na Corda (Cotovelos Abertos) | ombros | Polia na altura do peito + corda | int | 🦅 | polia | a | b | HR | 3 | 12-15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio, Manguito Rotador
+I: Ajuste a polia na altura do peito e segure a corda com as palmas para baixo | Dê dois passos para trás, braços estendidos à frente e tronco ereto | Puxe a corda em direção ao peito afastando os cotovelos para os lados na altura dos ombros | Segure 1 segundo e estenda os braços devagar
+E: Cotovelos caindo abaixo da linha dos ombros (vira remada para costas) | Inclinar o tronco para trás | Puxar com as mãos em vez dos cotovelos
+PR: Aumente a carga ou faça unilateral
+RG: Face pull com elástico
+F: Cable_Rope_Rear-Delt_Rows
+
+om3_posterior_banco_inclinado | Crucifixo Inverso Peito Apoiado no Banco Inclinado | ombros | Halteres + banco inclinado | ini | 🦅 | banco_inclinado | a | b | H5R | 3 | 12-15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio
+I: Ajuste o banco com leve inclinação (15-30°) e deite de bruços, queixo fora do encosto | Deixe os halteres pendurados com as palmas voltadas uma para a outra | Abra os braços para os lados com os cotovelos levemente dobrados até a linha do corpo | Desça devagar sem deixar os halteres tocarem o chão
+E: Tirar o peito do banco | Dobrar os cotovelos e transformar em remada | Encolher os ombros
+PR: Crucifixo inverso com rotação externa
+RG: Crucifixo inverso com elástico
+F: Dumbbell_Lying_Rear_Lateral_Raise
+
+om3_posterior_uni_brucos | Crucifixo Inverso Unilateral de Bruços no Banco | ombros | Halter + banco reto | int | 🦅 | banco | a | b | H | 3 | 12 cada lado
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio
+I: Deite de bruços no banco reto e segure o pé do banco com a mão livre | Com a outra mão segure o halter pendurado, palma voltada para o banco | Eleve o braço para o lado com o cotovelo levemente dobrado até a linha do corpo | Desça devagar e complete as repetições antes de trocar
+E: Girar o tronco para ajudar | Subir acima da linha do corpo | Dobrar demais o cotovelo
+PR: Aumente a carga ou faça pausa de 2 s no topo
+RG: Crucifixo inverso peito apoiado no banco inclinado
+F: Lying_One-Arm_Lateral_Raise
+
+om3_posterior_testa_banco | Crucifixo Inverso com a Testa Apoiada no Banco | ombros | Halteres + banco | ini | 🦅 | halteres | a | b | H5 | 3 | 12-15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio
+I: Fique em pé de frente para a ponta de um banco, incline o tronco e apoie a testa nele | Joelhos levemente dobrados e coluna neutra, halteres pendurados abaixo dos ombros | Abra os braços para os lados com os cotovelos levemente dobrados | Desça devagar mantendo a testa apoiada (isso impede o balanço do tronco)
+E: Pressionar a testa com força no banco | Arredondar a lombar | Usar halteres pesados demais
+PR: Crucifixo inverso com rotação externa
+RG: Crucifixo inverso no peck deck
+F: Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench
+
+om3_remada_posterior_barra | Remada para Deltoide Posterior com Barra | ombros | Barra | ava | 🦅 | barra | a | b | H | 3 | 10-12
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio, Bíceps
+I: Segure a barra com pegada pronada bem aberta (mais larga que a remada comum) | Incline o tronco até quase paralelo ao chão, coluna neutra e joelhos dobrados | Puxe a barra em direção à parte alta do peito, cotovelos abertos a 90° do tronco | Desça devagar sem perder a inclinação
+E: Puxar a barra para o umbigo (vira dorsal) | Levantar o tronco a cada repetição | Arredondar a lombar
+PR: Aumente a carga mantendo a postura
+RG: Remada posterior na corda
+F: Barbell_Rear_Delt_Row
+
+om3_posterior_elastico_ancorado | Crucifixo Inverso com Elástico Ancorado | ombros | Elástico com alças preso em porta ou poste | ini | 🦅 | elastico | ca | b | CH5R | 3 | 15
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio
+I: Prenda o meio do elástico em uma porta fechada ou poste, na altura do peito | Segure uma alça em cada mão e afaste-se até o elástico ficar esticado, braços à frente | Abra os braços para os lados com os cotovelos quase estendidos até a linha dos ombros | Volte devagar até as mãos ficarem à frente do peito
+E: Inclinar o tronco para trás | Encolher os ombros | Soltar a volta do elástico rápido
+PR: Crucifixo inverso no TRX
+RG: Dê um passo à frente para diminuir a tensão
+F: Back_Flyes_-_With_Bands
+
+om3_posterior_trx | Crucifixo Inverso no TRX (T) | ombros | TRX / fita de suspensão | ava | 🦅 | trx | ca | b | CHR | 3 | 8-12
+P: Deltóide Posterior
+S: Rombóides, Trapézio Médio, Core
+I: Segure as alças de frente para a ancoragem e incline o corpo para trás com braços estendidos à frente | Mantenha o corpo reto da cabeça aos pés, como numa prancha inclinada | Abra os braços para os lados formando um T e puxe o corpo de volta à vertical | Volte devagar até os braços se juntarem à frente
+E: Quadril cedendo | Dobrar os cotovelos e puxar com bíceps | Pés longe demais da ancoragem logo de início
+PR: Leve os pés mais à frente para aumentar a inclinação
+RG: Crucifixo inverso com elástico ancorado
+
+om3_posterior_iso_parede | Pressão Isométrica dos Cotovelos na Parede | ombros | Parede | ini | 🧱 | parede | c | b | C5R | 3 | 5 x 10 s
+P: Deltóide Posterior, Rombóides
+S: Trapézio Médio, Manguito Rotador
+I: Fique de costas para a parede, calcanhares a um palmo dela | Dobre os cotovelos a 90° com os braços abertos na altura dos ombros (ou ao lado do corpo, para iniciantes) | Empurre os cotovelos para trás contra a parede, aproximando as escápulas | Segure 10 segundos respirando normalmente e relaxe
+E: Arquear a lombar para longe da parede | Elevar os ombros até as orelhas | Prender a respiração
+PR: Crucifixo inverso com elástico ancorado
+RG: Faça com os cotovelos colados ao corpo
+
+om3_posterior_bola | Crucifixo Inverso de Bruços na Bola Suíça (T) | ombros | Bola suíça + halteres leves (opcional) | int | ⚽ | bola_suica | ca | b | CR | 3 | 12-15
+P: Deltóide Posterior, Trapézio Médio
+S: Rombóides, Core, Eretores da Espinha
+I: Deite de bruços sobre a bola suíça com o quadril e a barriga apoiados, pés afastados no chão | Deixe os braços pendurados na frente da bola (com ou sem halteres leves), polegares para cima | Abra os braços para os lados formando um T, cotovelos estendidos | Segure 1 segundo e desça devagar
+E: Rolar a bola para frente e para trás | Elevar a cabeça e tensionar o pescoço | Usar carga que tira o equilíbrio
+PR: Faça com halteres de 2-4 kg
+RG: Faça sem peso e com os pés mais afastados
+
+# ===================== MANGUITO ROTADOR =====================
+
+om3_re_90_cabo | Rotação Externa a 90° no Cabo (Posição de Saque) | ombros | Polia na altura do ombro | int | 🎾 | polia | a | b | R | 3 | 12-15 cada lado
+P: Manguito Rotador, Infraespinal
+S: Redondo Menor, Deltóide Posterior
+I: Ajuste a polia na altura do ombro e fique de frente para ela | Eleve o braço ao lado até o cotovelo ficar na altura do ombro, dobrado a 90°, antebraço apontando para a polia | Gire o antebraço para cima até ficar vertical, como na preparação de um saque | Volte devagar até a posição inicial mantendo o cotovelo no mesmo lugar
+E: Deixar o cotovelo cair abaixo da linha do ombro | Usar carga alta e compensar com o tronco | Voltar rápido deixando o cabo puxar
+PR: Rotação externa com passo lateral no cabo
+RG: Rotação externa no cabo com cotovelo junto ao corpo
+
+om3_re_brucos_90 | Rotação Externa de Bruços no Banco (90/90) | ombros | Halteres leves + banco reto | int | 🔄 | halteres | a | b | R | 3 | 10-12
+P: Manguito Rotador, Infraespinal
+S: Trapézio Inferior, Deltóide Posterior
+I: Deite de bruços no banco reto com os braços pendurados para fora | Eleve os cotovelos até a linha dos ombros, dobrados a 90°, antebraços apontando para o chão | Gire os antebraços para frente e para cima até ficarem paralelos ao chão, sem baixar os cotovelos | Volte devagar até apontarem para o chão
+E: Cotovelos descendo durante a rotação | Halteres pesados demais | Elevar a cabeça e tensionar o pescoço
+PR: Rotação externa a 90° no cabo
+RG: Rotação externa sentado com cotovelo no joelho
+
+om3_re_iso_batente | Rotação Externa Isométrica no Batente da Porta | ombros | Batente de porta ou parede | ini | 🚪 | parede | c | b | 5R | 3 | 5 x 10 s cada lado
+P: Manguito Rotador, Infraespinal
+S: Redondo Menor
+I: Fique ao lado do batente da porta, cotovelo dobrado a 90° e colado ao corpo | Encoste o dorso da mão (lado de fora do punho) no batente | Empurre a mão para fora contra o batente sem mover o braço | Segure 10 segundos com força moderada e relaxe; depois faça com o outro braço
+E: Afastar o cotovelo do corpo | Girar o tronco em vez do braço | Empurrar com força máxima e sentir dor
+PR: Rotação externa bilateral com elástico
+RG: Use metade da força
+
+om3_re_bilateral_elastico | Rotação Externa Bilateral com Elástico (No Money) | ombros | Elástico leve ou faixa | ini | 🙅 | elastico | ca | b | C5R | 3 | 15
+P: Manguito Rotador, Infraespinal
+S: Rombóides, Trapézio Médio, Redondo Menor
+I: Segure o elástico com as duas mãos, palmas para cima, cotovelos dobrados a 90° e colados na cintura | Mantenha o peito aberto e os ombros longe das orelhas | Gire os antebraços para fora afastando as mãos, sem tirar os cotovelos do corpo | Aperte as escápulas no final e volte devagar
+E: Afastar os cotovelos do tronco | Inclinar o corpo para trás | Usar elástico forte demais
+PR: Rotação externa a 90° com elástico
+RG: Faça sem elástico, só com o movimento
+
+om3_kb_bottoms_up_carry | Caminhada com Kettlebell Invertido | ombros | Kettlebell | int | 🔔 | kettlebell | ca | b | CR | 3 | 20-30 m cada lado
+P: Manguito Rotador, Antebraços
+S: Deltóide Anterior, Core, Bíceps
+I: Segure o kettlebell pela alça com a bola virada para cima (de cabeça para baixo) na altura do ombro | Cotovelo dobrado a 90° à frente do corpo e punho reto | Aperte a alça com força para o kettlebell não tombar | Caminhe devagar em linha reta mantendo o kettlebell estável e troque de mão
+E: Deixar o punho dobrar | Inclinar o tronco para o lado | Kettlebell pesado demais (comece leve)
+PR: Desenvolvimento com kettlebell invertido
+RG: Faça parado, só segurando por 20 segundos
+
+om3_full_can | Full Can (Elevação no Plano da Escápula) | ombros | Halteres leves | ini | 👍 | halteres | ca | b | CH5R | 3 | 12-15
+P: Supraespinal, Deltóide Anterior
+S: Deltóide Medial, Serrátil, Manguito Rotador
+I: Em pé, halteres leves ao lado do corpo com os polegares apontando para cima | Posicione os braços cerca de 30° à frente da linha do corpo (formando um V aberto) | Eleve os braços estendidos nesse ângulo até a altura dos ombros | Desça devagar em 3 segundos
+E: Girar os polegares para baixo (aumenta risco de pinçamento) | Subir acima da linha dos ombros | Encolher os ombros
+PR: Elevação lateral até acima da cabeça (Lu Raise)
+RG: Faça sem peso ou com garrafas pequenas
+F: Dumbbell_Scaption
+
+om3_d1_elastico | Diagonal D1 com Elástico (Forehand) | ombros | Elástico ancorado | int | 🏓 | elastico | ca | b | CR | 3 | 12 cada lado
+P: Manguito Rotador, Deltóide Anterior
+S: Peitoral, Serrátil, Oblíquos
+I: Prenda o elástico baixo, ao lado do corpo do mesmo lado do braço que vai trabalhar | Segure a ponta com a mão perto do quadril, palma para trás | Puxe em diagonal para cima cruzando o corpo até a mão passar acima do ombro oposto, girando a palma para você | Volte devagar pela mesma diagonal até o quadril
+E: Girar só o tronco sem mover o braço | Fazer rápido e sem controle na volta | Encolher o ombro no final
+PR: Aumente a tensão do elástico ou faça com cabo
+RG: Diminua a amplitude para meia diagonal
+
+om3_re_passo_lateral_cabo | Rotação Externa com Passo Lateral no Cabo | ombros | Polia na altura do cotovelo | ava | 👣 | polia | a | b | CR | 3 | 8 passos cada lado
+P: Manguito Rotador, Infraespinal
+S: Core, Oblíquos, Redondo Menor
+I: Fique de lado para a polia e segure a manopla com a mão mais distante, cotovelo a 90° colado ao corpo | Gire o antebraço para fora até apontar para a frente e segure nessa posição | Dê passos laterais curtos para longe da polia mantendo o antebraço parado | Volte com passos laterais até a polia, sem deixar o braço girar para dentro
+E: Afastar o cotovelo do corpo | Deixar o tronco girar | Carga alta que obriga a compensar
+PR: Aumente a carga ou a distância
+RG: Rotação externa no cabo parado
+
+om3_prancha_lateral_re | Prancha Lateral com Rotação Externa | ombros | Halter leve + colchonete | ava | 🧘 | halteres | ca | b | CR | 3 | 8-10 cada lado
+P: Manguito Rotador, Oblíquos
+S: Deltóide Posterior, Glúteo Médio, Serrátil
+I: Faça uma prancha lateral apoiada no antebraço, corpo em linha reta | Segure um halter leve na mão de cima, cotovelo dobrado a 90° e colado na cintura | Gire o antebraço para cima até apontar para o teto, sem mexer o cotovelo | Desça devagar mantendo o quadril alto o tempo todo
+E: Quadril caindo durante a rotação | Ombro de apoio afundando (empurre o chão) | Halter pesado demais
+PR: Faça com o braço de cima estendido (elevação lateral na prancha)
+RG: Prancha lateral com joelhos apoiados
+
+om3_bola_parede_circulos | Círculos com Bola na Parede | ombros | Bola (suíça pequena, de futebol ou medicine ball leve) + parede | ini | ⚪ | bola_suica | ca | b | C5R | 3 | 30 s cada sentido
+P: Manguito Rotador, Estabilizadores do Ombro
+S: Serrátil, Deltóide Anterior
+I: Fique de frente para a parede e prenda uma bola contra ela com a mão, braço estendido na altura do ombro | Afaste-se até o braço ficar firme e o corpo levemente inclinado | Faça pequenos círculos com a bola sem deixá-la cair, mantendo o ombro afastado da orelha | Complete o tempo no sentido horário e depois no anti-horário
+E: Dobrar o cotovelo | Encolher o ombro | Círculos grandes demais e sem controle
+PR: Faça com o braço acima da cabeça ou desenhando letras
+RG: Faça com a bola mais próxima do corpo
+
+# ===================== SERRÁTIL =====================
+
+om3_protracao_halteres | Protração Escapular Deitado com Halteres | ombros | Halteres + banco inclinado | ini | ☝️ | banco_inclinado | a | b | C5R | 3 | 12-15
+P: Serrátil
+S: Deltóide Anterior, Peitoral Menor
+I: Deite no banco inclinado com os halteres acima dos ombros e braços estendidos | Mantenha os cotovelos travados durante todo o exercício | Empurre os halteres em direção ao teto descolando as escápulas do banco | Volte devagar deixando as escápulas encostarem de novo no banco
+E: Dobrar os cotovelos (vira supino) | Movimento curto sem descolar as escápulas | Usar carga pesada
+PR: Protração escapular no Smith
+RG: Soco à frente no cabo
+F: Dumbbell_Incline_Shoulder_Raise
+
+om3_protracao_smith | Protração Escapular no Smith | ombros | Máquina Smith + banco inclinado | int | ☝️ | smith | a | b | CR | 3 | 12-15
+P: Serrátil
+S: Deltóide Anterior, Peitoral Menor
+I: Coloque o banco inclinado sob a barra do Smith e deite com a barra alinhada ao peito | Destrave a barra com os braços estendidos e cotovelos travados | Empurre a barra para cima só com as escápulas, afastando-as do banco | Desça devagar deixando as escápulas se aproximarem e trave a barra ao final
+E: Flexionar os cotovelos | Elevar os ombros até as orelhas | Esquecer de travar a barra
+PR: Flexão plus no TRX
+RG: Protração escapular deitado com halteres
+F: Smith_Incline_Shoulder_Raise
+
+om3_soco_cabo | Soco à Frente no Cabo (Serratus Punch) | ombros | Polia na altura do peito | ini | 👊 | polia | a | b | C5R | 3 | 12-15 cada lado
+P: Serrátil
+S: Deltóide Anterior, Core
+I: Fique de costas para a polia ajustada na altura do peito e segure a manopla | Braço estendido à frente na altura do ombro, cotovelo travado | Leve a mão mais à frente 'socando' com a escápula, sem dobrar o cotovelo | Volte devagar deixando a escápula se retrair
+E: Girar o tronco para alcançar | Dobrar o cotovelo | Encolher o ombro
+PR: Protração escapular no Smith
+RG: Faça com elástico leve
+
+om3_prancha_protracao | Prancha nos Antebraços com Protração | ombros | Colchonete | ini | 🧘 | colchonete | ca | b | C5R | 3 | 10-12
+P: Serrátil
+S: Core, Deltóide Anterior
+I: Apoie antebraços e joelhos (ou pés) no colchonete, cotovelos sob os ombros | Deixe o peito afundar entre as escápulas, aproximando-as | Empurre o chão com os antebraços afastando as escápulas e arredondando levemente a parte alta das costas | Segure 1 segundo e volte devagar, sem mexer o quadril
+E: Mover o quadril em vez das escápulas | Prender a respiração | Afundar a lombar
+PR: Flexão plus
+RG: Faça em pé com os antebraços na parede
+
+om3_parede_rolo | Deslizamento dos Antebraços na Parede com Rolo | ombros | Rolo de espuma (foam roller) + parede | ini | 🧽 | foam_roller | ca | b | C5R | 3 | 10-12
+P: Serrátil, Trapézio Inferior
+S: Deltóide Anterior, Manguito Rotador
+I: De frente para a parede, coloque o rolo na horizontal entre a parede e os antebraços, na altura do peito | Antebraços paralelos, palmas voltadas uma para a outra | Role o rolo para cima até os braços ficarem acima da cabeça, empurrando levemente a parede | No topo, afaste um pouco os antebraços da parede por 1 segundo e role de volta para baixo
+E: Arquear a lombar para subir mais | Encolher os ombros no topo | Deixar o rolo escorregar por falta de pressão
+PR: Faça com mini band nos punhos
+RG: Faça sem o rolo, deslizando as mãos na parede
+
+om3_urso_protracao | Urso Isométrico com Protração e Alcance | ombros | Peso corporal | ava | 🐻 | peso_corporal | c | b | CPR | 3 | 8 alcances cada lado
+P: Serrátil, Core
+S: Deltóide Anterior, Quadríceps, Oblíquos
+I: Apoie mãos e pés no chão com os joelhos dobrados a 90°, a dois dedos do chão | Empurre o chão para afastar as escápulas (costas levemente arredondadas) | Tire uma mão e alcance à frente na altura do ombro, sem mexer o quadril | Volte a mão ao chão, empurre de novo e alterne o lado
+E: Joelhos encostando no chão | Quadril subindo ou girando | Peito afundando entre os ombros
+PR: Faça o alcance com um halter leve arrastando no chão
+RG: Faça só a isometria do urso com protração
+
+om3_flexao_plus_trx | Flexão Plus no TRX | ombros | TRX / fita de suspensão | ava | ☝️ | trx | ca | b | CR | 3 | 8-10
+P: Serrátil, Peitoral
+S: Tríceps, Core, Deltóide Anterior
+I: Segure as alças com os braços estendidos e o corpo inclinado à frente em prancha | Desça o peito entre as alças dobrando os cotovelos | Empurre até estender os braços | No topo, empurre mais um pouco afastando as escápulas antes de descer de novo
+E: Alças abrindo para os lados | Quadril cedendo | Esquecer a fase de protração no final
+PR: Afaste os pés para aumentar a inclinação
+RG: Flexão plus no chão
+
+# ===================== TRAPÉZIO SUPERIOR =====================
+
+om3_encolh_smith_atras | Encolhimento por Trás no Smith | ombros | Máquina Smith | int | 🤷 | smith | a | b | H | 4 | 10-12
+P: Trapézio Superior
+S: Trapézio Médio, Antebraços
+I: Ajuste a barra do Smith na altura do meio das coxas e fique de costas para ela | Segure a barra atrás do corpo com pegada pronada na largura dos ombros | Destrave e, com os braços estendidos, eleve os ombros em direção às orelhas | Segure 1 segundo no topo e desça devagar
+E: Rodar os ombros (não é necessário e sobrecarrega) | Dobrar os cotovelos para puxar | Projetar a cabeça para frente
+PR: Encolhimento com barra por trás
+RG: Encolhimento com halteres
+F: Smith_Machine_Behind_the_Back_Shrug
+
+om3_encolh_polia | Encolhimento na Polia Baixa | ombros | Polia baixa + barra reta | ini | 🤷 | polia | a | b | H5 | 3 | 12-15
+P: Trapézio Superior
+S: Trapézio Médio, Antebraços
+I: Prenda uma barra reta na polia baixa e fique de frente para ela | Segure a barra com pegada pronada na largura dos ombros, braços estendidos | Eleve os ombros em direção às orelhas mantendo os braços retos | Segure 1 segundo e desça devagar até alongar
+E: Usar os braços para puxar | Projetar o queixo para frente | Descer rápido
+PR: Encolhimento por trás no Smith
+RG: Encolhimento com elástico ou mochila
+F: Cable_Shrugs
+
+om3_encolh_maq_panturrilha | Encolhimento na Máquina de Panturrilha em Pé | ombros | Máquina de panturrilha em pé | int | 🤷 | panturrilha_maquina | a | b | H | 4 | 10-12
+P: Trapézio Superior
+S: Trapézio Médio, Core
+I: Posicione-se na máquina de panturrilha em pé com as almofadas sobre os ombros e os pés no chão (não na plataforma) | Tronco ereto e braços relaxados ao lado do corpo | Eleve os ombros em direção às orelhas empurrando as almofadas para cima | Segure 1 segundo e desça devagar
+E: Subir na ponta dos pés (vira panturrilha) | Flexionar os joelhos | Inclinar o pescoço para frente
+PR: Encolhimento com barra por trás
+RG: Encolhimento na polia baixa
+F: Calf-Machine_Shoulder_Shrug
+
+om3_encolh_barra_atras | Encolhimento com Barra por Trás | ombros | Barra + suporte | int | 🤷 | barra | a | b | H | 4 | 8-12
+P: Trapézio Superior
+S: Trapézio Médio, Antebraços
+I: Retire a barra do suporte na altura das coxas, de costas para ela, pegada pronada na largura dos ombros | Fique ereto, pés na largura do quadril e braços estendidos | Eleve os ombros para cima e levemente para trás | Segure 1 segundo e desça devagar
+E: Dobrar os cotovelos | Inclinar o tronco à frente | Barra raspando com força nos glúteos
+PR: Encolhimento com braços acima da cabeça
+RG: Encolhimento por trás no Smith
+F: Barbell_Shrug_Behind_The_Back
+
+om3_encolh_inclinado | Encolhimento com Peito Apoiado no Banco Inclinado | ombros | Halteres + banco inclinado | int | 🤷 | banco_inclinado | a | b | H | 3 | 12-15
+P: Trapézio Superior, Trapézio Médio
+S: Rombóides, Deltóide Posterior
+I: Ajuste o banco a cerca de 45° e deite de bruços com halteres pendurados | Braços estendidos e palmas voltadas uma para a outra | Eleve os ombros para cima e para trás (em direção às orelhas e à coluna) | Segure 1 segundo e desça devagar alongando
+E: Dobrar os cotovelos e virar remada | Tirar o peito do banco | Movimento curto
+PR: Aumente a carga ou faça pausa de 3 s no topo
+RG: Encolhimento na polia baixa
+
+om3_encolh_mochila | Encolhimento com Mochila | ombros | Mochila com livros, garrafas ou areia | ini | 🎒 | mochila | c | b | H5 | 3 | 15-20
+P: Trapézio Superior
+S: Antebraços, Trapézio Médio
+I: Encha uma mochila e segure-a pela alça de mão com as duas mãos à frente do corpo (ou use uma em cada mão) | Fique ereto com os braços estendidos | Eleve os ombros em direção às orelhas sem dobrar os cotovelos | Segure 2 segundos no topo e desça devagar
+E: Rodar os ombros | Projetar a cabeça para frente | Dobrar os braços
+PR: Encolhimento com halteres
+RG: Mochila mais leve
+
+om3_encolh_overhead | Encolhimento com Braços Acima da Cabeça | ombros | Barra (ou anilha) | ava | 🙌 | barra | a | b | HR | 3 | 10-12
+P: Trapézio Superior, Serrátil
+S: Deltóide Medial, Core, Tríceps
+I: Leve a barra acima da cabeça com pegada larga (de arranco) e os braços estendidos | Mantenha o abdômen firme e as costelas para baixo | Sem dobrar os cotovelos, eleve os ombros em direção às orelhas, empurrando a barra mais para cima | Desça os ombros devagar mantendo os braços estendidos
+E: Arquear a lombar | Dobrar os cotovelos | Barra indo para frente da cabeça
+PR: Overhead carry
+RG: Faça com anilha leve segurada com as duas mãos
+
+om3_encolh_explosivo | Encolhimento Explosivo com Barra (Pegada de Arranco) | ombros | Barra | ava | 💥 | barra | a | m | CPH | 4 | 5-6
+P: Trapézio Superior
+S: Glúteos, Isquiotibiais, Antebraços
+I: Segure a barra com pegada larga (de arranco), barra na altura do meio das coxas | Incline levemente o tronco à frente com joelhos dobrados, como na posição de 'hang' do arranco | Estenda quadril e joelhos com explosão e, no final, eleve os ombros com força em direção às orelhas | Mantenha os braços estendidos e volte à posição inicial controlando
+E: Dobrar os cotovelos (vira puxada alta) | Arredondar a lombar | Saltar em vez de estender o corpo
+PR: High pull para arranco
+RG: Encolhimento com barra por trás
+F: Snatch_Shrug
+
+# ===================== SAÚDE ESCAPULAR =====================
+
+om3_y_bola | Elevação em Y de Bruços na Bola Suíça | ombros | Bola suíça | ini | ⚽ | bola_suica | ca | b | C5R | 3 | 10-12
+P: Trapézio Inferior
+S: Deltóide Posterior, Serrátil, Eretores da Espinha
+I: Deite de bruços sobre a bola suíça com a barriga apoiada e os pés afastados no chão | Deixe os braços pendurados à frente da bola, polegares para cima | Eleve os braços estendidos em diagonal à frente da cabeça formando um Y | Segure 2 segundos e desça devagar
+E: Elevar os ombros até as orelhas | Arquear demais a lombar | Rolar a bola para frente
+PR: Faça com garrafas pequenas ou halteres de 1 kg
+RG: Faça em pé inclinado com as mãos deslizando na parede
+
+om3_retracao_cadeira | Retração Escapular Sentado na Cadeira | ombros | Cadeira | ini | 🪑 | cadeira | c | b | C5R | 3 | 12 x 3 s
+P: Rombóides, Trapézio Médio
+S: Trapézio Inferior, Deltóide Posterior
+I: Sente na ponta da cadeira, pés no chão e coluna ereta | Braços relaxados ao lado do corpo, cotovelos levemente dobrados | Aproxime as escápulas uma da outra e para baixo, como se quisesse guardá-las no bolso de trás | Segure 3 segundos e solte devagar
+E: Elevar os ombros | Projetar a barriga e arquear a lombar | Prender a respiração
+PR: Rotação externa bilateral com elástico
+RG: Faça encostado na parede
+
+om3_depressao_cadeira | Depressão Escapular na Cadeira (Elevação do Corpo) | ombros | Cadeira com braços ou duas cadeiras firmes | ini | 🪑 | cadeira | c | b | C5 | 3 | 8-12
+P: Trapézio Inferior, Latíssimo
+S: Tríceps, Serrátil
+I: Sente numa cadeira firme com braços e apoie as mãos nos apoios ao lado do quadril | Mantenha os cotovelos estendidos e os pés no chão | Empurre os apoios para baixo afastando os ombros das orelhas, tirando um pouco o peso do quadril do assento | Segure 2 segundos e desça devagar sem dobrar os cotovelos
+E: Dobrar os cotovelos (vira mergulho) | Deixar os ombros subirem até as orelhas | Usar cadeira com rodinha
+PR: Mergulho escapular nas paralelas
+RG: Mantenha os pés mais carregados para tirar menos peso
+
+om3_mergulho_escapular | Mergulho Escapular nas Paralelas | ombros | Paralelas | int | ⬇️ | paralelas | a | b | CR | 3 | 10-12
+P: Trapézio Inferior, Serrátil
+S: Latíssimo, Peitoral Menor, Tríceps
+I: Suba nas paralelas com os braços estendidos e o corpo pendurado | Deixe os ombros subirem em direção às orelhas sem dobrar os cotovelos | Empurre as barras para baixo afastando os ombros das orelhas e erguendo o corpo | Segure 1 segundo e desça devagar
+E: Dobrar os cotovelos | Balançar as pernas | Descer até sentir dor na frente do ombro
+PR: Mergulho nas paralelas
+RG: Depressão escapular na cadeira
+
+# ===================== FUNCIONAIS / CONDICIONAMENTO DE OMBRO =====================
+
+om3_navios_piratas_kb | Navios Piratas com Kettlebell | funcional | Kettlebell | int | 🏴‍☠️ | kettlebell | ca | b | CPR | 3 | 10 cada lado
+P: Deltóide Anterior, Deltóide Medial
+S: Oblíquos, Core, Glúteos
+I: Em pé com base larga, segure o kettlebell pela alça com as duas mãos, braços estendidos à frente do quadril | Gire o tronco para um lado e leve o kettlebell em arco até a altura da cabeça | Pause no topo e deixe o kettlebell descer em arco até entre as pernas | Suba para o lado oposto no mesmo movimento, girando os pés junto
+E: Dobrar os cotovelos | Arredondar as costas no fundo | Kettlebell pesado que obriga a dar tranco
+PR: Aumente a carga
+RG: Faça com halter leve e amplitude menor
+F: Kettlebell_Pirate_Ships
+
+om3_arremesso_medball_cabeca | Arremesso de Bola Medicinal por Cima da Cabeça | funcional | Bola medicinal (3-6 kg) + parede firme | int | 🏐 | medicine_ball | a | m | CPR | 4 | 8-10
+P: Deltóide Anterior, Latíssimo
+S: Core, Tríceps, Serrátil
+I: Fique de frente para uma parede firme a 2-3 metros, pés afastados na largura dos ombros | Segure a bola com as duas mãos e leve-a atrás da cabeça, flexionando levemente os joelhos | Arremesse a bola com força contra a parede, usando o tronco e os braços (como num smash) | Agarre a bola no rebote e repita
+E: Arquear demais a lombar na preparação | Arremessar só com os braços | Bola pesada demais (perde velocidade)
+PR: Arremesso unilateral com bola leve (gesto de saque)
+RG: Arremesso com bola leve sem tanta preparação
+F: Standing_Two-Arm_Overhead_Throw
+
+om3_crucifixo_isometrico | Crucifixo Isométrico em Pé (Sustentação Lateral) | ombros | Halteres ou anilhas | ava | ✝️ | halteres | ca | b | CH | 3 | 20-40 s
+P: Deltóide Medial
+S: Supraespinal, Trapézio Superior, Antebraços
+I: Em pé, segure um halter em cada mão ao lado do corpo | Eleve os braços estendidos para os lados até a linha dos ombros, palmas para baixo | Segure a posição pelo tempo pedido com o abdômen firme | Desça devagar quando os braços começarem a cair abaixo da linha dos ombros
+E: Inclinar o tronco para trás | Encolher os ombros | Dobrar os cotovelos para aliviar
+PR: Aumente o tempo ou faça após uma série de elevação lateral
+RG: Faça sem peso ou com cotovelos dobrados
+F: Crucifix
+
+om3_wall_walk | Escalada na Parede (Wall Walk) | ombros | Parede | ava | 🧗 | parede | c | b | CPH | 4 | 3-5
+P: Deltóide Anterior, Deltóide Medial
+S: Core, Tríceps, Serrátil
+I: Deite de bruços com os pés encostados na parede e as mãos na linha do peito | Empurre até a posição de flexão e suba os pés pela parede passo a passo | Ao mesmo tempo, caminhe com as mãos para trás em direção à parede até chegar perto (sem bater o nariz) | Segure 1-2 segundos e volte pelo mesmo caminho, devagar, até deitar
+E: Arquear a lombar (afunde o umbigo e contraia os glúteos) | Descer rápido e cair | Mãos muito longe da parede no topo, sem controle
+PR: Bananeira na parede com toque no ombro
+RG: Suba só até metade do caminho
+
+om3_bananeira_toque_ombro | Bananeira na Parede com Toque no Ombro | ombros | Parede | ava | 🤸 | parede | c | b | C | 4 | 6-10 toques
+P: Deltóides, Serrátil
+S: Core, Trapézio Superior, Tríceps
+I: Suba na bananeira de frente para a parede (com wall walk), mãos na largura dos ombros e corpo reto | Empurre o chão para manter os ombros perto das orelhas | Transfira o peso para uma mão e toque rapidamente o ombro com a outra | Volte a mão ao chão e alterne, sem deixar o quadril balançar
+E: Arquear a lombar | Ombros afundando | Tirar a mão sem antes transferir o peso
+PR: Bananeira livre
+RG: Escalada na parede (wall walk)

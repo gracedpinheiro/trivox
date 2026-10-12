@@ -1,0 +1,799 @@
+# V3 — GLÚTEOS, POSTERIORES DE COXA, ADUTORES E ABDUTORES — origem trivox_v2
+# Objetivo: sempre ter substituto quando o aparelho estiver ocupado + variação para casa
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+# ===================== GLÚTEO MÁXIMO — ACADEMIA =====================
+
+gp3_ponte_barra_chao | Ponte de Glúteo com Barra no Chão | gluteos | Barra olímpica com protetor de espuma + colchonete | int | 🍑 | barra | a | b | CPH | 4 | 10-12
+P: Glúteos
+S: Isquiotibiais, Core
+I: Deite de costas no colchonete com os joelhos dobrados e os pés firmes no chão, na largura do quadril | Role a barra (com protetor de espuma) até a dobra do quadril e segure-a com as duas mãos | Empurre o chão com os calcanhares e suba o quadril até alinhar joelhos, quadril e ombros | Segure 1 segundo apertando os glúteos com o queixo levemente recolhido | Desça devagar até os glúteos quase tocarem o chão e repita
+E: Arquear a lombar no topo em vez de estender o quadril | Pés longe demais (o esforço vai para o posterior) | Barra sem protetor machucando o osso do quadril
+PR: Hip Thrust com Barra e Pausa no Topo
+RG: Ponte de Glúteo com Halter no Quadril
+F: Barbell_Glute_Bridge
+
+gp3_hip_thrust_maquina | Hip Thrust na Máquina (Glute Drive) | gluteos | Máquina de elevação pélvica (glute drive / hip thrust) | ini | 🍑 | gluteo_maquina | a | b | CPH5 | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Core
+I: Sente na máquina com as escápulas no encosto e ajuste o rolo/cinto sobre a dobra do quadril | Posicione os pés na plataforma na largura do quadril, canelas verticais no topo do movimento | Empurre com os calcanhares e estenda o quadril até o tronco ficar alinhado com as coxas | Aperte os glúteos 1 segundo no topo sem jogar a cabeça para trás | Desça controlando até a carga quase encostar
+E: Hiperestender a lombar no topo | Empurrar com a ponta dos pés | Descer soltando o peso
+PR: Hip Thrust com Barra
+RG: Ponte de Glúteo Isométrica
+
+gp3_hip_thrust_pausa | Hip Thrust com Barra e Pausa no Topo | gluteos | Barra + banco reto + protetor de barra | ava | ⏸️ | barra | a | b | H | 4 | 6-8 (pausa 3 s)
+P: Glúteos
+S: Isquiotibiais, Adutores, Core
+I: Apoie a borda inferior das escápulas no banco e a barra protegida na dobra do quadril | Pés na largura do quadril, a uma distância em que a canela fique vertical no topo | Suba o quadril até a extensão completa com a pelve levemente encaixada (costelas para baixo) | Segure parado 3 segundos no topo contraindo os glúteos ao máximo | Desça em 2 segundos e reinicie sem relaxar no fundo
+E: Usar carga que não permite segurar a pausa | Projetar as costelas e arquear a lombar | Joelhos fechando para dentro na subida
+PR: Hip Thrust Unilateral no Smith
+RG: Hip Thrust na Máquina (Glute Drive)
+
+gp3_hip_thrust_kb | Hip Thrust com Kettlebell no Quadril | gluteos | Kettlebell + banco ou sofá firme | ini | 🍑 | kettlebell | ca | b | CPH5 | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Core
+I: Sente no chão com as escápulas apoiadas na borda do banco (ou sofá firme) | Coloque o kettlebell deitado sobre a dobra do quadril e segure-o pelas alças com as duas mãos | Pés firmes no chão, joelhos a 90° no topo | Suba o quadril até alinhar com o tronco e aperte os glúteos | Desça devagar até o quadril ficar a um palmo do chão
+E: Kettlebell escorregando para a barriga | Olhar para o teto e arquear o pescoço | Subir só até a metade
+PR: Hip Thrust com Barra e Pausa no Topo
+RG: Ponte de Glúteo Isométrica
+
+gp3_hip_thrust_landmine | Hip Thrust no Landmine | gluteos | Landmine (barra presa no suporte de canto) + banco | int | 🍑 | landmine | a | b | CPH | 3 | 10-12
+P: Glúteos
+S: Isquiotibiais, Core
+I: Posicione o banco perpendicular à barra do landmine e apoie as escápulas nele | Deixe a ponta da barra (com protetor) sobre a dobra do quadril, segurando-a com as mãos | Pés afastados na largura do quadril, canelas verticais | Suba o quadril seguindo o arco natural da barra e aperte os glúteos no topo | Desça controlando sem deixar a barra tocar o chão
+E: Banco mal posicionado deixando a barra cair de lado | Arquear a lombar no topo | Descer rápido demais
+PR: Hip Thrust com Barra e Pausa no Topo
+RG: Hip Thrust na Máquina (Glute Drive)
+
+gp3_hip_thrust_polia | Hip Thrust na Polia Baixa | gluteos | Polia baixa com cinto ou barra curta + banco | int | 🍑 | polia | a | b | CPH | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Core
+I: Coloque o banco de lado em frente à polia baixa e prenda um cinto (ou barra curta) passando pela dobra do quadril | Apoie as escápulas no banco de costas para a polia, pés firmes no chão | Estenda o quadril contra a resistência do cabo até alinhar tronco e coxas | Segure 1 segundo e desça controlando — o cabo mantém tensão constante | Mantenha o queixo recolhido e as costelas para baixo durante toda a série
+E: Ficar perto demais da polia e perder a tensão no fundo | Puxar o cinto com as mãos | Arquear a lombar
+PR: Hip Thrust B-Stance com Barra
+RG: Hip Thrust na Máquina (Glute Drive)
+
+gp3_hip_thrust_b_stance | Hip Thrust B-Stance com Barra | gluteos | Barra + banco reto | int | 🦵 | barra | a | b | CPH | 3 | 10 cada lado
+P: Glúteos
+S: Isquiotibiais, Glúteo Médio, Core
+I: Monte a posição do hip thrust com a barra protegida na dobra do quadril | Deixe um pé firme na posição normal e adiante o outro, apoiando só o calcanhar (pé de apoio leve) | Empurre principalmente com o pé de trás e suba até a extensão completa do quadril | Mantenha a pelve nivelada, sem girar para o lado mais fraco | Faça todas as repetições de um lado e troque
+E: Dividir a força igualmente entre as pernas | Quadril inclinando para um lado | Pé da frente longe demais
+PR: Hip Thrust Unilateral no Smith
+RG: Hip Thrust com Kettlebell no Quadril
+
+gp3_hip_thrust_smith_unilateral | Hip Thrust Unilateral no Smith | gluteos | Máquina Smith + banco | ava | 🦵 | smith | a | b | H | 3 | 8-10 cada lado
+P: Glúteos
+S: Isquiotibiais, Glúteo Médio, Core
+I: Posicione o banco sob o Smith e a barra (com protetor) sobre a dobra do quadril | Apoie as escápulas no banco e destrave a barra girando os punhos | Tire um pé do chão (joelho dobrado em direção ao peito) e empurre com o outro calcanhar | Suba até a extensão completa mantendo a pelve nivelada | Desça controlando, complete o lado e trave a barra antes de trocar
+E: Esquecer de travar a barra ao trocar de perna | Quadril caindo para o lado da perna solta | Carga alta demais tirando amplitude
+PR: Hip Thrust com Barra e Pausa no Topo (carga maior)
+RG: Hip Thrust B-Stance com Barra
+
+gp3_coice_smith | Coice no Smith (Glúteo em 4 Apoios) | gluteos | Máquina Smith + colchonete | int | 🐴 | smith | a | b | H | 3 | 10-12 cada perna
+P: Glúteos
+S: Isquiotibiais, Core
+I: Ajoelhe-se em 4 apoios sob o Smith, com a barra na altura da sola do pé que vai trabalhar | Encaixe a sola do pé (calçado) na barra e destrave-a com cuidado | Empurre a barra para cima estendendo o quadril até a coxa ficar alinhada com o tronco | Desça controlando até o joelho chegar perto do peito | Trave a barra nos ganchos antes de trocar de perna
+E: Arquear a lombar para subir mais | Pé escorregando da barra | Girar o quadril para o lado
+PR: Hip Thrust Unilateral no Smith
+RG: Coice em 4 Apoios (Donkey Kick)
+
+gp3_coice_halter_joelho | Coice com Halter na Dobra do Joelho | gluteos | Halter leve + colchonete | int | 🐴 | halteres | ca | b | PH | 3 | 12-15 cada perna
+P: Glúteos
+S: Isquiotibiais, Core
+I: Fique em 4 apoios com as mãos sob os ombros e os joelhos sob o quadril | Prenda um halter leve na dobra de um joelho, apertando a panturrilha contra a coxa | Leve a sola do pé em direção ao teto até a coxa ficar paralela ao chão | Segure 1 segundo no topo sem arquear a lombar | Desça devagar até o joelho quase tocar o chão
+E: Deixar o halter escorregar (comece leve) | Jogar a perna com impulso | Afundar a lombar
+PR: Coice no Smith (Glúteo em 4 Apoios)
+RG: Coice em 4 Apoios (Donkey Kick)
+
+gp3_coice_polia_4apoios | Coice na Polia Baixa em 4 Apoios | gluteos | Polia baixa com tornozeleira + colchonete | int | 🐴 | polia | a | b | PH | 3 | 12-15 cada perna
+P: Glúteos
+S: Isquiotibiais, Core
+I: Prenda a tornozeleira no tornozelo e fique em 4 apoios de frente para a polia baixa | Afaste-se até o cabo ficar tenso com o joelho dobrado à frente | Empurre o pé para trás e para cima estendendo o quadril e o joelho | Pare quando a perna ficar alinhada com o tronco, sem girar o quadril | Volte devagar resistindo ao cabo
+E: Lombar afundando no final do movimento | Joelho de apoio escorregando no chão | Usar carga que faz o tronco balançar
+PR: Coice no Smith (Glúteo em 4 Apoios)
+RG: Coice em 4 Apoios com Mini Band
+
+gp3_gluteo_multi_hip_extensao | Extensão de Quadril em Pé na Máquina Multi-Hip | gluteos | Máquina multi-hip (glúteo em pé com rolo) | ini | 🍑 | gluteo_maquina | a | b | CPH5 | 3 | 12-15 cada perna
+P: Glúteos
+S: Isquiotibiais, Core
+I: Ajuste o eixo da máquina na altura do quadril e o rolo atrás da coxa, logo acima do joelho | Segure as alças e fique em pé sobre a perna de apoio com o joelho levemente solto | Empurre o rolo para trás estendendo o quadril até a coxa passar um pouco da linha do tronco | Segure 1 segundo e volte controlando até a coxa ficar à frente do corpo | Faça todas as repetições e troque de lado
+E: Inclinar o tronco à frente para compensar | Arquear a lombar no final | Balançar o corpo
+PR: Coice na Polia Baixa em 4 Apoios
+RG: Extensão de Quadril em Decúbito Ventral
+
+gp3_hiper_reversa | Hiperextensão Reversa | gluteos | Máquina de hiperextensão reversa ou banco romano adaptado | int | 🔄 | banco_romano | a | b | H | 3 | 12-15
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Core
+I: Deite de bruços no aparelho com o quadril na borda e as pernas penduradas | Segure firme as alças para manter o tronco imóvel | Eleve as pernas estendidas para trás até ficarem alinhadas com o tronco | Contraia os glúteos no topo por 1 segundo | Desça controlando, sem deixar o pêndulo balançar
+E: Usar balanço e impulso | Subir acima da linha do tronco arqueando a lombar | Soltar as pernas na descida
+PR: Extensão de Quadril Unilateral no Banco 45°
+RG: Hiperextensão Reversa no Banco Reto
+F: Reverse_Hyperextension
+
+gp3_hiper_reversa_banco | Hiperextensão Reversa no Banco Reto | gluteos | Banco reto (ou mesa firme) | ini | 🔄 | banco | a | b | CPH5 | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Eretores da Espinha
+I: Deite de bruços no banco com o quadril na borda e as pontas dos pés tocando o chão | Abrace o banco com as mãos para fixar o tronco | Eleve as duas pernas juntas, com joelhos levemente dobrados, até a linha do tronco | Aperte os glúteos no topo por 1 segundo | Desça devagar até os pés quase tocarem o chão
+E: Subir as pernas acima da linha do quadril | Tirar o peito do banco | Movimento rápido e sem controle
+PR: Hiperextensão Reversa
+RG: Extensão de Quadril em Decúbito Ventral
+
+gp3_hiperext_45_unilateral | Extensão de Quadril Unilateral no Banco 45° | gluteos | Banco romano 45° (hiperextensão) | ava | 🦵 | banco_romano | a | b | H | 3 | 8-12 cada perna
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Core
+I: Ajuste o apoio para a borda ficar logo abaixo do osso do quadril | Prenda apenas um pé no rolo e deixe a outra perna solta para trás | Desça o tronco dobrando o quadril com a coluna neutra | Suba empurrando o pé preso contra a plataforma até alinhar tronco e perna | Não ultrapasse a linha do corpo no topo
+E: Arredondar a coluna na descida | Usar a perna solta para ajudar | Hiperestender a lombar no topo
+PR: Segurar uma anilha no peito
+RG: Extensão de Quadril Isométrica no Banco 45°
+
+gp3_hiperext_isometrica | Extensão de Quadril Isométrica no Banco 45° | gluteos | Banco romano 45° | ini | ⏱️ | banco_romano | a | b | CH | 3 | 20-40 s
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Core
+I: Ajuste o apoio logo abaixo do osso do quadril e prenda os pés no rolo | Cruze os braços no peito | Suba até o corpo formar uma linha reta da cabeça aos calcanhares | Segure a posição apertando os glúteos e mantendo o abdômen firme | Respire normalmente até o fim do tempo e desça devagar
+E: Ficar com a lombar arqueada em vez de alinhada | Prender a respiração | Apoio do aparelho na barriga em vez do quadril
+PR: Extensão de Quadril Unilateral no Banco 45°
+RG: Ponte de Glúteo Isométrica
+
+gp3_flutter_pronado | Flutter Kick Pronado no Banco | gluteos | Banco reto | int | 🦶 | banco | ca | b | CPH | 3 | 20-30 s
+P: Glúteos
+S: Isquiotibiais, Eretores da Espinha
+I: Deite de bruços no banco com o quadril na borda e as pernas estendidas para fora | Segure as laterais do banco para estabilizar o tronco | Eleve as pernas até a linha do tronco | Alterne pequenas batidas de perna para cima e para baixo, como na natação | Mantenha os glúteos contraídos e a lombar neutra durante todo o tempo
+E: Batidas amplas que arqueiam a lombar | Dobrar muito os joelhos | Deixar as pernas caírem abaixo da linha do quadril
+PR: Hiperextensão Reversa
+RG: Hiperextensão Reversa no Banco Reto
+F: Flutter_Kicks
+
+gp3_agach_ajoelhado_barra | Agachamento Ajoelhado com Barra | gluteos | Barra no rack + colchonete para os joelhos | int | 🧎 | barra | a | b | H | 3 | 10-12
+P: Glúteos
+S: Isquiotibiais, Core
+I: Ajuste a barra no rack na altura dos ombros com você ajoelhado e coloque um colchonete sob os joelhos | Posicione a barra nas costas, como no agachamento, e saia do suporte ajoelhado | Sente o quadril para trás em direção aos calcanhares, tronco reto | Empurre o quadril à frente contraindo forte os glúteos até ficar com o corpo ereto | Repita sem deixar a lombar arquear no fim
+E: Projetar o quadril além da linha do corpo | Joelhos sem proteção | Descer arredondando as costas
+PR: Hip Thrust com Barra e Pausa no Topo
+RG: Pull Through com Elástico
+F: Kneeling_Squat
+
+gp3_frog_pump_halter | Frog Pump com Halter | gluteos | Halter + colchonete | int | 🐸 | halteres | ca | b | PH | 3 | 15-25
+P: Glúteos
+S: Adutores, Core
+I: Deite de costas e junte as solas dos pés, deixando os joelhos caírem para os lados (posição de borboleta) | Aproxime os calcanhares do quadril e apoie o halter na dobra do quadril | Empurre com a borda externa dos pés e suba o quadril | Aperte os glúteos no topo por 1 segundo | Desça e repita em ritmo constante, sem pausa no chão
+E: Calcanhares longe demais do quadril | Arquear a lombar no topo | Fechar os joelhos ao subir
+PR: Ponte de Glúteo com Barra no Chão
+RG: Frog Pump (Ponte Borboleta)
+
+gp3_hiper_reversa_bola | Hiperextensão Reversa na Bola Suíça | gluteos | Bola suíça | int | ⚽ | bola_suica | ca | b | CPH | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Eretores da Espinha, Core
+I: Deite de bruços sobre a bola com o quadril em cima dela e as mãos no chão à frente | Ande com as mãos até a bola ficar sob o quadril e os pés tocarem o chão atrás | Eleve as duas pernas estendidas até a linha do tronco | Contraia os glúteos no topo por 1 segundo | Desça devagar sem perder o equilíbrio na bola
+E: Bola muito à frente (sob a barriga) | Subir as pernas além da linha do tronco | Braços dobrando e perdendo a base
+PR: Hiperextensão Reversa
+RG: Hiperextensão Reversa no Banco Reto
+
+gp3_ponte_trx | Ponte com Pés no TRX | gluteos | TRX (alças na altura do joelho) + colchonete | int | 🌉 | trx | a | b | CPHR | 3 | 10-12
+P: Glúteos, Isquiotibiais
+S: Core, Adutores
+I: Ajuste as alças do TRX a cerca de 40 cm do chão e deite de costas sob elas | Encaixe os calcanhares nas alças com os joelhos dobrados a 90° | Suba o quadril até alinhar joelhos, quadril e ombros, sem deixar as alças balançarem | Segure 1 segundo e desça controlando | Mantenha os braços no chão ao lado do corpo para estabilizar
+E: Alças balançando por falta de controle | Afastar os pés um do outro | Quadril caindo no meio da série
+PR: Flexora no TRX
+RG: Ponte de Glúteo Isométrica
+
+gp3_ponte_smith_chao | Ponte de Glúteo no Smith | gluteos | Máquina Smith + colchonete + protetor de barra | int | 🌉 | smith | a | b | H | 4 | 10-12
+P: Glúteos
+S: Isquiotibiais, Core
+I: Deite de costas sob o Smith com a barra (com protetor) sobre a dobra do quadril | Dobre os joelhos e apoie os pés firmes no chão, na largura do quadril | Gire os punhos para destravar e suba o quadril até a extensão completa | Aperte os glúteos 1 segundo e desça até quase tocar o chão | Trave a barra nos ganchos ao terminar
+E: Esquecer de regular a trava de segurança antes | Arquear a lombar no topo | Empurrar com a ponta dos pés
+PR: Hip Thrust Unilateral no Smith
+RG: Ponte de Glúteo com Halter no Quadril
+
+gp3_kickback_polia_diagonal | Coice na Polia em Diagonal (45°) | gluteos | Polia baixa com tornozeleira | int | ↗️ | polia | a | b | H | 3 | 12-15 cada perna
+P: Glúteos, Glúteo Médio
+S: Isquiotibiais, Core
+I: Prenda a tornozeleira e fique de frente para a polia baixa, segurando a estrutura | Incline levemente o tronco à frente com o joelho de apoio solto | Leve a perna para trás e para fora, numa diagonal de 45° | Aperte o glúteo no ponto mais alto sem girar o quadril | Volte devagar até o pé passar ao lado do pé de apoio
+E: Girar a ponta do pé para fora e transformar em rotação | Usar balanço do tronco | Arquear a lombar
+PR: Coice no Smith (Glúteo em 4 Apoios)
+RG: Abdução em Pé com Elástico
+
+gp3_bulgaro_inclinado | Agachamento Búlgaro com Tronco Inclinado (Foco Glúteo) | gluteos | Halteres + banco | int | 🍑 | halteres | ca | b | CPHR | 3 | 8-10 cada perna
+P: Glúteos
+S: Quadríceps, Isquiotibiais, Adutores
+I: Apoie o peito do pé de trás no banco e dê um passo longo à frente com a outra perna | Segure os halteres ao lado do corpo e incline o tronco cerca de 30° à frente, coluna reta | Desça levando o quadril para trás até a coxa da frente ficar quase paralela ao chão | Suba empurrando com o calcanhar da frente e mantendo a inclinação | Complete a série e troque de lado
+E: Passo curto (vira exercício de quadríceps) | Joelho da frente caindo para dentro | Arredondar as costas ao inclinar
+PR: Aumentar a carga ou fazer pausa de 2 s no fundo
+RG: Afundo Reverso com Tronco Inclinado
+
+gp3_afundo_reverso_inclinado | Afundo Reverso com Tronco Inclinado (Foco Glúteo) | gluteos | Halteres (ou sem peso) | int | 🔙 | halteres | ca | b | CPH5R | 3 | 10 cada perna
+P: Glúteos
+S: Quadríceps, Isquiotibiais, Core
+I: Fique em pé segurando os halteres ao lado do corpo | Dê um passo largo para trás e incline o tronco à frente, levando o peito sobre a coxa da frente | Desça até o joelho de trás quase tocar o chão | Empurre com o calcanhar da frente e volte à posição inicial | Alterne as pernas ou faça um lado de cada vez
+E: Tronco totalmente ereto (tira o foco do glúteo) | Passo curto | Joelho da frente ultrapassando muito a ponta do pé
+PR: Agachamento Búlgaro com Tronco Inclinado (Foco Glúteo)
+RG: Afundo Reverso
+
+gp3_leg_press_pes_altos | Leg Press 45° com Pés Altos (Foco Glúteo e Posterior) | gluteos | Máquina leg press 45° | int | 🦵 | leg_press | a | b | CPH | 4 | 10-12
+P: Glúteos, Isquiotibiais
+S: Quadríceps, Adutores
+I: Sente com as costas bem apoiadas e coloque os pés na parte alta da plataforma, na largura dos ombros | Destrave e desça até o quadril começar a sair do banco, sem passar disso | Empurre a plataforma pelos calcanhares | Pare antes de travar os joelhos e repita
+E: Descer demais e tirar o quadril do encosto | Empurrar com a ponta dos pés | Travar os joelhos no topo
+PR: Hip Thrust com Barra e Pausa no Topo
+RG: Leg Press Horizontal
+
+# ===================== GLÚTEO MÁXIMO — CASA =====================
+
+gp3_coice_4apoios | Coice em 4 Apoios (Donkey Kick) | gluteos | Colchonete | ini | 🐴 | colchonete | c | b | CPH5 | 3 | 15 cada perna
+P: Glúteos
+S: Isquiotibiais, Core
+I: Fique em 4 apoios com as mãos sob os ombros e os joelhos sob o quadril | Mantenha um joelho dobrado a 90° e leve a sola desse pé em direção ao teto | Suba até a coxa ficar paralela ao chão, sem girar o quadril | Aperte o glúteo 1 segundo no topo | Desça devagar até o joelho quase tocar o chão
+E: Arquear a lombar para subir mais | Jogar a perna com impulso | Transferir o peso do corpo para o lado
+PR: Coice em 4 Apoios com Mini Band
+RG: Extensão de Quadril em Decúbito Ventral
+F: Glute_Kickback
+
+gp3_coice_mini_band | Coice em 4 Apoios com Mini Band | gluteos | Mini band | int | 🐴 | mini_band | ca | b | CPH | 3 | 15-20 cada perna
+P: Glúteos
+S: Isquiotibiais, Core
+I: Fique em 4 apoios e passe a mini band pelas solas dos pés (ou prenda uma ponta na mão do mesmo lado e a outra no pé) | Estenda a perna para trás e para cima contra a resistência do elástico | Pare quando a perna ficar alinhada com o tronco | Segure 1 segundo e volte controlando | Mantenha o abdômen firme e a coluna neutra
+E: Afundar a lombar no final do movimento | Elástico frouxo demais | Girar o quadril para cima
+PR: Coice com Halter na Dobra do Joelho
+RG: Coice em 4 Apoios (Donkey Kick)
+
+gp3_ponte_bola_ombros | Ponte com Ombros na Bola Suíça | gluteos | Bola suíça | ini | ⚽ | bola_suica | ca | b | CPH5 | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Core, Quadríceps
+I: Sente na bola e ande com os pés à frente até a parte alta das costas ficar apoiada nela | Deixe os pés na largura do quadril e os joelhos a 90° | Desça o quadril em direção ao chão mantendo a bola parada | Suba empurrando os calcanhares até o tronco ficar paralelo ao chão | Aperte os glúteos no topo e repita
+E: Deixar a bola rolar para longe | Pés juntos demais (instável) | Cabeça pendurada para trás
+PR: Hip Thrust com Kettlebell no Quadril
+RG: Ponte de Glúteo Isométrica
+F: Physioball_Hip_Bridge
+
+gp3_ponte_elastico_quadril | Ponte com Elástico sobre o Quadril | gluteos | Elástico longo preso sob as mãos ou em pés de móvel | ini | 🌉 | elastico | ca | b | CPH5 | 3 | 15-20
+P: Glúteos
+S: Isquiotibiais, Core
+I: Deite de costas com os joelhos dobrados e passe o elástico por cima da dobra do quadril | Prenda as pontas sob as mãos no chão (ou nos pés de um móvel pesado) | Suba o quadril contra o elástico até alinhar joelhos, quadril e ombros | Segure 1 segundo apertando os glúteos | Desça controlando sem soltar a tensão
+E: Elástico escorregando para a barriga | Arquear a lombar no topo | Soltar o corpo na descida
+PR: Hip Thrust no Sofá com Elástico
+RG: Ponte de Glúteo
+F: Hip_Lift_with_Band
+
+gp3_ponte_isometrica | Ponte de Glúteo Isométrica | gluteos | Colchonete | ini | ⏱️ | colchonete | c | b | CH5R | 3 | 30-45 s
+P: Glúteos
+S: Isquiotibiais, Core
+I: Deite de costas com os joelhos dobrados e os pés na largura do quadril | Suba o quadril até alinhar joelhos, quadril e ombros | Encaixe a pelve (costelas para baixo) e aperte os glúteos com força | Segure a posição respirando normalmente | Desça vértebra por vértebra ao final do tempo
+E: Quadril caindo aos poucos durante o tempo | Prender a respiração | Sentir apenas a lombar ou o posterior (pés longe demais)
+PR: Ponte com Elástico sobre o Quadril
+RG: Ponte de Glúteo com amplitude menor
+
+gp3_ponte_pes_parede | Ponte com Pés na Parede | gluteos | Parede + colchonete | ini | 🧱 | parede | c | b | CH5 | 3 | 12-15
+P: Glúteos, Isquiotibiais
+S: Core
+I: Deite de costas perto de uma parede e apoie as solas dos pés nela, joelhos e quadril a 90° | Pressione os calcanhares contra a parede (para baixo e para frente) | Suba o quadril do chão até alinhar com as coxas | Segure 1 segundo e desça devagar | Afaste-se um pouco da parede para trabalhar mais o posterior
+E: Empurrar com a ponta dos pés | Pés escorregando na parede (use meia antiderrapante ou descalço) | Arquear a lombar
+PR: Ponte Unilateral com Pé no Degrau
+RG: Ponte de Glúteo Isométrica
+
+gp3_ponte_unilateral_degrau | Ponte Unilateral com Pé no Degrau | gluteos | Degrau / step + colchonete | int | 🪜 | degrau_step | c | b | CPHR | 3 | 10-12 cada perna
+P: Glúteos
+S: Isquiotibiais, Core, Glúteo Médio
+I: Deite de costas e apoie o calcanhar de um pé em cima do degrau, joelho dobrado | Eleve a outra perna dobrada em direção ao peito | Suba o quadril empurrando o calcanhar no degrau até alinhar com o tronco | Mantenha a pelve nivelada, sem cair para o lado da perna solta | Desça abaixo da altura do degrau para ganhar amplitude e repita
+E: Pelve torta durante a subida | Empurrar com a ponta do pé | Degrau escorregando no piso
+PR: Hip Thrust Unilateral com Mochila
+RG: Ponte com Pés na Parede
+
+gp3_ponte_halter_quadril | Ponte de Glúteo com Halter no Quadril | gluteos | Halter + colchonete | ini | 🌉 | halteres | ca | b | CPH5 | 3 | 12-15
+P: Glúteos
+S: Isquiotibiais, Core
+I: Deite de costas com os joelhos dobrados e os pés firmes no chão | Coloque um halter na horizontal sobre a dobra do quadril e segure as pontas | Suba o quadril até alinhar joelhos, quadril e ombros | Aperte os glúteos 1 segundo | Desça até os glúteos quase tocarem o chão
+E: Halter rolando para a barriga | Arquear a lombar no topo | Joelhos abrindo ou fechando
+PR: Ponte de Glúteo com Barra no Chão
+RG: Ponte de Glúteo Isométrica
+
+gp3_hip_thrust_sofa_elastico | Hip Thrust no Sofá com Elástico | gluteos | Sofá firme + elástico preso nos pés do sofá | int | 🛋️ | elastico | c | b | CPH | 3 | 15-20
+P: Glúteos
+S: Isquiotibiais, Core
+I: Sente no chão com as escápulas apoiadas na borda do sofá | Passe o elástico por cima do quadril e prenda as pontas nos pés do sofá ou sob halteres | Suba o quadril contra o elástico até o tronco ficar paralelo ao chão | Aperte os glúteos no topo por 1 segundo | Desça controlando até o quadril ficar a um palmo do chão
+E: Sofá deslizando (encoste na parede) | Arquear a lombar no topo | Elástico frouxo sem resistência no fim
+PR: Hip Thrust Unilateral com Mochila
+RG: Ponte com Elástico sobre o Quadril
+
+gp3_extensao_quadril_prona | Extensão de Quadril em Decúbito Ventral | gluteos | Colchonete | ini | 🍑 | colchonete | c | b | CH5 | 3 | 12-15 cada perna
+P: Glúteos
+S: Isquiotibiais, Eretores da Espinha
+I: Deite de bruços com a testa apoiada nas mãos | Dobre um joelho a 90°, com a sola do pé virada para o teto | Contraia o glúteo e eleve a coxa alguns centímetros do chão | Segure 2 segundos sem tirar o quadril do colchonete | Desça devagar e repita
+E: Tirar o quadril do chão girando o tronco | Subir alto demais e arquear a lombar | Fazer rápido sem segurar
+PR: Coice em 4 Apoios (Donkey Kick)
+RG: Ponte de Glúteo Isométrica
+
+gp3_pull_through_elastico | Pull Through com Elástico | gluteos | Elástico longo preso em ponto baixo (pé de móvel ou porta) | ini | 🔙 | elastico | ca | b | CPH5 | 3 | 15
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Core
+I: Prenda o elástico num ponto baixo atrás de você e segure as pontas entre as pernas | Afaste-se até o elástico ficar tenso, pés um pouco além da largura do quadril | Dobre o quadril levando-o para trás, coluna reta e joelhos levemente dobrados | Volte projetando o quadril à frente e apertando os glúteos | Fique ereto no final sem inclinar o tronco para trás
+E: Agachar em vez de dobrar o quadril | Puxar o elástico com os braços | Hiperestender a lombar no final
+PR: Swing com Halter
+RG: Bom Dia com Elástico
+F: Band_Good_Morning_Pull_Through
+
+# ===================== POSTERIORES DE COXA — ACADEMIA =====================
+
+gp3_stiff_halteres | Stiff com Halteres | pernas | Par de halteres | ini | 🏋️ | halteres | ca | b | CPH5 | 3 | 10-12
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Antebraços
+I: Fique em pé com os pés na largura do quadril, halteres à frente das coxas | Mantenha os joelhos quase estendidos (levemente destravados) durante todo o movimento | Desça os halteres rente às pernas levando o quadril para trás, coluna neutra | Pare quando sentir o alongamento atrás da coxa (meio da canela, em geral) | Suba contraindo glúteos e posteriores
+E: Arredondar a coluna para descer mais | Halteres longe das pernas | Dobrar os joelhos e virar agachamento
+PR: Stiff com Base Aberta
+RG: Pull Through com Elástico
+F: Stiff-Legged_Dumbbell_Deadlift
+
+gp3_stiff_base_aberta | Stiff com Base Aberta | pernas | Barra olímpica | int | 🏋️ | barra | a | b | H | 4 | 8-10
+P: Isquiotibiais, Glúteos, Adutores
+S: Eretores da Espinha, Antebraços
+I: Fique com os pés bem mais afastados que os ombros e as pontas levemente para fora | Segure a barra com pegada na largura dos ombros, braços por dentro das pernas | Destrave os joelhos e desça a barra rente às coxas empurrando o quadril para trás | Desça até o alongamento máximo sem perder a coluna neutra | Suba apertando glúteos e adutores
+E: Joelhos caindo para dentro | Arredondar a lombar | Barra se afastando das pernas
+PR: Terra Romeno com Déficit
+RG: Stiff com Halteres
+F: Wide_Stance_Stiff_Legs
+
+gp3_romeno_deficit | Terra Romeno com Déficit | pernas | Barra + anilha ou step baixo para subir | ava | 🏋️ | barra | a | b | H | 4 | 6-8
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Trapézio, Antebraços
+I: Suba numa anilha grossa ou step baixo (5-10 cm) segurando a barra na altura do quadril | Destrave os joelhos e leve o quadril para trás deslizando a barra pelas coxas | Desça além do que conseguiria no chão, só até onde mantém a coluna neutra | Suba empurrando o chão e estendendo o quadril | Descida em 3 segundos, subida firme
+E: Usar o déficit sem ter mobilidade e arredondar a coluna | Barra longe do corpo | Carga alta demais
+PR: Terra Romeno com Pegada de Arranco
+RG: Levantamento Romeno
+F: Romanian_Deadlift_from_Deficit
+
+gp3_bom_dia_sentado | Bom Dia Sentado | pernas | Barra + banco reto + rack | ava | 🪑 | barra | a | b | H | 3 | 8-10
+P: Eretores da Espinha, Glúteos
+S: Isquiotibiais, Core
+I: Posicione um banco no rack e sente com as pernas afastadas e os pés firmes no chão | Tire a barra do rack e apoie-a nas costas como no agachamento | Incline o tronco à frente dobrando no quadril, coluna neutra e peito aberto | Desça até onde mantém a coluna reta (tronco quase paralelo ao banco) | Volte à posição sentada contraindo glúteos e lombar
+E: Arredondar a coluna na descida | Carga alta demais | Cabeça caindo para frente
+PR: Bom Dia Saindo dos Pinos
+RG: Bom Dia com Elástico
+F: Seated_Good_Mornings
+
+gp3_bom_dia_pinos | Bom Dia Saindo dos Pinos | pernas | Barra + rack com pinos de segurança | ava | 🏋️ | barra | a | b | H | 4 | 5-6
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Core
+I: Ajuste os pinos do rack para a barra ficar na altura das costas quando o tronco estiver quase paralelo ao chão | Posicione-se sob a barra já inclinado, coluna neutra e joelhos levemente dobrados | Ative o abdômen e suba o tronco estendendo o quadril até ficar em pé | Volte devagar e apoie a barra nos pinos, soltando a tensão | Recomece cada repetição parado, sem impulso
+E: Iniciar com a coluna arredondada | Pinos baixos demais para sua mobilidade | Usar impulso entre as repetições
+PR: Terra Romeno com Déficit
+RG: Bom Dia Sentado
+F: Good_Morning_off_Pins
+
+gp3_romeno_pegada_arranco | Terra Romeno com Pegada de Arranco | pernas | Barra olímpica (pegada bem aberta) | ava | 🏋️ | barra | a | b | H | 3 | 6-8
+P: Isquiotibiais, Glúteos
+S: Trapézio, Eretores da Espinha, Rombóides
+I: Segure a barra com pegada bem aberta (a barra fica na dobra do quadril em pé) | Fique com os pés na largura do quadril e as escápulas firmes para trás | Leve o quadril para trás deslizando a barra pelas coxas, joelhos levemente dobrados | Desça até o alongamento dos posteriores sem perder a coluna neutra | Suba estendendo o quadril e mantendo os braços retos
+E: Ombros enrolando para frente | Descer mais do que a mobilidade permite | Dobrar os cotovelos
+PR: Terra Romeno com Déficit
+RG: Levantamento Romeno
+
+gp3_stiff_polia | Stiff na Polia Baixa | pernas | Polia baixa com barra reta ou corda | ini | 🔗 | polia | a | b | CPH5 | 3 | 12-15
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Antebraços
+I: Fique de frente para a polia baixa segurando a barra reta com as duas mãos | Dê um passo para trás até o cabo ficar tenso, pés na largura do quadril | Leve o quadril para trás e desça o tronco com a coluna neutra, joelhos levemente dobrados | Sinta o alongamento atrás das coxas e suba estendendo o quadril | Mantenha o cabo próximo das pernas
+E: Ficar perto demais da polia e perder a tensão | Puxar com os braços | Arredondar a coluna
+PR: Stiff Unilateral na Polia
+RG: Pull Through com Elástico
+
+gp3_stiff_unilateral_polia | Stiff Unilateral na Polia | pernas | Polia baixa com pegador simples | int | 🔗 | polia | a | b | CHR | 3 | 10 cada perna
+P: Isquiotibiais, Glúteos
+S: Glúteo Médio, Core, Equilíbrio
+I: Segure o pegador da polia baixa com a mão oposta à perna de apoio | Afaste-se até o cabo ficar tenso e transfira o peso para uma perna | Incline o tronco à frente levando a perna livre para trás, em linha com o corpo | Desça até o tronco ficar quase paralelo ao chão com o quadril nivelado | Volte apertando o glúteo da perna de apoio
+E: Abrir o quadril para o lado (pelve girando) | Joelho de apoio totalmente travado | Perder o equilíbrio por pressa
+PR: Terra Romeno Unilateral no Landmine
+RG: Terra Romeno Kickstand com Halteres
+
+gp3_romeno_2kb | Terra Romeno com Dois Kettlebells | pernas | 2 kettlebells | int | 🔔 | kettlebell | ca | b | CPH | 4 | 10-12
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Antebraços, Trapézio
+I: Fique em pé segurando um kettlebell em cada mão à frente das coxas | Destrave os joelhos e leve o quadril para trás, deslizando os kettlebells perto das pernas | Desça até a altura das canelas mantendo a coluna neutra | Suba estendendo o quadril e apertando os glúteos | Não deixe os kettlebells balançarem
+E: Kettlebells afastados do corpo | Arredondar as costas | Hiperestender no topo
+PR: Terra Romeno com Halteres em Tempo Lento
+RG: Levantamento Terra com Kettlebell
+
+gp3_romeno_landmine_unilateral | Terra Romeno Unilateral no Landmine | pernas | Landmine | int | 🦵 | landmine | a | b | CHR | 3 | 8-10 cada perna
+P: Isquiotibiais, Glúteos
+S: Glúteo Médio, Core, Equilíbrio
+I: Fique ao lado da ponta da barra do landmine e segure-a com a mão oposta à perna de apoio | Transfira o peso para a perna de apoio com o joelho levemente dobrado | Incline o tronco à frente levando a perna livre para trás | Desça a barra até a altura da canela com o quadril nivelado | Volte apertando o glúteo da perna de apoio
+E: Girar o quadril para cima | Arredondar a coluna para alcançar mais baixo | Pressa ao trocar de lado
+PR: Stiff Unilateral na Polia (carga maior)
+RG: Terra Romeno Kickstand com Halteres
+
+gp3_romeno_tempo_halteres | Terra Romeno com Halteres em Tempo Lento | pernas | Par de halteres | int | 🐢 | halteres | ca | b | H | 3 | 8 (descida em 4 s)
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Antebraços
+I: Segure os halteres à frente das coxas com os pés na largura do quadril | Conte 4 segundos descendo, levando o quadril para trás com coluna neutra | Pare 1 segundo no alongamento máximo, halteres perto das canelas | Suba em 1 segundo apertando os glúteos | Use carga menor que a do terra romeno normal
+E: Acelerar a descida no final | Perder a coluna neutra no fundo | Joelhos dobrando cada vez mais
+PR: Terra Romeno com Déficit
+RG: Stiff com Halteres
+
+gp3_romeno_kickstand | Terra Romeno Kickstand com Halteres | pernas | Par de halteres | int | 🦵 | halteres | ca | b | CPHR | 3 | 10 cada perna
+P: Isquiotibiais, Glúteos
+S: Glúteo Médio, Core
+I: Fique em pé e recue um pé, apoiando só a ponta dele no chão ao lado do calcanhar da perna de apoio | Coloque cerca de 80% do peso na perna da frente | Leve o quadril para trás descendo os halteres rente à perna da frente | Desça até o alongamento e suba empurrando com o calcanhar da frente | Faça todas as repetições e troque
+E: Dividir o peso igualmente entre as pernas | Pé de trás muito longe | Arredondar a coluna
+PR: Terra Romeno Unilateral no Landmine
+RG: Stiff com Halteres
+
+gp3_romeno_hexagonal | Terra Romeno com Barra Hexagonal | pernas | Barra hexagonal (trap bar) | int | ⬡ | barra | a | b | CPH | 4 | 8-10
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Trapézio, Antebraços
+I: Entre na barra hexagonal e segure as alças altas, ficando em pé com ela | Mantenha os joelhos levemente dobrados e fixos | Leve o quadril para trás deixando as alças descerem ao lado das pernas | Desça até o alongamento dos posteriores com a coluna neutra | Suba estendendo o quadril
+E: Agachar e transformar em terra hexagonal | Arredondar as costas | Ombros caindo para frente
+PR: Terra Romeno com Déficit
+RG: Terra Romeno com Dois Kettlebells
+
+gp3_stiff_smith_unilateral | Stiff Unilateral no Smith | pernas | Máquina Smith | ava | 🦵 | smith | a | b | H | 3 | 8 cada perna
+P: Isquiotibiais, Glúteos
+S: Glúteo Médio, Core
+I: Ajuste a barra do Smith na altura do meio da coxa e segure-a com pegada na largura dos ombros | Destrave a barra e apoie o peso em uma perna, a outra levemente recuada sem carga | Desça a barra levando o quadril para trás com a coluna neutra | Pare no alongamento e suba empurrando com o calcanhar da perna de apoio | Trave a barra antes de trocar de lado
+E: Usar a perna de trás para empurrar | Quadril girando | Esquecer a trava de segurança
+PR: Terra Romeno com Déficit
+RG: Stiff no Smith
+
+gp3_mesa_flexora_unilateral | Mesa Flexora Unilateral | pernas | Mesa flexora (deitado) | int | 🦵 | mesa_flexora | a | b | HR | 3 | 10-12 cada perna
+P: Isquiotibiais
+S: Gastrocnêmio, Glúteos
+I: Deite de bruços na mesa flexora com o rolo logo acima do calcanhar e o joelho alinhado ao eixo da máquina | Use carga em torno de metade da que usa com as duas pernas | Flexione um joelho trazendo o calcanhar em direção ao glúteo | Segure 1 segundo e desça em 3 segundos | Complete a série e troque de perna
+E: Tirar o quadril do banco para ajudar | Descer rápido | Joelho fora do eixo da máquina
+PR: Mesa Flexora Excêntrica (Sobe com 2, Desce com 1)
+RG: Mesa Flexora Deitado
+
+gp3_cadeira_flexora_inclinada | Cadeira Flexora com Tronco Inclinado à Frente | pernas | Cadeira flexora (sentado) | int | 🪑 | mesa_flexora | a | b | H | 3 | 10-12
+P: Isquiotibiais
+S: Gastrocnêmio
+I: Sente na cadeira flexora com o joelho alinhado ao eixo e trave a almofada sobre as coxas | Incline o tronco à frente segurando as alças, mantendo a coluna reta (isso alonga mais os posteriores) | Flexione os joelhos levando o rolo para baixo e para trás | Segure 1 segundo contraído | Volte devagar até quase estender os joelhos
+E: Almofada das coxas frouxa | Retirar o quadril do banco | Fazer só meia amplitude
+PR: Mesa Flexora Excêntrica (Sobe com 2, Desce com 1)
+RG: Cadeira Flexora
+
+gp3_flexora_excentrica | Mesa Flexora Excêntrica (Sobe com 2, Desce com 1) | pernas | Mesa ou cadeira flexora | ava | 🐢 | mesa_flexora | a | b | HR | 3 | 6-8 cada perna
+P: Isquiotibiais
+S: Gastrocnêmio
+I: Ajuste a máquina e escolha uma carga um pouco maior que a da flexora unilateral | Flexione os joelhos com as duas pernas | No topo, tire uma perna e segure a carga só com a outra | Desça em 4 segundos com uma perna só | Alterne a perna da descida a cada repetição
+E: Deixar a carga despencar na excêntrica | Carga alta demais para controlar | Tirar o quadril do apoio
+PR: Nórdico Assistido com Elástico
+RG: Mesa Flexora Unilateral
+
+gp3_flexora_polia_em_pe | Flexora em Pé na Polia | pernas | Polia baixa com tornozeleira | ini | 🔗 | polia | a | b | CH5 | 3 | 12-15 cada perna
+P: Isquiotibiais
+S: Gastrocnêmio, Glúteos
+I: Prenda a tornozeleira e fique de frente para a polia baixa, segurando a estrutura | Afaste-se um passo para o cabo já ter tensão | Dobre o joelho levando o calcanhar em direção ao glúteo, coxa parada | Segure 1 segundo e volte devagar | Mantenha o quadril parado e o tronco ereto
+E: Levar a coxa para trás junto | Inclinar o tronco | Balançar a perna
+PR: Mesa Flexora Unilateral
+RG: Flexora Deitado de Bruços com Elástico
+
+gp3_flexora_halter_deitado | Flexora Deitado com Halter | pernas | Halter + banco reto | int | 🏋️ | halteres | a | b | H | 3 | 10-12
+P: Isquiotibiais
+S: Gastrocnêmio
+I: Deite de bruços no banco com os joelhos na borda | Peça ajuda ou use os pés para prender um halter na vertical entre as solas dos pés | Flexione os joelhos trazendo o halter até ficar acima dos joelhos | Desça devagar, sem deixar o halter escorregar | Mantenha o quadril colado ao banco
+E: Halter pesado demais e instável | Tirar o quadril do banco | Descer rápido
+PR: Mesa Flexora Unilateral
+RG: Flexora Deitado de Bruços com Elástico
+
+gp3_flexora_trx | Flexora no TRX | pernas | TRX + colchonete | int | 🦵 | trx | a | b | CHR | 3 | 10-12
+P: Isquiotibiais
+S: Glúteos, Core
+I: Deite de costas sob o TRX e encaixe os calcanhares nas alças, pernas estendidas | Suba o quadril até o corpo ficar reto | Dobre os joelhos trazendo os calcanhares em direção ao glúteo sem deixar o quadril cair | Estenda as pernas devagar mantendo o quadril alto | Braços no chão ao lado do corpo para estabilizar
+E: Quadril caindo ao estender as pernas | Alças balançando | Fazer o movimento rápido
+PR: Flexora na Bola Suíça Unilateral
+RG: Ponte com Pés no TRX
+
+gp3_nordico_elastico | Nórdico Assistido com Elástico | pernas | Elástico forte preso alto (barra ou batente) + colchonete | int | 🧎 | elastico | ca | b | HR | 3 | 5-8
+P: Isquiotibiais
+S: Glúteos, Core
+I: Prenda um elástico forte num ponto alto à sua frente e passe-o pelo peito, por baixo das axilas | Ajoelhe-se no colchonete com os calcanhares presos (sob um móvel pesado ou com parceiro) | Desça o corpo reto à frente o mais devagar possível, quadril estendido | O elástico ajuda no final; use as mãos para amortecer se precisar | Volte empurrando o chão e repita
+E: Dobrar o quadril (sentar para trás) | Descer rápido demais | Elástico fraco para o seu nível
+PR: Nordic Curl
+RG: Nordic Curl Isométrico
+
+gp3_ghr_natural | Glute Ham Raise Natural no Chão | pernas | Colchonete + apoio para os calcanhares | ava | 🧎 | colchonete | ca | b | HR | 3 | 4-6
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Gastrocnêmio
+I: Ajoelhe-se com os calcanhares presos sob um apoio firme e o tronco inclinado à frente com quadril dobrado | Estenda o quadril e desça o corpo à frente em bloco | Na parte baixa, use as mãos para amortecer | Puxe com os posteriores para voltar, primeiro dobrando os joelhos e depois o quadril | Repita com controle total
+E: Apoio dos calcanhares instável | Arquear a lombar | Cair sem amortecer com as mãos
+PR: Glute Ham Raise
+RG: Nórdico Assistido com Elástico
+F: Natural_Glute_Ham_Raise
+
+gp3_bom_dia_kb | Bom Dia com Kettlebell (Goblet) | pernas | Kettlebell | int | 🔔 | kettlebell | ca | b | CPH | 3 | 10-12
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Core
+I: Segure o kettlebell pelas laterais da alça junto ao peito (posição goblet) | Fique com os pés na largura do quadril e os joelhos levemente dobrados | Incline o tronco à frente levando o quadril para trás, coluna neutra | Desça até o tronco ficar quase paralelo ao chão | Suba apertando os glúteos
+E: Kettlebell se afastando do peito | Arredondar as costas | Dobrar muito os joelhos
+PR: Bom Dia Sentado
+RG: Bom Dia com Mochila
+
+# ===================== POSTERIORES DE COXA — CASA =====================
+
+gp3_flexora_bola_unilateral | Flexora na Bola Suíça Unilateral | pernas | Bola suíça + colchonete | ava | ⚽ | bola_suica | ca | b | HR | 3 | 8-10 cada perna
+P: Isquiotibiais
+S: Glúteos, Core
+I: Deite de costas com um calcanhar sobre a bola e a outra perna elevada | Suba o quadril até o corpo ficar reto | Dobre o joelho rolando a bola em direção ao glúteo sem deixar o quadril cair | Estenda a perna devagar mantendo o quadril alto | Complete a série e troque de lado
+E: Quadril caindo ao rolar a bola | Bola fugindo para o lado | Usar os braços para empurrar
+PR: Glute Ham Raise Natural no Chão
+RG: Flexora na Bola Suíça
+
+gp3_flexora_toalha_unilateral | Flexora Deslizante Unilateral com Toalha | pernas | Toalha em piso liso | ava | 🧺 | toalha | c | b | HR | 3 | 8-10 cada perna
+P: Isquiotibiais
+S: Glúteos, Core
+I: Deite de costas em piso liso com o calcanhar de uma perna sobre a toalha e a outra perna elevada | Suba o quadril e dobre o joelho puxando a toalha em direção ao glúteo | Estenda a perna devagar deslizando a toalha para longe | Mantenha o quadril alto o tempo todo | Se não conseguir puxar, faça só a fase de ida devagar
+E: Quadril caindo na extensão | Piso com atrito demais | Descer o quadril entre as repetições
+PR: Glute Ham Raise Natural no Chão
+RG: Flexora Deslizante com Toalha
+
+gp3_flexora_elastico_brucos | Flexora Deitado de Bruços com Elástico | pernas | Elástico ou mini band + colchonete | ini | 🦵 | elastico | ca | b | CH5 | 3 | 15 cada perna
+P: Isquiotibiais
+S: Gastrocnêmio
+I: Prenda o elástico no pé de um móvel pesado e passe a outra ponta no tornozelo | Deite de bruços com o pé preso esticado e afastado o suficiente para o elástico ficar tenso | Dobre o joelho trazendo o calcanhar em direção ao glúteo | Segure 1 segundo e volte devagar | Mantenha o quadril colado ao chão
+E: Levantar o quadril | Movimento curto | Soltar o elástico na volta
+PR: Flexora Deitado com Halter
+RG: Flexora Sentado com Elástico
+
+gp3_ponte_isquios_estendida | Ponte de Posterior com Pernas Quase Estendidas | pernas | Colchonete | ini | 🌉 | colchonete | c | b | CH5R | 3 | 12-15
+P: Isquiotibiais, Glúteos
+S: Core
+I: Deite de costas e apoie os calcanhares no chão bem longe do quadril, joelhos levemente dobrados | Ponha os pés em dorsiflexão (pontas para cima) | Empurre os calcanhares no chão e eleve o quadril alguns centímetros | Segure 2 segundos sentindo o posterior da coxa | Desça devagar e repita
+E: Sentir cãibra e não reduzir a distância dos pés | Arquear a lombar | Subir rápido demais
+PR: Ponte Unilateral com Calcanhar na Cadeira
+RG: Ponte com Pés na Parede
+
+gp3_ponte_unilateral_cadeira | Ponte Unilateral com Calcanhar na Cadeira | pernas | Cadeira firme + colchonete | int | 🪑 | cadeira | c | b | CPHR | 3 | 10 cada perna
+P: Isquiotibiais, Glúteos
+S: Core, Glúteo Médio
+I: Deite de costas com o calcanhar de uma perna no assento da cadeira, joelho levemente dobrado | Eleve a outra perna para o alto | Empurre o calcanhar contra o assento e suba o quadril até alinhar com a perna | Desça devagar até quase tocar o chão | Complete a série e troque de lado
+E: Cadeira deslizando (encoste-a na parede) | Pelve caindo para o lado da perna solta | Empurrar com a ponta do pé
+PR: Flexora Deslizante Unilateral com Toalha
+RG: Ponte de Glúteo com Pés na Cadeira
+
+gp3_stiff_mochila | Stiff com Mochila | pernas | Mochila com peso (livros, garrafas ou arroz) | ini | 🎒 | mochila | c | b | CPH5 | 3 | 12-15
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Antebraços
+I: Encha a mochila com peso e segure-a pelas alças à frente das coxas | Fique com os pés na largura do quadril e os joelhos levemente soltos | Leve o quadril para trás descendo a mochila rente às pernas, coluna neutra | Desça até sentir o alongamento atrás das coxas | Suba apertando os glúteos
+E: Arredondar a coluna | Mochila balançando longe do corpo | Dobrar muito os joelhos
+PR: Stiff com Halteres
+RG: Pull Through com Elástico
+
+gp3_stiff_unilateral_parede | Stiff Unilateral com Garrafa e Apoio na Parede | pernas | Garrafa PET cheia (água ou areia) + parede | ini | 🧱 | parede | c | b | CH5R | 3 | 10 cada perna
+P: Isquiotibiais, Glúteos
+S: Equilíbrio, Glúteo Médio
+I: Fique de lado para a parede e encoste a mão dela na parede para equilíbrio | Segure a garrafa com a outra mão e apoie o peso na perna do lado da parede | Incline o tronco à frente levando a perna livre para trás, quadril nivelado | Desça até sentir o posterior da perna de apoio alongar | Volte apertando o glúteo e troque de lado ao final
+E: Quadril girando para fora | Arredondar as costas para descer mais | Joelho de apoio travado
+PR: Terra Romeno Kickstand com Halteres
+RG: Hip Hinge
+
+gp3_bom_dia_mochila | Bom Dia com Mochila | pernas | Mochila com peso nas costas | ini | 🎒 | mochila | c | b | CH | 3 | 12-15
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Core
+I: Vista a mochila com peso nas costas bem ajustada e cruze as mãos no peito | Fique com os pés na largura do quadril e os joelhos levemente soltos | Incline o tronco à frente levando o quadril para trás, coluna neutra | Desça até o tronco ficar quase paralelo ao chão ou até o limite do alongamento | Suba apertando os glúteos
+E: Arredondar as costas | Mochila solta balançando | Olhar para cima forçando o pescoço
+PR: Bom Dia com Kettlebell (Goblet)
+RG: Hip Hinge
+
+gp3_stiff_elastico | Stiff com Elástico (Pisando no Elástico) | pernas | Elástico com pegadores | ini | 🪢 | elastico | ca | b | CPH5 | 3 | 15
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Antebraços
+I: Pise no meio do elástico com os pés na largura do quadril e segure as pontas | Comece já em pé com o elástico tenso | Leve o quadril para trás descendo as mãos rente às pernas | Desça até sentir o alongamento atrás das coxas mantendo a coluna neutra | Suba estendendo o quadril contra a resistência
+E: Elástico frouxo sem tensão em cima | Arredondar a coluna | Puxar com os braços
+PR: Stiff com Mochila
+RG: Pull Through com Elástico
+
+# ===================== ADUTORES =====================
+
+gp3_aducao_elastico | Adução em Pé com Elástico | pernas | Elástico preso em ponto baixo lateral | ini | ↔️ | elastico | ca | b | CH5R | 3 | 15 cada perna
+P: Adutores
+S: Core, Equilíbrio
+I: Prenda o elástico num ponto baixo ao seu lado e passe a outra ponta no tornozelo mais próximo | Afaste-se até o elástico ficar tenso com a perna aberta para o lado | Puxe a perna para dentro cruzando um pouco à frente da perna de apoio | Volte devagar resistindo ao elástico | Segure numa parede ou cadeira se precisar de equilíbrio
+E: Inclinar o tronco para o lado | Voltar rápido | Girar a ponta do pé
+PR: Adução em Pé no Cabo
+RG: Adução de Quadril Deitado de Lado
+F: Band_Hip_Adductions
+
+gp3_aducao_sentado_squeeze | Adução Isométrica Sentado com Almofada | pernas | Cadeira + almofada ou bola pequena | ini | 🪑 | cadeira | c | b | C5R | 3 | 5 x 10 s
+P: Adutores
+S: Core
+I: Sente na ponta da cadeira com os pés no chão e a coluna ereta | Coloque uma almofada dobrada ou bola pequena entre os joelhos | Aperte os joelhos contra a almofada com força moderada a forte | Segure 10 segundos respirando normalmente | Solte, descanse 5 segundos e repita
+E: Prender a respiração | Encostar as costas e relaxar o abdômen | Apertar com dor na virilha (reduza a força)
+PR: Ponte com Adução (Squeeze)
+RG: Reduzir o tempo de contração
+
+gp3_ponte_squeeze | Ponte com Adução (Squeeze) | pernas | Colchonete + almofada ou bola pequena | ini | 🌉 | colchonete | c | b | CH5R | 3 | 12
+P: Adutores, Glúteos
+S: Isquiotibiais, Core
+I: Deite de costas com os joelhos dobrados e uma almofada ou bola entre eles | Aperte a almofada com os joelhos e mantenha a pressão | Suba o quadril até alinhar joelhos, quadril e ombros | Segure 2 segundos no topo sem soltar a almofada | Desça devagar mantendo o aperto
+E: Soltar a almofada no topo | Arquear a lombar | Subir sem apertar os glúteos
+PR: Adução Copenhagen Dinâmica
+RG: Adução Isométrica Sentado com Almofada
+
+gp3_copenhagen_dinamico | Adução Copenhagen Dinâmica | pernas | Banco reto ou sofá firme | ava | 🇩🇰 | banco | ca | b | HR | 3 | 6-10 cada lado
+P: Adutores
+S: Oblíquos, Core, Glúteo Médio
+I: Deite de lado com o antebraço no chão e a parte interna do pé de cima apoiada no banco, perna estendida | Suba o quadril até o corpo ficar reto, deixando a perna de baixo solta | Desça o quadril até quase tocar o chão e suba de novo | Opcional: traga a perna de baixo até tocar o banco no topo | Faça todas as repetições e troque de lado
+E: Quadril caindo para trás | Ombro de apoio afundando | Fazer sem ter dominado a versão curta
+PR: Segurar 2 s no topo a cada repetição
+RG: Adução Copenhagen Curta
+
+gp3_sumo_smith | Agachamento Sumô no Smith | pernas | Máquina Smith | int | 🏋️ | smith | a | b | CPH | 4 | 10-12
+P: Adutores, Glúteos
+S: Quadríceps, Isquiotibiais
+I: Posicione a barra do Smith nas costas e afaste os pés bem além da largura dos ombros, pontas para fora | Destrave a barra e desça abrindo os joelhos na direção das pontas dos pés | Desça até as coxas ficarem paralelas ao chão com o tronco ereto | Suba empurrando o chão e apertando glúteos e parte interna das coxas | Trave a barra ao terminar
+E: Joelhos fechando para dentro | Tronco inclinando para frente | Pés pouco abertos
+PR: Agachamento Sumô com Halter entre Steps
+RG: Agachamento Sumô com Kettlebell
+
+gp3_cadeira_adutora_inclinada | Cadeira Adutora com Tronco Inclinado | pernas | Cadeira adutora | int | 🪑 | cadeira_adutora | a | b | H | 3 | 12-15
+P: Adutores
+S: Glúteos, Core
+I: Sente na cadeira adutora e ajuste a abertura inicial até sentir leve alongamento | Incline o tronco à frente com a coluna reta, segurando as alças laterais | Feche as pernas até as almofadas se tocarem | Segure 1 segundo e volte devagar | Mantenha o quadril firme no assento
+E: Abertura inicial exagerada | Voltar soltando o peso | Arredondar as costas ao inclinar
+PR: Agachamento Sumô no Smith
+RG: Adução de Quadril
+
+gp3_sumo_halter_steps | Agachamento Sumô com Halter entre Steps | pernas | Halter + dois steps | int | 🏋️ | halteres | ca | b | CPH | 3 | 10-12
+P: Adutores, Glúteos
+S: Quadríceps, Isquiotibiais
+I: Suba com um pé em cada step, bem afastados e com as pontas para fora | Segure um halter na vertical pela cabeça de cima, braços estendidos | Desça abrindo os joelhos até o halter passar abaixo do nível dos steps | Suba apertando glúteos e adutores | Mantenha o tronco ereto
+E: Halter batendo no chão (steps baixos demais) | Joelhos para dentro | Inclinar o tronco à frente
+PR: Agachamento Sumô no Smith
+RG: Agachamento Sumô com Kettlebell
+
+gp3_afundo_lateral_goblet | Afundo Lateral com Halter (Goblet) | pernas | Halter ou kettlebell | int | ↔️ | halteres | ca | b | CPHR | 3 | 10 cada lado
+P: Adutores, Glúteos
+S: Quadríceps, Core
+I: Segure o halter na vertical junto ao peito | Dê um passo largo para o lado, pontas dos pés para frente | Dobre o joelho da perna que deu o passo, sentando o quadril para trás; a outra perna fica esticada | Empurre o chão com a perna dobrada e volte ao centro | Alterne os lados ou faça um lado de cada vez
+E: Joelho ultrapassando muito a ponta do pé | Tronco caindo para frente | Calcanhar da perna dobrada saindo do chão
+PR: Cossack Squat com Kettlebell
+RG: Squat Lateral
+
+gp3_cossack_kb | Cossack Squat com Kettlebell | pernas | Kettlebell | ava | 🔔 | kettlebell | ca | b | HR | 3 | 6-8 cada lado
+P: Adutores, Glúteos, Quadríceps
+S: Core, Tornozelo
+I: Segure o kettlebell na posição goblet com os pés bem afastados | Desça para um lado dobrando totalmente um joelho, enquanto a outra perna fica estendida com a ponta do pé para cima | Mantenha o calcanhar da perna dobrada no chão e o peito aberto | Suba e passe pelo centro para descer do outro lado | Controle a descida em 2-3 segundos
+E: Calcanhar saindo do chão | Tronco desabando à frente | Descer mais que a mobilidade permite
+PR: Segurar 2 s no fundo de cada lado
+RG: Cossack Squat
+
+gp3_sumo_landmine | Agachamento Sumô no Landmine | pernas | Landmine | int | 🏋️ | landmine | a | b | CPH | 3 | 10-12
+P: Adutores, Glúteos
+S: Quadríceps, Core
+I: Fique de frente para a ponta da barra do landmine, com ela entre os pés afastados | Agache e segure a ponta da barra com as duas mãos, braços estendidos | Suba estendendo joelhos e quadril, apertando os glúteos | Desça abrindo os joelhos para fora até as coxas ficarem paralelas | Mantenha o peito aberto
+E: Joelhos fechando | Arredondar as costas para pegar a barra | Puxar com os braços
+PR: Agachamento Sumô no Smith
+RG: Agachamento Sumô com Kettlebell
+
+gp3_afundo_lateral_trx | Afundo Lateral Assistido no TRX | pernas | TRX | ini | ↔️ | trx | a | b | CH5R | 3 | 10 cada lado
+P: Adutores, Glúteos
+S: Quadríceps, Core
+I: Segure as alças do TRX com os braços estendidos à frente, corpo levemente inclinado para trás | Dê um passo largo para o lado e sente o quadril sobre essa perna | Use as alças só para equilíbrio e ajuda na subida | Empurre o chão e volte ao centro | Alterne os lados
+E: Puxar só com os braços | Joelho caindo para dentro | Passo curto demais
+PR: Afundo Lateral com Halter (Goblet)
+RG: Squat Lateral com amplitude menor
+
+# ===================== ABDUTORES / GLÚTEO MÉDIO =====================
+
+gp3_abducao_polia_em_pe | Abdução de Quadril em Pé na Polia | gluteos | Polia baixa com tornozeleira | ini | ↔️ | polia | a | b | CH5R | 3 | 12-15 cada perna
+P: Glúteo Médio, Abdutores
+S: Core, Equilíbrio
+I: Prenda a tornozeleira no tornozelo mais distante da polia baixa e fique de lado para ela | Segure a estrutura com a mão próxima | Leve a perna para fora, afastando-a do corpo, com a ponta do pé para frente | Suba até cerca de 30-40° sem inclinar o tronco | Volte devagar cruzando levemente à frente da perna de apoio
+E: Inclinar o tronco para o lado | Girar a ponta do pé para cima | Usar impulso
+PR: Coice na Polia em Diagonal (45°)
+RG: Abdução em Pé com Elástico
+
+gp3_abducao_multi_hip | Abdução em Pé na Máquina Multi-Hip | gluteos | Máquina multi-hip | ini | ↔️ | gluteo_maquina | a | b | CH5R | 3 | 12-15 cada perna
+P: Glúteo Médio, Abdutores
+S: Core
+I: Ajuste o eixo da máquina na altura do quadril e o rolo na parte externa da coxa, acima do joelho | Fique de lado para a máquina segurando as alças | Empurre o rolo para fora afastando a perna do corpo | Segure 1 segundo e volte devagar | Mantenha o tronco ereto e o quadril para frente
+E: Inclinar o tronco | Rolo apoiado no joelho | Descer rápido
+PR: Abdução de Quadril em Pé na Polia
+RG: Abdução em Pé com Elástico
+
+gp3_abducao_elastico_em_pe | Abdução em Pé com Elástico | gluteos | Mini band nos tornozelos ou elástico preso em ponto baixo | ini | ↔️ | elastico | ca | b | CPH5R | 3 | 15 cada perna
+P: Glúteo Médio, Abdutores
+S: Core, Equilíbrio
+I: Prenda o elástico nos tornozelos e fique em pé segurando numa cadeira ou parede | Transfira o peso para uma perna com o joelho levemente solto | Leve a outra perna para o lado, ponta do pé para frente | Segure 1 segundo e volte devagar sem deixar o elástico afrouxar | Complete a série e troque
+E: Inclinar o tronco para o lado oposto | Girar o pé para fora | Elástico frouxo demais
+PR: Abdução de Quadril em Pé na Polia
+RG: Abdução Lateral Deitado
+
+gp3_abducao_deitado_halter | Abdução Deitado de Lado com Halter | gluteos | Halter leve + colchonete | int | ↔️ | halteres | c | b | H | 3 | 12-15 cada perna
+P: Glúteo Médio, Abdutores
+S: Core
+I: Deite de lado com a perna de baixo dobrada para estabilidade | Apoie um halter leve na parte externa da coxa de cima, segurando-o com a mão | Eleve a perna estendida até cerca de 40°, levemente para trás da linha do corpo | Segure 1 segundo e desça devagar | Complete a série e troque
+E: Rolar o quadril para trás (vira flexor de quadril) | Subir alto demais | Halter escorregando
+PR: Prancha Lateral com Concha (Clam)
+RG: Abdução Lateral Deitado
+
+gp3_concha_reversa | Concha Reversa (Rotação Interna Deitado) | gluteos | Colchonete | ini | 🐚 | colchonete | c | b | C5R | 3 | 15 cada perna
+P: Glúteo Médio, Rotadores do Quadril
+S: Core
+I: Deite de lado com os joelhos dobrados a 90° e um sobre o outro | Mantenha os joelhos encostados durante todo o movimento | Eleve o pé de cima para o alto, girando a coxa para dentro | Segure 1 segundo e desça devagar | Complete a série e troque de lado
+E: Separar os joelhos | Rolar o quadril para trás | Movimento rápido
+PR: Clamshell
+RG: Diminuir a amplitude
+
+gp3_fire_hydrant_mini_band | Fire Hydrant com Mini Band | gluteos | Mini band acima dos joelhos | int | 🐕 | mini_band | c | b | CPH | 3 | 15 cada perna
+P: Glúteo Médio, Glúteos
+S: Core, Abdutores
+I: Coloque a mini band logo acima dos joelhos e fique em 4 apoios | Mantenha o joelho dobrado a 90° e leve-o para o lado, abrindo a coxa | Suba até a coxa ficar quase paralela ao chão sem tirar o peso do outro lado | Segure 1 segundo e desça devagar | Mantenha os braços estendidos e o tronco parado
+E: Inclinar o tronco para o lado de apoio | Afundar a lombar | Usar impulso
+PR: Prancha Lateral com Concha (Clam)
+RG: Fire Hydrant
+
+gp3_hip_hike | Elevação de Quadril no Degrau (Hip Hike) | gluteos | Degrau / step | ini | 🪜 | degrau_step | ca | b | CH5R | 3 | 12-15 cada lado
+P: Glúteo Médio
+S: Quadrado Lombar, Core, Equilíbrio
+I: Fique de lado sobre o degrau, apoiado em uma perna, com a outra solta para fora da borda | Segure numa parede ou corrimão se precisar | Deixe o quadril da perna solta cair alguns centímetros, joelhos estendidos | Suba esse lado do quadril usando o glúteo da perna de apoio até a pelve ficar nivelada | Faça devagar e troque de lado
+E: Dobrar o joelho da perna de apoio | Inclinar o tronco | Movimento rápido
+PR: Avião de Quadril Assistido
+RG: Abdução Isométrica na Parede
+
+gp3_prancha_lateral_joelhos_abducao | Prancha Lateral nos Joelhos com Abdução | gluteos | Colchonete | int | 🧘 | colchonete | c | b | CHR | 3 | 10-12 cada lado
+P: Glúteo Médio, Oblíquos
+S: Core, Quadrado Lombar, Abdutores
+I: Deite de lado com o antebraço sob o ombro e os joelhos dobrados a 90° | Suba o quadril apoiado no joelho de baixo até o corpo ficar alinhado | Mantendo o quadril alto, eleve a perna de cima estendida para o lado | Desça a perna sem deixar o quadril cair | Complete a série e troque de lado
+E: Quadril caindo durante a série | Ombro afundando | Perna subindo à frente do corpo
+PR: Prancha Lateral com Abdução (Star Plank)
+RG: Prancha Lateral
+
+gp3_hip_airplane_assistido | Avião de Quadril Assistido na Parede | gluteos | Parede ou cadeira para apoio | int | ✈️ | parede | c | b | C5R | 3 | 6-8 cada lado
+P: Glúteo Médio, Rotadores do Quadril
+S: Glúteos, Equilíbrio, Core
+I: Fique de frente para a parede, com uma mão apoiada nela, sobre uma perna com o joelho levemente dobrado | Incline o tronco à frente levando a perna livre para trás | Gire o tronco e a pelve para fora (abrindo) e depois para dentro, girando sobre o quadril de apoio | Faça devagar, sentindo o glúteo da perna de apoio controlar o giro | Complete o lado e troque
+E: Girar só o tronco sem mover a pelve | Joelho de apoio caindo para dentro | Depender demais da parede
+PR: Avião de Quadril (Hip Airplane)
+RG: Elevação de Quadril no Degrau (Hip Hike)
+
+gp3_abducao_isometrica_parede | Abdução Isométrica na Parede | gluteos | Parede | ini | 🧱 | parede | ca | b | C5R | 3 | 3 x 20-30 s cada lado
+P: Glúteo Médio
+S: Core, Equilíbrio, Abdutores
+I: Fique de lado para a parede, a um palmo de distância | Eleve o joelho do lado da parede até 90° e encoste a parte externa dele na parede | Empurre o joelho contra a parede com força moderada, ficando em pé sobre a outra perna | Mantenha a pelve nivelada e o tronco ereto | Segure o tempo, descanse e troque de lado
+E: Inclinar o tronco em direção à parede | Joelho de apoio travado | Prender a respiração
+PR: Elevação de Quadril no Degrau (Hip Hike)
+RG: Abdução de Quadril Sentado com Elástico
+
+gp3_prancha_lateral_concha | Prancha Lateral com Concha (Clam) | gluteos | Mini band + colchonete | int | 🐚 | mini_band | c | b | HR | 3 | 10-12 cada lado
+P: Glúteo Médio, Oblíquos
+S: Core, Rotadores do Quadril
+I: Coloque a mini band acima dos joelhos e deite de lado com o antebraço sob o ombro, joelhos dobrados | Suba o quadril apoiado no joelho de baixo | Com o quadril no alto, abra o joelho de cima contra o elástico (pés juntos) | Feche devagar sem deixar o quadril cair | Complete a série e troque
+E: Quadril caindo | Rolar o tronco para trás ao abrir | Elástico fraco demais
+PR: Prancha Lateral com Abdução (Star Plank)
+RG: Clamshell
+
+gp3_circulos_4apoios | Círculos de Quadril em 4 Apoios | gluteos | Colchonete | ini | 🔄 | colchonete | c | b | C5R | 2 | 8 cada sentido, cada perna
+P: Glúteo Médio, Rotadores do Quadril
+S: Glúteos, Core
+I: Fique em 4 apoios com as mãos sob os ombros e os joelhos sob o quadril | Eleve um joelho e desenhe um círculo amplo com ele: para frente, para o lado, para trás e de volta | Mantenha o tronco parado e o abdômen firme | Faça os círculos devagar nos dois sentidos | Troque de perna
+E: Balançar o tronco junto | Círculos pequenos e rápidos | Afundar a lombar
+PR: Fire Hydrant com Mini Band
+RG: Fire Hydrant
+F: Hip_Circles_prone
+
+gp3_abdutora_3_angulos | Cadeira Abdutora em 3 Ângulos | gluteos | Cadeira abdutora | int | 🪑 | cadeira_abdutora | a | b | CH | 3 | 3 x 10 (encostado, ereto, inclinado)
+P: Glúteo Médio, Glúteos
+S: Abdutores, Core
+I: Ajuste a cadeira abdutora com uma carga moderada | Faça 10 repetições com as costas encostadas no banco | Sem descansar, faça mais 10 com o tronco ereto, afastado do encosto | Finalize com 10 com o tronco inclinado à frente, mãos nas alças | Controle a volta em todas as fases
+E: Usar carga alta e perder amplitude no final | Voltar soltando o peso | Pausas longas entre os ângulos
+PR: Aumentar a carga ou fazer pausa de 1 s aberto
+RG: Abdução de Quadril Máquina
+
+gp3_afundo_cruzado_halteres | Afundo Cruzado com Halteres | gluteos | Par de halteres | int | ✖️ | halteres | ca | b | CPHR | 3 | 10 cada perna
+P: Glúteos, Glúteo Médio
+S: Quadríceps, Adutores, Core
+I: Fique em pé segurando os halteres ao lado do corpo | Dê um passo para trás cruzando uma perna atrás da outra, como numa reverência | Desça até a coxa da frente ficar quase paralela ao chão, quadril de frente | Suba empurrando com o calcanhar da frente | Alterne ou complete um lado de cada vez
+E: Joelho da frente caindo para dentro | Girar o quadril junto com a perna | Cruzar demais e perder o equilíbrio
+PR: Agachamento Búlgaro com Tronco Inclinado (Foco Glúteo)
+RG: Afundo Cruzado (Curtsy Lunge)
+
+gp3_abducao_bola_suica | Abdução Lateral Apoiado na Bola Suíça | gluteos | Bola suíça | int | ⚽ | bola_suica | ca | b | CHR | 3 | 12 cada perna
+P: Glúteo Médio, Abdutores
+S: Oblíquos, Core, Equilíbrio
+I: Ajoelhe-se ao lado da bola e apoie a lateral do tronco sobre ela, abraçando-a com o braço de baixo | Estenda a perna de cima e apoie o pé no chão, a perna de baixo ajoelhada | Eleve a perna de cima estendida até a linha do quadril ou um pouco acima | Desça devagar sem perder o apoio na bola | Complete a série e troque de lado
+E: Rolar o quadril para trás | Bola rolando por falta de apoio | Subir com impulso
+PR: Prancha Lateral com Concha (Clam)
+RG: Abdução Lateral Deitado
+
+gp3_clam_halter | Clamshell com Halter | gluteos | Halter leve + colchonete | int | 🐚 | halteres | c | b | H5 | 3 | 12-15 cada lado
+P: Glúteo Médio, Rotadores do Quadril
+S: Glúteos
+I: Deite de lado com os joelhos dobrados a 45° e os pés juntos | Apoie um halter leve na parte externa da coxa de cima, segurando-o com a mão | Abra o joelho de cima mantendo os pés encostados | Segure 1 segundo e feche devagar | Mantenha o quadril empilhado, sem rolar para trás
+E: Rolar o quadril para trás para abrir mais | Separar os pés | Halter escorregando
+PR: Prancha Lateral com Concha (Clam)
+RG: Clamshell

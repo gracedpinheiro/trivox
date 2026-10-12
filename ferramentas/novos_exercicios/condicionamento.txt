@@ -1,0 +1,297 @@
+# CONDICIONAMENTO / PERDA DE PESO — HIIT, circuitos, cardio de baixo impacto, complexos, ergômetros
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+hiit_polichinelo_baixo | Polichinelo sem Salto (Baixo Impacto) | cardio | Peso corporal | ini | 🙆 | peso_corporal | ca | b | CP5 | 4 | 30-45s
+P: Cardio, Ombros
+S: Panturrilha, Abdutores, Glúteo Médio
+I: Em pé, pés juntos e braços ao lado do corpo | Dê um passo para o lado com um pé enquanto eleva os braços acima da cabeça | Volte o pé ao centro baixando os braços | Alterne os lados em ritmo constante, sem saltar
+E: Encolher os ombros | Ritmo lento demais para elevar a frequência cardíaca | Prender a respiração
+PR: Polichinelo tradicional
+RG: Só os braços, sentado
+
+hiit_skipping | Skipping Alto (High Knees) | cardio | Peso corporal | ini | 🏃 | peso_corporal | ca | m | CPR | 4 | 20-30s
+P: Cardio, Flexores do Quadril
+S: Panturrilha, Quadríceps, Core
+I: Corra no lugar elevando os joelhos até a altura do quadril | Pise na ponta dos pés, com passadas rápidas e leves | Braços dobrados a 90° acompanhando o ritmo | Mantenha o tronco ereto e o abdômen firme
+E: Inclinar o tronco para trás | Aterrissar com o calcanhar | Joelhos baixos
+PR: Skipping com deslocamento ou com elástico na cintura
+RG: Marcha com joelho alto (sem corrida)
+
+hiit_anfersen | Anfersen (Calcanhar no Glúteo) | cardio | Peso corporal | ini | 🦵 | peso_corporal | ca | m | CP | 4 | 20-30s
+P: Cardio, Isquiotibiais
+S: Panturrilha, Quadríceps
+I: Corra no lugar levando os calcanhares em direção ao glúteo | Joelhos apontando para o chão | Pise leve, na ponta dos pés | Braços acompanhando o ritmo
+E: Joelhos indo à frente | Tronco curvado | Pisada pesada
+PR: Anfersen com deslocamento para frente
+RG: Flexão de joelho alternada em pé, sem correr
+
+hiit_burpee_lateral | Burpee com Salto Lateral | funcional | Peso corporal | ava | ↔️ | peso_corporal | ca | a | CP | 4 | 6-10
+P: Full Body, Cardio
+S: Quadríceps, Peitoral, Core, Panturrilha
+I: Fique ao lado de uma linha ou cone baixo | Faça um burpee: mãos no chão, pés para trás, peito ao chão, pés de volta | Em vez de saltar para cima, salte lateralmente sobre a linha | Emende o próximo burpee do outro lado
+E: Quadril caindo na prancha | Aterrissar com joelhos para dentro | Perder a técnica com o cansaço
+PR: Burpee lateral sobre obstáculo mais alto
+RG: Burpee tradicional
+
+hiit_plank_jack | Prancha com Polichinelo (Plank Jack) | core | Peso corporal | int | ⭐ | peso_corporal | ca | m | CP | 4 | 20-30s
+P: Core, Cardio
+S: Ombros, Abdutores, Adutores
+I: Posição de prancha alta, mãos sob os ombros | Salte abrindo os pés para os lados | Salte de volta fechando os pés | Mantenha o quadril parado e o abdômen contraído
+E: Quadril subindo e descendo | Ombros à frente das mãos | Ritmo que tira o alinhamento
+PR: Plank jack com toque no ombro
+RG: Prancha com abertura de pés alternada sem salto
+
+hiit_polichinelo_cruzado | Polichinelo Cruzado | cardio | Peso corporal | ini | ❌ | peso_corporal | ca | m | CP | 4 | 30s
+P: Cardio, Adutores
+S: Ombros, Panturrilha, Coordenação
+I: Salte abrindo pernas e braços para os lados | No salto seguinte, feche cruzando uma perna à frente da outra e os braços à frente do peito | Alterne a perna e o braço que cruzam por cima | Aterrisse sempre suave na ponta dos pés
+E: Pisada pesada | Braços sem amplitude | Joelhos travados
+PR: Polichinelo cruzado mais rápido
+RG: Polichinelo sem salto
+
+hiit_squat_jack | Agachamento com Polichinelo (Squat Jack) | cardio | Peso corporal | int | 🐸 | peso_corporal | ca | a | CP | 4 | 20-30s
+P: Quadríceps, Glúteos
+S: Adutores, Panturrilha, Cardio
+I: Comece em pé com os pés juntos | Salte abrindo os pés e caia em agachamento (coxas quase paralelas) | Salte fechando os pés e fique quase em pé | Repita em ritmo contínuo mantendo o peito aberto
+E: Joelhos para dentro ao aterrissar | Agachamento raso | Tronco desabando
+PR: Squat jack com mini band
+RG: Agachamento com passo lateral sem salto
+
+hiit_salto_estrela | Salto Estrela | cardio | Peso corporal | ava | 🌟 | peso_corporal | ca | a | CP | 4 | 6-10
+P: Quadríceps, Glúteos
+S: Ombros, Panturrilha, Cardio
+I: Agache com os braços cruzados à frente | Salte explosivamente abrindo braços e pernas em forma de estrela | Feche braços e pernas antes de tocar o chão | Aterrisse suave em agachamento e emende o próximo
+E: Aterrissar com pernas abertas | Joelhos rígidos | Perder o controle por fadiga
+PR: Saltos estrela contínuos
+RG: Squat jack
+F: Star_Jump
+
+hiit_sprawl | Sprawl | funcional | Peso corporal | ava | 🤼 | peso_corporal | ca | m | CP | 4 | 8-12
+P: Full Body, Cardio
+S: Quadril, Core, Ombros
+I: Posição atlética em pé | Coloque as mãos no chão e lance as pernas para trás, deixando o quadril tocar o chão | Puxe as pernas de volta rapidamente para perto das mãos | Levante explosivamente e retome a posição atlética
+E: Arquear demais a lombar no chão | Ficar no chão tempo demais | Arredondar as costas ao voltar
+PR: Sprawl com sprint curto
+RG: Squat thrust
+
+hiit_soco_agach | Agachamento com Socos | cardio | Peso corporal | ini | 🥊 | peso_corporal | ca | b | CP5 | 4 | 30-45s
+P: Quadríceps, Ombros
+S: Glúteos, Oblíquos, Cardio
+I: Pés na largura dos ombros, mãos em guarda | Faça um agachamento | Ao subir, dê dois socos cruzados à frente girando o tronco | Volte à guarda e repita em ritmo constante
+E: Estender o cotovelo com tranco | Agachar com joelhos para dentro | Prender a respiração
+PR: Segurar halteres de 0,5-1 kg
+RG: Socos sem agachamento
+
+hiit_joelhada_soco | Joelhada e Soco Cruzado (Kickboxing Cardio) | cardio | Peso corporal | ini | 🥋 | peso_corporal | ca | b | CP5 | 4 | 30s cada lado
+P: Flexores do Quadril, Oblíquos
+S: Ombros, Core, Equilíbrio
+I: Posição de guarda com um pé à frente | Dê um soco cruzado com a mão de trás girando o tronco | Puxe as mãos para baixo enquanto sobe o joelho de trás em direção ao peito | Volte à guarda e repita; troque o lado na série seguinte
+E: Perder o equilíbrio na joelhada | Estender o braço com tranco | Tronco muito para trás
+PR: Combinação jab-direto-joelhada mais rápida
+RG: Joelhada alternada com apoio na parede
+
+hiit_kb_swing_americano | Kettlebell Swing Americano | funcional | Kettlebell | ava | 🔔 | kettlebell | ca | m | CP | 4 | 10-15
+P: Glúteos, Isquiotibiais
+S: Ombros, Core, Eretores da Espinha
+I: Pés um pouco além dos ombros, kettlebell à frente | Leve o quadril para trás e passe o kettlebell entre as pernas | Estenda o quadril com força e deixe o kettlebell subir até acima da cabeça, braços estendidos | Desça o kettlebell acompanhando com o quadril para trás
+E: Puxar com os ombros em vez do quadril | Arquear a lombar no topo | Falta de mobilidade de ombro (fique no swing russo)
+PR: Swing americano com kettlebell mais pesado
+RG: Kettlebell swing russo (até a altura dos olhos)
+
+hiit_complexo_halteres | Complexo com Halteres (Remada-Clean-Press-Agachamento) | funcional | Halteres | int | ⛓️ | halteres | ca | b | CPH | 4 | 6 de cada
+P: Full Body
+S: Latíssimo, Ombros, Quadríceps, Glúteos
+I: Escolha halteres leves e não solte-os durante o complexo | Faça 6 remadas curvadas | Emende 6 cleans (halteres do quadril aos ombros) | Emende 6 desenvolvimentos e 6 agachamentos com os halteres nos ombros | Descanse 60-90s entre as voltas
+E: Carga pesada demais (o elo fraco é o press) | Arredondar a lombar nas remadas | Pressa que tira a técnica
+PR: Adicione 6 afundos ao final
+RG: 4 repetições de cada
+
+hiit_corda_naval_lateral | Corda Naval: Ondas Laterais | funcional | Corda naval | int | 🌊 | corda_naval | a | b | CPR | 4 | 20-30s
+P: Oblíquos, Ombros
+S: Core, Antebraços, Glúteos
+I: Segure uma ponta da corda em cada mão em posição atlética | Mova as duas mãos juntas de um lado para o outro, como um limpador de para-brisa | As cordas devem ondular lateralmente no chão | Gire levemente o tronco e mantenha as pernas firmes
+E: Mover só os braços | Ficar com as pernas retas | Ondas pequenas
+PR: Ondas laterais com agachamento
+RG: Ondas alternadas leves
+
+hiit_eliptico | Elíptico Intervalado | cardio | Elíptico (transport) | ini | 〰️ | eliptico | a | b | CP5 | 1 | 20-30 min
+P: Cardio, Quadríceps
+S: Glúteos, Isquiotibiais, Ombros
+I: Suba no elíptico e segure as alavancas móveis | Aqueça 5 minutos em ritmo leve | Alterne 1 minuto em ritmo/resistência mais forte com 2 minutos leves | Mantenha a postura ereta, empurrando e puxando os braços ativamente
+E: Apoiar o peso nas alavancas | Calcanhares saindo dos pedais | Postura curvada
+PR: Intervalos de 30s muito fortes / 60s leves
+F: Elliptical_Trainer
+
+hiit_esteira_inclinada | Caminhada Inclinada na Esteira | cardio | Esteira | ini | ⛰️ | esteira | a | b | CP5 | 1 | 20-40 min
+P: Cardio, Glúteos
+S: Panturrilha, Isquiotibiais, Quadríceps
+I: Comece com inclinação de 3-5% e velocidade de caminhada confortável | Aumente a inclinação aos poucos até 8-12% conforme o condicionamento | Caminhe sem segurar no corrimão, tronco ereto | Mantenha intensidade em que consegue falar frases curtas
+E: Segurar o corrimão e se inclinar para trás | Inclinação alta demais no início | Passos curtos demais
+PR: Intervalos de inclinação (2 min alto / 2 min baixo)
+RG: Caminhada no plano
+F: Walking_Treadmill
+
+hiit_esteira_intervalos | Corrida Intervalada na Esteira | cardio | Esteira | int | 🏃‍♀️ | esteira | a | m | CP | 1 | 20-25 min
+P: Cardio, Quadríceps
+S: Glúteos, Panturrilha, Isquiotibiais
+I: Aqueça 5 minutos caminhando e trotando | Alterne 1 minuto de corrida forte com 1-2 minutos de caminhada ou trote leve | Faça de 6 a 10 intervalos | Termine com 5 minutos de desaceleração
+E: Começar sem aquecer | Passada longa demais batendo o calcanhar | Segurar o corrimão na corrida
+PR: Intervalos de 30s em sprint
+RG: Intervalos de trote leve com caminhada
+F: Running_Treadmill
+
+hiit_caranguejo | Caminhada do Caranguejo | funcional | Peso corporal | ini | 🦀 | peso_corporal | ca | b | CP | 3 | 20-30s
+P: Tríceps, Glúteos
+S: Ombros, Core, Isquiotibiais
+I: Sente no chão, mãos atrás do quadril com dedos para frente e pés apoiados | Eleve o quadril do chão | Caminhe para frente e para trás movendo mão e pé opostos | Mantenha o quadril alto
+E: Quadril caindo | Dedos apontando para trás (estressa o punho) | Ombros encolhidos
+PR: Caranguejo lateral ou com toque no pé
+RG: Ponte reversa estática
+
+hiit_mountain_cruzado | Mountain Climber Cruzado | core | Peso corporal | int | ⛰️ | peso_corporal | ca | m | CP | 4 | 20-30s
+P: Oblíquos, Core
+S: Flexores do Quadril, Ombros, Cardio
+I: Posição de prancha alta com mãos sob os ombros | Leve um joelho em direção ao cotovelo oposto | Volte e alterne rapidamente | Mantenha o quadril baixo e os ombros sobre as mãos
+E: Quadril empinado | Não cruzar o joelho | Perder o ritmo e a forma
+PR: Mountain climber cruzado com pés no slider/toalha
+RG: Mountain climber lento
+
+hiit_kb_swing_unilateral | Kettlebell Swing Unilateral | funcional | Kettlebell | int | 🔔 | kettlebell | ca | m | CPR | 4 | 10-12 cada lado
+P: Glúteos, Isquiotibiais
+S: Oblíquos, Core, Antebraços
+I: Segure o kettlebell com uma mão, pés um pouco além dos ombros | Leve o quadril para trás e passe o kettlebell entre as pernas | Estenda o quadril com força levando o kettlebell até a altura do peito | Não deixe o tronco girar; troque de mão a cada série
+E: Girar o tronco | Puxar com o ombro | Arredondar a lombar
+PR: Swing com troca de mão no ar
+RG: Kettlebell swing com as duas mãos
+F: One-Arm_Kettlebell_Swings
+
+hiit_toques_degrau | Toques Rápidos no Degrau | cardio | Degrau ou step | ini | 👟 | degrau_step | ca | b | CP5R | 4 | 20-30s
+P: Cardio, Flexores do Quadril
+S: Panturrilha, Quadríceps, Coordenação
+I: Fique de frente para um degrau baixo | Toque a ponta de um pé no degrau e troque rapidamente para o outro pé | Mantenha os braços ativos e o tronco ereto | Pise leve, sem bater o pé
+E: Olhar fixo para baixo | Pisar com o pé inteiro (perde velocidade) | Inclinar o tronco
+PR: Toques laterais no degrau
+RG: Toques lentos com apoio na parede
+
+hiit_fast_feet | Pés Rápidos (Fast Feet) | cardio | Peso corporal | ini | 💨 | peso_corporal | ca | m | CPR | 5 | 10-15s
+P: Panturrilha, Cardio
+S: Quadríceps, Coordenação
+I: Posição atlética: pés afastados, joelhos dobrados, peito à frente | Alterne os pés no lugar o mais rápido possível, pisando nas pontas | Mantenha o quadril baixo e o tronco estável | Ao sinal (ou a cada 5 segundos), faça um sprint de 2 passos para um lado e volte
+E: Ficar ereto | Pisadas pesadas | Levantar muito os pés
+PR: Fast feet com reação a sinal
+RG: Fast feet mais lento
+
+hiit_agach_pulso | Agachamento com Pulsos (Squat Pulse) | pernas_cal | Peso corporal | ini | 💓 | peso_corporal | ca | b | CP5 | 3 | 20-30
+P: Quadríceps, Glúteos
+S: Adutores, Core
+I: Agache até as coxas ficarem quase paralelas ao chão | Faça pequenos movimentos de sobe e desce (5-10 cm) sem subir totalmente | Mantenha o peito aberto e os joelhos alinhados | Ao final, suba totalmente e descanse
+E: Joelhos para dentro | Peso na ponta dos pés | Prender a respiração
+PR: Pulsos com mini band ou halteres
+RG: Pulsos em agachamento mais alto
+
+hiit_afundo_joelho | Afundo Reverso com Elevação de Joelho | pernas_cal | Peso corporal | int | 🦵 | peso_corporal | ca | b | CPR5 | 3 | 10-12 cada perna
+P: Quadríceps, Glúteos
+S: Flexores do Quadril, Core, Equilíbrio
+I: Dê um passo para trás em afundo reverso | Empurre o chão com o pé da frente e traga a perna de trás para frente, elevando o joelho até a altura do quadril | Equilibre-se 1 segundo sobre uma perna | Volte direto para o próximo afundo
+E: Perder o equilíbrio no topo | Passo curto | Joelho da frente para dentro
+PR: Elevação do joelho com salto (afundo com skip)
+RG: Afundo reverso simples com apoio
+
+hiit_step_joelho | Step-Up com Elevação de Joelho | pernas_cal | Degrau ou banco | ini | 🪜 | degrau_step | ca | b | CP5R | 3 | 10-12 cada perna
+P: Quadríceps, Glúteos
+S: Flexores do Quadril, Panturrilha, Equilíbrio
+I: Fique de frente para um degrau firme | Suba com um pé e, ao estender a perna, eleve o joelho da outra até a altura do quadril | Desça controlando, primeiro a perna que subiu o joelho | Complete o lado ou alterne
+E: Impulsionar com a perna de baixo | Degrau alto demais | Inclinar o tronco
+PR: Step-up com elevação de joelho e halteres
+RG: Step-up simples
+F: Step-up_with_Knee_Raise
+
+hiit_salto_sapo | Salto do Sapo | pernas_cal | Peso corporal | ava | 🐸 | peso_corporal | ca | a | CPR | 4 | 5-8
+P: Quadríceps, Glúteos
+S: Panturrilha, Adutores, Core
+I: Agache profundo com os pés afastados e as mãos próximas ao chão | Salte para frente o mais longe possível usando os braços | Aterrisse suave de volta no agachamento profundo | Estabilize e emende o próximo salto
+E: Aterrissar com joelhos para dentro | Arredondar as costas no agachamento | Saltos sem controle
+PR: Saltos contínuos sem pausa
+RG: Salto em distância simples
+F: Frog_Hops
+
+hiit_burpee_box_over | Burpee com Salto sobre a Caixa | funcional | Caixa pliométrica | ava | 📦 | caixa_pliometrica | a | a | CP | 4 | 6-10
+P: Full Body, Cardio
+S: Quadríceps, Glúteos, Peitoral
+I: Fique de frente para uma caixa baixa ou média | Faça um burpee (peito ao chão) | Salte para cima da caixa com os dois pés e desça do outro lado (ou salte por cima) | Vire-se e repita
+E: Aterrissar na borda da caixa | Pular sem controle por fadiga | Caixa alta demais
+PR: Caixa mais alta
+RG: Burpee + step-up na caixa
+
+hiit_v_up | V-Up (Canivete) | core | Peso corporal | int | ✌️ | colchonete | ca | b | CH | 3 | 8-12
+P: Reto Abdominal
+S: Flexores do Quadril, Oblíquos
+I: Deite de costas com braços estendidos acima da cabeça e pernas estendidas | Suba tronco e pernas ao mesmo tempo, tentando tocar os pés com as mãos | Equilibre-se brevemente no glúteo | Desça devagar sem bater no chão
+E: Usar impulso dos braços | Dobrar muito os joelhos | Descer de uma vez
+PR: V-up com halter leve
+RG: Abdominal canivete alternado (uma perna)
+F: Jackknife_Sit-Up
+
+hiit_prancha_sobe_desce | Prancha Sobe e Desce (Up-Down) | core | Peso corporal | int | 🔼 | colchonete | ca | b | CPH | 3 | 8-12
+P: Core, Tríceps
+S: Ombros, Peitoral, Oblíquos
+I: Comece em prancha nos antebraços | Apoie uma mão e depois a outra, subindo para a prancha alta | Desça um antebraço e depois o outro de volta à prancha baixa | Alterne o braço que começa e mantenha o quadril parado
+E: Quadril balançando | Pés juntos demais | Pressa
+PR: Prancha sobe e desce com toque no ombro
+RG: Com joelhos apoiados
+
+hiit_patinador_baixo | Patinador sem Salto (Baixo Impacto) | cardio | Peso corporal | ini | ⛸️ | peso_corporal | ca | b | CP5R | 4 | 30s
+P: Glúteos, Glúteo Médio
+S: Quadríceps, Adutores, Cardio
+I: Em pé, dê um passo largo na diagonal para trás com uma perna, cruzando atrás da outra | Dobre o joelho da frente e incline levemente o tronco, braços balançando como um patinador | Volte e repita para o outro lado | Mantenha o ritmo constante sem saltar
+E: Joelho da frente para dentro | Passo curto | Arredondar as costas
+PR: Patinador com salto (skater)
+RG: Passo lateral simples
+
+hiit_marcha_bracos | Marcha com Braços Acima | cardio | Peso corporal | ini | 🙌 | peso_corporal | ca | b | CP5 | 4 | 45-60s
+P: Cardio, Ombros
+S: Flexores do Quadril, Core
+I: Marche no lugar elevando os joelhos | A cada passo, leve os braços acima da cabeça e depois de volta à altura dos ombros | Mantenha o tronco ereto e a respiração ritmada | Aumente a velocidade gradualmente
+E: Encolher os ombros | Inclinar o tronco | Prender a respiração
+PR: Marcha com halteres leves
+RG: Marcha sentado
+
+hiit_remo_piramide | Remo Ergômetro em Pirâmide | cardio | Remo ergômetro | int | 🚣 | remo_ergometro | a | b | CP5 | 1 | 100-200-300-200-100m
+P: Cardio, Latíssimo
+S: Quadríceps, Glúteos, Core
+I: Aqueça 3-5 minutos remando leve | Reme 100 m forte, 1 min leve, 200 m forte, 1 min leve, 300 m, depois volte (200 m, 100 m) | Nas partes fortes, empurre com as pernas primeiro e depois puxe com os braços | Desaquecer remando leve por 3 minutos
+E: Puxar com os braços antes de estender as pernas | Ritmo alto com pouca força | Arredondar as costas
+PR: Pirâmide até 500 m
+RG: Pirâmide até 200 m
+
+hiit_bike_tabata | Bike Tabata (20s/10s) | cardio | Bicicleta ergométrica ou air bike | int | 🚴 | bicicleta | a | b | CP | 1 | 8x 20s/10s
+P: Cardio, Quadríceps
+S: Glúteos, Panturrilha
+I: Aqueça 5 minutos pedalando leve | Pedale 20 segundos no máximo esforço com resistência moderada | Pedale 10 segundos bem leve | Repita 8 vezes (4 minutos) e desaqueça 3-5 minutos
+E: Sem aquecimento | Resistência baixa demais (pedal "solto") | Quadril balançando no banco
+PR: 2 blocos de Tabata com 3 min entre eles
+RG: 30s forte / 60s leve
+
+hiit_circuito_cadeira | Circuito de Baixo Impacto na Cadeira | cardio | Cadeira | ini | 🪑 | cadeira | ca | b | CP5 | 3 | 4 exercícios x 40s
+P: Cardio, Full Body
+S: Quadríceps, Ombros, Core
+I: Faça 40 segundos de cada sem descanso: sentar e levantar, marcha sentado, socos alternados sentado, extensão de joelhos alternada | Descanse 60 segundos ao final da volta | Mantenha um ritmo em que consegue falar frases curtas | Faça 3 voltas
+E: Usar cadeira com rodinhas | Pressa que tira o controle | Prender a respiração
+PR: Trocar marcha sentado por marcha em pé
+RG: 30 segundos de cada
+
+hiit_amrap_corpo | AMRAP de Peso Corporal (Agachamento, Flexão, Afundo) | funcional | Peso corporal | int | 🔁 | peso_corporal | ca | b | CPH | 1 | 12-15 min
+P: Full Body, Cardio
+S: Quadríceps, Peitoral, Glúteos, Core
+I: Monte a rodada: 10 agachamentos, 8 flexões, 10 afundos alternados e 20 segundos de prancha | Faça o máximo de rodadas no tempo, com técnica | Descanse só o necessário | Anote as rodadas para comparar na próxima vez
+E: Perder a técnica para fazer mais | Esquecer de registrar | Flexões com quadril caindo
+PR: Acrescentar 5 burpees à rodada
+RG: Flexão inclinada e agachamento até a cadeira
+
+hiit_kb_clean_squat | Kettlebell Clean + Agachamento Frontal | funcional | Kettlebell | int | 🔔 | kettlebell | ca | m | CPH | 4 | 6-8 cada lado
+P: Glúteos, Quadríceps
+S: Isquiotibiais, Core, Antebraços
+I: Kettlebell entre os pés | Faça um clean levando o kettlebell à posição de rack | Com o kettlebell no rack, faça um agachamento frontal | Volte o kettlebell ao chão e repita; troque de lado
+E: Kettlebell batendo no antebraço | Tronco caindo à frente no agachamento | Arredondar a lombar ao pegar
+PR: Clean + agachamento + press
+RG: Agachamento goblet

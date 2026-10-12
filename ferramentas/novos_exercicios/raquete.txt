@@ -1,0 +1,385 @@
+# ESPORTES DE RAQUETE — pickleball e beach tennis
+# pickleball: deslocamentos curtos, dinks com joelho baixo, punho/antebraço, reação na cozinha (kitchen)
+# beach tennis: areia, muitos saltos, smash/overhead, ombro, panturrilha/Aquiles
+# id | nome | categoria | equipamento | nivel | icon | aparelho | local | impacto | objetivos | séries | reps
+
+rq_split_step | Split Step (Passo de Prontidão) | cardio | Peso corporal | ini | 🎾 | peso_corporal | ca | m | CPR | 4 | 8-10
+P: Panturrilha, Quadríceps
+S: Glúteos, Tornozelo, Coordenação
+I: Fique em posição de prontidão: pés um pouco além da largura dos ombros, joelhos dobrados, peso na frente dos pés | Dê um pequeno salto (2-5 cm), abrindo levemente os pés no ar | Aterrisse nas pontas dos pés, joelhos flexionados, pronto para sair para qualquer lado | Após aterrissar, dê um passo rápido para um dos lados e volte ao centro
+E: Saltar alto demais (atrasa a reação) | Aterrissar com os calcanhares e pernas retas | Ficar com o peso para trás
+PR: Split step com reação a sinal
+RG: Elevação rápida de calcanhares sem saltar
+
+rq_split_step_reacao | Split Step com Reação a Estímulo | cardio | Peso corporal + parceiro ou app | int | 🚦 | peso_corporal | ca | m | CPR | 5 | 6-8 reações
+P: Quadríceps, Glúteos
+S: Panturrilha, Coordenação, Adutores
+I: Na posição de prontidão, um parceiro aponta uma direção (ou use cores/sons de um app) | Faça o split step no momento do sinal | Saia explosivamente para a direção indicada com 2-3 passos | Volte ao centro com passos laterais e prepare a próxima
+E: Antecipar sem esperar o sinal | Primeiro passo cruzado e lento | Ficar ereto após aterrissar
+PR: Reação com toque em cones a 3 metros
+RG: Split step sem reação
+
+rq_shuffle_cones | Shuffle Lateral com Toque no Cone | cardio | Cones | ini | 🔶 | cones | ca | m | CPR | 4 | 20-30s
+P: Glúteo Médio, Quadríceps
+S: Adutores, Panturrilha, Cardio
+I: Coloque dois cones a 3-4 metros de distância | Em posição atlética (joelhos dobrados, peito à frente), desloque-se lateralmente sem cruzar os pés | Toque o cone com a mão de fora, baixando o quadril | Volte ao outro cone mantendo o centro de gravidade baixo
+E: Cruzar os pés | Subir o quadril entre os toques | Pés muito juntos
+PR: Shuffle com mini band nos tornozelos
+RG: Passos laterais em ritmo moderado
+
+rq_crossover_step | Passo Cruzado de Recuperação (Crossover Step) | cardio | Cones | int | ✖️ | cones | ca | m | CPR | 4 | 6 cada lado
+P: Glúteos, Adutores
+S: Oblíquos, Panturrilha, Coordenação
+I: Comece em posição de prontidão no centro, cone a 4-5 metros ao lado | Gire o quadril e cruze a perna de fora à frente da outra no primeiro passo | Corra 2-3 passos até o cone e freie com a perna de fora | Volte ao centro com shuffle lateral
+E: Primeiro passo pequeno e sem giro do quadril | Frear com a perna de dentro | Tronco ereto demais
+PR: Crossover step com reação ao sinal
+
+rq_drop_step | Drop Step e Recuo para o Lob | cardio | Cones | int | ↩️ | cones | ca | m | CPR | 4 | 5 cada lado
+P: Glúteos, Quadríceps
+S: Panturrilha, Oblíquos, Coordenação
+I: Posição de prontidão junto a um cone (rede imaginária à frente) | Gire abrindo o quadril e dê um passo para trás na diagonal com o pé do lado do lob | Corra de lado/cruzado para trás 3-4 passos, olhando para a "bola" | Simule o golpe acima da cabeça, freie e volte à frente com passos rápidos
+E: Correr de costas (risco de queda) | Não girar o quadril no primeiro passo | Perder o olhar da bola
+PR: Drop step com medicine ball leve para arremessar no final
+
+rq_escada_icky | Escada de Agilidade: Icky Shuffle | cardio | Escada de agilidade | int | 🪜 | escada_agilidade | ca | m | CPR | 4 | 2-3 passagens
+P: Panturrilha, Coordenação
+S: Quadríceps, Glúteo Médio, Cardio
+I: Fique ao lado da escada | Entre no quadrado com um pé, depois o outro, e saia lateralmente com o primeiro pé | Repita no quadrado seguinte começando pelo outro pé (dentro-dentro-fora) | Mantenha os braços ativos e a pisada nas pontas dos pés
+E: Olhar fixo para os pés | Pisar nas fitas | Pisadas pesadas com calcanhar
+PR: Icky shuffle para trás
+RG: Dois pés em cada quadrado (frente)
+
+rq_escada_lateral | Escada de Agilidade: Dentro-Fora Lateral | cardio | Escada de agilidade | ini | 🪜 | escada_agilidade | ca | m | CPR | 4 | 2-3 passagens
+P: Panturrilha, Glúteo Médio
+S: Adutores, Coordenação, Cardio
+I: Fique de lado para a escada | Entre no quadrado com os dois pés (um de cada vez) e saia com os dois para a frente da escada | Avance lateralmente para o próximo quadrado e repita | Mantenha os joelhos dobrados e o tronco de frente
+E: Cruzar os pés | Ficar ereto | Ritmo irregular
+PR: Lateral in-out com reação no fim (sprint para um cone)
+
+rq_estrela_cones | Estrela de Agilidade (Spider Drill) | cardio | 5 cones | int | ⭐ | cones | ca | m | CPR | 4 | 1 volta completa
+P: Quadríceps, Glúteos
+S: Adutores, Panturrilha, Cardio
+I: Monte 5 cones em semicírculo a 3-4 metros de um cone central (como a quadra de pickleball/beach tennis) | Partindo do centro, vá até cada cone e volte ao centro | Use passos laterais, cruzados e para trás conforme a direção | Toque cada cone baixando o quadril e cronometre a volta
+E: Ficar ereto nas viradas | Frear com a perna de dentro | Arredondar a lombar ao tocar o cone
+PR: Ordem aleatória comandada por parceiro
+RG: Distâncias menores e ritmo moderado
+
+rq_t_test | T-Test de Agilidade | cardio | 4 cones | int | ⏱️ | cones | ca | m | CPR | 4 | 1 percurso
+P: Quadríceps, Glúteos
+S: Adutores, Panturrilha, Cardio
+I: Monte um T: cone A na base, cone B 10 m à frente, cones C e D 5 m para cada lado de B (use distâncias menores em casa) | Corra de A até B, shuffle até C, shuffle até D, shuffle de volta a B | Volte de costas até A com passos curtos | Cronometre e descanse 1-2 minutos entre tentativas
+E: Cruzar os pés no shuffle | Correr de costas olhando para trás (perda de equilíbrio) | Frear sem baixar o quadril
+PR: Reduzir o tempo semana a semana
+
+rq_kitchen_drill | Deslocamento Frente-Trás da Cozinha (Kitchen Line) | cardio | 2 cones | int | 🥒 | cones | ca | m | CPR | 4 | 30s
+P: Quadríceps, Panturrilha
+S: Glúteos, Coordenação
+I: Coloque um cone na "linha da cozinha" e outro 3 metros atrás | Avance rápido até a linha e faça split step | Simule um dink com joelhos dobrados e raquete baixa | Recue com passos curtos (sem cruzar) e repita
+E: Pisar na linha da cozinha | Correr de costas com passos largos | Ficar com as pernas retas no dink
+PR: Com parceiro lançando bolas curtas e longas
+
+rq_mb_scoop | Arremesso Rotacional Baixo (Scoop Toss) | funcional | Medicine ball | int | 🔁 | medicine_ball | a | b | CPR | 4 | 6 cada lado
+P: Oblíquos, Glúteos
+S: Core, Ombros, Isquiotibiais
+I: Fique de lado para uma parede reforçada, bola de 2-4 kg perto do quadril de trás | Agache levemente e carregue o peso na perna de trás | Gire quadril e tronco explosivamente, arremessando a bola de baixo para cima na parede, como um forehand | Pegue a bola e repita; troque de lado
+E: Arremessar só com os braços | Pés travados sem girar o pé de trás | Bola pesada demais
+PR: Scoop toss com passo de aproximação
+F: Medicine_Ball_Scoop_Throw
+
+rq_mb_smash | Arremesso Unilateral Acima da Cabeça (Simulação de Smash) | funcional | Medicine ball leve ou bola de 1 kg | int | 🏐 | medicine_ball | a | m | CPR | 4 | 6-8 cada braço
+P: Latíssimo, Oblíquos
+S: Ombros, Core, Tríceps
+I: Fique de lado para o alvo (parede ou chão à frente), bola leve na mão do golpe atrás da cabeça | Aponte o braço livre para o alto, como no smash | Gire o tronco e arremesse a bola para baixo e à frente, terminando o braço cruzado | Pegue a bola e repita; faça também com o braço não dominante
+E: Usar bola pesada (sobrecarga no ombro) | Não girar o tronco | Arremessar com o cotovelo baixo
+PR: Arremesso com passo e salto pequeno (beach tennis)
+RG: Medicine ball slam bilateral
+
+rq_re_90_elastico | Rotação Externa a 90° com Elástico | ombros | Elástico + porta | int | 🔃 | elastico | ca | b | C5R | 3 | 12-15 cada braço
+P: Manguito Rotador
+S: Deltóide Posterior, Trapézio Inferior
+I: Prenda o elástico na altura do peito e fique de frente para ele | Eleve o braço ao lado com cotovelo a 90° e braço na altura do ombro, antebraço apontando para frente | Gire o antebraço para cima até ficar vertical, mantendo o cotovelo na mesma altura | Volte devagar (3 segundos) até a posição inicial
+E: Cotovelo caindo abaixo do ombro | Arquear a lombar | Voltar rápido
+PR: Rotação externa a 90° com pausa e oscilações rápidas no final
+RG: Rotação externa com cotovelo junto ao corpo
+
+rq_ri_90_elastico | Rotação Interna a 90° com Elástico | ombros | Elástico + porta | int | 🔄 | elastico | ca | b | C5R | 3 | 12-15 cada braço
+P: Manguito Rotador
+S: Peitoral, Latíssimo
+I: Prenda o elástico na altura do peito e fique de costas para ele | Braço ao lado com cotovelo a 90° e na altura do ombro, antebraço apontando para cima | Gire o antebraço para frente e para baixo até ficar paralelo ao chão | Volte devagar até a vertical
+E: Deixar o cotovelo descer | Girar o tronco | Amplitude além do confortável
+PR: Rotação interna rápida (pliométrica) com elástico leve
+
+rq_d2_elastico | Diagonal D2 com Elástico (Saque/Smash) | ombros | Elástico | int | ↗️ | elastico | ca | b | C5R | 3 | 10-12 cada braço
+P: Manguito Rotador, Deltóide Posterior
+S: Trapézio Inferior, Rombóides, Core
+I: Pise no elástico com o pé oposto ao braço que trabalha | Comece com a mão no quadril oposto, palma voltada para a coxa | Puxe na diagonal para cima e para fora, girando a palma para frente, até o braço ficar acima da cabeça | Volte devagar pelo mesmo caminho
+E: Encolher o ombro | Girar o tronco junto | Elástico forte demais
+PR: D2 com cabo
+RG: D2 sem elástico
+
+rq_serratil_parede | Deslizamento na Parede com Elástico (Serrátil) | ombros | Mini band ou elástico + parede | ini | 🧱 | mini_band | ca | b | C5R | 3 | 10-12
+P: Serrátil, Trapézio Inferior
+S: Manguito Rotador, Deltóide Anterior
+I: Fique de frente para a parede com a mini band nos punhos e os antebraços apoiados na parede | Afaste levemente as mãos contra a faixa | Deslize os antebraços para cima na parede, empurrando-a levemente | Desça devagar mantendo a tensão
+E: Encolher os ombros | Arquear a lombar | Deixar as mãos fecharem
+PR: Deslizamento com elevação final (tirar as mãos da parede)
+RG: Deslizamento sem elástico
+
+rq_flexao_plus | Flexão Plus (Protração Escapular) | ombros | Peso corporal | ini | ➕ | peso_corporal | ca | b | C5R | 3 | 10-15
+P: Serrátil
+S: Peitoral, Core, Tríceps
+I: Posição de prancha alta (ou com joelhos apoiados) | Sem dobrar os cotovelos, deixe as escápulas se aproximarem, o peito desce alguns centímetros | Empurre o chão afastando as escápulas, arredondando levemente a parte alta das costas | Mantenha o abdômen firme e repita devagar
+E: Dobrar os cotovelos | Quadril caindo | Movimento rápido e curto
+PR: Flexão completa + plus no topo
+RG: Flexão plus na parede
+
+rq_extensao_punho | Extensão de Punho com Halter (Prevenção de Epicondilite) | biceps | Halter leve | ini | 🤚 | halteres | ca | b | C5R | 3 | 15-20
+P: Extensores do Pulso, Antebraços
+S: Braquiorradial
+I: Sente com o antebraço apoiado na coxa ou numa mesa, palma para baixo, punho para fora da borda | Segure um halter leve (0,5-2 kg) | Eleve o dorso da mão até o máximo | Desça devagar em 3 segundos (fase mais importante para o tendão)
+E: Levantar o antebraço do apoio | Carga pesada demais | Descer rápido
+PR: Apenas a fase excêntrica com carga um pouco maior (subir com a outra mão)
+RG: Extensão de punho com elástico leve
+F: Seated_One-Arm_Dumbbell_Palms-Down_Wrist_Curl
+
+rq_tyler_twist | Torção Excêntrica com Toalha (Tyler Twist Adaptado) | funcional | Toalha enrolada ou barra flexível | int | 🌀 | toalha | ca | b | C5R | 3 | 10-15
+P: Extensores do Pulso, Antebraços
+S: Flexores do Pulso, Braquiorradial
+I: Enrole uma toalha bem firme (ou use uma barra flexível) e segure à frente do corpo com as duas mãos | Torça a toalha com a mão do lado afetado/dominante flexionando o punho, e a outra mão estendendo | Estenda os braços à frente mantendo a torção | Destorça devagar com o punho do lado dominante (fase excêntrica de 4 segundos)
+E: Destorcer rápido | Dobrar os cotovelos | Fazer com dor aguda
+PR: Barra flexível de maior resistência
+
+rq_pronacao_supinacao | Pronação e Supinação com Halter | biceps | Halter leve ou martelo | ini | 🔨 | halteres | ca | b | C5R | 3 | 12-15 cada lado
+P: Antebraços, Braquiorradial
+S: Flexores do Pulso, Extensores do Pulso
+I: Sente com o antebraço apoiado na coxa, punho para fora, segurando um halter pela ponta (ou um martelo) | Comece com o polegar para cima | Gire devagar a palma para baixo, volte ao centro e gire para cima | Quanto mais longe da mão estiver o peso, mais difícil
+E: Mover o cotovelo | Girar rápido | Peso muito afastado no início
+PR: Segurar o halter mais pela ponta (maior alavanca)
+RG: Sem peso, só com a mão fechada
+
+rq_desvio_radial_ulnar | Desvio Radial e Ulnar com Halter | biceps | Halter leve | ini | 🔀 | halteres | ca | b | C5R | 3 | 12-15 cada lado
+P: Antebraços, Braquiorradial
+S: Flexores do Pulso, Extensores do Pulso
+I: Em pé, braço ao lado do corpo, segure um halter só por uma das pontas (peso à frente) | Incline o punho levantando a ponta do halter para cima, sem mexer o braço | Desça devagar | Vire o halter (peso atrás) e repita levantando a ponta para trás
+E: Dobrar o cotovelo | Balançar o braço | Carga pesada
+PR: Aumentar a carga gradualmente
+
+rq_shadow_swing | Golpes de Sombra com Raquete | cardio | Raquete | ini | 🏓 | raquete | ca | b | CP5R | 4 | 45-60s
+P: Ombros, Oblíquos
+S: Quadríceps, Panturrilha, Coordenação
+I: Com a raquete na mão, posicione-se como na quadra | Simule golpes (forehand, backhand, dink, voleio, smash) com deslocamento curto entre eles | Gire quadril e tronco em cada golpe e volte à posição de prontidão | Foque em técnica e ritmo, não em força
+E: Golpear só com o braço | Ficar parado sem deslocamento | Esquecer a volta à prontidão
+PR: Golpes de sombra com capa de raquete ou peso leve no punho
+RG: Golpes parado, só técnica
+
+rq_forehand_elastico | Forehand com Elástico | funcional | Elástico + porta | int | 🎾 | elastico | ca | b | CR | 3 | 10-12 cada lado
+P: Oblíquos, Peitoral
+S: Ombros, Glúteos, Core
+I: Prenda o elástico na altura da cintura atrás de você (do lado do golpe) | Segure com a mão do golpe e fique na posição de forehand | Gire o quadril e depois o tronco, levando o braço à frente como no golpe | Volte devagar resistindo ao elástico; repita também o backhand do outro lado
+E: Puxar só com o braço | Pés travados sem girar | Elástico forte demais (altera a técnica)
+PR: Golpe com elástico mais rápido (potência)
+
+rq_panturrilha_excentrica | Panturrilha Excêntrica no Degrau (Aquiles) | pernas | Degrau ou step | ini | 🦶 | degrau_step | ca | b | CH5R | 3 | 12-15 cada perna
+P: Gastrocnêmio, Sóleo
+S: Tornozelo, Tibial Anterior
+I: Fique com a ponta dos dois pés na borda de um degrau, segurando no corrimão ou parede | Suba com as duas pernas | Tire um pé e desça devagar (3-4 segundos) só com o outro, deixando o calcanhar passar abaixo do degrau | Volte a subir com as duas pernas e repita
+E: Descer rápido | Subir com uma perna só (o foco é a descida) | Dobrar o joelho sem querer
+PR: Mochila com peso durante a descida
+RG: Excêntrica com as duas pernas
+
+rq_soleo_joelho_flexionado | Elevação de Panturrilha com Joelho Flexionado (Sóleo) | pernas | Parede ou halter | ini | 🦵 | parede | ca | b | CH5R | 3 | 15-20
+P: Sóleo
+S: Gastrocnêmio, Tornozelo
+I: Fique de frente para a parede com as mãos apoiadas | Dobre levemente os joelhos (cerca de 30°) e mantenha essa flexão | Suba nas pontas dos pés sem estender os joelhos | Desça devagar
+E: Estender os joelhos ao subir | Amplitude curta | Descer rápido
+PR: Unilateral com halter
+RG: Panturrilha sentado
+
+rq_pogo | Saltos Pogo (Tornozelo Reativo) | pernas_cal | Peso corporal | int | 🦘 | peso_corporal | ca | a | CPR | 3 | 15-20
+P: Panturrilha, Tornozelo
+S: Quadríceps, Core
+I: Fique em pé com os pés na largura do quadril | Salte rapidamente usando principalmente os tornozelos, joelhos quase retos | Minimize o tempo de contato com o chão, como uma mola | Mantenha o tronco ereto e os braços ajudando no ritmo
+E: Dobrar muito os joelhos | Aterrissar nos calcanhares | Fazer sem aquecer o tornozelo
+PR: Pogo unipodal
+RG: Pular corda lento
+
+rq_cone_hops | Saltos Laterais sobre Cones | pernas_cal | Cones baixos | int | 🔺 | cones | ca | a | CPR | 3 | 10-12
+P: Panturrilha, Quadríceps
+S: Glúteo Médio, Adutores, Coordenação
+I: Coloque 3-5 cones baixos em linha lateral | Salte lateralmente sobre cada cone com os pés juntos | Aterrisse suave nas pontas dos pés e salte para o próximo sem pausa | Volte pela linha no outro sentido
+E: Aterrissar com joelhos para dentro | Pausa longa entre os saltos | Cones altos demais
+PR: Saltos laterais unipodais
+RG: Saltos laterais sobre uma linha no chão
+F: Lateral_Cone_Hops
+
+rq_skater | Salto Patinador (Skater) | pernas_cal | Peso corporal | int | ⛸️ | peso_corporal | ca | a | CPR | 3 | 8-10 cada lado
+P: Glúteos, Glúteo Médio
+S: Quadríceps, Adutores, Panturrilha
+I: Fique sobre uma perna com o joelho dobrado | Salte lateralmente para a outra perna, cobrindo o máximo de distância | Aterrisse suave sobre um pé, joelho alinhado e quadril para trás | Estabilize 1 segundo e salte de volta
+E: Aterrissar com joelho para dentro | Aterrissagem rígida | Tronco muito ereto
+PR: Skater sem pausa (contínuo)
+RG: Patinador sem salto (passo lateral)
+F: Lateral_Bound
+
+rq_aterrissagem | Aterrissagem Controlada (Drop and Stick) | pernas_cal | Degrau baixo | ini | 🛬 | degrau_step | ca | m | CR | 3 | 5-6
+P: Quadríceps, Glúteos
+S: Panturrilha, Core, Equilíbrio
+I: Suba em um degrau baixo (20-30 cm) | Dê um passo para fora e caia com os dois pés ao mesmo tempo | Aterrisse suave nas pontas e depois nos pés inteiros, quadril para trás e joelhos alinhados | Segure a posição 2 segundos ("congele") antes de levantar
+E: Joelhos caindo para dentro | Aterrissagem barulhenta | Tronco desabando à frente
+PR: Aterrissagem unipodal
+RG: Agachamento rápido até meio agachamento e "congelar"
+
+rq_frenagem_3_passos | Sprint com Frenagem em 3 Passos | cardio | Cones | int | 🛑 | cones | ca | a | CPR | 5 | 4-6
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Panturrilha, Core
+I: Marque uma linha de partida e uma de frenagem a 5-8 metros | Acelere até a linha de frenagem | Freie em até 3 passos baixando o quadril, pés afastados e tronco à frente | Termine em posição atlética estável e volte caminhando
+E: Frear com as pernas retas | Joelhos para dentro | Tronco para trás
+PR: Frenagem seguida de mudança de direção
+RG: Corrida moderada com frenagem em 5 passos
+
+rq_salto_smash | Salto Vertical com Braço de Smash | pernas_cal | Peso corporal | int | 🏸 | peso_corporal | ca | a | CPR | 4 | 5-6
+P: Quadríceps, Glúteos
+S: Panturrilha, Oblíquos, Ombros
+I: Posição de prontidão, lado do golpe ligeiramente para trás | Agache rápido e salte, levando o braço não dominante para cima e o da raquete atrás da cabeça | No ar, simule o smash girando o tronco | Aterrisse suave com os dois pés, joelhos alinhados
+E: Aterrissar com as pernas retas | Golpe só com o braço | Saltos repetidos sem estabilizar
+PR: Salto com medicine ball leve (arremesso no ar)
+RG: Smash sem salto, apenas elevação nos pés
+
+rq_tuck_jump | Salto Grupado (Tuck Jump) | pernas_cal | Peso corporal | ava | 🦘 | peso_corporal | ca | a | CPR | 3 | 5-8
+P: Quadríceps, Glúteos
+S: Flexores do Quadril, Panturrilha, Core
+I: Pés na largura do quadril | Salte o mais alto possível levando os joelhos ao peito | Estenda as pernas antes de tocar o chão | Aterrisse suave e emende o próximo salto rapidamente
+E: Aterrissagem barulhenta e rígida | Joelhos para dentro | Arredondar demais as costas no ar
+PR: Tuck jumps contínuos sem pausa
+RG: Salto vertical simples
+F: Knee_Tuck_Jump
+
+rq_salto_unipodal_stick | Salto Unipodal com Estabilização | pernas_cal | Peso corporal | ava | 🦩 | peso_corporal | ca | a | CR | 3 | 4-5 cada direção
+P: Quadríceps, Glúteo Médio
+S: Panturrilha, Tornozelo, Core
+I: Fique sobre uma perna | Salte à frente com a mesma perna e aterrisse sobre ela | Segure 2-3 segundos com joelho alinhado e quadril para trás | Repita para os lados e para trás (diagonais)
+E: Joelho caindo para dentro | Perder o equilíbrio e apoiar o outro pé | Saltar longe demais
+PR: Saltos unipodais contínuos
+RG: Saltos bipodais com aterrissagem unipodal
+
+rq_copenhagen_curto | Adução Copenhagen Curta | core | Banco ou sofá | int | 🦵 | banco | ca | b | CH5R | 3 | 15-25s cada lado
+P: Adutores
+S: Oblíquos, Core
+I: Deite de lado e apoie o JOELHO de cima sobre um banco ou sofá | Apoie o antebraço no chão, cotovelo sob o ombro | Eleve o quadril até alinhar o corpo, usando a perna de cima | Segure e desça devagar
+E: Quadril caindo | Rodar o tronco | Apoiar o pé em vez do joelho (versão avançada)
+PR: Copenhagen longa (pé apoiado)
+RG: Adução deitado de lado com a perna de baixo
+
+rq_afundo_lateral_dink | Afundo Lateral com Alcance Baixo (Dink) | pernas | Peso corporal ou raquete | ini | 🥒 | peso_corporal | ca | b | CPH5R | 3 | 8-10 cada lado
+P: Quadríceps, Adutores
+S: Glúteos, Glúteo Médio, Core
+I: Em pé com a raquete ou um objeto leve na mão | Dê um passo largo para o lado e desça o quadril sobre essa perna, a outra reta | Estenda a mão baixo e à frente, como num dink, mantendo o peito aberto | Volte empurrando com a perna de fora e alterne
+E: Joelho passando muito à frente do pé | Arredondar as costas para alcançar | Passo curto
+PR: Afundo lateral com halter
+RG: Afundo lateral com amplitude menor
+
+rq_afundo_rotacional | Afundo com Rotação de Tronco | pernas | Peso corporal ou medicine ball | int | 🌀 | peso_corporal | ca | b | CPH5R | 3 | 8 cada lado
+P: Quadríceps, Glúteos
+S: Oblíquos, Core, Adutores
+I: Segure uma bola ou peso leve à frente do peito | Dê um passo à frente em afundo | No fundo, gire o tronco para o lado da perna da frente, mantendo o joelho alinhado | Volte ao centro e retorne à posição inicial; alterne
+E: Joelho acompanhando a rotação | Girar o quadril em vez do tronco | Passo curto
+PR: Afundo rotacional com medicine ball de 3-4 kg
+
+rq_cabo_lift | Lift Diagonal no Cabo (Baixo para Alto) | core | Polia baixa | int | ↗️ | polia | a | b | CR | 3 | 10 cada lado
+P: Oblíquos, Core
+S: Glúteos, Ombros
+I: Fique de lado para a polia baixa e segure a manopla com as duas mãos perto do quadril de dentro | Agache levemente | Puxe em diagonal até acima do ombro de fora, girando o quadril e estendendo as pernas | Volte devagar pelo mesmo caminho
+E: Puxar só com os braços | Arredondar a lombar | Carga pesada demais
+PR: Lift em meia ajoelhada
+F: Standing_Cable_Lift
+
+rq_pallof_meio_ajoelhado | Pallof em Meia Ajoelhada no Cabo | core | Polia na altura do peito | int | 🛡️ | polia | a | b | C5R | 3 | 10 cada lado
+P: Oblíquos, Core
+S: Glúteos, Adutores
+I: Ajoelhe com um joelho no chão e o outro pé à frente, de lado para a polia (joelho de dentro no chão) | Segure a manopla junto ao peito | Empurre à frente e segure 3 segundos sem deixar o tronco girar | Volte ao peito com controle
+E: Tronco girando | Joelho da frente caindo | Arquear a lombar
+PR: Pallof em pé com passo lateral
+RG: Pallof ajoelhado com elástico
+
+rq_thread_needle | Prancha Lateral com Rotação (Thread the Needle) | core | Peso corporal | int | 🪡 | colchonete | ca | b | CR | 3 | 8 cada lado
+P: Oblíquos, Core
+S: Ombros, Coluna Torácica
+I: Prancha lateral apoiada no antebraço, braço de cima estendido para o teto | Passe o braço de cima por baixo do tronco, girando-o em direção ao chão | Volte abrindo o peito até o braço apontar para o teto | Mantenha o quadril alto o tempo todo
+E: Quadril caindo | Girar rápido sem controle | Cotovelo de apoio longe do ombro
+PR: Thread the needle com halter leve
+RG: Joelhos apoiados
+
+rq_star_plank | Prancha Lateral com Abdução (Star Plank) | gluteos | Peso corporal | ava | ✴️ | colchonete | ca | b | CHR5 | 3 | 6-10 cada lado
+P: Glúteo Médio, Oblíquos
+S: Abdutores, Core, Ombros
+I: Prancha lateral apoiada na mão ou antebraço, pés empilhados | Eleve a perna de cima o mais alto que conseguir com controle | Desça a perna sem deixar o quadril cair | Complete as repetições e troque de lado
+E: Quadril caindo ao levantar a perna | Girar o tronco | Levar a perna à frente
+PR: Star plank com mini band
+RG: Prancha lateral com joelho de baixo apoiado e abdução
+
+rq_open_book | Livro Aberto (Open Book Torácico) | mobilidade | Colchonete | ini | 📖 | colchonete | ca | b | C5R | 2 | 8 cada lado
+P: Coluna Torácica, Peitoral
+S: Oblíquos, Ombros
+I: Deite de lado com quadril e joelhos dobrados a 90°, braços estendidos à frente juntos | Mantenha os joelhos juntos no chão (pode prender um rolo entre eles) | Abra o braço de cima em arco, acompanhando com o olhar, até o outro lado | Volte devagar e repita
+E: Joelhos se separando | Forçar o ombro no chão | Prender a respiração
+PR: Open book com pausa e respiração no final
+
+rq_sleeper | Alongamento Sleeper (Ombro) | alongamento | Colchonete | ini | 😴 | colchonete | ca | b | C5R | 2 | 30s cada lado
+P: Manguito Rotador, Deltóide Posterior
+S: Ombros
+I: Deite de lado sobre o ombro que vai alongar, braço à frente a 90° e cotovelo dobrado a 90° | Role o tronco levemente para trás (cerca de 20-30°) | Com a outra mão, empurre suavemente o antebraço em direção ao chão | Segure sentindo alongar atrás do ombro, sem dor
+E: Forçar com dor | Ficar deitado reto sobre o ombro (pressão excessiva) | Prender a respiração
+PR: Manter mais tempo com respiração profunda
+
+rq_remada_rotacional_trx | Remada Rotacional no TRX | costas | Fita de suspensão (TRX) | int | 🎗️ | trx | ca | b | CR | 3 | 8 cada lado
+P: Latíssimo, Oblíquos
+S: Rombóides, Core, Bíceps
+I: Segure as duas alças juntas com uma mão e incline o corpo para trás | Comece com o tronco girado para o lado do braço estendido | Reme puxando o corpo e girando o tronco para frente, abrindo o braço livre para o teto | Volte devagar e complete o lado
+E: Quadril caindo | Puxar sem rotação | Ombro encolhido
+PR: Remada unilateral no TRX mais inclinada
+
+rq_band_walk_atletica | Deslocamento Lateral Atlético com Mini Band | gluteos | Mini band | ini | 🎀 | mini_band | ca | b | CR5 | 3 | 10-12 passos cada lado
+P: Glúteo Médio, Abdutores
+S: Quadríceps, Glúteos
+I: Coloque a mini band nos tornozelos ou acima dos joelhos | Assuma a posição de prontidão: meio agachamento, peito à frente | Dê passos laterais curtos e rápidos mantendo a tensão na faixa e o quadril baixo | Vá e volte sem subir o corpo
+E: Pés se juntando (faixa frouxa) | Subir o quadril | Inclinar o tronco para o lado
+PR: Shuffle com faixa e reação ao sinal
+
+rq_reacao_bola | Reação com Bola (Drop and Catch) | funcional | Bola de tênis + parceiro | ini | 🎾 | raquete | ca | b | CR5 | 4 | 8-10
+P: Coordenação, Quadríceps
+S: Panturrilha, Ombros
+I: Fique em posição de prontidão de frente para um parceiro a 1-2 metros | O parceiro segura uma bola de tênis em cada mão na altura dos ombros e solta uma delas sem aviso | Reaja e pegue a bola após um quique (ou antes, para aumentar a dificuldade) | Volte à prontidão e repita
+E: Ficar com as pernas retas | Antecipar o lado | Distância grande demais no início
+PR: Pegar antes do quique ou com uma mão só
+RG: Bola solta sempre do mesmo lado
+
+rq_bosu_lancamento | Equilíbrio no Bosu com Lançamento de Bola | equilibrio | Bosu + bola | int | 🌗 | bosu | a | b | CR5 | 3 | 30s cada perna
+P: Equilíbrio, Tornozelo
+S: Glúteo Médio, Core, Quadríceps
+I: Suba com um pé no centro do bosu (lado redondo para cima), joelho levemente dobrado | Estabilize e jogue uma bola leve contra a parede ou para um parceiro | Pegue a bola mantendo o equilíbrio | Troque de perna após o tempo
+E: Travar o joelho | Joelho caindo para dentro | Olhar só para baixo
+PR: Lançamentos para os lados
+RG: Equilíbrio no bosu com os dois pés
+
+rq_pro_agility | Pro Agility (5-10-5) | cardio | 3 cones | int | 🏃 | cones | ca | a | CPR | 5 | 1 percurso
+P: Quadríceps, Glúteos
+S: Adutores, Panturrilha, Cardio
+I: Coloque 3 cones em linha com 5 metros entre eles (ou 2,5 m em espaço pequeno) | Comece no cone do meio em posição de prontidão | Corra 5 m para um lado, toque a linha, 10 m para o outro, toque, e volte 5 m ao centro | Toque as linhas com a mão de fora baixando o quadril
+E: Frear em pé (sem baixar o quadril) | Viradas abertas | Descanso curto demais entre tentativas
+PR: Começar após um split step com sinal de direção
+
+rq_agach_espanhol | Agachamento Espanhol com Elástico (Tendão Patelar) | pernas | Elástico largo preso em ponto fixo | int | 🦵 | elastico | ca | b | CH5R | 3 | 30-45s ou 10-12
+P: Quadríceps
+S: Glúteos, Core
+I: Prenda um elástico largo em um ponto fixo baixo (pé de mesa pesada ou rack) e passe-o atrás dos joelhos | Afaste-se até o elástico ficar tenso e incline levemente o corpo para trás | Agache mantendo as canelas verticais (o elástico segura os joelhos) | Segure isometricamente ou faça repetições lentas
+E: Deixar os joelhos irem para frente | Elástico frouxo | Inclinar demais o tronco
+PR: Segurar uma anilha no peito
+RG: Amplitude menor
+
+rq_hip_airplane | Avião de Quadril (Hip Airplane) | equilibrio | Peso corporal + apoio | ava | ✈️ | peso_corporal | ca | b | CR5 | 3 | 5-6 cada perna
+P: Glúteo Médio, Rotadores do Quadril
+S: Glúteos, Isquiotibiais, Equilíbrio
+I: Fique sobre uma perna e incline o tronco à frente até ficar quase paralelo ao chão, perna livre para trás (pode tocar um apoio no início) | Gire a pelve abrindo o quadril para o lado da perna livre | Volte girando a pelve para baixo, fechando o quadril | Mantenha o joelho de apoio estável
+E: Girar só o tronco e não a pelve | Perder o equilíbrio por falta de apoio | Arredondar as costas
+PR: Hip airplane sem apoio e com pausa
+RG: Com apoio de mão em uma cadeira

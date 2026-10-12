@@ -107,12 +107,18 @@ const Dados = (() => {
     foto: null,            // dataURL (jpeg comprimido) — foto de perfil, opcional
     fcRepouso: null,      // bpm, medida deitada ao acordar
     fcMaxMedida: null,    // bpm, se ja fez teste de esforco
-    nivel: 'iniciante',   // iniciante | intermediario | avancado | elite
-    local: 'academia',    // academia | casa | parque
+    nivel: 'iniciante',   // iniciante | intermediario | avancado (elite antigo = avancado na tela)
+    local: 'academia',    // academia | casa (parque antigo ainda aceito)
     freqForca: 3,         // dias/semana de musculacao
     freqCardio: 2,        // dias/semana de aerobico
     diasTreino: [],        // dias da semana com treino previsto, 0=domingo...6=sabado
-    objetivo: 'hipertrofia', // hipertrofia | forca | resistencia | emagrecimento
+    objetivo: 'condicionamento', // condicionamento | perda_peso | hipertrofia | 50mais | raquete (antigos forca/resistencia/emagrecimento ainda aceitos)
+    equipCasa: null,      // equipamentos que tem em casa (chaves de aparelho; null = padrao de js/programas.js)
+    esporte: null,        // 'pickleball' | 'beach_tennis' — so pro objetivo raquete
+    diasJogo: [],         // dias da semana com jogo (0-6) — treino de perna pesado sai desses dias e da vespera
+    enfase: 'auto',       // auto | neutra | inferiores | superiores | gluteos
+    lembreteAtivo: false, // chamada diaria pro treino (ver js/lembretes.js)
+    lembreteHora: '18:00',
     barra: 20,            // kg da barra usada como padrao
     anilhas: [20, 15, 10, 5, 2.5, 1.25],
   };
@@ -225,6 +231,20 @@ const Dados = (() => {
   // mais recente primeiro.
 
   const sessoes = () => ler('sessoes', []);
+
+  /** Series e cargas da ultima vez que o exercicio foi feito: { data, fichaNome, sets: [{carga, reps, rir}] } ou null. */
+  function ultimoRegistro(exId) {
+    for (const s of sessoes()) {
+      const e = (s.exercicios || []).find((x) => x.exId === exId && (x.sets || []).length);
+      if (e) return { data: s.data, fichaNome: s.fichaNome, sets: e.sets };
+    }
+    // sessoes antigas sem detalhe: cai pro historico de cargas (series do mesmo dia)
+    const h = historicoCarga(exId);
+    if (!h.length) return null;
+    const dia = new Date(h[0].data).toDateString();
+    const sets = h.filter((r) => new Date(r.data).toDateString() === dia).reverse();
+    return { data: h[0].data, fichaNome: '', sets };
+  }
 
   function registrarSessao(sessao) {
     const lista = sessoes();
@@ -367,7 +387,7 @@ const Dados = (() => {
     perfil, salvarPerfil, idade, PERFIL_PADRAO,
     fichas, novaFicha, acharFicha, atualizarFicha, apagarFicha, duplicarFicha, salvarFichas,
     cardios, salvarCardio, apagarCardio,
-    registrarCarga, historicoCarga,
+    registrarCarga, historicoCarga, ultimoRegistro,
     sessoes, registrarSessao, diasTreinados,
     pesos, registrarPeso, apagarPeso,
     fotosEvolucao, registrarFotoEvolucao, apagarFotoEvolucao,

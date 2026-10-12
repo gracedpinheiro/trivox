@@ -1,0 +1,457 @@
+# EXERCÍCIOS PARA CASA (origem trivox_v2)
+# id | nome | categoria | equipamento | nivel(ini/int/ava) | icon | aparelho | local(c/a/ca) | impacto(b/m/a) | objetivos(C P H 5 R) | séries | reps
+# P: primários | S: secundários | I: instruções (" | ") | E: erros (" | ") | PR: progressão | RG: regressão | F: fedb_id
+
+casa_agach_mochila | Agachamento com Mochila | pernas | Mochila com peso (livros, garrafas) | int | 🎒 | mochila | c | b | CPH | 4 | 10-15
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Core, Eretores da Espinha
+I: Coloque 5-15 kg na mochila (livros, garrafas de água ou arroz) e ajuste bem as alças | Pés na largura dos ombros, pontas levemente para fora | Desça empurrando o quadril para trás e os joelhos na direção dos pés | Vá até as coxas ficarem paralelas ao chão mantendo o peito aberto | Suba empurrando o chão com o pé inteiro
+E: Mochila frouxa balançando nas costas | Calcanhares saindo do chão | Joelhos caindo para dentro
+PR: Agachamento búlgaro com mochila
+RG: Agachamento corporal
+
+casa_afundo_reverso | Afundo Reverso | pernas_cal | Peso corporal | ini | 🔙 | peso_corporal | ca | b | CPH5R | 3 | 10-12 cada perna
+P: Quadríceps, Glúteos
+S: Isquiotibiais, Adutores, Core
+I: Em pé, pés na largura do quadril, mãos na cintura | Dê um passo largo para trás apoiando a ponta do pé | Desça até os dois joelhos ficarem perto de 90°, joelho de trás quase tocando o chão | Empurre o chão com o pé da frente e volte à posição inicial | Alterne as pernas ou complete um lado
+E: Passo curto demais (joelho da frente sobrecarregado) | Tronco caindo para frente | Joelho da frente para dentro
+PR: Afundo reverso com halteres
+RG: Afundo reverso segurando no encosto de uma cadeira
+
+casa_bom_dia_elastico | Bom Dia com Elástico | costas | Elástico de resistência | ini | 🙇 | elastico | ca | b | CH5 | 3 | 12-15
+P: Isquiotibiais, Glúteos
+S: Eretores da Espinha, Core
+I: Pise no meio do elástico com os pés na largura do quadril | Passe a outra ponta por trás do pescoço, apoiada nos ombros (não no pescoço) | Joelhos levemente dobrados, incline o tronco à frente levando o quadril para trás | Desça até sentir alongar o posterior das coxas mantendo a coluna reta | Volte contraindo os glúteos
+E: Arredondar as costas | Dobrar demais os joelhos (vira agachamento) | Elástico apoiado no pescoço
+PR: Stiff com halteres
+RG: Hip hinge com bastão nas costas
+F: Band_Good_Morning
+
+casa_ponte_cadeira | Ponte de Glúteo com Pés na Cadeira | gluteos | Cadeira firme | int | 🪑 | cadeira | ca | b | CH5 | 3 | 12-15
+P: Glúteos, Isquiotibiais
+S: Core, Eretores da Espinha
+I: Deite de costas e apoie os calcanhares no assento de uma cadeira encostada na parede | Joelhos dobrados a cerca de 90°, braços ao lado do corpo | Empurre os calcanhares e eleve o quadril até o corpo ficar alinhado dos ombros aos joelhos | Segure 2 segundos no topo e desça devagar
+E: Arquear a lombar no topo | Cadeira deslizando | Empurrar com as pontas dos pés
+PR: Ponte unilateral com pé na cadeira
+RG: Ponte de glúteo no chão
+
+casa_hip_thrust_sofa | Hip Thrust no Sofá com Mochila | gluteos | Sofá + mochila com peso | int | 🛋️ | mochila | c | b | CPH | 4 | 10-15
+P: Glúteos
+S: Isquiotibiais, Quadríceps, Core
+I: Apoie a parte de baixo das escápulas na borda do sofá | Coloque a mochila com peso sobre o quadril, segurando com as mãos | Pés firmes no chão, na largura do quadril | Empurre o quadril para cima até o tronco ficar paralelo ao chão | Aperte os glúteos no topo e desça controlando
+E: Hiperestender a lombar no topo | Pés longe demais (trabalha só posterior) | Queixo para cima
+PR: Hip thrust unilateral no sofá
+RG: Ponte de glúteo no chão
+
+casa_flexora_toalha | Flexora Deslizante com Toalha | pernas_cal | Toalha em piso liso | int | 🧺 | toalha | ca | b | CH | 3 | 8-12
+P: Isquiotibiais
+S: Glúteos, Panturrilha, Core
+I: Deite de costas em piso liso com os calcanhares sobre uma toalha dobrada | Eleve o quadril formando uma ponte | Deslize os pés para longe até quase estender os joelhos, mantendo o quadril alto | Puxe os calcanhares de volta em direção ao glúteo | Mantenha o quadril elevado durante toda a série
+E: Quadril caindo na ida | Deslizar rápido sem controle | Arquear a lombar
+PR: Flexora deslizante unilateral
+RG: Só a fase de ida (excêntrica), apoiando o quadril para voltar
+
+casa_flexora_bola | Flexora na Bola Suíça | pernas_cal | Bola suíça | int | ⚪ | bola_suica | ca | b | CH | 3 | 10-12
+P: Isquiotibiais
+S: Glúteos, Core, Panturrilha
+I: Deite de costas com os calcanhares sobre a bola suíça e os braços abertos no chão | Eleve o quadril até alinhar o corpo | Puxe a bola em direção aos glúteos dobrando os joelhos | Estenda as pernas devagar sem deixar o quadril cair
+E: Quadril descendo ao estender | Bola escapando para o lado | Braços colados ao corpo (pouca estabilidade)
+PR: Flexora na bola com uma perna
+RG: Ponte com pés na bola (sem flexionar)
+F: Ball_Leg_Curl
+
+casa_tibial_parede | Elevação de Ponta de Pé na Parede (Tibial) | pernas_cal | Parede | ini | 🦶 | parede | ca | b | C5R | 3 | 15-20
+P: Tibial Anterior
+S: Tornozelo, Equilíbrio
+I: Encoste as costas e o quadril na parede com os pés cerca de 30 cm à frente | Mantenha os joelhos estendidos | Levante as pontas dos pés o máximo possível, apoiando só nos calcanhares | Desça devagar sem bater os pés no chão
+E: Afastar o quadril da parede | Amplitude curta | Descer batendo
+PR: Elevação unipodal ou com elástico no peito do pé
+RG: Elevação sentado na cadeira
+
+casa_agach_mini_band | Agachamento com Mini Band | gluteos | Mini band | ini | 🎀 | mini_band | ca | b | CH5 | 3 | 12-15
+P: Glúteos, Quadríceps
+S: Glúteo Médio, Abdutores, Core
+I: Coloque a mini band logo acima dos joelhos | Pés na largura dos ombros | Agache empurrando os joelhos para fora contra a resistência da faixa | Suba mantendo a tensão na faixa o tempo todo
+E: Deixar os joelhos fecharem | Faixa abaixo do joelho (sobrecarrega a articulação) | Tronco caindo à frente
+PR: Agachamento com mini band e halteres
+RG: Agachamento até a cadeira com mini band
+
+casa_ponte_abducao | Ponte com Abdução na Mini Band | gluteos | Mini band | ini | 🦋 | mini_band | ca | b | CH5R | 3 | 12-15
+P: Glúteos, Glúteo Médio
+S: Isquiotibiais, Core
+I: Deite de costas com a mini band acima dos joelhos e pés no chão | Suba o quadril na ponte | No topo, abra os joelhos contra a faixa e volte, sem deixar o quadril cair | Desça o quadril após 2-3 aberturas, ou mantenha no alto a série toda
+E: Quadril caindo ao abrir os joelhos | Arquear a lombar | Abrir com os pés em vez dos joelhos
+PR: Ponte unilateral com mini band
+RG: Abdução sentado com mini band
+
+casa_goblet_afundo_reverso | Afundo Reverso Goblet com Kettlebell | pernas | Kettlebell ou halter | int | 🔔 | kettlebell | ca | b | CPH5R | 3 | 8-12 cada perna
+P: Quadríceps, Glúteos
+S: Core, Adutores, Isquiotibiais
+I: Segure o kettlebell pela lateral da alça junto ao peito, cotovelos para baixo | Dê um passo longo para trás e desça até o joelho de trás quase tocar o chão | Mantenha o tronco ereto e o peso no pé da frente | Volte empurrando com o pé da frente e alterne
+E: Kettlebell afastando do peito | Tronco inclinando | Passo curto demais
+PR: Afundo reverso com déficit (pé da frente sobre um degrau)
+RG: Afundo reverso sem carga
+
+casa_step_up_lateral | Step-Up Lateral no Degrau | pernas_cal | Degrau ou step | ini | 🪜 | degrau_step | ca | b | CPH5R | 3 | 10-12 cada perna
+P: Quadríceps, Glúteo Médio
+S: Glúteos, Adutores, Equilíbrio
+I: Fique de lado para um degrau firme (15-30 cm) | Apoie o pé de dentro inteiro no degrau | Suba empurrando com esse pé até estender o joelho, sem impulsionar com o pé de baixo | Desça devagar tocando o calcanhar de fora no chão | Complete as repetições e troque de lado
+E: Joelho caindo para dentro | Impulsionar com a perna de baixo | Degrau instável
+PR: Step-up lateral com halteres
+RG: Step-up lateral em degrau mais baixo com apoio na parede
+
+casa_agach_bola_parede | Agachamento com Bola Suíça na Parede | pernas | Bola suíça + parede | ini | ⚽ | bola_suica | ca | b | CH5 | 3 | 12-15
+P: Quadríceps, Glúteos
+S: Core, Adutores
+I: Coloque a bola suíça entre a lombar e a parede | Pés um pouco à frente do corpo, na largura dos ombros | Desça rolando a bola nas costas até as coxas ficarem perto de paralelas | Suba empurrando o chão e mantendo o contato com a bola
+E: Pés muito perto da parede | Joelhos para dentro | Descer além do confortável
+PR: Agachamento com bola e halteres
+RG: Agachamento com bola com amplitude menor
+
+casa_flexao_inclinada | Flexão Inclinada na Bancada | peito | Bancada, mesa firme ou sofá | ini | 📐 | cadeira | ca | b | CPH5 | 3 | 10-15
+P: Peitoral, Tríceps
+S: Deltóide Anterior, Core, Serrátil
+I: Apoie as mãos na borda de uma bancada ou mesa firme, um pouco além da largura dos ombros | Afaste os pés até o corpo formar uma linha reta inclinada | Desça o peito em direção à borda com cotovelos a cerca de 45° | Empurre até estender os braços sem perder o alinhamento
+E: Usar móvel que desliza | Quadril caindo | Cotovelos abertos a 90°
+PR: Flexão no chão com joelhos ou completa
+RG: Flexão na parede
+F: Incline_Push-Up
+
+casa_flexao_mochila | Flexão com Mochila nas Costas | empurrar | Mochila com peso | ava | 🎒 | mochila | c | b | CPH | 4 | 6-12
+P: Peitoral, Tríceps
+S: Deltóide Anterior, Core, Serrátil
+I: Coloque a mochila com peso bem presa nas costas, alças apertadas | Posição de flexão com mãos um pouco além dos ombros | Desça até o peito quase tocar o chão mantendo o corpo rígido | Empurre o chão até estender os braços
+E: Mochila escorregando para o pescoço | Quadril caindo pelo peso extra | Amplitude curta
+PR: Flexão com pés elevados e mochila
+RG: Flexão de braços sem carga
+
+casa_supino_elastico | Supino em Pé com Elástico | peito | Elástico de resistência | ini | 🎗️ | elastico | ca | b | CH5 | 3 | 12-15
+P: Peitoral, Tríceps
+S: Deltóide Anterior, Core
+I: Passe o elástico pelas costas na altura das axilas, uma ponta em cada mão (ou prenda numa porta atrás de você) | Um pé à frente do outro, abdômen contraído | Empurre as mãos à frente até estender os braços | Volte devagar até as mãos ficarem ao lado do peito
+E: Arquear a lombar | Deixar o elástico puxar rápido na volta | Ombros subindo
+PR: Supino em pé unilateral com elástico
+RG: Flexão inclinada
+
+casa_crucifixo_elastico | Crucifixo em Pé com Elástico | peito | Elástico de resistência | ini | 🦅 | elastico | ca | b | H5 | 3 | 12-15
+P: Peitoral
+S: Deltóide Anterior, Bíceps
+I: Prenda o elástico atrás de você na altura do peito (porta) ou passe pelas costas | Braços abertos com cotovelos levemente dobrados | Feche os braços em arco até as mãos se encontrarem à frente | Volte devagar até sentir alongar o peito
+E: Dobrar e estender os cotovelos (vira supino) | Inclinar o tronco à frente | Voltar rápido
+PR: Crossover com elástico de maior tensão
+F: Cross_Over_-_With_Bands
+
+casa_remada_toalha_porta | Remada com Toalha na Porta | costas | Toalha + porta firme | ini | 🚪 | toalha | c | b | CH5 | 3 | 10-15
+P: Latíssimo, Rombóides
+S: Bíceps, Trapézio Médio, Core
+I: Passe uma toalha grossa em volta da maçaneta dos dois lados de uma porta firme e feche-a (ou use o batente) | Segure as pontas e dê pequenos passos à frente, inclinando o corpo para trás com os braços estendidos | Puxe o peito em direção à porta levando os cotovelos para trás | Volte devagar estendendo os braços
+E: Usar porta que abre para o seu lado | Quadril caindo | Encolher os ombros
+PR: Remada invertida embaixo da mesa
+RG: Ficar mais em pé (menos inclinação)
+
+casa_remada_mochila | Remada Curvada com Mochila | costas | Mochila com peso | ini | 🎒 | mochila | c | b | CPH | 3 | 10-15
+P: Latíssimo, Rombóides
+S: Bíceps, Trapézio, Eretores da Espinha
+I: Segure a mochila pelas alças com as duas mãos | Joelhos levemente dobrados, incline o tronco a cerca de 45° com a coluna reta | Puxe a mochila em direção ao abdômen levando os cotovelos para trás | Aperte as escápulas e desça devagar
+E: Arredondar as costas | Puxar com tranco do tronco | Encolher os ombros
+PR: Remada unilateral com mochila mais pesada
+RG: Remada com elástico
+
+casa_remada_gorila | Remada Gorila com Kettlebell | costas | 2 kettlebells ou halteres | int | 🦍 | kettlebell | ca | b | CPH | 3 | 8-10 cada lado
+P: Latíssimo, Rombóides
+S: Core, Bíceps, Isquiotibiais
+I: Pés bem afastados com dois kettlebells entre eles | Incline o tronco quase paralelo ao chão, quadril para trás e coluna reta | Reme um kettlebell até o quadril enquanto a outra mão empurra o outro kettlebell no chão | Desça e alterne os lados de forma controlada
+E: Girar o tronco a cada remada | Arredondar a lombar | Kettlebells muito à frente dos pés
+PR: Remada gorila com kettlebells mais pesados
+RG: Remada unilateral apoiada (serrote)
+
+casa_pulldown_elastico | Pulldown de Braços Estendidos com Elástico | costas | Elástico de resistência | ini | 🔽 | elastico | ca | b | CH5 | 3 | 12-15
+P: Latíssimo
+S: Tríceps, Core, Serrátil
+I: Prenda o elástico no alto da porta e segure com as mãos na largura dos ombros | Dê um passo para trás e incline levemente o tronco, braços estendidos à frente | Leve as mãos até as coxas em arco, cotovelos quase retos | Volte devagar até os braços na altura dos olhos
+E: Dobrar os cotovelos | Balançar o tronco | Encolher os ombros
+PR: Pulldown no cabo
+RG: Elástico mais leve
+
+casa_desenv_elastico | Desenvolvimento com Elástico | ombros | Elástico de resistência | ini | 🙌 | elastico | ca | b | CH5 | 3 | 12-15
+P: Deltóide Anterior, Deltóide Medial
+S: Tríceps, Trapézio, Core
+I: Pise no meio do elástico com os pés na largura do quadril | Segure as pontas na altura dos ombros, palmas para frente | Empurre as mãos para cima até estender os braços sem arquear a lombar | Desça devagar até os ombros
+E: Arquear a lombar | Cotovelos muito à frente | Descer de uma vez
+PR: Desenvolvimento com halteres
+RG: Desenvolvimento sentado com elástico
+F: Shoulder_Press_-_With_Bands
+
+casa_elev_lateral_elastico | Elevação Lateral com Elástico | ombros | Elástico de resistência | ini | ↔️ | elastico | ca | b | H5 | 3 | 12-15
+P: Deltóide Medial
+S: Trapézio Superior, Manguito Rotador
+I: Pise no elástico com os dois pés (ou um, para menos tensão) | Segure as pontas ao lado das coxas, cotovelos levemente dobrados | Eleve os braços para os lados até a altura dos ombros | Desça devagar resistindo ao elástico
+E: Subir acima da linha dos ombros | Encolher os ombros | Balançar o corpo
+PR: Elevação lateral com halteres
+F: Lateral_Raise_-_With_Bands
+
+casa_halo_kb | Halo com Kettlebell | ombros | Kettlebell ou anilha | ini | 😇 | kettlebell | ca | b | C5R | 3 | 6-8 cada direção
+P: Ombros, Core
+S: Tríceps, Trapézio, Coluna Torácica
+I: Segure o kettlebell de cabeça para baixo pela alça, na frente do peito | Contraia o abdômen e os glúteos | Circule o kettlebell em volta da cabeça, passando perto da nuca | Volte à frente do peito e alterne a direção a cada repetição
+E: Arquear a lombar ao passar atrás | Kettlebell longe da cabeça | Carga pesada demais
+PR: Halo em meia ajoelhada
+RG: Halo com anilha leve
+F: Kettlebell_Halo
+
+casa_rosca_martelo_cruzada | Rosca Martelo Cruzada | biceps | Halteres | ini | 🔨 | halteres | ca | b | H5R | 3 | 10-12 cada braço
+P: Braquiorradial, Braquial
+S: Bíceps, Antebraços
+I: Em pé, halteres ao lado do corpo com as palmas viradas para o corpo | Suba um halter cruzando à frente do peito em direção ao ombro oposto | Mantenha o cotovelo junto ao corpo | Desça devagar e alterne os braços
+E: Balançar o tronco | Girar o punho durante o movimento | Cotovelo indo para frente
+PR: Rosca Zottman
+F: Cross_Body_Hammer_Curl
+
+casa_triceps_toalha | Tríceps Francês com Toalha (Autorresistência) | triceps | Toalha | ini | 🧣 | toalha | ca | b | H5 | 3 | 10-12 cada braço
+P: Tríceps
+S: Ombros, Antebraços
+I: Segure uma ponta da toalha com a mão que vai trabalhar, acima da cabeça, cotovelo dobrado | A outra mão segura a outra ponta atrás das costas, na altura da lombar | Estenda o cotovelo de cima puxando a toalha contra a resistência da mão de baixo | Volte devagar deixando a mão de baixo puxar, e troque de braço
+E: Resistência fraca demais | Cotovelo de cima abrindo para o lado | Arquear as costas
+PR: Tríceps francês com halter
+F: Standing_Towel_Triceps_Extension
+
+casa_triceps_elastico_overhead | Tríceps Overhead com Elástico | triceps | Elástico de resistência | ini | 🎯 | elastico | ca | b | H5 | 3 | 12-15
+P: Tríceps
+S: Core, Ombros
+I: Pise na ponta do elástico com o pé de trás (posição de passo) | Segure a outra ponta com as duas mãos atrás da cabeça, cotovelos apontando para cima | Estenda os cotovelos levando as mãos acima da cabeça | Volte devagar mantendo os cotovelos fixos
+E: Abrir os cotovelos para os lados | Arquear a lombar | Mover os ombros
+PR: Tríceps francês com halter
+
+casa_canivete_bola | Canivete na Bola Suíça | core | Bola suíça | int | 🔪 | bola_suica | ca | b | CPH | 3 | 10-12
+P: Reto Abdominal, Core
+S: Flexores do Quadril, Ombros, Serrátil
+I: Posição de prancha alta com as mãos no chão e as canelas sobre a bola | Contraia o abdômen | Puxe os joelhos em direção ao peito rolando a bola para frente | Estenda as pernas de volta à prancha sem deixar o quadril cair
+E: Lombar afundando na volta | Ombros à frente das mãos | Pressa
+PR: Pike na bola suíça
+RG: Prancha com canelas na bola
+F: Exercise_Ball_Pull-In
+
+casa_prancha_bola | Prancha com Antebraços na Bola Suíça | core | Bola suíça | int | 🔵 | bola_suica | ca | b | CR | 3 | 20-40s
+P: Core, Reto Abdominal
+S: Ombros, Serrátil, Glúteos
+I: Ajoelhe-se atrás da bola e apoie os antebraços sobre ela | Estenda as pernas para trás, apoiando nas pontas dos pés | Alinhe cabeça, tronco e pernas, contraindo abdômen e glúteos | Segure sem deixar a bola rolar, respirando normalmente
+E: Quadril alto ou baixo | Prender a respiração | Bola rolando
+PR: Stir the pot
+RG: Prancha no chão
+
+casa_bear_hold | Prancha do Urso (Bear Hold) | core | Peso corporal | ini | 🐻 | colchonete | ca | b | C5 | 3 | 20-40s
+P: Core, Transverso Abdominal
+S: Ombros, Quadríceps, Serrátil
+I: Em quatro apoios, mãos sob os ombros e joelhos sob o quadril | Apoie nas pontas dos pés | Eleve os joelhos 2-5 cm do chão mantendo as costas retas | Segure respirando, sem deixar o quadril subir
+E: Quadril subindo | Costas arredondadas | Prender a respiração
+PR: Bear crawl
+RG: Quatro apoios com elevação de um braço
+
+casa_toque_calcanhar | Toque nos Calcanhares | core | Peso corporal | ini | 👆 | colchonete | ca | b | C | 3 | 20-30
+P: Oblíquos
+S: Reto Abdominal
+I: Deite de costas com os joelhos dobrados e pés no chão, afastados | Tire levemente os ombros do chão | Incline o tronco para um lado tocando o calcanhar com a mão | Alterne os lados sem apoiar os ombros
+E: Puxar o pescoço | Apoiar os ombros entre as repetições | Movimento rápido demais
+PR: Toque nos calcanhares com pausa
+F: Alternate_Heel_Touchers
+
+casa_pallof_elastico | Pallof Press com Elástico | core | Elástico + porta | ini | 🛡️ | elastico | ca | b | C5R | 3 | 10-12 cada lado
+P: Oblíquos, Core
+S: Glúteos, Ombros
+I: Prenda o elástico na altura do peito (porta) e fique de lado para ele | Segure com as duas mãos junto ao peito, pés na largura do quadril | Empurre as mãos à frente e segure 2 segundos sem deixar o tronco girar | Volte as mãos ao peito com controle
+E: Tronco girando para o elástico | Elástico frouxo | Arquear a lombar
+PR: Pallof press em meia ajoelhada com elástico mais forte
+RG: Pallof isométrico ajoelhado
+
+casa_prancha_lateral_quadril | Prancha Lateral com Elevação de Quadril | core | Peso corporal | int | 📈 | colchonete | ca | b | CR | 3 | 10-12 cada lado
+P: Oblíquos, Quadrado Lombar
+S: Glúteo Médio, Core
+I: Deite de lado apoiado no antebraço, cotovelo sob o ombro e pés empilhados | Eleve o quadril até o corpo ficar alinhado | Desça o quadril quase tocando o chão | Suba de novo contraindo os oblíquos
+E: Cotovelo longe do ombro | Quadril para trás | Rodar o tronco
+PR: Prancha lateral com abdução da perna de cima
+RG: Prancha lateral com joelhos dobrados
+
+casa_dead_bug_bola | Dead Bug com Bola Suíça | core | Bola suíça | int | 🐞 | bola_suica | ca | b | C5 | 3 | 8-10 cada lado
+P: Core, Transverso Abdominal
+S: Reto Abdominal, Flexores do Quadril
+I: Deite de costas segurando a bola suíça entre as mãos e os joelhos, quadril e joelhos a 90° | Pressione a bola com mãos e joelhos e cole a lombar no chão | Estenda um braço para trás e a perna oposta à frente sem soltar a bola | Volte e alterne os lados
+E: Lombar descolando | Soltar a bola | Movimento rápido
+PR: Dead bug com halter
+RG: Dead bug comum
+
+casa_kb_clean_press | Clean and Press com Kettlebell | funcional | Kettlebell | int | 🏋️ | kettlebell | ca | m | CPH | 4 | 6-8 cada lado
+P: Ombros, Glúteos
+S: Isquiotibiais, Core, Tríceps, Trapézio
+I: Kettlebell entre os pés, quadril para trás e coluna reta | Estenda o quadril de forma explosiva e puxe o kettlebell junto ao corpo até a posição de rack | Receba o kettlebell suavemente no antebraço, cotovelo junto ao corpo | Empurre acima da cabeça até travar o braço | Volte ao rack e depois ao chão com controle
+E: Deixar o kettlebell bater no antebraço | Puxar só com o braço | Arquear a lombar no press
+PR: Clean and jerk com kettlebell
+RG: Press com kettlebell a partir do rack
+
+casa_snatch_halter | Snatch Unilateral com Halter | funcional | Halter | ava | ⚡ | halteres | ca | m | CP | 4 | 5-8 cada lado
+P: Glúteos, Ombros
+S: Isquiotibiais, Trapézio, Core, Quadríceps
+I: Halter no chão entre os pés, quadril para trás e coluna neutra | Estenda o quadril e os joelhos explosivamente | Puxe o halter perto do corpo e gire o cotovelo por baixo para receber acima da cabeça | Trave o braço estendido com o bíceps perto da orelha | Desça o halter em duas fases (ombro e depois chão)
+E: Puxar com o braço sem usar o quadril | Halter longe do corpo | Receber com o cotovelo dobrado
+PR: Snatch com kettlebell
+RG: Remada alta explosiva com halter
+
+casa_man_maker | Man Maker com Halteres | funcional | Halteres | ava | 💪 | halteres | ca | m | CPH | 3 | 5-8
+P: Full Body
+S: Peitoral, Latíssimo, Ombros, Quadríceps, Core
+I: Comece em prancha alta com as mãos em dois halteres | Faça uma flexão e depois uma remada com cada braço | Salte os pés até as mãos e faça um clean dos halteres até os ombros | Agache e suba empurrando os halteres acima da cabeça (thruster) | Desça os halteres ao chão e recomece
+E: Quadril girando nas remadas | Arredondar as costas no clean | Halteres pesados demais
+PR: Man maker com halteres mais pesados
+RG: Burpee com remada
+
+casa_devil_press | Devil Press | funcional | Halteres | ava | 😈 | halteres | ca | a | CP | 4 | 6-10
+P: Full Body
+S: Glúteos, Ombros, Peitoral, Isquiotibiais
+I: Fique em pé sobre dois halteres e faça um burpee com as mãos neles (peito ao chão) | Volte os pés para perto das mãos com quadril para trás e coluna reta | Balance os halteres entre as pernas e projete-os acima da cabeça em um só movimento | Trave os braços no topo e desça os halteres de volta ao chão
+E: Arredondar a lombar no balanço | Usar carga pesada demais | Pular a extensão completa do quadril
+PR: Devil press com halteres mais pesados
+RG: Burpee + thruster separados
+
+casa_inchworm | Inchworm (Lagarta) | funcional | Peso corporal | ini | 🐛 | peso_corporal | ca | b | CP5 | 3 | 6-8
+P: Core, Isquiotibiais
+S: Ombros, Peitoral, Tríceps
+I: Em pé, incline o tronco e apoie as mãos no chão (dobre os joelhos se precisar) | Caminhe com as mãos à frente até a posição de prancha alta | Segure 1 segundo com o corpo alinhado | Caminhe com os pés em direção às mãos e volte a ficar em pé
+E: Quadril caindo na prancha | Travar os joelhos com dor no posterior | Pressa
+PR: Inchworm com flexão
+F: Inchworm
+
+casa_squat_thrust | Squat Thrust (Burpee sem Salto) | funcional | Peso corporal | ini | ⬇️ | peso_corporal | ca | b | CP5 | 3 | 8-12
+P: Full Body, Cardio
+S: Quadríceps, Core, Ombros
+I: Em pé, agache e apoie as mãos no chão | Leve um pé de cada vez para trás até a prancha (ou salte se for fácil) | Volte os pés para perto das mãos | Fique em pé sem saltar e repita em ritmo constante
+E: Quadril caindo na prancha | Arredondar as costas ao agachar | Pressa que tira a técnica
+PR: Burpee
+RG: Squat thrust com mãos em um degrau
+
+casa_kb_figura8 | Figura 8 com Kettlebell | funcional | Kettlebell | int | ♾️ | kettlebell | ca | m | CPR | 3 | 30-45s
+P: Core, Glúteos
+S: Isquiotibiais, Antebraços, Oblíquos
+I: Pés afastados, joelhos dobrados e quadril para trás como no swing | Passe o kettlebell por entre as pernas de uma mão para a outra, fazendo um 8 | Mantenha o tronco inclinado e a coluna reta | Acelere o ritmo conforme ganhar controle
+E: Arredondar as costas | Ficar ereto demais | Kettlebell pesado demais
+PR: Figura 8 com hold (pausa no alto)
+F: Kettlebell_Figure_8
+
+casa_afundo_passagem_kb | Afundo com Passagem de Kettlebell | funcional | Kettlebell | int | 🔄 | kettlebell | ca | b | CPH5R | 3 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Core, Oblíquos, Antebraços
+I: Segure o kettlebell em uma mão e dê um passo à frente em afundo | No fundo do afundo, passe o kettlebell por baixo da coxa da frente para a outra mão | Volte à posição inicial | Alterne a perna a cada repetição, passando o kettlebell sempre por baixo da perna da frente
+E: Tronco girando muito | Passo curto | Joelho batendo no chão
+PR: Afundo com passagem andando
+F: Lunge_Pass_Through
+
+casa_skater_squat | Agachamento Patinador (Skater Squat) | pernas_cal | Peso corporal | ava | ⛸️ | peso_corporal | ca | b | CHR5 | 3 | 5-8 cada perna
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Core, Equilíbrio
+I: Em pé sobre uma perna, a outra dobrada para trás com o pé no ar | Braços à frente para contrabalançar | Desça até o joelho de trás tocar levemente uma almofada no chão | Suba empurrando com o pé inteiro da perna de apoio
+E: Joelho da frente caindo para dentro | Bater o joelho no chão | Tronco desabando
+PR: Skater squat com halteres
+RG: Skater squat com almofada alta ou apoio
+
+casa_frog_pump | Frog Pump (Ponte Borboleta) | gluteos | Peso corporal | ini | 🐸 | colchonete | ca | b | CH5 | 3 | 15-25
+P: Glúteos
+S: Adutores, Core
+I: Deite de costas e junte as solas dos pés, joelhos abertos | Calcanhares perto do glúteo | Empurre as bordas externas dos pés e eleve o quadril | Aperte os glúteos no topo e desça
+E: Arquear a lombar | Joelhos fechando | Amplitude curta
+PR: Frog pump com halter no quadril
+
+casa_step_down | Step Down (Descida Excêntrica no Degrau) | pernas_cal | Degrau ou step | int | 🔽 | degrau_step | ca | b | CH5R | 3 | 8-10 cada perna
+P: Quadríceps
+S: Glúteo Médio, Glúteos, Equilíbrio
+I: Fique sobre um degrau com um pé, o outro solto à frente ou ao lado | Desça devagar (3 segundos) dobrando o joelho de apoio até o calcanhar livre tocar o chão | Mantenha o joelho alinhado com o segundo dedo do pé | Suba estendendo a perna de apoio
+E: Joelho caindo para dentro | Quadril inclinando | Descer rápido demais
+PR: Step down em degrau mais alto com halteres
+RG: Step down em degrau baixo com apoio na parede
+
+casa_flexao_pes_bola | Flexão com Pés na Bola Suíça | empurrar | Bola suíça | ava | 🔵 | bola_suica | ca | b | CPH | 3 | 6-12
+P: Peitoral, Tríceps
+S: Core, Deltóide Anterior, Serrátil
+I: Apoie as canelas ou os pés sobre a bola e as mãos no chão | Alinhe o corpo, abdômen e glúteos contraídos | Desça o peito ao chão controlando a bola | Empurre de volta sem deixar o quadril cair
+E: Bola rolando | Quadril caindo | Cotovelos abertos demais
+PR: Flexão com pés na bola e um pé só
+RG: Flexão no chão
+F: Push-Ups_With_Feet_On_An_Exercise_Ball
+
+casa_flexao_hindu | Flexão Hindu | empurrar | Peso corporal | int | 🐍 | peso_corporal | ca | b | CPH | 3 | 6-10
+P: Peitoral, Ombros
+S: Tríceps, Core, Coluna Torácica
+I: Comece em V invertido (quadril alto), mãos um pouco além dos ombros | Dobre os cotovelos e passe o peito rente ao chão, como um mergulho | Termine com o peito para frente e os braços estendidos (posição de cobra) | Volte empurrando o quadril para trás até o V invertido
+E: Bater o peito no chão | Arquear demais a lombar no final | Pressa sem controle
+PR: Dive bomber
+RG: Pike push-up
+
+casa_dive_bomber | Dive Bomber | empurrar | Peso corporal | ava | 🛩️ | peso_corporal | ca | b | CH | 3 | 6-8
+P: Peitoral, Ombros
+S: Tríceps, Core, Serrátil
+I: Comece em V invertido com as mãos afastadas | Mergulhe o peito rente ao chão até a posição de cobra | Volte pelo mesmo caminho, passando o peito perto do chão | Retorne ao V invertido com o quadril alto
+E: Voltar subindo o quadril direto (sem o mergulho) | Cotovelos abertos | Lombar sobrecarregada
+PR: Dive bomber com pés elevados
+RG: Flexão hindu
+
+casa_agach_frontal_2kb | Agachamento Frontal com 2 Kettlebells | pernas | 2 kettlebells | int | 🔔 | kettlebell | ca | b | CPH | 4 | 8-10
+P: Quadríceps, Glúteos
+S: Core, Eretores da Espinha, Adutores
+I: Leve os dois kettlebells à posição de rack, apoiados nos antebraços, cotovelos junto ao corpo | Pés na largura dos ombros | Agache mantendo o tronco vertical e os cotovelos apontando para baixo | Suba empurrando o chão com o pé inteiro
+E: Tronco inclinando à frente | Kettlebells afastando do peito | Joelhos para dentro
+PR: Agachamento frontal com pausa
+RG: Agachamento goblet
+F: Front_Squats_With_Two_Kettlebells
+
+casa_terra_kb | Levantamento Terra com Kettlebell | pernas | Kettlebell | ini | 🔔 | kettlebell | ca | b | CPH5 | 3 | 10-12
+P: Glúteos, Isquiotibiais
+S: Eretores da Espinha, Quadríceps, Antebraços
+I: Kettlebell entre os pés, alinhado com o meio do pé | Leve o quadril para trás e dobre os joelhos até segurar a alça com as duas mãos, coluna reta | Empurre o chão e estenda o quadril até ficar em pé | Desça o kettlebell pelo mesmo caminho, quadril para trás primeiro
+E: Arredondar as costas | Agachar demais (vira agachamento) | Kettlebell longe do corpo
+PR: Terra unilateral com kettlebell
+RG: Hip hinge com bastão
+
+casa_face_pull_elastico | Face Pull com Elástico | ombros | Elástico + porta | ini | 🎭 | elastico | ca | b | CH5R | 3 | 15-20
+P: Deltóide Posterior, Manguito Rotador
+S: Rombóides, Trapézio Médio
+I: Prenda o elástico na altura do rosto (porta ou barra) | Segure com as palmas para baixo e dê um passo para trás | Puxe em direção ao rosto abrindo os cotovelos e girando as mãos para trás | Termine com as mãos ao lado das orelhas, como mostrando os bíceps, e volte devagar
+E: Cotovelos baixos | Inclinar o tronco para trás | Encolher os ombros
+PR: Face pull na polia com corda
+
+casa_afundo_cruzado | Afundo Cruzado (Curtsy Lunge) | gluteos | Peso corporal ou halteres | ini | 💃 | peso_corporal | ca | b | CPH5R | 3 | 10-12 cada perna
+P: Glúteos, Glúteo Médio
+S: Quadríceps, Adutores, Core
+I: Em pé, pés na largura do quadril | Leve uma perna para trás e cruzada atrás da outra, como numa reverência | Desça até o joelho da frente ficar perto de 90°, quadril de frente | Volte empurrando o pé da frente e alterne
+E: Girar o quadril | Joelho da frente para dentro | Passo curto demais
+PR: Afundo cruzado com halteres
+RG: Afundo cruzado com apoio na cadeira
+F: Crossover_Reverse_Lunge
+
+casa_ponte_unilateral_mochila | Hip Thrust Unilateral com Mochila | gluteos | Sofá + mochila | ava | 🎒 | mochila | c | b | CH5 | 3 | 8-12 cada perna
+P: Glúteos
+S: Isquiotibiais, Glúteo Médio, Core
+I: Apoie as escápulas na borda do sofá com a mochila sobre o quadril | Um pé no chão, a outra perna dobrada no ar | Empurre o calcanhar de apoio e eleve o quadril nivelado | Desça devagar sem deixar o quadril inclinar
+E: Quadril caindo para o lado livre | Arquear a lombar | Pé de apoio longe demais
+PR: Hip thrust unilateral com pausa de 3s
+RG: Hip thrust no sofá com as duas pernas
+
+casa_agach_salto_lateral | Agachamento com Deslocamento Lateral | pernas_cal | Peso corporal | int | 🦀 | peso_corporal | ca | b | CPR | 3 | 30-40s
+P: Quadríceps, Glúteos
+S: Glúteo Médio, Adutores, Cardio
+I: Agache em meia posição | Dê dois passos rápidos para o lado mantendo o agachamento baixo | Faça um agachamento completo | Volte para o outro lado e repita sem ficar em pé
+E: Subir o quadril entre os passos | Cruzar os pés | Joelhos para dentro
+PR: Deslocamento lateral com mini band
+RG: Passos laterais sem agachar fundo
+
+casa_bulgaro_cadeira_mochila | Búlgaro na Cadeira com Mochila | pernas | Cadeira + mochila | ava | 🪑 | mochila | c | b | CPHR5 | 4 | 8-10 cada perna
+P: Quadríceps, Glúteos
+S: Adutores, Isquiotibiais, Core
+I: Coloque a mochila com peso nas costas e fique de costas para uma cadeira encostada na parede | Apoie o peito do pé de trás no assento | Desça até o joelho de trás quase tocar o chão, tronco levemente inclinado | Suba empurrando com o pé da frente
+E: Pé da frente perto demais da cadeira | Joelho da frente para dentro | Cadeira instável
+PR: Búlgaro com déficit
+RG: Búlgaro sem carga
+
+casa_prancha_lateral_remada | Prancha Lateral com Remada no Kettlebell | core | Kettlebell ou halter | ava | 🛶 | kettlebell | ca | b | CHR5 | 3 | 6-8 cada lado
+P: Oblíquos, Latíssimo
+S: Rombóides, Glúteo Médio, Core, Manguito Rotador
+I: Prancha lateral apoiada na mão (braço estendido) com os pés empilhados ou afastados | Segure um kettlebell leve com a mão de cima, braço estendido para o chão à frente do peito | Reme o kettlebell até o lado do tronco mantendo o quadril alto | Desça o peso devagar sem deixar o corpo girar | Complete o lado e troque
+E: Quadril caindo durante a remada | Girar o tronco para frente | Mão de apoio fora da linha do ombro
+PR: Prancha lateral com remada e abdução da perna
+RG: Prancha lateral no antebraço com remada com elástico
