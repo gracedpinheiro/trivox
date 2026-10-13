@@ -13,9 +13,9 @@ preferência todas.
   - dois quadros por imagem, posição inicial → final.
 - **Uma imagem por combinação de movimento + implemento + apoio**, as mesmas chaves de
   `data/figuras_mapa.json`. Os 361 movimentos principais vêm primeiro.
-- **Já estão no app 504 imagens** (`data/ilustracoes/`, 1280x720, cerca de 50 KB cada):
-  - 1314 dos 1535 exercícios têm imagem própria;
-  - 220 usam a imagem do mesmo movimento com outro implemento;
+- **Já estão no app 520 imagens** (`data/ilustracoes/`, 1280x720, cerca de 50 KB cada):
+  - 1330 dos 1535 exercícios têm imagem própria;
+  - 204 usam a imagem do mesmo movimento com outro implemento;
   - 1 segue com o boneco animado (alongamento de quadríceps deitado de lado).
 - **Implemento "-"** (sem implemento padrão) vira "x" no nome do arquivo, para não colidir
   com o movimento-base (ex.: `flexao__x__.jpg` x `flexao____.jpg`).
@@ -33,7 +33,7 @@ preferência todas.
 ## Em aberto
 - Os 361 movimentos principais estão feitos, menos o alongamento de quadríceps deitado de
   lado: a IA errou duas vezes (a perna ia para a frente em vez de o calcanhar ir ao glúteo).
-- Variações de implemento: feitas até o item #509. Próximo passo: #510 a #721 (o Canva pausa a cota a cada ~20-60 imagens).
+- Variações de implemento: feitas até o item #525. Próximo passo: #526 a #721 (o Canva pausa a cota a cada ~20-60 imagens).
 - Refazer (a IA errou mesmo com instruções mais explícitas): corrida estacionária, tornozelo com
   elástico, elevação de tibial com kettlebell e bom dia com mochila (costas curvadas).
 - Fotos dos aparelhos sem pessoas (pedido do teste no celular): ainda depende de decisão.
