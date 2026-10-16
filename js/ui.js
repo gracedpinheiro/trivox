@@ -1168,7 +1168,7 @@ const UI = (() => {
     return `
       <div class="anel">
         <svg viewBox="0 0 230 230" aria-hidden="true">
-          <circle cx="115" cy="115" r="${r}" fill="none" stroke="#F2F2EF" stroke-width="10"/>
+          <circle cx="115" cy="115" r="${r}" fill="none" style="stroke:var(--cartao-alto)" stroke-width="10"/>
           <circle id="${idEl}-anel" cx="115" cy="115" r="${r}" fill="none" stroke="${cor}" stroke-width="10" stroke-linecap="round"
             stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - frac)).toFixed(1)}" data-c="${c.toFixed(1)}" data-total="${total}"/>
         </svg>
@@ -2024,6 +2024,14 @@ const UI = (() => {
         </div>
       </div>
 
+      <div class="cartao">
+        <div class="cartao-titulo"><h2>Aparência</h2></div>
+        <div class="chips">
+          ${[['dia', 'Dia'], ['noite', 'Noite'], ['auto', 'Automático']].map(([v, nome]) => `<button class="chip ${temaEscolhido() === v ? 'ativo' : ''}" data-acao="tema" data-valor="${v}" aria-pressed="${temaEscolhido() === v}">${nome}</button>`).join('')}
+        </div>
+        <p class="pequeno apagado" style="margin-top:8px">Fundo claro, fundo escuro, ou seguir o tema do celular. Vale para este aparelho.</p>
+      </div>
+
       <div class="cartao c-sol">
         <div class="cartao-titulo"><h2>Chamada pro treino</h2></div>
         <p class="pequeno">Um lembrete todo dia de treino, no horário que você escolher — dá para ter 2 no mesmo dia e mudar quando quiser.</p>
@@ -2240,6 +2248,30 @@ const UI = (() => {
     raiz.querySelectorAll('button.voltar:not([aria-label])').forEach((b) => b.setAttribute('aria-label', 'Voltar'));
   }
 
+  // ---------- tema (dia / noite / automatico) ----------
+  // preferencia do APARELHO (nao do perfil): fica em localStorage fora das chaves "at:", entao
+  // nao vai pro backup nem pra nuvem e sobrevive ao "Comecar do zero". O index.html le a mesma
+  // chave antes de pintar a tela, pra nao piscar claro ao abrir no tema noite.
+  const CHAVE_TEMA = 'trivox-tema';
+  const temaEscolhido = () => { try { return localStorage.getItem(CHAVE_TEMA) || 'dia'; } catch (e) { return 'dia'; } };
+  const escuroNoSistema = window.matchMedia ? matchMedia('(prefers-color-scheme: dark)') : null;
+
+  function aplicarTema() {
+    const escolhido = temaEscolhido();
+    const tema = escolhido === 'auto' ? (escuroNoSistema && escuroNoSistema.matches ? 'noite' : 'dia') : escolhido;
+    document.documentElement.dataset.tema = tema;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = tema === 'noite' ? '#111214' : '#F6F6F3';
+  }
+
+  function escolherTema(valor) {
+    try { localStorage.setItem(CHAVE_TEMA, valor); } catch (e) { /* sem armazenamento: vale so ate fechar */ }
+    aplicarTema();
+  }
+
+  // no automatico, acompanha o celular trocando de claro para escuro com o app aberto
+  if (escuroNoSistema && escuroNoSistema.addEventListener) escuroNoSistema.addEventListener('change', () => { if (temaEscolhido() === 'auto') aplicarTema(); });
+
   function render() {
     const telas = {
       inicio: telaInicio,
@@ -2260,7 +2292,7 @@ const UI = (() => {
   }
 
   return {
-    estado, render, ir, h, abrirModal, fecharModal, perfilTreino, PARQ, alternarObjetivo, principalDe, esportesDe,
+    estado, render, ir, h, aplicarTema, escolherTema, temaEscolhido, abrirModal, fecharModal, perfilTreino, PARQ, alternarObjetivo, principalDe, esportesDe,
     modal1RM, modalAnilhas, modalVolume, modalTesteFala,
     modalGerador, modalTrocarEquipamento, modalResumoTreino, modalRegistrarPeso,
     modalRegistrarFotoEvolucao, modalVerFotoEvolucao,

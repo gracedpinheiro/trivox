@@ -55,10 +55,53 @@
 
   --raio: 16px;
   --sombra: 0 1px 2px rgba(24, 25, 29, 0.04);
+  --nav-fundo: rgba(255, 255, 255, 0.94);
   --barra-baixo: 72px;
   --fonte: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --fonte-titulo: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
+
+/* tema noite (Perfil › Aparência). "Automatico" e resolvido no JS (ui.js aplicarTema), que poe
+   data-tema="noite" ou "dia" no <html> — assim as cores ficam so aqui, sem repetir num @media.
+   Botao principal continua coral-forte com texto branco; texto colorido usa tons mais claros. */
+:root[data-tema="noite"] {
+  color-scheme: dark;
+  --fundo: #111214;
+  --cartao: #1A1B1F;
+  --cartao-alto: #25272C;
+  --borda: #2F3137;
+  --texto: #EDEDEA;
+  --apagado: #9C9FA7;
+  --coral-claro: #3A231E;
+  --turquesa-claro: #16302C;
+  --sol-claro: #342A16;
+  --uva-claro: #26223A;
+  --azul-claro: #1B2735;
+  --destaque: #F08A70;
+  --destaque-clara: #E8664B;
+  --ok: #5CCB97;
+  --aviso: #E6B850;
+  --perigo: #F07A7A;
+  --festa-clara: #E6B850;
+  --musculo-neutro: #34373E;
+  --musculo-contorno: #464A52;
+  --musculo-texto: #A4A8B2;
+  --musculo-secundario: #9B5446;
+  --sombra: none;
+  --nav-fundo: rgba(26, 27, 31, 0.94);
+}
+:root[data-tema="noite"] .etiqueta { color: #B9BCC3; }
+:root[data-tema="noite"] .etiqueta.ok { color: #7FD6AA; background: #16301F; }
+:root[data-tema="noite"] .etiqueta.aviso, :root[data-tema="noite"] .etiqueta.festa { color: #E9C46A; }
+:root[data-tema="noite"] .etiqueta.perigo { color: #F29A9A; background: #3A1F1F; }
+:root[data-tema="noite"] .etiqueta.destaque { color: #F29A82; }
+:root[data-tema="noite"] .etiqueta.turquesa { color: #7FD1C5; }
+:root[data-tema="noite"] .etiqueta.uva { color: #B7AAF0; }
+:root[data-tema="noite"] .etiqueta.azul { color: #8DB8EC; }
+:root[data-tema="noite"] .btn-festa { border-color: #4A3E22; color: #E9C46A; }
+:root[data-tema="noite"] .btn-turquesa { border-color: #24453F; color: #7FD1C5; }
+:root[data-tema="noite"] .btn-perigo { border-color: #4A2A2A; }
+:root[data-tema="noite"] .relogio.acabando { color: var(--destaque); }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
@@ -187,7 +230,7 @@ a { color: var(--azul-forte); font-weight: 600; }
   border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 15px; font-weight: 500;
   cursor: pointer; min-height: 44px;
 }
-.chip.ativo { background: var(--texto); border-color: var(--texto); color: #fff; }
+.chip.ativo { background: var(--texto); border-color: var(--texto); color: var(--fundo); }
 
 /* opcoes grandes com icone (objetivo, local) */
 .opcoes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -274,7 +317,7 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
 .nav {
   position: fixed; left: 0; right: 0; bottom: 0;
   display: flex; justify-content: center;
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--nav-fundo);
   -webkit-backdrop-filter: saturate(180%) blur(16px); backdrop-filter: saturate(180%) blur(16px);
   border-top: 1px solid var(--borda);
   padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
@@ -397,7 +440,7 @@ ul.lista li { margin-bottom: 5px; font-size: 16px; }
   flex: 0 0 auto; border: 1px solid var(--borda); background: var(--cartao); color: var(--apagado);
   border-radius: 999px; padding: 6px 12px; min-height: 44px; font: inherit; font-size: 14.5px; font-weight: 500; cursor: pointer;
 }
-.midia-aba.ativo { background: var(--texto); border-color: var(--texto); color: #fff; }
+.midia-aba.ativo { background: var(--texto); border-color: var(--texto); color: var(--fundo); }
 .midia-palco {
   background: var(--cartao-alto);
   border-radius: 12px; min-height: 180px;

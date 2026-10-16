@@ -12,6 +12,8 @@
     return;
   }
 
+  UI.aplicarTema(); // tema + cor da barra do celular
+
   const app = document.getElementById('app');
 
   // ---------- carrega base e perfil ----------
@@ -1151,6 +1153,11 @@
 
       case 'expandir-sessao':
         est.sessaoExpandida = est.sessaoExpandida === alvo.dataset.id ? null : alvo.dataset.id;
+        UI.render();
+        break;
+
+      case 'tema':
+        UI.escolherTema(alvo.dataset.valor);
         UI.render();
         break;
 

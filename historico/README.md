@@ -31,6 +31,7 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 23 | 16/10/2026 | [Visual sóbrio](23-visual-sobrio.md) | Menos infantil: off-white, borda fina, uma cor de destaque (coral do logo), fonte do sistema, ícones de traço no lugar de emoji |
 | 24 | 16/10/2026 | ["Última vez" e apagar treinos](24-ultima-vez-e-apagar-treinos.md) | Séries, reps e peso da última vez no treino, no exercício e em Evolução; apagar 1 treino ou todos sem perder perfil e fichas; calculadoras renomeadas |
 | 25 | 16/10/2026 | [Aparelho ocupado](25-aparelho-ocupado-fazer-depois.md) | "Fazer depois" manda o exercício pro fim do bloco e volta nele; troca deixa claro que mantém o mesmo músculo |
+| 26 | 16/10/2026 | [Tema dia e noite](26-tema-dia-e-noite.md) | Perfil › Aparência: Dia, Noite ou Automático (segue o celular); escolha do aparelho, sem piscar ao abrir |
 
 ## Como usar
 

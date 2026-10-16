@@ -18,6 +18,8 @@
 
   <link rel="preload" href="data/exercicios.json" as="fetch" crossorigin>
   <link rel="stylesheet" href="css/estilo.css">
+  <!-- tema antes de pintar a tela (sem piscar claro no tema noite); a troca fica em ui.js aplicarTema -->
+  <script>try { var t = localStorage.getItem('trivox-tema') || 'dia'; if (t === 'auto') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'noite' : 'dia'; document.documentElement.dataset.tema = t; } catch (e) {}</script>
 </head>
 <body>
   <main id="app">
