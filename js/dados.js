@@ -437,6 +437,37 @@ const Dados = (() => {
   const gam = () => ({ ...GAM_PADRAO, ...ler('gam', {}) });
   const salvarGam = (patch) => gravar('gam', { ...gam(), ...patch });
 
+  // ---------- apagar treinos feitos (testes) — perfil, fichas, pesagens e fotos ficam ----------
+
+  /** Apaga um treino do historico: a sessao, as cargas registradas durante ela (mesmos
+   *  exercicios, entre o inicio e o fim da sessao) e o XP que ela deu. Conquistas ficam. */
+  function apagarSessao(sid) {
+    const lista = sessoes();
+    const s = lista.find((x) => x.id === sid);
+    if (!s) return;
+    gravar('sessoes', lista.filter((x) => x.id !== sid));
+    const inicio = s.data - (s.duracaoSeg || 0) * 1000 - 5 * 60000; // folga: series antes do cronometro
+    const fim = s.data + 60000;
+    const todas = cargas();
+    let mudou = false;
+    for (const { exId } of s.exercicios || []) {
+      if (!todas[exId]) continue;
+      const resto = todas[exId].filter((r) => r.data < inicio || r.data > fim);
+      if (resto.length === todas[exId].length) continue;
+      mudou = true;
+      if (resto.length) todas[exId] = resto; else delete todas[exId];
+    }
+    if (mudou) gravar('cargas', todas);
+    if (s.xpGanho) salvarGam({ xp: Math.max(0, gam().xp - s.xpGanho) });
+  }
+
+  /** Apaga todo o historico de treinos feitos: sessoes, cargas, XP e conquistas. */
+  function apagarHistoricoTreinos() {
+    gravar('sessoes', []);
+    gravar('cargas', {});
+    gravar('gam', { ...GAM_PADRAO });
+  }
+
   // ---------- spotify ----------
   // tokens NAO entram no backup exportavel — sao credenciais, nao dado de treino.
   // se o arquivo de backup vazar ou for compartilhado, nao da acesso a conta Spotify de ninguem.
@@ -522,7 +553,7 @@ const Dados = (() => {
     fichas, novaFicha, acharFicha, atualizarFicha, apagarFicha, duplicarFicha, salvarFichas,
     cardios, salvarCardio, apagarCardio,
     registrarCarga, historicoCarga, ultimoRegistro,
-    sessoes, registrarSessao, diasTreinados,
+    sessoes, registrarSessao, diasTreinados, apagarSessao, apagarHistoricoTreinos,
     pesos, registrarPeso, apagarPeso,
     fotosEvolucao, registrarFotoEvolucao, apagarFotoEvolucao,
     fotosExercicio, salvarFotoExercicio, apagarFotoExercicio, fotoExercicio,

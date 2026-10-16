@@ -13,9 +13,9 @@ preferência todas.
   - dois quadros por imagem, posição inicial → final.
 - **Uma imagem por combinação de movimento + implemento + apoio**, as mesmas chaves de
   `data/figuras_mapa.json`. Os 361 movimentos principais vêm primeiro.
-- **Já estão no app 526 imagens** (`data/ilustracoes/`, 1280x720, cerca de 50 KB cada):
-  - 1336 dos 1535 exercícios têm imagem própria;
-  - 198 usam a imagem do mesmo movimento com outro implemento;
+- **Já estão no app 529 imagens** (`data/ilustracoes/`, 1280x720, cerca de 50 KB cada):
+  - 1339 dos 1535 exercícios têm imagem própria;
+  - 195 usam a imagem do mesmo movimento com outro implemento;
   - 1 segue com o boneco animado (alongamento de quadríceps deitado de lado).
 - **Implemento "-"** (sem implemento padrão) vira "x" no nome do arquivo, para não colidir
   com o movimento-base (ex.: `flexao__x__.jpg` x `flexao____.jpg`).
@@ -25,7 +25,7 @@ preferência todas.
   - a aba "Como fazer" mostra a ilustração com a legenda "posição inicial → final";
   - sem ilustração, a aba continua com o boneco;
   - a imagem entra no cache offline, no "Baixar todas as fotos" e nas fotos das fichas;
-  - o service worker trata os jpgs como imutáveis (VERSAO `trivox-v37`; subiu porque 5 jpgs mudaram de conteúdo).
+  - o service worker trata os jpgs como imutáveis (VERSAO `trivox-v38` desde o ciclo 23; subiu para v37 quando 5 jpgs mudaram de conteúdo).
 - **Revisão:** cada imagem foi olhada antes de entrar. Algumas mostram o movimento, mas
   podem ser refeitas: patinador, step down, transferência de peso, caranguejo e tibial com
   elástico.
@@ -33,7 +33,7 @@ preferência todas.
 ## Em aberto
 - Os 361 movimentos principais estão feitos, menos o alongamento de quadríceps deitado de
   lado: a IA errou duas vezes (a perna ia para a frente em vez de o calcanhar ir ao glúteo).
-- Variações de implemento: feitas até o item #531. Próximo passo: #532 a #721 (o Canva pausa a cota a cada ~20-60 imagens).
+- Variações de implemento: feitas até o item #534. Próximo passo: #535 a #721 (o Canva pausa a cota a cada ~20-60 imagens).
 - Refazer (a IA errou mesmo com instruções mais explícitas): corrida estacionária, tornozelo com
   elástico, elevação de tibial com kettlebell e bom dia com mochila (costas curvadas).
 - Fotos dos aparelhos sem pessoas (pedido do teste no celular): ainda depende de decisão.

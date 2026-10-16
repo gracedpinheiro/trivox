@@ -91,7 +91,6 @@ const UI = (() => {
     condicionamento: 'Condicionamento', perda_peso: 'Perda de peso', hipertrofia: 'Hipertrofia',
     '50mais': 'Especial 50+', raquete: 'Raquete',
   };
-  const ICONE_OBJETIVO = { condicionamento: '⚡', perda_peso: '🔥', hipertrofia: '💪', '50mais': '🌻', raquete: '🎾' };
   const NOME_BLOCO = {
     aquecimento: 'Aquecimento', principal: 'Treino principal', equilibrio: 'Equilíbrio',
     circuito: 'Circuito', volta_calma: 'Alongamento final',
@@ -130,11 +129,11 @@ const UI = (() => {
     const fotoPropria = Dados.fotoExercicio(e.id);
     const temFotos = !!(e.imagens && e.imagens.length);
     const abas = [];
-    if (fotoPropria) abas.push(['minha', '📷 Minha foto']);
-    if (temFotos) abas.push(['fotos', '🖼️ Fotos']);
-    abas.push(['como', '🎬 Como fazer']);
-    abas.push(['musculos', '🎯 Músculos']);
-    if (e.aparelho) abas.push(['aparelho', '🛠️ Aparelho']);
+    if (fotoPropria) abas.push(['minha', 'Minha foto']);
+    if (temFotos) abas.push(['fotos', 'Fotos']);
+    abas.push(['como', 'Como fazer']);
+    abas.push(['musculos', 'Músculos']);
+    if (e.aparelho) abas.push(['aparelho', 'Aparelho']);
     const escolhida = estado.midiaAba && abas.some(([k]) => k === estado.midiaAba) ? estado.midiaAba : abas[0][0];
     const reduzSistema = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     let palco = '', legenda = '';
@@ -166,7 +165,7 @@ const UI = (() => {
         </div>
         <div class="midia-palco" data-acao="ampliar-midia" aria-label="Ampliar imagem" style="cursor:zoom-in;${compacto ? 'min-height:150px' : ''}">${palco}</div>
         ${legenda ? `<div class="midia-legenda">${h(legenda)} · toque para ampliar</div>` : '<div class="midia-legenda">toque para ampliar</div>'}
-        ${escolhida === 'como' && !reduzSistema && !ilustracaoDe(e.id) ? `<button class="btn btn-pequeno btn-fantasma" data-acao="alternar-animacao" style="margin-top:4px">${estado.animacaoParada ? '▶ Animar' : '⏸ Parar animação'}</button>` : ''}
+        ${escolhida === 'como' && !reduzSistema && !ilustracaoDe(e.id) ? `<button class="btn btn-pequeno btn-fantasma" data-acao="alternar-animacao" style="margin-top:4px">${estado.animacaoParada ? 'Animar' : 'Parar animação'}</button>` : ''}
       </div>`;
   }
 
@@ -175,7 +174,17 @@ const UI = (() => {
     const u = Dados.ultimoRegistro(exId);
     if (!u || !u.sets.length) return '';
     const data = new Date(u.data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
-    return `<div class="ultimo-treino"><b>Última vez (${data}):</b> ${u.sets.map((st) => `${st.carga ? h(st.carga) + 'kg × ' : ''}${h(st.reps)}`).join(' · ')}</div>`;
+    return `<div class="ultimo-treino"><div class="rotulo">Última vez · ${data}</div>${resumoSeries(u.sets)}</div>`;
+  }
+
+  /** "3 séries de 8 reps com 40 kg" quando todas iguais; senao "3 séries: 40 kg × 8, 40 kg × 8, 37,5 kg × 7". */
+  function resumoSeries(sets) {
+    const n = sets.length;
+    const kg = (c) => h(String(c).replace('.', ',')); // 42,5 kg
+    const txt = (st) => `${st.carga ? kg(st.carga) + ' kg × ' : ''}${h(st.reps)}${st.carga ? '' : ' reps'}`;
+    const iguais = sets.every((st) => String(st.carga) === String(sets[0].carga) && String(st.reps) === String(sets[0].reps));
+    if (iguais) return `<b>${n} série${n === 1 ? '' : 's'}</b> de ${h(sets[0].reps)} reps${sets[0].carga ? ` com ${kg(sets[0].carga)} kg` : ''}`;
+    return `<b>${n} séries:</b> ${sets.map(txt).join(', ')}`;
   }
 
   // ---------- modal ----------
@@ -205,12 +214,25 @@ const UI = (() => {
     render();
   }
 
+  // icones de traco (24x24, cor do texto), no lugar de emoji na barra de baixo e nos atalhos
+  const ICONES = {
+    inicio: '<path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/>',
+    fichas: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/>',
+    cardio: '<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+    evolucao: '<path d="M4 19h16"/><path d="M5 15l4.5-4.5 3.5 3L19 7"/><path d="M15 7h4v4"/>',
+    perfil: '<circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1-3.6 3.8-5.5 7-5.5s6 1.9 7 5.5"/>',
+    relogio: '<circle cx="12" cy="13" r="7.5"/><path d="M12 9.5V13l2.5 2M10 3h4"/>',
+    haltere: '<path d="M6.5 8v8M17.5 8v8M3.5 10v4M20.5 10v4M6.5 12h11"/>',
+    conversa: '<path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-4 3.5V16H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/>',
+  };
+  const icone = (nome) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICONES[nome]}</svg>`;
+
   const ABAS = [
-    { chave: 'inicio', ic: '🏠', nome: 'Início' },
-    { chave: 'fichas', ic: '📋', nome: 'Treinos' },
-    { chave: 'cardio', ic: '❤️', nome: 'Aeróbico' },
-    { chave: 'evolucao', ic: '📈', nome: 'Evolução' },
-    { chave: 'perfil', ic: '👤', nome: 'Perfil' },
+    { chave: 'inicio', nome: 'Início' },
+    { chave: 'fichas', nome: 'Treinos' },
+    { chave: 'cardio', nome: 'Aeróbico' },
+    { chave: 'evolucao', nome: 'Evolução' },
+    { chave: 'perfil', nome: 'Perfil' },
   ];
 
   function renderNav() {
@@ -224,7 +246,7 @@ const UI = (() => {
     const ativo = mapa[estado.tela] !== undefined ? mapa[estado.tela] : estado.tela;
     document.getElementById('nav').innerHTML = ABAS.map((a) => `
       <button data-acao="ir" data-tela="${a.chave}" class="${ativo === a.chave ? 'ativo' : ''}">
-        <span class="ic">${a.ic}</span>${a.nome}
+        <span class="ic">${icone(a.chave)}</span>${a.nome}
       </button>`).join('');
   }
 
@@ -238,10 +260,10 @@ const UI = (() => {
     const feitas = ex.itens.reduce((s, i) => s + (i.sets || []).length, 0);
     return `
       <div class="cartao c-coral">
-        <div class="rotulo" style="color:#C23431">Treino em andamento</div>
+        <div class="rotulo" style="color:var(--destaque)">Treino em andamento</div>
         <h2 style="margin:2px 0 4px">${h(ex.fichaNome)}</h2>
         <div class="pequeno apagado">Exercício ${ex.iEx + 1} de ${ex.itens.length} · ${feitas} série(s) registrada(s)</div>
-        <button class="btn btn-largo btn-principal" data-acao="ir" data-tela="execucao" style="margin-top:12px">▶ Continuar treino</button>
+        <button class="btn btn-largo btn-principal" data-acao="ir" data-tela="execucao" style="margin-top:12px">Continuar treino</button>
         <button class="btn btn-largo" data-acao="encerrar-treino-confirma" style="margin-top:8px">Encerrar treino</button>
       </div>`;
   }
@@ -302,30 +324,30 @@ const UI = (() => {
 
     return `
       <div class="marca-topo"><img src="icons/icone-192.png" alt=""><span>TRIVOX</span></div>
-      <div class="topo" style="margin-bottom:8px"><h1>Olá${p.nome ? ', ' + h(p.nome.split(' ')[0]) : ''}! 👋</h1></div>
+      <div class="topo" style="margin-bottom:8px"><h1>Olá${p.nome ? ', ' + h(p.nome.split(' ')[0]) : ''}</h1></div>
       <p class="frase" style="margin-bottom:16px">${h(Motivacao.fraseDoDia({ objetivo: p.objetivo, idade, streak: streak.atual, diasSemTreino, hojeEDiaDeTreino: p.diasTreino.length ? hojeEDiaDeTreino : null, jaTreinouHoje }))}</p>
 
       ${!temDadosDeVerdade ? `
         <div class="cartao c-azul">
           <h2 style="margin-bottom:4px">Já usava o TRIVOX?</h2>
           <p class="pequeno">Apagar o app (ou trocar de celular) apaga os dados deste aparelho. Para trazer tudo de volta:</p>
-          <button class="btn btn-largo btn-principal" data-acao="ir-nuvem">☁️ Entrar na nuvem com meu e-mail</button>
-          <button class="btn btn-largo" data-acao="importar" style="margin-top:8px">📦 Importar meu backup (.zip)</button>
+          <button class="btn btn-largo btn-principal" data-acao="ir-nuvem">Entrar na nuvem com meu e-mail</button>
+          <button class="btn btn-largo" data-acao="importar" style="margin-top:8px">Importar meu backup (.zip)</button>
           <p class="pequeno apagado" style="margin-top:8px">Primeira vez aqui? É só preencher o Perfil e montar o treino.</p>
         </div>` : ''}
       ${abertoNoNavegadorIphone() ? `
         <div class="nota atencao"><strong>Você abriu pelo Safari</strong>No iPhone, o Safari guarda dados separados do app instalado. Para ver seus treinos, abra o TRIVOX pelo ícone na tela de início. Ainda não instalou? Compartilhar › Adicionar à Tela de Início.</div>` : ''}
       ${precisaParq(p, idade) ? `
         <div class="nota atencao">
-          <strong>🩺 Antes de treinar: 7 perguntas de saúde</strong>
+          <strong>Antes de treinar: 7 perguntas de saúde</strong>
           Leva 1 minuto e deixa o treino mais seguro para você.
           <div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="ir" data-tela="perfil">Responder agora</button></div>
         </div>` : ''}
-      ${parqTemSim(p) ? `<div class="nota atencao"><strong>🩺 Fale com seu médico</strong>Pela triagem de saúde, procure liberação médica antes de aumentar a intensidade. Até lá, o aeróbico fica só em zona leve.</div>` : ''}
+      ${parqTemSim(p) ? `<div class="nota atencao"><strong>Fale com seu médico</strong>Pela triagem de saúde, procure liberação médica antes de aumentar a intensidade. Até lá, o aeróbico fica só em zona leve.</div>` : ''}
 
       ${precisaLembrarBackup ? `
         <div class="nota atencao">
-          <strong>⚠️ Faça backup dos seus dados</strong>
+          <strong>Faça backup dos seus dados</strong>
           ${backup.ultimoEm ? `Já fazem ${diasSemBackup} dias desde o último backup.` : 'Você ainda não fez nenhum backup.'}
           Seus dados ficam só neste aparelho — o navegador pode limpar esse espaço sozinho (mais comum no iPhone), sem avisar, e tudo se perde de uma vez.
           <div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="exportar">Exportar agora</button></div>
@@ -336,35 +358,35 @@ const UI = (() => {
         <div class="cartao c-turquesa missao">
           <div style="display:flex;gap:12px;align-items:center">
             <div style="flex:1;min-width:0">
-              <div class="rotulo" style="color:#077A6F">${hojeEDiaDeTreino && fichaDeHoje ? 'Treino de hoje' : 'Próximo treino'}</div>
+              <div class="rotulo" style="color:var(--destaque)">${hojeEDiaDeTreino && fichaDeHoje ? 'Treino de hoje' : 'Próximo treino'}</div>
               <h2 style="margin:2px 0 4px">${h(fichaParaHoje.nome.replace(/^Treino \w+ — /, ''))}</h2>
               <div class="pequeno apagado">${nPrincipal} exercícios · ~${estimarDuracao(fichaParaHoje.exercicios)}</div>
             </div>
             ${exMissao && (typeof Figuras !== 'undefined') ? `<div class="missao-figura">${Figuras.svg(exMissao, { largura: 120 })}</div>` : ''}
           </div>
-          <button class="btn btn-largo btn-principal" data-acao="iniciar-treino" data-id="${h(fichaParaHoje.id)}" style="margin-top:12px">▶ Começar agora</button>
+          <button class="btn btn-largo btn-principal" data-acao="iniciar-treino" data-id="${h(fichaParaHoje.id)}" style="margin-top:12px">Começar agora</button>
         </div>` : ''}
-      ${jaTreinouHoje ? `<div class="nota festa"><strong>✅ Treino de hoje feito!</strong>Mandou bem. Descanse e volte forte amanhã.</div>` : ''}
+      ${jaTreinouHoje ? `<div class="nota festa"><strong>Treino de hoje feito!</strong>Mandou bem. Descanse e volte forte amanhã.</div>` : ''}
 
       <div class="grade-3" style="margin-bottom:14px">
-        <button class="cartao clicavel c-sol" data-acao="ir-cronometro" style="text-align:center;padding:12px 6px;font:inherit;color:inherit;margin:0">
-          <div style="font-size:26px">⏱️</div><div style="font-weight:800;font-size:15px">Cronômetro</div>
+        <button class="cartao clicavel atalho" data-acao="ir-cronometro">
+          ${icone('relogio')}<span>Cronômetro</span>
         </button>
-        <button class="cartao clicavel c-azul" data-acao="ir" data-tela="biblioteca" data-voltar="inicio" style="text-align:center;padding:12px 6px;font:inherit;color:inherit;margin:0">
-          <div style="font-size:26px">🏋️</div><div style="font-weight:800;font-size:15px">${BASE.length} exercícios</div>
+        <button class="cartao clicavel atalho" data-acao="ir" data-tela="biblioteca" data-voltar="inicio">
+          ${icone('haltere')}<span>${BASE.length} exercícios</span>
         </button>
-        <button class="cartao clicavel c-uva" data-acao="ir" data-tela="coach" style="text-align:center;padding:12px 6px;font:inherit;color:inherit;margin:0">
-          <div style="font-size:26px">💬</div><div style="font-weight:800;font-size:15px">Coach</div>
+        <button class="cartao clicavel atalho" data-acao="ir" data-tela="coach">
+          ${icone('conversa')}<span>Coach</span>
         </button>
       </div>
 
-      <div class="cartao clicavel cartao-gradiente" data-acao="ir" data-tela="evolucao">
+      <div class="cartao clicavel" data-acao="ir" data-tela="evolucao">
         <div style="display:flex;align-items:center;gap:12px">
-          <div style="font-size:34px">${nivel.icon}</div>
           <div style="flex:1;min-width:0">
-            <div style="font-weight:800;font-size:16px">${h(nivel.nome)}${streak.atual >= 2 ? ` · 🔥 ${streak.atual} dias` : ''}</div>
-            <div class="barra-fundo" style="margin-top:6px"><div class="barra-frente" style="width:${nivel.progresso}%;background:rgba(255,255,255,0.85)"></div></div>
-            <div class="pequeno" style="margin-top:4px;opacity:0.85">${nivel.proximo ? `${gam.xp} XP · faltam ${nivel.faltam} para ${h(nivel.proximo.nome)}` : `${gam.xp} XP · nível máximo!`}</div>
+            <div class="rotulo">Nível</div>
+            <div style="font-weight:600;font-size:16px">${h(nivel.nome)}${streak.atual >= 2 ? ` · ${streak.atual} dias seguidos` : ''}</div>
+            <div class="barra-fundo" style="margin-top:8px"><div class="barra-frente" style="width:${nivel.progresso}%;background:var(--destaque)"></div></div>
+            <div class="pequeno apagado" style="margin-top:6px">${nivel.proximo ? `${gam.xp} XP · faltam ${nivel.faltam} para ${h(nivel.proximo.nome)}` : `${gam.xp} XP · nível máximo!`}</div>
           </div>
         </div>
       </div>
@@ -398,7 +420,7 @@ const UI = (() => {
           <div class="pequeno apagado" style="margin-top:8px">Toque para ver músculo a músculo.</div>
         </div>` : `
         <div class="vazio">
-          <div class="vazio-icone">📋</div>
+          <div class="vazio-icone">${icone('fichas')}</div>
           <p>Você ainda não tem nenhuma ficha.</p>
           <button class="btn btn-principal" data-acao="nova-ficha">Montar meu primeiro treino</button>
         </div>`}
@@ -436,17 +458,16 @@ const UI = (() => {
 
       <div class="cartao clicavel cartao-gradiente" data-acao="abrir-gerador">
         <div style="display:flex;align-items:center;gap:12px">
-          <div style="font-size:30px">✨</div>
           <div>
-            <div style="font-weight:800">Gerar treino automático</div>
-            <div class="pequeno" style="opacity:0.9">Escolha o objetivo — eu monto as fichas pra você</div>
+            <div style="font-weight:600">Gerar treino automático</div>
+            <div class="pequeno apagado">Escolha o objetivo — eu monto as fichas pra você</div>
           </div>
         </div>
       </div>
 
       ${sugerirVariar ? `
         <div class="nota atencao">
-          <strong>🔄 Hora de variar</strong>
+          <strong>Hora de variar</strong>
           Faz ${semanasParada} semanas com os mesmos exercícios — trocar parte deles por variações em outro aparelho muda o estímulo e ajuda a não enjoar, sem perder o objetivo nem o histórico de carga.
           <div style="margin-top:10px"><button class="btn btn-pequeno btn-principal" data-acao="variar-treino">Variar meus treinos</button></div>
         </div>` : ''}
@@ -457,7 +478,7 @@ const UI = (() => {
         const diaTxt = (f.diaSemana !== null && f.diaSemana !== undefined) ? DIAS_SEMANA[f.diaSemana].nome : null;
         return `
           <div class="item" data-acao="abrir-ficha" data-id="${h(f.id)}">
-            <div class="item-icone">📋</div>
+            <div class="item-icone">${icone('fichas')}</div>
             <div class="item-corpo">
               <div class="item-nome">${h(f.nome)}</div>
               <div class="item-sub">${diaTxt ? `${diaTxt} · ` : ''}${n} exercício${n === 1 ? '' : 's'} · ${series} série${series === 1 ? '' : 's'}</div>
@@ -467,7 +488,7 @@ const UI = (() => {
           </div>`;
       }).join('') : `
         <div class="vazio">
-          <div class="vazio-icone">📋</div>
+          <div class="vazio-icone">${icone('fichas')}</div>
           <p>Nenhuma ficha ainda.</p>
           <p class="pequeno">Uma ficha é um dia de treino: "Pernas", "Peito e tríceps", "Full body A".</p>
           <button class="btn btn-principal" data-acao="nova-ficha">Criar ficha manualmente</button>
@@ -489,7 +510,7 @@ const UI = (() => {
       const ordem = ativo && k !== '50mais' && treinos.length > 1 ? (treinos[0] === k ? 'principal' : '2º objetivo') : '';
       return `
       <button class="opcao ${ativo ? 'ativo' : ''}" data-acao="${acao}" data-valor="${k}" aria-pressed="${ativo}">
-        <span class="ic">${ICONE_OBJETIVO[k]}</span><b>${h(NOME_OBJETIVO_CURTO[k])}</b>${ordem ? `<span class="sub">${ordem}</span>` : ''}
+        <b>${h(NOME_OBJETIVO_CURTO[k])}</b>${ordem ? `<span class="sub">${ordem}</span>` : ''}
       </button>`;
     }).join('')}</div>
       <p class="pequeno apagado" style="margin-top:6px">Toque para marcar ou desmarcar. Até 2 objetivos de treino (os dias da semana se dividem entre eles); "Especial 50+" soma com qualquer um e deixa o treino mais seguro.</p>
@@ -543,13 +564,13 @@ const UI = (() => {
       : `${p.freqForca} dias por semana`;
     const idade = Dados.idade();
     abrirModal(`
-      <h2>✨ Montar meu treino</h2>
+      <h2>Montar meu treino</h2>
       <p class="pequeno apagado">Escolha e eu monto as fichas da semana, cada uma com aquecimento no começo e alongamento no fim, pros músculos do dia.</p>
       <div class="campo"><label>Objetivo</label>${opcoesObjetivo(objs, 'ger-objetivo')}</div>
       <div class="campo"><label>Onde vai treinar</label>
         <div class="chips">
-          <button class="chip ${local === 'academia' ? 'ativo' : ''}" data-acao="ger-local" data-valor="academia">🏋️ Academia</button>
-          <button class="chip ${local === 'casa' ? 'ativo' : ''}" data-acao="ger-local" data-valor="casa">🏠 Casa</button>
+          <button class="chip ${local === 'academia' ? 'ativo' : ''}" data-acao="ger-local" data-valor="academia">Academia</button>
+          <button class="chip ${local === 'casa' ? 'ativo' : ''}" data-acao="ger-local" data-valor="casa">Casa</button>
         </div>
       </div>
       <div class="campo"><label>Nível</label>
@@ -648,7 +669,7 @@ const UI = (() => {
               <span class="etiqueta">${h(nomeAparelho(ex.aparelho) || ex.equipamento)}</span>
               ${item.superserie ? `<span class="etiqueta uva">Superset ${h(item.superserie)}</span>` : ''}
             </div>` : ''}
-            ${item.obs ? `<p class="pequeno apagado" style="margin-top:-4px">💡 ${h(item.obs)}</p>` : ''}
+            ${item.obs ? `<p class="pequeno apagado" style="margin-top:-4px">${h(item.obs)}</p>` : ''}
             ${ultimoTreinoHtml(item.exId)}
 
             <div class="campos-lado-3">
@@ -794,7 +815,7 @@ const UI = (() => {
 
     return notas.map((n) => `
       <div class="nota ${n.tipo === 'ok' ? 'neutra' : 'atencao'}">
-        <strong>${n.tipo === 'ok' ? '✓ ' : '⚠ '}${h(n.titulo)}</strong>${n.texto}
+        <strong>${n.tipo === 'ok' ? '✓ ' : ''}${h(n.titulo)}</strong>${n.texto}
       </div>`).join('');
   }
 
@@ -837,12 +858,12 @@ const UI = (() => {
           </select>
           <select data-filtro="local" aria-label="Local">
             <option value="">Casa e academia</option>
-            <option value="casa" ${estado.filtro.local === 'casa' ? 'selected' : ''}>🏠 Em casa</option>
-            <option value="academia" ${estado.filtro.local === 'academia' ? 'selected' : ''}>🏋️ Na academia</option>
+            <option value="casa" ${estado.filtro.local === 'casa' ? 'selected' : ''}>Em casa</option>
+            <option value="academia" ${estado.filtro.local === 'academia' ? 'selected' : ''}>Na academia</option>
           </select>
           <select data-filtro="objetivo" aria-label="Objetivo">
             <option value="">Todos os objetivos</option>
-            ${Object.entries(NOME_OBJETIVO_CURTO).map(([k, v]) => `<option value="${k}" ${estado.filtro.objetivo === k ? 'selected' : ''}>${ICONE_OBJETIVO[k]} ${v}</option>`).join('')}
+            ${Object.entries(NOME_OBJETIVO_CURTO).map(([k, v]) => `<option value="${k}" ${estado.filtro.objetivo === k ? 'selected' : ''}>${v}</option>`).join('')}
           </select>
           <select data-filtro="nivel" aria-label="Nível">
             <option value="">Todos os níveis</option>
@@ -920,13 +941,14 @@ const UI = (() => {
       ${midiaExercicio(e)}
 
       <div class="linha-btn" style="margin-bottom:14px">
-        <button class="btn btn-pequeno" data-acao="trocar-foto-exercicio" data-id="${h(e.id)}">${fotoPropria ? '📷 Trocar minha foto' : '📷 Usar minha foto'}</button>
+        <button class="btn btn-pequeno" data-acao="trocar-foto-exercicio" data-id="${h(e.id)}">${fotoPropria ? 'Trocar minha foto' : 'Usar minha foto'}</button>
         ${fotoPropria ? `<button class="btn btn-pequeno btn-fantasma" data-acao="remover-foto-exercicio" data-id="${h(e.id)}">Remover</button>` : ''}
       </div>
+      ${ultimoTreinoHtml(e.id)}
 
       ${Videos.suportado() ? `
         <div class="cartao">
-          <div class="cartao-titulo"><h3>🎥 Seu vídeo</h3></div>
+          <div class="cartao-titulo"><h3>Seu vídeo</h3></div>
           <div id="video-exercicio" data-exid="${h(e.id)}">
             <p class="pequeno apagado">Carregando…</p>
           </div>
@@ -936,11 +958,11 @@ const UI = (() => {
         <span class="etiqueta destaque">${h(NOME_CATEGORIA[e.categoria] || e.categoria)}</span>
         <span class="etiqueta">${h(NOME_NIVEL[e.nivel] || e.nivel)}</span>
         <span class="etiqueta">${h(e.equipamento)}</span>
-        ${(e.local || []).map((l) => `<span class="etiqueta ${l === 'casa' ? 'turquesa' : 'azul'}">${l === 'casa' ? '🏠 Casa' : '🏋️ Academia'}</span>`).join('')}
+        ${(e.local || []).map((l) => `<span class="etiqueta ${l === 'casa' ? 'turquesa' : 'azul'}">${l === 'casa' ? 'Casa' : 'Academia'}</span>`).join('')}
         ${Forca.ehComposto(e) ? '<span class="etiqueta ok">Composto</span>' : '<span class="etiqueta">Isolado</span>'}
         ${e.impacto === 'alto' ? '<span class="etiqueta aviso">Impacto alto</span>' : ''}
       </div>
-      ${(e.objetivos || []).length ? `<div class="etiquetas" style="margin:-6px 0 14px">${e.objetivos.map((o) => `<span class="etiqueta uva">${ICONE_OBJETIVO[o] || ''} ${h(NOME_OBJETIVO_CURTO[o] || o)}</span>`).join('')}</div>` : ''}
+      ${(e.objetivos || []).length ? `<div class="etiquetas" style="margin:-6px 0 14px">${e.objetivos.map((o) => `<span class="etiqueta uva">${h(NOME_OBJETIVO_CURTO[o] || o)}</span>`).join('')}</div>` : ''}
 
       <div class="cartao">
         <div class="rotulo">Músculos trabalhados</div>
@@ -958,7 +980,7 @@ const UI = (() => {
 
       ${(e.erros_comuns || []).length ? `
         <div class="nota atencao" style="margin-top:16px">
-          <strong>⚠ Erros comuns a evitar</strong>
+          <strong>Erros comuns a evitar</strong>
           <ul class="lista" style="margin-top:6px">${e.erros_comuns.map((i) => `<li>${h(i)}</li>`).join('')}</ul>
         </div>` : ''}
 
@@ -978,11 +1000,11 @@ const UI = (() => {
               <div class="item-sub">${new Date(r.data).toLocaleDateString('pt-BR')}${r.rir !== null && r.rir !== undefined ? ` · ${h(r.rir)} de sobra` : ''}</div>
             </div>
           </div>`).join('')}
-        ${plato.plato ? `<div class="nota atencao"><strong>⚠ Estagnado</strong>${h(plato.saida)}</div>` : ''}` : ''}
+        ${plato.plato ? `<div class="nota atencao"><strong>Estagnado</strong>${h(plato.saida)}</div>` : ''}` : ''}
 
       ${subs.length ? `
         <div class="cartao" style="margin-top:18px">
-          <div class="cartao-titulo"><h3>🔁 Equipamento ocupado?</h3></div>
+          <div class="cartao-titulo"><h3>Equipamento ocupado?</h3></div>
           <p class="pequeno apagado">Outros exercícios que trabalham o mesmo músculo com outro equipamento${p.local === 'casa' ? ' (dá pra fazer em casa)' : ''}:</p>
           ${subs.map((s) => `
             <div class="item" data-acao="ver-exercicio" data-id="${h(s.id)}" data-voltar="${h(estado.voltarTela)}">
@@ -1090,7 +1112,7 @@ const UI = (() => {
 
         ${cal ? `<div class="pequeno apagado" style="margin-top:12px">≈ ${cal.kcal} kcal · ${h(cal.aviso)}</div>` : ''}
 
-        <button class="btn btn-largo btn-principal" data-acao="salvar-cardio" style="margin-top:12px">✅ Fiz esta sessão</button>
+        <button class="btn btn-largo btn-principal" data-acao="salvar-cardio" style="margin-top:12px">Fiz esta sessão</button>
         <p class="pequeno apagado" style="margin-top:6px">Toque depois de treinar: entra no histórico, no XP e na sequência.</p>
       </div>
 
@@ -1146,8 +1168,8 @@ const UI = (() => {
     return `
       <div class="anel">
         <svg viewBox="0 0 230 230" aria-hidden="true">
-          <circle cx="115" cy="115" r="${r}" fill="none" stroke="#EEF1FA" stroke-width="16"/>
-          <circle id="${idEl}-anel" cx="115" cy="115" r="${r}" fill="none" stroke="${cor}" stroke-width="16" stroke-linecap="round"
+          <circle cx="115" cy="115" r="${r}" fill="none" stroke="#F2F2EF" stroke-width="10"/>
+          <circle id="${idEl}-anel" cx="115" cy="115" r="${r}" fill="none" stroke="${cor}" stroke-width="10" stroke-linecap="round"
             stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - frac)).toFixed(1)}" data-c="${c.toFixed(1)}" data-total="${total}"/>
         </svg>
         <div class="relogio ${restante <= 3 ? 'acabando' : ''}" id="${idEl}" role="timer" aria-live="off">${min}:${String(seg).padStart(2, '0')}</div>
@@ -1168,7 +1190,7 @@ const UI = (() => {
     const spotifyConectado = !!Dados.spotify().refreshToken;
     const blocoSpotify = spotifyConectado
       ? `<div class="cartao"><div id="spotify-widget"><div class="pequeno apagado" style="text-align:center;padding:6px 0">Carregando…</div></div></div>`
-      : `<button class="btn btn-largo btn-fantasma pequeno" data-acao="ir" data-tela="perfil" style="margin-top:4px">🎵 Ligar o Spotify pra treinar com música</button>`;
+      : `<button class="btn btn-largo btn-fantasma pequeno" data-acao="ir" data-tela="perfil" style="margin-top:4px">Ligar o Spotify pra treinar com música</button>`;
 
     const topo = `
       <div class="topo">
@@ -1177,7 +1199,7 @@ const UI = (() => {
         <button class="btn btn-pequeno" data-acao="ir-cronometro" aria-label="Cronômetro">⏱️</button>
       </div>
       <div class="barra-fundo" style="margin-bottom:12px"><div class="barra-frente" style="width:${progressoPct}%;background:var(--gradiente)"></div></div>
-      <div class="bloco-titulo bloco-${bloco}" style="margin-top:0"><span class="bolinha"></span>${NOME_BLOCO[bloco] || 'Treino'} <span class="apagado pequeno" style="font-family:Nunito,sans-serif;font-weight:700">· ${ex.iEx + 1} de ${ex.itens.length}</span></div>`;
+      <div class="bloco-titulo bloco-${bloco}" style="margin-top:0"><span class="bolinha"></span>${NOME_BLOCO[bloco] || 'Treino'} <span class="apagado pequeno" style="font-weight:500">· ${ex.iEx + 1} de ${ex.itens.length}</span></div>`;
 
     if (ex.descansando) {
       const restante = Math.max(0, Math.ceil((ex.fimDescanso - Date.now()) / 1000));
@@ -1186,7 +1208,7 @@ const UI = (() => {
       return `
         ${topo}
         <div class="cartao" style="text-align:center;padding:22px 16px">
-          <h2 style="margin-bottom:12px">Descansando 😮‍💨</h2>
+          <h2 style="margin-bottom:12px">Descansando</h2>
           ${anelTempo(restante, ex.descansoTotal || item.descansoAlvo, 'descanso-timer')}
           <div class="linha-btn" style="margin-top:18px">
             <button class="btn" data-acao="ajustar-descanso" data-seg="-15">−15s</button>
@@ -1215,9 +1237,9 @@ const UI = (() => {
         <div class="cartao" style="text-align:center">
           <h2 style="margin-bottom:4px">${h(item.nome)}</h2>
           <div class="pequeno apagado" style="margin-bottom:12px">${h(item.repsTexto || '')}${item.seriesAlvo > 1 ? ` · ${item.seriesAlvo} vezes` : ''}${item.grupo ? ` · ${h(item.grupo)}` : ''}</div>
-          ${temTempo ? anelTempo(restante, item.tempoSeg, 'item-timer', 'var(--turquesa)') : ''}
+          ${temTempo ? anelTempo(restante, item.tempoSeg, 'item-timer', 'var(--coral)') : ''}
           <div class="linha-btn" style="margin-top:14px">
-            ${temTempo && !rodando ? `<button class="btn btn-turquesa" data-acao="iniciar-tempo-item">▶ Iniciar ${item.tempoSeg >= 60 ? Math.round(item.tempoSeg / 60) + ' min' : item.tempoSeg + 's'}</button>` : ''}
+            ${temTempo && !rodando ? `<button class="btn btn-turquesa" data-acao="iniciar-tempo-item">Iniciar ${item.tempoSeg >= 60 ? Math.round(item.tempoSeg / 60) + ' min' : item.tempoSeg + 's'}</button>` : ''}
             <button class="btn btn-principal" data-acao="concluir-simples">✓ Feito</button>
           </div>
           <button class="btn btn-largo btn-fantasma" data-acao="pular-exercicio" style="margin-top:8px">Pular este</button>
@@ -1241,8 +1263,9 @@ const UI = (() => {
 
       <div class="cartao">
         <h2 style="margin-bottom:2px;text-align:center">${h(item.nome)}</h2>
-        <div class="pequeno apagado" style="text-align:center;margin-bottom:8px">Série ${serieAtual} de ${item.seriesAlvo}</div>
+        <div class="pequeno apagado" style="text-align:center;margin-bottom:8px">Série ${serieAtual} de ${item.seriesAlvo}${item.adiado ? ' · você deixou este para depois' : ''}</div>
         <div class="rotulo">Alvo: ${item.repsAlvoMin}-${item.repsAlvoMax} reps · parar com ${item.rirAlvo} de sobra · descanso ${item.descansoAlvo}s</div>
+        <div style="margin-top:8px">${ultimoTreinoHtml(item.exId)}</div>
         <div class="campos-lado-3" style="margin-top:10px">
           <div class="campo">
             <label for="exec-carga">Carga (kg)</label>
@@ -1266,19 +1289,18 @@ const UI = (() => {
           ${item.sets.map((st, i) => `<span class="etiqueta ok">Série ${i + 1}: ${h(st.carga)}kg × ${h(st.reps)}</span>`).join('')}
         </div>` : ''}
 
-      ${ultimoTreinoHtml(item.exId)}
-      ${item.obs ? `<div class="nota neutra">💡 ${h(item.obs)}</div>` : ''}
+      ${item.obs ? `<div class="nota neutra">${h(item.obs)}</div>` : ''}
       ${item.cargaSugerida?.motivo ? `<div class="nota"><strong>${item.cargaSugerida.carga !== null ? h(item.cargaSugerida.carga) + ' kg' : 'Sugestão'}</strong>${h(item.cargaSugerida.motivo)}</div>` : ''}
 
       ${midia}
 
       <div class="linha-btn">
         <button class="btn" data-acao="ver-exercicio" data-id="${h(item.exId)}" data-voltar="execucao">Como executar</button>
-        <button class="btn" data-acao="trocar-equipamento">🔁 Aparelho ocupado</button>
+        <button class="btn" data-acao="trocar-equipamento">Aparelho ocupado</button>
       </div>
-      <button class="btn btn-largo" data-acao="trocar-foto-exercicio" data-id="${h(item.exId)}" style="margin-top:8px">📷 ${Dados.fotoExercicio(item.exId) ? 'Trocar minha foto neste aparelho' : 'Tirar minha foto neste aparelho'}</button>
+      <button class="btn btn-largo" data-acao="trocar-foto-exercicio" data-id="${h(item.exId)}" style="margin-top:8px">${Dados.fotoExercicio(item.exId) ? 'Trocar minha foto neste aparelho' : 'Tirar minha foto neste aparelho'}</button>
       <button class="btn btn-largo btn-fantasma" data-acao="pular-exercicio" style="margin-top:8px">Pular exercício</button>
-      <p class="pequeno apagado" style="margin-top:10px">⚠️ ${h(SINAIS_PARAR)}</p>
+      <p class="pequeno apagado" style="margin-top:10px">${h(SINAIS_PARAR)}</p>
 
       ${blocoSpotify}
     `;
@@ -1289,7 +1311,7 @@ const UI = (() => {
   function telaCronometro() {
     const c = estado.crono;
     const voltar = estado.execucao ? 'execucao' : 'inicio';
-    const abas = [['timer', '⏳ Timer'], ['cronometro', '⏱️ Cronômetro'], ['intervalo', '🔁 Intervalado']];
+    const abas = [['timer', 'Timer'], ['cronometro', 'Cronômetro'], ['intervalo', 'Intervalado']];
     let corpo = '';
     if (c.modo === 'timer') {
       const rodando = c.rodando;
@@ -1301,7 +1323,7 @@ const UI = (() => {
         </div>
         <div class="linha-btn" style="margin-top:10px">
           <button class="btn" data-acao="crono-ajustar" data-seg="-10">−10s</button>
-          ${rodando ? `<button class="btn btn-festa" data-acao="crono-pausar">⏸ Pausar</button>` : `<button class="btn btn-principal" data-acao="crono-iniciar">▶ Iniciar</button>`}
+          ${rodando ? `<button class="btn btn-festa" data-acao="crono-pausar">Pausar</button>` : `<button class="btn btn-principal" data-acao="crono-iniciar">Iniciar</button>`}
           <button class="btn" data-acao="crono-ajustar" data-seg="10">+10s</button>
         </div>
         <button class="btn btn-largo btn-fantasma" data-acao="crono-zerar" style="margin-top:8px">Zerar</button>`;
@@ -1310,7 +1332,7 @@ const UI = (() => {
       corpo = `
         <div class="relogio" id="crono-visor" style="text-align:center;margin:30px 0">${formatarMs(decorrido)}</div>
         <div class="linha-btn">
-          ${c.rodando ? `<button class="btn btn-festa" data-acao="crono-pausar">⏸ Pausar</button><button class="btn" data-acao="crono-volta">🏁 Volta</button>` : `<button class="btn btn-principal" data-acao="crono-iniciar">▶ ${decorrido ? 'Continuar' : 'Iniciar'}</button>`}
+          ${c.rodando ? `<button class="btn btn-festa" data-acao="crono-pausar">Pausar</button><button class="btn" data-acao="crono-volta">Volta</button>` : `<button class="btn btn-principal" data-acao="crono-iniciar">${decorrido ? 'Continuar' : 'Iniciar'}</button>`}
         </div>
         <button class="btn btn-largo btn-fantasma" data-acao="crono-zerar" style="margin-top:8px">Zerar</button>
         ${(c.voltas || []).length ? `<div class="cartao" style="margin-top:14px">${c.voltas.map((v, i) => `<div class="bloco"><div class="bloco-tempo">${c.voltas.length - i}</div><div class="bloco-corpo"><div class="bloco-fase">${formatarMs(v)}</div></div></div>`).join('')}</div>` : ''}`;
@@ -1321,7 +1343,7 @@ const UI = (() => {
       const total = fase === 'trabalho' ? iv.trabalho : iv.descanso;
       const restante = rodando ? Math.max(0, Math.ceil((c.ate - Date.now()) / 1000)) : (c.pausadoRestante ?? iv.trabalho);
       corpo = `
-        <div class="centro" style="margin-bottom:8px"><span class="etiqueta ${fase === 'trabalho' ? 'destaque' : 'turquesa'}" style="font-size:16px">${fase === 'trabalho' ? '🔥 Trabalho' : '😮‍💨 Descanso'} · rodada ${iv.rodada || 1} de ${iv.rodadas}</span></div>
+        <div class="centro" style="margin-bottom:8px"><span class="etiqueta ${fase === 'trabalho' ? 'destaque' : 'turquesa'}" style="font-size:16px">${fase === 'trabalho' ? 'Trabalho' : 'Descanso'} · rodada ${iv.rodada || 1} de ${iv.rodadas}</span></div>
         ${anelTempo(restante, total, 'crono-visor', fase === 'trabalho' ? 'var(--coral)' : 'var(--turquesa)')}
         ${!rodando ? `
         <div class="campos-lado-3" style="margin-top:16px">
@@ -1335,7 +1357,7 @@ const UI = (() => {
           <button class="chip" data-acao="crono-iv-preset" data-t="30" data-d="30" data-r="8">Leve 30/30 ×8</button>
         </div>` : ''}
         <div class="linha-btn" style="margin-top:10px">
-          ${rodando ? `<button class="btn btn-festa" data-acao="crono-pausar">⏸ Pausar</button>` : `<button class="btn btn-principal" data-acao="crono-iniciar">▶ Iniciar</button>`}
+          ${rodando ? `<button class="btn btn-festa" data-acao="crono-pausar">Pausar</button>` : `<button class="btn btn-principal" data-acao="crono-iniciar">Iniciar</button>`}
         </div>
         <button class="btn btn-largo btn-fantasma" data-acao="crono-zerar" style="margin-top:8px">Zerar</button>`;
     }
@@ -1350,7 +1372,7 @@ const UI = (() => {
       </div>
       <div class="cartao" style="padding:20px 16px">${corpo}</div>
       <p class="pequeno apagado centro">O alarme toca e vibra no fim${Alarme.permissao() === 'granted' ? ', e avisa por notificação se a tela estiver em outro app' : ''}. Deixe o volume ligado.</p>
-      ${Alarme.permissao() === 'default' ? `<button class="btn btn-largo" data-acao="pedir-notificacao">🔔 Permitir avisos de fim de tempo</button>` : ''}
+      ${Alarme.permissao() === 'default' ? `<button class="btn btn-largo" data-acao="pedir-notificacao">Permitir avisos de fim de tempo</button>` : ''}
     `;
   }
 
@@ -1367,9 +1389,17 @@ const UI = (() => {
     const dadosEx = BASE.find((x) => x.id === item.exId);
     const p = Dados.perfil();
     const subs = Forca.substitutos(dadosEx, BASE, { limite: 12, perfil: perfilTreino() });
+    // "fazer depois" so faz sentido se ainda ha outro exercicio no mesmo bloco pra fazer antes
+    const bloco = item.bloco || 'principal';
+    const podeAdiar = ex.itens.slice(ex.iEx + 1).some((it) => (it.bloco || 'principal') === bloco);
+    const musculos = (dadosEx?.musculos_primarios || []).slice(0, 3).join(', ');
     abrirModal(`
-      <h2>🔁 Aparelho ocupado? Troque por:</h2>
-      <p class="pequeno apagado">Mesmo músculo, outro equipamento. Suas cargas de cada exercício ficam guardadas separadas.</p>
+      <h2>Aparelho ocupado?</h2>
+      ${podeAdiar ? `
+        <button class="btn btn-largo btn-principal" data-acao="fazer-depois">Fazer depois</button>
+        <p class="pequeno apagado" style="margin-top:6px">Você segue para o próximo exercício e este volta no fim do ${h((NOME_BLOCO[bloco] || 'treino').toLowerCase())}, quando o aparelho já deve estar livre.</p>` : ''}
+      <h3 style="margin-top:16px">Ou troque por outro do mesmo músculo</h3>
+      <p class="pequeno apagado">${musculos ? `Trabalham ${h(musculos)}, com outro equipamento.` : 'Mesmo músculo, outro equipamento.'} Suas cargas de cada exercício ficam guardadas separadas.</p>
       ${subs.length ? subs.map((s) => `
         <div class="item" data-acao="confirmar-troca" data-id="${h(s.id)}">
           <div class="item-icone">${thumbExercicio(s)}</div>
@@ -1384,12 +1414,11 @@ const UI = (() => {
   function modalResumoTreino({ xpGanho, novosBadges, nivel, subiuNivel }) {
     abrirModal(`
       <div class="centro" style="padding:8px 0 4px">
-        <div style="font-size:52px">🎉</div>
-        <h2 class="texto-gradiente">Treino concluído!</h2>
+        <h2>Treino concluído</h2>
         <p class="apagado">Mandou bem. Descanse e volte forte.</p>
       </div>
       <div class="cartao cartao-gradiente centro">
-        <div class="rotulo" style="color:rgba(255,255,255,0.85)">Experiência ganha</div>
+        <div class="rotulo">Experiência ganha</div>
         <div class="numerao" style="font-size:34px">+${xpGanho} XP</div>
         ${subiuNivel ? `<div class="pequeno" style="margin-top:4px">${nivel.icon} Novo nível: ${h(nivel.nome)}!</div>` : ''}
       </div>
@@ -1405,6 +1434,35 @@ const UI = (() => {
   }
 
   // ---------- tela: evolucao ----------
+
+  /** Evolucao: cada exercicio ja feito, uma vez so, com as series da ultima vez (mais recente
+   *  primeiro). Os 8 primeiros ficam a vista; o resto num "Ver todos" que abre sem recarregar. */
+  function cartaoUltimaVezPorExercicio(sessoes) {
+    const vistos = new Set();
+    const lista = [];
+    for (const s of sessoes) {
+      for (const ex of s.exercicios || []) {
+        if (vistos.has(ex.exId) || !(ex.sets || []).length) continue;
+        vistos.add(ex.exId);
+        lista.push({ ex, data: s.data });
+      }
+    }
+    if (!lista.length) return '';
+    const linha = ({ ex, data }) => `
+      <button class="item" data-acao="ver-exercicio" data-id="${h(ex.exId)}" data-voltar="evolucao" style="width:100%;text-align:left;font:inherit;color:inherit">
+        <div class="item-corpo">
+          <div class="item-nome">${h(ex.nome)}</div>
+          <div class="pequeno apagado">${new Date(data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })} · ${resumoSeries(ex.sets)}</div>
+        </div>
+      </button>`;
+    return `
+      <div class="cartao">
+        <div class="cartao-titulo"><h3>Última vez em cada exercício</h3></div>
+        <p class="pequeno apagado">Séries, repetições e peso do último treino de cada um.</p>
+        ${lista.slice(0, 8).map(linha).join('')}
+        ${lista.length > 8 ? `<details><summary class="btn btn-largo" style="list-style:none">Ver todos (${lista.length})</summary><div style="margin-top:8px">${lista.slice(8).map(linha).join('')}</div></details>` : ''}
+      </div>`;
+  }
 
   function heatmapDias(dias, semanas = 12) {
     const set = new Set(dias);
@@ -1443,29 +1501,29 @@ const UI = (() => {
       <div class="marca-topo"><img src="icons/icone-192.png" alt=""><span>TRIVOX</span></div>
       <div class="topo"><h1>Evolução</h1></div>
 
-      <div class="cartao cartao-gradiente">
+      <div class="cartao">
         <div style="display:flex;align-items:center;gap:14px">
-          <div style="font-size:40px">${nivel.icon}</div>
           <div style="flex:1">
-            <div style="font-weight:800;font-size:18px">${h(nivel.nome)}</div>
-            <div class="barra-fundo" style="margin-top:6px"><div class="barra-frente" style="width:${nivel.progresso}%;background:rgba(255,255,255,0.85)"></div></div>
-            <div class="pequeno" style="margin-top:4px;opacity:0.85">${nivel.proximo ? `${gam.xp} XP · faltam ${nivel.faltam} para ${h(nivel.proximo.nome)}` : `${gam.xp} XP · nível máximo!`}</div>
+            <div class="rotulo">Nível</div>
+            <div style="font-weight:600;font-size:18px">${h(nivel.nome)}</div>
+            <div class="barra-fundo" style="margin-top:8px"><div class="barra-frente" style="width:${nivel.progresso}%;background:var(--destaque)"></div></div>
+            <div class="pequeno apagado" style="margin-top:6px">${nivel.proximo ? `${gam.xp} XP · faltam ${nivel.faltam} para ${h(nivel.proximo.nome)}` : `${gam.xp} XP · nível máximo!`}</div>
           </div>
         </div>
       </div>
 
       <div class="grade">
-        <div class="cartao" style="text-align:center">
-          <div style="font-size:26px">🔥</div>
-          <div class="numerao" style="font-size:24px">${streak.atual}</div>
+        <div class="cartao">
+          <div class="numerao" style="font-size:26px">${streak.atual}</div>
           <div class="rotulo">dias seguidos</div>
         </div>
-        <div class="cartao" style="text-align:center">
-          <div style="font-size:26px">🏆</div>
-          <div class="numerao" style="font-size:24px">${streak.maximo}</div>
+        <div class="cartao">
+          <div class="numerao" style="font-size:26px">${streak.maximo}</div>
           <div class="rotulo">recorde de streak</div>
         </div>
       </div>
+
+      ${cartaoUltimaVezPorExercicio(sessoes)}
 
       <div class="cartao">
         <div class="cartao-titulo"><h3>Consistência</h3></div>
@@ -1474,7 +1532,7 @@ const UI = (() => {
       </div>
 
       <div class="cartao">
-        <div class="cartao-titulo"><h3>⚖️ Peso</h3><button class="btn btn-pequeno" data-acao="abrir-registrar-peso">+ Registrar</button></div>
+        <div class="cartao-titulo"><h3>Peso</h3><button class="btn btn-pequeno" data-acao="abrir-registrar-peso">+ Registrar</button></div>
         ${pesos.length >= 2 ? graficoLinha([...pesos].reverse().map((p) => Number(p.peso) || 0), { cor: 'var(--destaque-clara)' }) : ''}
         ${pesos.length ? `
           <div class="pequeno apagado" style="margin-top:8px">
@@ -1499,14 +1557,16 @@ const UI = (() => {
         </div>
       </div>
 
+
       <div class="cartao">
         <div class="cartao-titulo"><h3>Histórico de treinos</h3></div>
+        <p class="pequeno apagado">Cada treino, com todas as séries. Toque para abrir.</p>
         ${sessoes.length ? sessoes.slice(0, 20).map((s) => {
           const aberta = estado.sessaoExpandida === s.id;
           return `
           <div class="item" data-acao="expandir-sessao" data-id="${h(s.id)}" style="flex-direction:column;align-items:stretch">
             <div style="display:flex;align-items:center;gap:12px;width:100%">
-              <div class="item-icone">${s.tipo === 'cardio' ? '❤️' : '🏋️'}</div>
+              <div class="item-icone">${icone(s.tipo === 'cardio' ? 'cardio' : 'haltere')}</div>
               <div class="item-corpo">
                 <div class="item-nome">${h(s.fichaNome)}</div>
                 <div class="item-sub">${new Date(s.data).toLocaleDateString('pt-BR')} · ${minutosTexto(Math.round((s.duracaoSeg || 0) / 60))}${s.xpGanho ? ` · +${s.xpGanho} XP` : ''}</div>
@@ -1523,6 +1583,7 @@ const UI = (() => {
                     </div>
                   </div>`).join('')}
                 ${s.cardioResumo ? `<div class="pequeno apagado">${h(s.cardioResumo.nome)} · ${h(s.cardioResumo.modalidade)}</div>` : ''}
+                <button class="btn btn-pequeno btn-perigo" data-acao="apagar-sessao" data-id="${h(s.id)}" style="margin-top:6px">Apagar este treino</button>
               </div>` : ''}
           </div>`;
         }).join('') : '<p class="apagado pequeno">Termine um treino pra começar seu histórico.</p>'}
@@ -1539,7 +1600,7 @@ const UI = (() => {
     return `
       <div class="topo">
         <button class="voltar" data-acao="ir" data-tela="evolucao">‹</button>
-        <h1>🐺 Coach</h1>
+        <h1>Coach</h1>
       </div>
       <p class="pequeno apagado">Não é IA — são as mesmas dicas que um personal repetiria, organizadas por tema. Sem internet, sem custo, sempre disponível.</p>
 
@@ -1571,7 +1632,7 @@ const UI = (() => {
 
     return `
       <div class="cartao">
-        <div class="cartao-titulo"><h2>⚖️ Peso & bioimpedância</h2></div>
+        <div class="cartao-titulo"><h2>Peso & bioimpedância</h2></div>
         ${ultimo ? `
           <div class="grade" style="margin-bottom:10px">
             <div>
@@ -1607,7 +1668,7 @@ const UI = (() => {
 
     return `
       <div class="cartao">
-        <div class="cartao-titulo"><h2>📸 Fotos de evolução</h2></div>
+        <div class="cartao-titulo"><h2>Fotos de evolução</h2></div>
         ${fotos.length ? `
           ${fotos.length >= 2 ? `
             <div class="grade" style="margin-bottom:10px">
@@ -1640,7 +1701,7 @@ const UI = (() => {
     const dataUrl = estado.fotoTemp;
     if (!dataUrl) return;
     abrirModal(`
-      <h2>📸 Nova foto — ${new Date().toLocaleDateString('pt-BR')}</h2>
+      <h2>Nova foto — ${new Date().toLocaleDateString('pt-BR')}</h2>
       <img src="${h(dataUrl)}" alt="Prévia" style="width:100%;border-radius:14px;margin-bottom:12px">
       <p class="pequeno apagado">A data de hoje é registrada automaticamente.</p>
       <div class="campo"><label>Nota (opcional)</label><input id="foto-nota" placeholder="ex.: em jejum, pós-treino..."></div>
@@ -1666,7 +1727,7 @@ const UI = (() => {
     const p = Dados.perfil();
     const hoje = new Date().toLocaleDateString('sv-SE');
     abrirModal(`
-      <h2>⚖️ Registrar pesagem</h2>
+      <h2>Registrar pesagem</h2>
       <div class="campos-lado">
         <div class="campo">
           <label>Peso (kg) *</label>
@@ -1702,7 +1763,7 @@ const UI = (() => {
       const backup = Dados.backupMeta();
       return `
         <div class="cartao">
-          <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2><span class="etiqueta ok">Conectado</span></div>
+          <div class="cartao-titulo"><h2>Backup na nuvem</h2><span class="etiqueta ok">Conectado</span></div>
           <p class="pequeno apagado">Conta: <strong>${h(sessao.user.email)}</strong>. Seus dados sobem sozinhos pra nuvem sempre que mudam — se este aparelho perder tudo, é só entrar de novo com o mesmo e-mail pra recuperar.</p>
           ${backup.nuvemOkEm ? `<p class="pequeno apagado">Último envio para a nuvem: ${new Date(backup.nuvemOkEm).toLocaleString('pt-BR')}</p>` : ''}
           ${estado.nuvem.pendentes ? `<div class="nota atencao"><strong>Esperando internet</strong>${estado.nuvem.pendentes} parte(s) dos seus dados ainda não subiram. Sobem sozinhas quando a conexão voltar.</div>` : ''}
@@ -1713,7 +1774,7 @@ const UI = (() => {
     if (estado.nuvem.linkEnviadoPara) {
       return `
         <div class="cartao">
-          <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2></div>
+          <div class="cartao-titulo"><h2>Backup na nuvem</h2></div>
           <div class="nota">
             <strong>Verifique seu e-mail</strong>
             Mandei um código de acesso pra <strong>${h(estado.nuvem.linkEnviadoPara)}</strong>. Toque no link do e-mail (funciona no Safari), <strong>ou</strong> digite abaixo o código que veio na mensagem — use o código se estiver no ícone salvo na tela de início, onde o link não abre direto.
@@ -1729,7 +1790,7 @@ const UI = (() => {
 
     return `
       <div class="cartao">
-        <div class="cartao-titulo"><h2>☁️ Backup na nuvem</h2></div>
+        <div class="cartao-titulo"><h2>Backup na nuvem</h2></div>
         <p class="pequeno apagado">Uma cópia de segurança automática, separada deste aparelho. Cada pessoa da família usa o próprio e-mail — ninguém vê o treino de ninguém.</p>
         <div class="campo">
           <label>Seu e-mail</label>
@@ -1747,7 +1808,7 @@ const UI = (() => {
     if (conectado) {
       return `
         <div class="cartao">
-          <div class="cartao-titulo"><h2>🎵 Spotify</h2><span class="etiqueta ok">Conectado</span></div>
+          <div class="cartao-titulo"><h2>Spotify</h2><span class="etiqueta ok">Conectado</span></div>
           <p class="pequeno apagado">Durante o treino, controle a música direto na tela de execução.</p>
           <button class="btn btn-largo btn-perigo" data-acao="spotify-desconectar">Desconectar</button>
         </div>`;
@@ -1755,7 +1816,7 @@ const UI = (() => {
 
     return `
       <div class="cartao">
-        <div class="cartao-titulo"><h2>🎵 Spotify</h2></div>
+        <div class="cartao-titulo"><h2>Spotify</h2></div>
         <p class="pequeno apagado">Toque música sem sair da tela de treino. É a única parte do app que precisa de internet — o resto continua funcionando offline.</p>
         <div class="nota neutra">
           <strong>Antes de conectar, uma vez só:</strong>
@@ -1810,7 +1871,7 @@ const UI = (() => {
     } else {
       el.innerHTML = `
         <p class="pequeno apagado">Grave (ou escolha da galeria) um vídeo curto seu fazendo este exercício — fica salvo só no aparelho, pra rever quando quiser. Um clipe de 5-15s já basta.</p>
-        <button class="btn btn-largo btn-principal" data-acao="trocar-video-exercicio" data-id="${h(exId)}">🎥 Adicionar vídeo</button>`;
+        <button class="btn btn-largo btn-principal" data-acao="trocar-video-exercicio" data-id="${h(exId)}">Adicionar vídeo</button>`;
     }
   }
 
@@ -1893,7 +1954,7 @@ const UI = (() => {
       </div>
 
       <div class="cartao">
-        <div class="cartao-titulo"><h2>🩺 Saúde antes de treinar</h2></div>
+        <div class="cartao-titulo"><h2>Saúde antes de treinar</h2></div>
         <p class="pequeno apagado">Triagem rápida (PAR-Q+). Não é diagnóstico: serve para saber quando procurar o médico antes de puxar mais forte.</p>
         ${PARQ.map((q, i) => {
           const r = parqRespostas(p)[i];
@@ -1917,8 +1978,8 @@ const UI = (() => {
         </div>
         <div class="campo"><label>Onde treina</label>
           <div class="chips">
-            <button class="chip ${p.local !== 'casa' ? 'ativo' : ''}" data-acao="perfil-chip" data-campo="local" data-valor="academia">🏋️ Academia</button>
-            <button class="chip ${p.local === 'casa' ? 'ativo' : ''}" data-acao="perfil-chip" data-campo="local" data-valor="casa">🏠 Casa</button>
+            <button class="chip ${p.local !== 'casa' ? 'ativo' : ''}" data-acao="perfil-chip" data-campo="local" data-valor="academia">Academia</button>
+            <button class="chip ${p.local === 'casa' ? 'ativo' : ''}" data-acao="perfil-chip" data-campo="local" data-valor="casa">Casa</button>
           </div>
         </div>
         ${p.local === 'casa' && (typeof Programas !== 'undefined') && Programas.EQUIP_CASA_OPCOES ? `
@@ -1934,8 +1995,8 @@ const UI = (() => {
         ${pt.objetivos.includes('raquete') ? `
         <div class="campo"><label>Qual esporte (um, os dois ou nenhum)</label>
           <div class="chips">
-            <button class="chip ${esportesDe(p).includes('pickleball') ? 'ativo' : ''}" data-acao="toggle-esporte" data-valor="pickleball" aria-pressed="${esportesDe(p).includes('pickleball')}">🏓 Pickleball</button>
-            <button class="chip ${esportesDe(p).includes('beach_tennis') ? 'ativo' : ''}" data-acao="toggle-esporte" data-valor="beach_tennis" aria-pressed="${esportesDe(p).includes('beach_tennis')}">🎾 Beach tennis</button>
+            <button class="chip ${esportesDe(p).includes('pickleball') ? 'ativo' : ''}" data-acao="toggle-esporte" data-valor="pickleball" aria-pressed="${esportesDe(p).includes('pickleball')}">Pickleball</button>
+            <button class="chip ${esportesDe(p).includes('beach_tennis') ? 'ativo' : ''}" data-acao="toggle-esporte" data-valor="beach_tennis" aria-pressed="${esportesDe(p).includes('beach_tennis')}">Beach tennis</button>
           </div>
         </div>
         <div class="campo"><label>Dias de jogo</label>
@@ -1964,7 +2025,7 @@ const UI = (() => {
       </div>
 
       <div class="cartao c-sol">
-        <div class="cartao-titulo"><h2>⏰ Chamada pro treino</h2></div>
+        <div class="cartao-titulo"><h2>Chamada pro treino</h2></div>
         <p class="pequeno">Um lembrete todo dia de treino, no horário que você escolher — dá para ter 2 no mesmo dia e mudar quando quiser.</p>
         ${Lembretes.horasDoLembrete(p).map((hora, i) => `
           <div class="campo">
@@ -1976,9 +2037,9 @@ const UI = (() => {
           </div>`).join('')}
         ${Lembretes.horasDoLembrete(p).length < 2 ? `<button class="btn btn-pequeno" data-acao="adicionar-hora-lembrete" style="margin-bottom:10px">+ 2º horário no mesmo dia</button>` : ''}
         <button class="btn btn-largo ${p.lembreteAtivo ? 'btn-turquesa' : ''}" data-acao="toggle-lembrete" style="margin-bottom:10px">${p.lembreteAtivo ? '✓ Lembrete ligado (toque para desligar)' : 'Ligar lembrete'}</button>
-        <button class="btn btn-largo btn-festa" data-acao="lembrete-calendario">📅 Colocar no calendário do celular</button>
+        <button class="btn btn-largo btn-festa" data-acao="lembrete-calendario">Colocar no calendário do celular</button>
         <p class="pequeno apagado" style="margin-top:8px">O calendário avisa mesmo com o app fechado — é o jeito mais garantido. ${Alarme.permissao() === 'granted' ? 'As notificações do app também estão permitidas.' : Alarme.permissao() === 'default' ? '' : ''}</p>
-        ${Alarme.permissao() === 'default' ? `<button class="btn btn-largo" data-acao="pedir-notificacao">🔔 Permitir notificações do app</button>` : ''}
+        ${Alarme.permissao() === 'default' ? `<button class="btn btn-largo" data-acao="pedir-notificacao">Permitir notificações do app</button>` : ''}
       </div>
 
       ${telaPerfilNuvem()}
@@ -1986,13 +2047,19 @@ const UI = (() => {
       ${telaPerfilSpotify()}
 
       <div class="cartao">
-        <div class="cartao-titulo"><h2>🗑️ Começar do zero</h2></div>
+        <div class="cartao-titulo"><h2>Apagar treinos feitos</h2></div>
+        <p class="pequeno apagado">Bom para limpar treinos de teste. Apaga o histórico de treinos, as cargas registradas, o XP e as conquistas${estado.nuvem.sessao ? ' (aqui e na nuvem)' : ''}. Seu perfil, fichas, pesagens e fotos ficam. Para apagar um treino só, abra ele em Evolução › Histórico.</p>
+        <button class="btn btn-largo btn-perigo" data-acao="apagar-historico">Apagar todos os treinos feitos</button>
+      </div>
+
+      <div class="cartao">
+        <div class="cartao-titulo"><h2>Começar do zero</h2></div>
         <p class="pequeno apagado">Apaga tudo deste aparelho — perfil, fichas, histórico, fotos e vídeos${estado.nuvem.sessao ? ' — e também da sua conta na nuvem' : ''}. Não dá para desfazer: exporte um backup antes se quiser guardar algo.</p>
         <button class="btn btn-largo btn-perigo" data-acao="zerar-tudo">Apagar tudo e começar do zero</button>
       </div>
 
       <div class="cartao">
-        <div class="cartao-titulo"><h2>📥 Fotos sem internet</h2></div>
+        <div class="cartao-titulo"><h2>Fotos sem internet</h2></div>
         <p class="pequeno apagado">As fotos dos exercícios das suas fichas já ficam guardadas sozinhas. Para ter as fotos de todos os exercícios no modo avião, baixe tudo uma vez com Wi-Fi (cerca de 40 MB).</p>
         <button class="btn btn-largo" data-acao="baixar-fotos" id="btn-baixar-fotos">Baixar todas as fotos</button>
       </div>
@@ -2009,8 +2076,8 @@ const UI = (() => {
       <div class="cartao">
         <div class="cartao-titulo"><h3>Calculadoras</h3></div>
         <div class="linha-btn">
-          <button class="btn btn-pequeno" data-acao="calc-1rm">1RM</button>
-          <button class="btn btn-pequeno" data-acao="calc-anilhas">Anilhas</button>
+          <button class="btn btn-pequeno" data-acao="calc-1rm">Carga máxima</button>
+          <button class="btn btn-pequeno" data-acao="calc-anilhas">Montar a barra</button>
         </div>
       </div>
 
@@ -2025,7 +2092,7 @@ const UI = (() => {
 
   function modal1RM() {
     abrirModal(`
-      <h2>Calculadora de 1RM</h2>
+      <h2>Carga máxima (1RM)</h2>
       <p class="pequeno apagado">Estima a carga máxima para uma repetição a partir de uma série que você já fez. Média de três fórmulas (Epley, Brzycki e Lombardi).</p>
       <div class="campos-lado-3">
         <div class="campo"><label>Carga (kg)</label><input type="number" inputmode="decimal" id="rm-carga" data-calc="1rm" step="1.25"></div>
@@ -2069,7 +2136,8 @@ const UI = (() => {
   function modalAnilhas() {
     const p = Dados.perfil();
     abrirModal(`
-      <h2>Anilhas por lado</h2>
+      <h2>Montar a barra</h2>
+      <p class="pequeno apagado">Diz quais anilhas colocar em cada lado da barra para chegar no peso que você quer.</p>
       <div class="campos-lado">
         <div class="campo"><label>Carga alvo (kg)</label><input type="number" inputmode="decimal" id="an-carga" data-calc="anilhas" step="1.25"></div>
         <div class="campo"><label>Barra (kg)</label><input type="number" inputmode="decimal" id="an-barra" data-calc="anilhas" value="${p.barra}"></div>

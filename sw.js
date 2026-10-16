@@ -1,9 +1,9 @@
 /* Service worker: deixa o app funcionar sem internet (dentro da academia o sinal cai).
-   Estrategia: fotos e fontes = so cache depois da 1a vez (nao mudam); o resto = responde do
+   Estrategia: fotos = so cache depois da 1a vez (nao mudam); o resto = responde do
    cache na hora e atualiza por tras (stale-while-revalidate), entao a versao nova entra na
    abertura seguinte. Cache limitado ao app: ~40 MB com todas as 1066 fotos vistas. */
 
-const VERSAO = 'trivox-v37';
+const VERSAO = 'trivox-v38';
 
 // unica excecao de origem externa no cache: o SDK do Supabase (ver js/nuvem.js e index.html).
 // sem isso, o app ficaria sem sincronizar na nuvem toda vez que abrisse offline, mesmo depois
@@ -15,12 +15,6 @@ const SHELL = [
   './index.html',
   './manifest.json',
   './css/estilo.css',
-  './fonts/baloo-2-latin-700-normal.woff2',
-  './fonts/baloo-2-latin-800-normal.woff2',
-  './fonts/nunito-latin-400-normal.woff2',
-  './fonts/nunito-latin-600-normal.woff2',
-  './fonts/nunito-latin-700-normal.woff2',
-  './fonts/nunito-latin-800-normal.woff2',
   './js/dados.js',
   './js/programas.js',
   './js/forca.js',
@@ -70,7 +64,7 @@ self.addEventListener('fetch', (ev) => {
 
   const caminho = new URL(req.url).pathname;
   // fotos, fontes e ilustracoes (.jpg) nao mudam; o indice.json das ilustracoes muda, entao nao entra
-  const imutavel = /\/(data\/imagens|fonts)\//.test(caminho) || /\/data\/ilustracoes\/[^/]+\.jpg$/.test(caminho);
+  const imutavel = /\/data\/imagens\//.test(caminho) || /\/data\/ilustracoes\/[^/]+\.jpg$/.test(caminho);
   ev.respondWith(
     caches.match(req).then((cacheada) => {
       if (cacheada && imutavel) return cacheada;

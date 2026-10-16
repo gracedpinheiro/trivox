@@ -1000,6 +1000,29 @@
         UI.modalTrocarEquipamento();
         break;
 
+      case 'fazer-depois': {
+        // aparelho ocupado: o exercicio vai para o fim do proprio bloco (o principal continua
+        // antes do alongamento) e o treino segue no proximo; series ja feitas vao junto
+        const ex = est.execucao;
+        if (!ex) break;
+        const item = ex.itens[ex.iEx];
+        const bloco = item.bloco || 'principal';
+        let fim = ex.iEx;
+        for (let i = ex.iEx + 1; i < ex.itens.length; i++) if ((ex.itens[i].bloco || 'principal') === bloco) fim = i;
+        if (fim === ex.iEx) break;
+        ex.itens.splice(ex.iEx, 1);
+        ex.itens.splice(fim, 0, item); // depois da remocao, "fim" e a posicao logo apos o ultimo do bloco
+        item.adiado = true;
+        ex.timerItem = null;
+        ex.descansando = false;
+        est.midiaAba = null;
+        Dados.salvarExecucao(ex);
+        UI.fecharModal();
+        window.scrollTo(0, 0);
+        UI.render();
+        break;
+      }
+
       case 'confirmar-troca': {
         const ex = est.execucao;
         if (!ex) break;
@@ -1128,6 +1151,20 @@
 
       case 'expandir-sessao':
         est.sessaoExpandida = est.sessaoExpandida === alvo.dataset.id ? null : alvo.dataset.id;
+        UI.render();
+        break;
+
+      case 'apagar-sessao':
+        if (!confirm('Apagar este treino do histórico? As cargas registradas nele e o XP que ele deu também saem. Não dá para desfazer.')) break;
+        Dados.apagarSessao(alvo.dataset.id);
+        est.sessaoExpandida = null;
+        UI.render();
+        break;
+
+      case 'apagar-historico':
+        if (!confirm('Apagar TODOS os treinos feitos? Saem o histórico, as cargas registradas, o XP e as conquistas. Perfil, fichas, pesagens e fotos ficam. Não dá para desfazer.')) break;
+        Dados.apagarHistoricoTreinos();
+        est.sessaoExpandida = null;
         UI.render();
         break;
 

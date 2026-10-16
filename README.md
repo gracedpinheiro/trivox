@@ -92,18 +92,18 @@ mandar pra você mesma por e-mail já resolve. A nuvem cobre os dados de treino;
 | [js/app.js](js/app.js) | Eventos, relógio único (descanso, tempo por exercício, cronômetro) e ligação entre telas e dados |
 | [data/exercicios.json](data/exercicios.json) | 1535 exercícios (ver abaixo) |
 | [data/imagens/fedb/](data/imagens/fedb/) | Fotos reais de execução (free-exercise-db, domínio público), reduzidas |
-| [fonts/](fonts/) | Baloo 2 e Nunito (OFL), servidas pelo próprio app — funcionam offline |
 | [ferramentas/](ferramentas/) | Scripts que geram/validam a base, as fotos e as ilustrações, e os testes (`node ferramentas/teste_*.js`) |
 | [sw.js](sw.js) | Cache offline + lembrete em segundo plano |
 | [servidor.js](servidor.js) | Servidor local, só com o que já vem no Node |
 
 ## Visual
 
-Claro, alegre e divertido (out/2026 — antes era escuro). Fundo céu claro, cartões brancos com
-contorno e sombra sólida colorida ("brinquedo de academia"), cores com papel fixo: coral = ação,
-turquesa = treino/ok, sol = conquista, uva = evolução, azul = informação. Cada aba da barra de
-baixo tem a sua cor. Títulos em Baloo 2, texto em Nunito. Ícone: o símbolo da logomarca TRIVOX
-em branco sobre gradiente coral → sol.
+Claro e sóbrio (revisado em 16/10/2026; antes era colorido e "de brinquedo", e antes disso,
+escuro). Fundo off-white, cartões brancos com borda fina, texto grafite e uma só cor de
+destaque: o coral do logo, para ação e progresso. As outras cores aparecem só pequenas e com
+significado (filete dos avisos, bolinha dos blocos do treino, zonas). Ícones de traço na barra
+de baixo e nos atalhos; sem emoji decorativo, exceto nas conquistas. Fonte do sistema (SF no
+iPhone). Ícone: o símbolo da logomarca TRIVOX em branco sobre gradiente coral → sol.
 
 ## De onde veio a base de exercícios
 

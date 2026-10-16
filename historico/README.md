@@ -27,7 +27,10 @@ quem retomar o projeto (eu, você, ou outro assistente) não precisar redescobri
 | 19 | 12/10/2026 | [Auditoria: ciclos 5 a 9](19-auditoria-ciclos-5-a-9.md) | Fotos no IndexedDB, contraste AA e teclado, ilustrações corrigidas, triagem PAR-Q e aeróbico 50+ leve, acabamento (heatmap, importar, zip, .ics, XSS) |
 | 20 | 12/10/2026 | [Pedidos do teste no celular](20-pedidos-do-teste-no-celular.md) | Vários objetivos ao mesmo tempo, esportes desmarcáveis, 2 horários de lembrete, "Concluir série" sem rolar |
 | 21 | 12/10/2026 | [Segundo teste no celular](21-segundo-teste-no-celular.md) | Calendario abria o Safari (dados separados), Spotify, foto na execucao, coach, "de sobra", fotos offline, boneco sem genero, ampliar imagem, comecar do zero |
-| 22 | 12/10/2026 | [Ilustrações por IA](22-ilustracoes-ia.md) | "Como fazer" com imagem gerada no Canva (início → fim): 526 imagens, 1534 dos 1535 exercícios cobertos |
+| 22 | 12/10/2026 | [Ilustrações por IA](22-ilustracoes-ia.md) | "Como fazer" com imagem gerada no Canva (início → fim): 529 imagens, 1534 dos 1535 exercícios cobertos |
+| 23 | 16/10/2026 | [Visual sóbrio](23-visual-sobrio.md) | Menos infantil: off-white, borda fina, uma cor de destaque (coral do logo), fonte do sistema, ícones de traço no lugar de emoji |
+| 24 | 16/10/2026 | ["Última vez" e apagar treinos](24-ultima-vez-e-apagar-treinos.md) | Séries, reps e peso da última vez no treino, no exercício e em Evolução; apagar 1 treino ou todos sem perder perfil e fichas; calculadoras renomeadas |
+| 25 | 16/10/2026 | [Aparelho ocupado](25-aparelho-ocupado-fazer-depois.md) | "Fazer depois" manda o exercício pro fim do bloco e volta nele; troca deixa claro que mantém o mesmo músculo |
 
 ## Como usar
 
